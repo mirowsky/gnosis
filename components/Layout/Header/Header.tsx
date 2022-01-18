@@ -4,7 +4,7 @@ import stylesheet from "theme-stylesheet";
 export interface HeaderProps {}
 
 export const Header = (props: HeaderProps) => {
-  return <div></div>;
+  return <div>hello header</div>;
 };
 
 export default Header;
