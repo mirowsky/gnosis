@@ -7,7 +7,7 @@ import Document, {
   NextScript,
 } from "next/document";
 import createEmotionServer from "@emotion/server/create-instance";
-import createCachce from "@emotion/cache";
+import createCache from "@emotion/cache";
 import React from "react";
 
 class CustomDocument extends Document {
@@ -53,7 +53,7 @@ class CustomDocument extends Document {
 CustomDocument.getInitialProps = async (ctx) => {
   const originalRenderPage = ctx.renderPage;
 
-  const cache = createCachce({ key: "css" });
+  const cache = createCache({ key: "css" });
   const { extractCriticalToChunks } = createEmotionServer(cache);
 
   ctx.renderPage = () => {
