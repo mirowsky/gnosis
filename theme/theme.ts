@@ -1,6 +1,7 @@
 import { createTheme } from "@mui/material";
 import breakpoints from "./breakpoints";
 import { palette as palleteObject } from "./palette";
+import typography from "./typography";
 
 const theme = createTheme({
   breakpoints: {
@@ -10,6 +11,7 @@ const theme = createTheme({
   shape: {
     borderRadius: 15,
   },
+  typography: typography,
 });
 
 export default theme;
