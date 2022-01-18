@@ -21,6 +21,7 @@ specifiers:
   babel-loader: ^8.2.3
   caniuse-lite: ^1.0.30001300
   csstype: ^3.0.10
+  dotenv: ^14.2.0
   eslint: 8.7.0
   eslint-config-next: 12.0.8
   eslint-plugin-storybook: ^0.5.5
@@ -41,6 +42,7 @@ dependencies:
   '@mui/material': 5.3.0_f5341c4d41f1e34c3a73251df9f98a19
   '@mui/system': 5.3.0_bcb8cb45f4440c38ab7df0ee3f383339
   caniuse-lite: 1.0.30001300
+  dotenv: 14.2.0
   formik: 2.2.9_react@17.0.2
   next: 12.0.8_4ae616c44291f50de461522622015298
   react: 17.0.2
@@ -6674,6 +6676,11 @@ packages:
   /dotenv-expand/5.1.0:
     resolution: {integrity: sha512-YXQl1DSa4/PQyRfgrv6aoNjhasp/p4qs9FjJ4q4cQk+8m4r6k4ZSiEyytKG8f8W9gi8WsQtIObNmKd+tMzNTmA==}
     dev: true
+
+  /dotenv/14.2.0:
+    resolution: {integrity: sha512-05POuPJyPpO6jqzTNweQFfAyMSD4qa4lvsMOWyTRTdpHKy6nnnN+IYWaXF+lHivhBH/ufDKlR4IWCAN3oPnHuw==}
+    engines: {node: '>=12'}
+    dev: false
 
   /dotenv/8.6.0:
     resolution: {integrity: sha512-IrPdXQsk2BbzvCBGBOTmmSH5SodmqZNt4ERAZDmW4CT+tL8VtvinqywuANaFu4bOMWki16nqf0e4oC0QIaDr/g==}
