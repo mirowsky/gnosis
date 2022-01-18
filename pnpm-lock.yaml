@@ -4,6 +4,7 @@ specifiers:
   '@babel/core': ^7.16.7
   '@emotion/react': ^11.7.1
   '@emotion/styled': ^11.6.0
+  '@mirowsky/mui-stylesheet': ^1.0.5
   '@mui/icons-material': ^5.3.0
   '@mui/material': ^5.3.0
   '@mui/system': ^5.3.0
@@ -30,6 +31,7 @@ specifiers:
 dependencies:
   '@emotion/react': 11.7.1_b3e67f1b1cc68ee82c343add0615c039
   '@emotion/styled': 11.6.0_023218a630dedcfdc5aa065bf93ff9d7
+  '@mirowsky/mui-stylesheet': 1.0.5_320e36fe2d7d3fcd9db5129312a61a2c
   '@mui/icons-material': 5.3.0_f7153a14dc0eae8cfac34c81a09a926d
   '@mui/material': 5.3.0_f5341c4d41f1e34c3a73251df9f98a19
   '@mui/system': 5.3.0_bcb8cb45f4440c38ab7df0ee3f383339
@@ -1845,6 +1847,23 @@ packages:
   /@mdx-js/util/1.6.22:
     resolution: {integrity: sha512-H1rQc1ZOHANWBvPcW+JpGwr+juXSxM8Q8YCkm3GhZd8REu1fHR3z99CErO1p9pkcfcxZnMdIZdIsXkOHY0NilA==}
     dev: true
+
+  /@mirowsky/mui-stylesheet/1.0.5_320e36fe2d7d3fcd9db5129312a61a2c:
+    resolution: {integrity: sha512-dSdY1+AGc5lhzL7ozKIpSkJfY+UqvJjAhdRCg7dvnAfUoIK2+xRd5NnqIei/P3DuM6uTJXinRVF2MupWvo0D2g==}
+    requiresBuild: true
+    peerDependencies:
+      '@emotion/react': ^11.7.1
+      '@emotion/styled': ^11.6.0
+      '@mui/system': ^5.2.5
+      react: ^17.0.2
+      react-dom: ^17.0.2
+    dependencies:
+      '@emotion/react': 11.7.1_b3e67f1b1cc68ee82c343add0615c039
+      '@emotion/styled': 11.6.0_023218a630dedcfdc5aa065bf93ff9d7
+      '@mui/system': 5.3.0_bcb8cb45f4440c38ab7df0ee3f383339
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
 
   /@mrmlnc/readdir-enhanced/2.2.1:
     resolution: {integrity: sha512-bPHp6Ji8b41szTOcaP63VlnbbO5Ny6dwAATtY6JTjh5N2OLrb5Qk/Th5cRkRQhkWCt+EJsYrNB0MiL+Gpn6e3g==}
