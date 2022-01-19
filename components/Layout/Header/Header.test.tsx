@@ -4,6 +4,7 @@ import { noop } from "@workspace/utility";
 
 const TEST_ID = {
   ITEM_CONTAINER: "header-item-container",
+  CALL_TO_ACTION: "header-call-to-action",
 } as const;
 
 const props: HeaderProps = {
@@ -105,5 +106,22 @@ describe("Header component menu items", () => {
     childNodes.forEach((childNode, index) => {
       expect(childNode).not.toBeDisabled();
     });
+  });
+});
+
+describe("Header component call to action button", () => {
+  const { getByTestId } = render(<Header {...props} />);
+  const element = getByTestId(TEST_ID.CALL_TO_ACTION);
+
+  it("should render a button", () => {
+    expect(element).toBeInTheDocument();
+  });
+
+  it("should have the appropriate label", () => {
+    expect(element).toHaveTextContent(props.cta.label);
+  });
+
+  it("should be clickable", () => {
+    expect(element).not.toBeDisabled();
   });
 });
