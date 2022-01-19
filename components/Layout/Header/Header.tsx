@@ -53,14 +53,16 @@ export const Header = ({
           })}
         </Box>
 
-        <Button
-          data-testid={TEST_ID.CALL_TO_ACTION}
-          onClick={cta.onClick}
-          variant="contained"
-          color="secondary"
-        >
-          {cta.label}
-        </Button>
+        <Box sx={styles.buttonContainer}>
+          <Button
+            data-testid={TEST_ID.CALL_TO_ACTION}
+            onClick={cta.onClick}
+            variant="contained"
+            color="secondary"
+          >
+            {cta.label}
+          </Button>
+        </Box>
       </Box>
     </Box>
   );
@@ -78,6 +80,14 @@ const styles = stylesheet.create({
         lg: theme.spacing(14),
       };
     },
+  },
+
+  buttonContainer: {
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   itemsContainer: {
