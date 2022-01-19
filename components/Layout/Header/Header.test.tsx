@@ -1,25 +1,7 @@
 import { render } from "@testing-library/react";
 import Header, { HeaderProps } from "./Header";
 import { noop } from "@workspace/utility";
-import { TEST_ID } from "./constants";
-
-const props: HeaderProps = {
-  logo: {
-    src: "https://via.placeholder.com/1500",
-    alt: "Logo alt text",
-    label: "Logo label",
-  },
-  cta: {
-    label: "CTA Click",
-    onClick: noop,
-  },
-  items: [
-    { label: "Button 1", onClick: noop },
-    { label: "Button2", onClick: noop },
-    { label: "Button 3", onClick: noop },
-    { label: "Button 4", onClick: noop },
-  ],
-};
+import { TEST_ID, DEFAULT_TESTING_PROPS as props } from "./constants";
 
 describe("Header component", () => {
   it("should be rendered", () => {
