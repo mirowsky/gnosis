@@ -53,16 +53,6 @@ describe("Header component logo", () => {
     expect(imageElement).toHaveAttribute("src", props.logo?.src ?? undefined);
   });
 
-  it("should have a label if provided via props", () => {
-    const { getByAltText } = render(<Header {...props} />);
-
-    const imageElement = getByAltText(props.logo?.alt ?? "");
-
-    expect(imageElement).toHaveTextContent(
-      props.logo?.label ?? "No label was provided"
-    );
-  });
-
   it("should not have a label if not provided via props", () => {
     const { getByAltText } = render(
       <Header
@@ -76,10 +66,24 @@ describe("Header component logo", () => {
       />
     );
 
-    const imageElement = getByAltText(props.logo?.label ?? "no label");
+    const imageElement = getByAltText(props.logo?.alt ?? "no label");
 
     expect(imageElement).not.toHaveTextContent(
       props.logo?.label ?? "no text content"
     );
+  });
+
+  it("should have a label if provided via props", () => {
+    const { getByText } = render(<Header {...props} />);
+
+    const imageElement = getByText(props.logo!.label!);
+
+    expect(imageElement).toHaveTextContent(props.logo!.label!);
+  });
+});
+
+describe("Header component menu items", () => {
+  it("should render all menu items with appropriate labels", () => {
+    const {} = render(<Header {...props} />);
   });
 });
