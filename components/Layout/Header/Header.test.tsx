@@ -2,7 +2,7 @@ import { render } from "@testing-library/react";
 import Header, { HeaderProps } from "./Header";
 import { noop } from "@workspace/utility";
 
-const TEST_ID = {
+export const TEST_ID = {
   ITEM_CONTAINER: "header-item-container",
   CALL_TO_ACTION: "header-call-to-action",
 } as const;
@@ -114,7 +114,7 @@ describe("Header component call to action button", () => {
   const element = getByTestId(TEST_ID.CALL_TO_ACTION);
 
   it("should render a button", () => {
-    expect(element).toBeInTheDocument();
+    expect(element).toBeTruthy();
   });
 
   it("should have the appropriate label", () => {

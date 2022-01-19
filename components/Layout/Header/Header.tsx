@@ -1,7 +1,8 @@
 import React from "react";
 import stylesheet from "theme-stylesheet";
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { noop } from "@workspace/utility";
+import { TEST_ID } from "./Header.test";
 
 type HeaderItem = {
   label: string;
@@ -38,7 +39,7 @@ export const Header = ({
           {logo?.label && <Typography variant="h5">{logo.label}</Typography>}
         </Box>
 
-        <Box data-testid="header-item-container" sx={styles.itemsContainer}>
+        <Box data-testid={TEST_ID.ITEM_CONTAINER} sx={styles.itemsContainer}>
           {items.map((value, index) => {
             return (
               <Typography
@@ -52,6 +53,15 @@ export const Header = ({
             );
           })}
         </Box>
+
+        <Button
+          data-testid={TEST_ID.CALL_TO_ACTION}
+          onClick={cta.onClick}
+          variant="contained"
+          color="primary"
+        >
+          {cta.label}
+        </Button>
       </Box>
     </Box>
   );
