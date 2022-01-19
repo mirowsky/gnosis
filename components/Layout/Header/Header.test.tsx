@@ -1,11 +1,7 @@
 import { render } from "@testing-library/react";
 import Header, { HeaderProps } from "./Header";
 import { noop } from "@workspace/utility";
-
-export const TEST_ID = {
-  ITEM_CONTAINER: "header-item-container",
-  CALL_TO_ACTION: "header-call-to-action",
-} as const;
+import { TEST_ID } from "./constants";
 
 const props: HeaderProps = {
   logo: {

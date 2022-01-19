@@ -10,7 +10,7 @@ const customJestConfig = {
   moduleDirectories: ["node_modules", "<rootDir>/"],
   testEnvironment: "jest-environment-jsdom",
   moduleNameMapper: {
-    "theme-stylesheet": "<rootDir>/theme/stylesheet",
+    "@workspace/stylesheet": "<rootDir>/theme/stylesheet",
     "@workspace/utility": "<rootDir>/utility/index",
   },
 };

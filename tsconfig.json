@@ -17,7 +17,7 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "theme-stylesheet": ["theme/stylesheet.ts"],
+      "@workspace/stylesheet": ["theme/stylesheet.ts"],
       "@workspace/utility": ["utility/index.ts"]
     }
   },

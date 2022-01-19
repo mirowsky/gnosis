@@ -1,8 +1,7 @@
 import React from "react";
-import stylesheet from "theme-stylesheet";
+import stylesheet from "@workspace/stylesheet";
 import { Box, Button, Typography } from "@mui/material";
-import { noop } from "@workspace/utility";
-import { TEST_ID } from "./Header.test";
+import { TEST_ID } from "./constants";
 
 type HeaderItem = {
   label: string;
@@ -22,7 +21,7 @@ export interface HeaderProps {
 export const Header = ({
   cta = {
     label: "CTA",
-    onClick: noop,
+    onClick: () => {},
   },
   items = [],
   logo = {
