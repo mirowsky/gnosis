@@ -1,16 +1,14 @@
 require("dotenv").config({ path: `./.env` });
 
-function getEnvironmentGTM() {
-  return `${process.env[`GTM_${process.env.GTM_ENV.toUpperCase()}`]}`;
-}
+// function getEnvironmentGTM() {
+//   return `${process.env[`GTM_${process.env.GTM_ENV.toUpperCase()}`]}`;
+// }
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
   reactStrictMode: true,
-  env: {
-    getEnvironmentGTM()
-  },
+  // env: {
+  //   GTM: getEnvironmentGTM(),
+  // },
   swcMinify: true,
 };
-
-module.exports = nextConfig;

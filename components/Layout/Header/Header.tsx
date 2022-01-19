@@ -1,7 +1,20 @@
 import React from "react";
 import stylesheet from "theme-stylesheet";
 
-export interface HeaderProps {}
+type HeaderItem = {
+  label: string;
+  onClick: (...args: unknown[]) => void;
+};
+
+export interface HeaderProps {
+  logo: {
+    src: string;
+    alt?: string;
+    label?: string;
+  };
+  items: HeaderItem[];
+  cta: HeaderItem;
+}
 
 export const Header = (props: HeaderProps) => {
   return <div>hello header again</div>;

@@ -17,7 +17,8 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "theme-stylesheet": ["theme/stylesheet.ts"]
+      "theme-stylesheet": ["theme/stylesheet.ts"],
+      "@workspace/utility": ["utility/index.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "global.d.ts"],
