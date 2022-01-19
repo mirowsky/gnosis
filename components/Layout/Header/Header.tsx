@@ -35,14 +35,23 @@ export const Header = ({
       <Box sx={styles.grid}>
         <Box sx={styles.logoContainer}>
           <Box component="img" src={logo.src} alt={logo.alt} />
-          {logo?.label && (
-            <Typography data-testid="test" variant="h5">
-              {logo.label}
-            </Typography>
-          )}
+          {logo?.label && <Typography variant="h5">{logo.label}</Typography>}
         </Box>
 
-        <Box sx={styles.itemsContainer}></Box>
+        <Box data-testid="header-item-container" sx={styles.itemsContainer}>
+          {items.map((value, index) => {
+            return (
+              <Typography
+                onClick={value.onClick}
+                key={index}
+                variant="h5"
+                color="primary"
+              >
+                {value.label}
+              </Typography>
+            );
+          })}
+        </Box>
       </Box>
     </Box>
   );

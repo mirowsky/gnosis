@@ -2,6 +2,10 @@ import { render } from "@testing-library/react";
 import Header, { HeaderProps } from "./Header";
 import { noop } from "@workspace/utility";
 
+const TEST_ID = {
+  ITEM_CONTAINER: "header-item-container",
+} as const;
+
 const props: HeaderProps = {
   logo: {
     src: "https://via.placeholder.com/1500",
@@ -84,6 +88,22 @@ describe("Header component logo", () => {
 
 describe("Header component menu items", () => {
   it("should render all menu items with appropriate labels", () => {
-    const {} = render(<Header {...props} />);
+    const { getByTestId } = render(<Header {...props} />);
+
+    const childNodes = getByTestId(TEST_ID.ITEM_CONTAINER).childNodes;
+
+    childNodes.forEach((childNode, index) => {
+      expect(childNode).toHaveTextContent(props.items![index].label);
+    });
+  });
+
+  it("should have all menu items be clickable", () => {
+    const { getByTestId } = render(<Header {...props} />);
+
+    const childNodes = getByTestId(TEST_ID.ITEM_CONTAINER).childNodes;
+
+    childNodes.forEach((childNode, index) => {
+      expect(childNode).not.toBeDisabled();
+    });
   });
 });
