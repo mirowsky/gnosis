@@ -57,7 +57,7 @@ export const Header = ({
           data-testid={TEST_ID.CALL_TO_ACTION}
           onClick={cta.onClick}
           variant="contained"
-          color="primary"
+          color="secondary"
         >
           {cta.label}
         </Button>
@@ -71,6 +71,13 @@ export default Header;
 const styles = stylesheet.create({
   root: {
     display: "flex",
+    width: { xs: "100%" },
+    height: (theme) => {
+      return {
+        xs: theme.spacing(10),
+        lg: theme.spacing(14),
+      };
+    },
   },
 
   itemsContainer: {
@@ -82,7 +89,7 @@ const styles = stylesheet.create({
   grid: {
     display: "grid",
     gridTemplateRows: "1fr",
-    gridTemplateColumns: { xs: "0.5fr 0.5fr", lg: "0.3fr 0.5 0.2fr" },
+    gridTemplateColumns: { xs: "0.5fr 0.5fr", lg: "0.3fr 0.5fr 0.2fr" },
     width: "100%",
     height: "100%",
   },

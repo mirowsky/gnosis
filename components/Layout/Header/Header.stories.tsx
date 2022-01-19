@@ -1,4 +1,5 @@
 import { Meta, Story } from "@storybook/react";
+import CustomTheme from "../../../theme/CustomTheme";
 import { HeaderProps, Header } from "./Header";
 
 export default {

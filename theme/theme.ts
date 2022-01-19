@@ -7,7 +7,9 @@ const theme = createTheme({
   breakpoints: {
     values: breakpoints,
   },
-  palette: palleteObject,
+  palette: {
+    ...palleteObject,
+  },
   shape: {
     borderRadius: 15,
   },

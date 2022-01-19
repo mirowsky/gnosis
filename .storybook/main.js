@@ -20,6 +20,18 @@ module.exports = {
             "theme/stylesheet.ts"
           ),
           "@workspace/utility": path.resolve(process.cwd(), "utility/index.ts"),
+          "@emotion/core": path.resolve(
+            process.cwd(),
+            "node_modules/@emotion/react"
+          ),
+          "@emotion/styled": path.resolve(
+            process.cwd(),
+            "node_modules/@emotion/styled"
+          ),
+          "emotion-theming": path.resolve(
+            process.cwd(),
+            "node_modules/@emotion/react"
+          ),
         },
       },
     };
