@@ -37,7 +37,9 @@ export const Header = ({
           <Box component="img" src={logo.src} alt={logo.alt} />
           {logo?.label && (
             <Box sx={styles.logoLabelContainer}>
-              <Typography variant="h5">{logo.label}</Typography>
+              <Typography sx={styles.logoLabel} variant="h5">
+                {logo.label}
+              </Typography>
             </Box>
           )}
         </Box>
@@ -77,35 +79,30 @@ export default Header;
 
 const styles = stylesheet.create({
   root: {
-    px: (theme) => {
-      return {
-        lg: theme.spacing(4),
-      };
-    },
+    px: (theme) => ({ xs: theme.spacing(4) }),
     display: "flex",
     width: { xs: "100%" },
-    height: (theme) => {
-      return {
-        xs: theme.spacing(10),
-        lg: theme.spacing(14),
-      };
-    },
+    height: (theme) => ({
+      xs: theme.spacing(10),
+      lg: theme.spacing(14),
+    }),
   },
 
   buttonContainer: {
     width: "100%",
     height: "100%",
-    display: "flex",
+    display: { xs: "none", lg: "flex" },
     alignItems: "center",
     justifyContent: "center",
   },
 
   itemsContainer: {
-    display: "flex",
+    display: { xs: "none", lg: "flex" },
     width: "100%",
     height: "100%",
     alignItems: "center",
     justifyContent: "center",
+    gap: (theme) => ({ xs: theme.spacing(3) }),
   },
 
   grid: {
@@ -141,5 +138,7 @@ const styles = stylesheet.create({
       };
     },
   },
-  logoLabel: {},
+  logoLabel: {
+    display: { xs: "none", lg: "block" },
+  },
 });
