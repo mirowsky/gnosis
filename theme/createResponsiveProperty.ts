@@ -1,4 +1,4 @@
-import { CoreBreakpoints as Breakpoint } from "./breakpoints";
+import breakpoints, { CoreBreakpoints as Breakpoint } from "./breakpoints";
 import * as CSS from "csstype";
 
 export type ResponsiveStyleValue<
@@ -17,17 +17,14 @@ export function createResponsiveStyle<
     return function (
       value: ResponsiveStyleValue<CSS.Properties[TCSSProperty], TBreakpoint>
     ) {
-      const output = {};
-
-      for (const key in value) {
-        Object.assign(output, {
-          [`@media (min-width: ${breakpoints[key as keyof TBreakpoint]}px)`]: {
-            [`${`${property}`}`]: value[key],
-          },
-        });
-      }
-
-      return output;
+      return Object.fromEntries(
+        Object.keys(value).map((key, index) => {
+          return [
+            `@media (min-width: ${breakpoints[key as keyof TBreakpoint]}px)`,
+            { [`${property}`]: value[key as keyof TBreakpoint] },
+          ];
+        })
+      );
     };
   };
 }
