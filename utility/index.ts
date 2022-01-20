@@ -12,3 +12,4 @@ export {
   smoothScrollTo,
 } from "./scrollToElem";
 export { AtlasStylesheet } from "./stylesheet";
+export { MotionBox } from "./MotionBox";
