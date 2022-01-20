@@ -94,6 +94,7 @@ const styles = stylesheet.create({
       xs: theme.spacing(10),
       lg: theme.spacing(14),
     }),
+    boxShadow: (theme) => `2px 3px 5px ${theme.palette.special.main}`,
   },
 
   burguerButton: {

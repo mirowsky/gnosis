@@ -1,4 +1,4 @@
-import { ThemeOptions, createTheme } from "@mui/material";
+import { ThemeOptions, darken, lighten } from "@mui/material";
 
 export const pallete: ThemeOptions["palette"] = {
   primary: {
@@ -6,6 +6,11 @@ export const pallete: ThemeOptions["palette"] = {
   },
   secondary: {
     main: "#FF9700",
+  },
+  special: {
+    main: "#E1ECFE",
+    dark: darken("#E1ECFE", 0.33),
+    light: lighten("#E1ECFE", 0.33),
   },
 };
 
