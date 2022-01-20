@@ -21,4 +21,5 @@ export const Primary = Template.bind({});
 Primary.args = {
   ...DEFAULT_TESTING_PROPS,
   cta: { ...DEFAULT_TESTING_PROPS.cta, label: "Fale conosco" },
+  burguerOpen: false,
 };

@@ -16,62 +16,58 @@ export function AnimatedBurguerMenu({
   const secondLineAnimation = useAnimation();
   const thirdLineAnimation = useAnimation();
 
-  const openingSequenceSpring = React.useCallback(() => {
-    return () => {
-      firstLineAnimation.start(
-        {
-          translateY: "2em",
-          rotate: "45deg",
-        },
-        { mass: 4, damping: 70, stiffness: 1100, type: "spring" }
-      );
+  const openingSequenceSpring = React.useCallback(async () => {
+    firstLineAnimation.start(
+      {
+        translateY: "2em",
+        rotate: "45deg",
+      },
+      { mass: 4, damping: 70, stiffness: 1100, type: "spring" }
+    );
 
-      secondLineAnimation.start(
-        {
-          width: "100%",
-          rotate: "-45deg",
-        },
-        { mass: 4, damping: 70, stiffness: 1100, type: "spring" }
-      );
+    secondLineAnimation.start(
+      {
+        width: "100%",
+        rotate: "-45deg",
+      },
+      { mass: 4, damping: 70, stiffness: 1100, type: "spring" }
+    );
 
-      thirdLineAnimation.start(
-        {
-          opacity: 0,
-          translateY: "-2em",
-        },
-        {
-          mass: 1,
-          damping: 500,
-          stiffness: 1500,
-          restDelta: 10,
-          type: "spring",
-        }
-      );
-    };
+    thirdLineAnimation.start(
+      {
+        opacity: 0,
+        translateY: "-2em",
+      },
+      {
+        mass: 1,
+        damping: 500,
+        stiffness: 1500,
+        restDelta: 10,
+        type: "spring",
+      }
+    );
   }, [firstLineAnimation, secondLineAnimation, thirdLineAnimation]);
 
-  const closingSequence = React.useCallback(() => {
-    return async () => {
-      firstLineAnimation.start({
-        translateY: 0,
-        rotate: 0,
-      });
+  const closingSequence = React.useCallback(async () => {
+    firstLineAnimation.start({
+      translateY: 0,
+      rotate: 0,
+    });
 
-      secondLineAnimation.start({
-        rotate: 0,
-        width: "80%",
-      });
+    secondLineAnimation.start({
+      rotate: 0,
+      width: "80%",
+    });
 
-      thirdLineAnimation.start({
-        translateY: 0,
-        opacity: 1,
-      });
-    };
+    thirdLineAnimation.start({
+      translateY: 0,
+      opacity: 1,
+    });
   }, [firstLineAnimation, secondLineAnimation, thirdLineAnimation]);
 
   React.useEffect(() => {
     open ? openingSequenceSpring() : closingSequence();
-  }, [open, closingSequence, openingSequenceSpring]);
+  }, [closingSequence, open, openingSequenceSpring]);
 
   return (
     <Box sx={styles.root}>
@@ -96,7 +92,7 @@ const lineBaseStyles: SxProps<Theme> = {
 
 const styles = stylesheet.create({
   root: {
-    fontSize: "0.5rem",
+    fontSize: "0.4rem",
   },
 
   lineContainer: {

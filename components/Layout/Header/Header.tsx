@@ -1,7 +1,8 @@
 import React from "react";
 import stylesheet from "@workspace/stylesheet";
-import { Box, Button, Typography, Link } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { TEST_ID } from "./constants";
+import { AnimatedBurguerMenu } from "../AnimatedBurguerButton/AnimatedBurguerButton";
 
 type HeaderItem = {
   label: string;
@@ -16,6 +17,7 @@ export interface HeaderProps {
   };
   items: HeaderItem[];
   cta: HeaderItem;
+  burguerOpen: boolean;
 }
 
 export const Header = ({
@@ -29,6 +31,7 @@ export const Header = ({
     alt: "Placeholder alt text",
     label: undefined,
   },
+  burguerOpen = false,
 }: HeaderProps) => {
   return (
     <Box sx={styles.root}>
@@ -61,7 +64,12 @@ export const Header = ({
         </Box>
 
         <Box sx={styles.buttonContainer}>
+          <Box sx={styles.burguerButton}>
+            <AnimatedBurguerMenu open={burguerOpen} />
+          </Box>
+
           <Button
+            sx={styles.ctaButton}
             data-testid={TEST_ID.CALL_TO_ACTION}
             onClick={cta.onClick}
             variant="contained"
@@ -79,7 +87,7 @@ export default Header;
 
 const styles = stylesheet.create({
   root: {
-    px: (theme) => ({ xs: theme.spacing(4) }),
+    px: (theme) => ({ xs: theme.spacing(3), lg: theme.spacing(4) }),
     display: "flex",
     width: { xs: "100%" },
     height: (theme) => ({
@@ -88,12 +96,19 @@ const styles = stylesheet.create({
     }),
   },
 
+  burguerButton: {
+    display: { xs: "block", lg: "none" },
+  },
+  ctaButton: {
+    display: { xs: "none", lg: "flex" },
+  },
+
   buttonContainer: {
     width: "100%",
     height: "100%",
-    display: { xs: "none", lg: "flex" },
+    display: "flex",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: { xs: "flex-end", lg: "center" },
   },
 
   itemsContainer: {
