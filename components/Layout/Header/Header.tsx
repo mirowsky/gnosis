@@ -1,6 +1,6 @@
 import React from "react";
 import stylesheet from "@workspace/stylesheet";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Typography, Link } from "@mui/material";
 import { TEST_ID } from "./constants";
 
 type HeaderItem = {
@@ -41,14 +41,15 @@ export const Header = ({
         <Box data-testid={TEST_ID.ITEM_CONTAINER} sx={styles.itemsContainer}>
           {items.map((value, index) => {
             return (
-              <Typography
+              <Button
+                size="medium"
                 onClick={value.onClick}
                 key={index}
-                variant="h5"
+                variant="text"
                 color="primary"
               >
                 {value.label}
-              </Typography>
+              </Button>
             );
           })}
         </Box>
@@ -58,7 +59,7 @@ export const Header = ({
             data-testid={TEST_ID.CALL_TO_ACTION}
             onClick={cta.onClick}
             variant="contained"
-            color="secondary"
+            color="primary"
           >
             {cta.label}
           </Button>
@@ -94,12 +95,16 @@ const styles = stylesheet.create({
     display: "flex",
     width: "100%",
     height: "100%",
+    alignItems: "center",
   },
 
   grid: {
     display: "grid",
     gridTemplateRows: "1fr",
-    gridTemplateColumns: { xs: "0.5fr 0.5fr", lg: "0.3fr 0.5fr 0.2fr" },
+    gridTemplateColumns: {
+      xs: "minmax(0, 0.5fr) minmax(0, 0.5fr)",
+      lg: "minmax(0, 0.2fr) minmax(0, 0.6fr) minmax(0, 0.2fr)",
+    },
     width: "100%",
     height: "100%",
   },

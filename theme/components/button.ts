@@ -23,7 +23,7 @@ export const buttonOverride = (theme: Theme): Components["MuiButton"] => {
 
       contained: {
         fontWeight: 500,
-        padding: "0.45em 3em",
+        padding: `${theme.spacing(1 * 1.25)} ${theme.spacing(1 * 5.25)}`,
       },
 
       text: {
@@ -57,10 +57,6 @@ export const buttonBaseOverride = (
   theme: Theme
 ): Components["MuiButtonBase"] => {
   return {
-    styleOverrides: {
-      root: {
-        fontSize: "1em",
-      },
-    },
+    styleOverrides: {},
   };
 };

@@ -20,6 +20,5 @@ export const DEFAULT_TESTING_PROPS: HeaderProps = {
     { label: "Button 1", onClick: noop },
     { label: "Button2", onClick: noop },
     { label: "Button 3", onClick: noop },
-    { label: "Button 4", onClick: noop },
   ],
 };
