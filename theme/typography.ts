@@ -27,5 +27,6 @@ const typography: ThemeOptions["typography"] = {
   htmlFontSize: 10,
   fontSize: 10,
   h1: headerStyle({ xs: "36px", lg: "62px" }),
+  h5: headerStyle({ xs: "18px", lg: "22px" }),
 };
 export default typography;
