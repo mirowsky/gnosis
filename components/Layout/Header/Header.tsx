@@ -137,6 +137,7 @@ const styles = stylesheet.create({
     width: "100%",
     height: "100%",
     overflow: "hidden",
+    p: (theme) => ({ xs: theme.spacing(1.25), lg: theme.spacing(1.5) }),
   },
   logo: {
     objectFit: "contain",
