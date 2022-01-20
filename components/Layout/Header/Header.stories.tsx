@@ -1,5 +1,4 @@
 import { Meta, Story } from "@storybook/react";
-import CustomTheme from "../../../theme/CustomTheme";
 import { DEFAULT_TESTING_PROPS } from "./constants";
 import { HeaderProps, Header } from "./Header";
 
@@ -22,4 +21,14 @@ Primary.args = {
   ...DEFAULT_TESTING_PROPS,
   cta: { ...DEFAULT_TESTING_PROPS.cta, label: "Fale conosco" },
   burguerOpen: false,
+};
+
+export const Secondary = Template.bind({});
+
+Secondary.args = {
+  ...Primary.args,
+  logo: {
+    ...Primary.args.logo!,
+    label: undefined,
+  },
 };

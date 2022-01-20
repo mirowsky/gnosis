@@ -18,7 +18,7 @@ Primary.args = {
   ],
   logo: {
     src: "./images/logo.svg",
-    alt: "Hassan Fisioterapia - Logotipo",
+    alt: "Logo alt text",
   },
   open: true,
 };
