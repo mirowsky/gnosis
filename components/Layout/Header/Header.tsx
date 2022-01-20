@@ -35,7 +35,11 @@ export const Header = ({
       <Box sx={styles.grid}>
         <Box sx={styles.logoContainer}>
           <Box component="img" src={logo.src} alt={logo.alt} />
-          {logo?.label && <Typography variant="h5">{logo.label}</Typography>}
+          {logo?.label && (
+            <Box sx={styles.logoLabelContainer}>
+              <Typography variant="h5">{logo.label}</Typography>
+            </Box>
+          )}
         </Box>
 
         <Box data-testid={TEST_ID.ITEM_CONTAINER} sx={styles.itemsContainer}>
@@ -73,6 +77,11 @@ export default Header;
 
 const styles = stylesheet.create({
   root: {
+    px: (theme) => {
+      return {
+        lg: theme.spacing(4),
+      };
+    },
     display: "flex",
     width: { xs: "100%" },
     height: (theme) => {
@@ -96,6 +105,7 @@ const styles = stylesheet.create({
     width: "100%",
     height: "100%",
     alignItems: "center",
+    justifyContent: "center",
   },
 
   grid: {
@@ -119,6 +129,17 @@ const styles = stylesheet.create({
     objectFit: "contain",
     width: "auto",
     height: "height",
+  },
+  logoLabelContainer: {
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    alignItems: "center",
+    px: (theme) => {
+      return {
+        lg: theme.spacing(2),
+      };
+    },
   },
   logoLabel: {},
 });

@@ -1,12 +1,13 @@
 import { ThemeOptions } from "@mui/material";
-import { createResponsiveStyle } from "./createResponsiveProperty";
+import {
+  createResponsiveStyle,
+  themeResponsiveStyles,
+} from "./createResponsiveProperty";
 import breakpoints from "./breakpoints";
 import * as CSS from "csstype";
 import { Head } from "@workspace/types";
 
-const themefulResponsiveStyles = createResponsiveStyle(breakpoints);
-
-const responsiveFontSize = themefulResponsiveStyles("fontSize");
+const responsiveFontSize = themeResponsiveStyles("fontSize");
 
 const titleStyles = (styles: CSS.Properties) => {
   return (args: Head<typeof responsiveFontSize>) => {

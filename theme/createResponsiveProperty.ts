@@ -18,7 +18,7 @@ export function createResponsiveStyle<
       value: ResponsiveStyleValue<CSS.Properties[TCSSProperty], TBreakpoint>
     ) {
       return Object.fromEntries(
-        Object.keys(value).map((key, index) => {
+        Object.keys(value).map((key, _index) => {
           return [
             `@media (min-width: ${breakpoints[key as keyof TBreakpoint]}px)`,
             { [`${property}`]: value[key as keyof TBreakpoint] },
@@ -28,3 +28,5 @@ export function createResponsiveStyle<
     };
   };
 }
+
+export const themeResponsiveStyles = createResponsiveStyle(breakpoints);
