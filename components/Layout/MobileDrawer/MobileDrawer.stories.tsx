@@ -3,7 +3,7 @@ import { MobileMenu, MobileMenuProps } from "./MobileDrawer";
 
 export default {
   component: MobileMenu,
-  title: "MobileDrawer",
+  title: "Layout/Menu/Mobile Drawer",
 } as Meta;
 
 const Template: Story<MobileMenuProps> = (args) => <MobileMenu {...args} />;
