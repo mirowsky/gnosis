@@ -1,45 +1,31 @@
 import { ThemeOptions } from "@mui/material";
-import { TypographyStyleOptions } from "@mui/material/styles/createTypography";
-import { Property } from "csstype";
-import {
-  createResponsiveCSSProperty,
-  createResponsiveStyle,
-  ResponsiveStyleValue,
-} from "./createResponsiveProperty";
+import { createResponsiveStyle } from "./createResponsiveProperty";
 import breakpoints from "./breakpoints";
+import * as CSS from "csstype";
+import { Head } from "@workspace/types";
 
-const responsiveTitleStyle = (
-  styleValue: ResponsiveStyleValue<Property.FontSize<string | number>>
-): TypographyStyleOptions => {
-  return Object.assign(
-    createResponsiveCSSProperty(breakpoints, {
-      property: "fontSize",
-      value: {},
-    }),
-    {
-      fontFamily: "Inter, sans-serif",
-      fontStyle: "normal",
-      color: "#2F2F2F",
-      textDecoration: "none",
-    } as TypographyStyleOptions
-  );
+const themefulResponsiveStyles = createResponsiveStyle(breakpoints);
+
+const responsiveFontSize = themefulResponsiveStyles("fontSize");
+
+const titleStyles = (styles: CSS.Properties) => {
+  return (args: Head<typeof responsiveFontSize>) => {
+    const fontSizes = responsiveFontSize(args);
+
+    return { ...fontSizes, ...styles };
+  };
 };
 
-const responsiveHeadings = createResponsiveStyle(breakpoints)("fontSize")({
-  lg: "contain",
+const headerStyle = titleStyles({
+  fontFamily: "Inter, sans-serif",
+  color: "#2F2F2F",
+  textDecoration: "none",
 });
-
-const ok = responsiveTitleStyle({ xs: "24px", lg: "38px" });
-
-// @TODO - Refactor this to be dynamic
 
 const typography: ThemeOptions["typography"] = {
   fontFamily: ["Inter", "sans-serif"].join(","),
   htmlFontSize: 10,
   fontSize: 10,
-  h1: responsiveTitleStyle({ xs: "24px", lg: "38px" }),
-  button: responsiveTitleStyle({ xs: "12px", lg: "18px" }),
-  body1: responsiveTitleStyle({ xs: "12px", lg: "16px" }),
-  h5: responsiveTitleStyle({ xs: "16px", lg: "22px" }),
+  h1: headerStyle({ xs: "36px", lg: "62px" }),
 };
 export default typography;

@@ -12,6 +12,7 @@ const customJestConfig = {
   moduleNameMapper: {
     "@workspace/stylesheet": "<rootDir>/theme/stylesheet",
     "@workspace/utility": "<rootDir>/utility/index",
+    "@workspace/types": "<rootDir>/types",
   },
 };
 

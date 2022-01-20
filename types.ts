@@ -40,3 +40,5 @@ export interface TestimonialCollectionType {
   testimonialText: string;
   uuid: string;
 }
+
+export type Head<T> = T extends (...args: infer T) => any ? T[0] : never;

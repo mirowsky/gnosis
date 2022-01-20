@@ -18,7 +18,8 @@
     "baseUrl": ".",
     "paths": {
       "@workspace/stylesheet": ["theme/stylesheet.ts"],
-      "@workspace/utility": ["utility/index.ts"]
+      "@workspace/utility": ["utility/index.ts"],
+      "@workspace/types": ["./types.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "global.d.ts"],

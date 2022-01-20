@@ -20,6 +20,7 @@ module.exports = {
             "theme/stylesheet.ts"
           ),
           "@workspace/utility": path.resolve(process.cwd(), "utility/index.ts"),
+          "@workspace/types": path.resolve(process.cwd(), "types.ts"),
           "@emotion/core": path.resolve(
             process.cwd(),
             "node_modules/@emotion/react"
