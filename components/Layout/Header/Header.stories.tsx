@@ -3,7 +3,7 @@ import { DEFAULT_HEADER_TESTING_PROPS } from "./constants";
 import { HeaderProps, Header } from "./Header";
 
 export default {
-  title: "Layout/Menu/Header",
+  title: "Layout/Header",
   component: Header,
   parameters: {
     layout: "fullscreen",

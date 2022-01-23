@@ -6,7 +6,7 @@ import {
 
 export default {
   component: AnimatedBurguerMenu,
-  title: "Layout/Menu/Burguer Button",
+  title: "Layout/Burguer Button",
   parameters: {
     viewport: {
       defaultViewport: "brazilDesktop1",
