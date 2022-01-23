@@ -1,5 +1,5 @@
 import { Meta, Story } from "@storybook/react";
-import { DEFAULT_TESTING_PROPS } from "./constants";
+import { DEFAULT_HEADER_TESTING_PROPS } from "./constants";
 import { HeaderProps, Header } from "./Header";
 
 export default {
@@ -18,8 +18,8 @@ const Template: Story<HeaderProps> = (args) => <Header {...args} />;
 export const Primary = Template.bind({});
 
 Primary.args = {
-  ...DEFAULT_TESTING_PROPS,
-  cta: { ...DEFAULT_TESTING_PROPS.cta, label: "Fale conosco" },
+  ...DEFAULT_HEADER_TESTING_PROPS,
+  cta: { ...DEFAULT_HEADER_TESTING_PROPS.cta, label: "Fale conosco" },
   burguerOpen: false,
 };
 

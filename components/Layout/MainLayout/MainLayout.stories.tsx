@@ -7,6 +7,12 @@ import { DEFAULT_HEADER_TESTING_PROPS } from "../Header/constants";
 export default {
   title: "Layout/Main Layout",
   component: MainLayout,
+  parameters: {
+    layout: "fullscreen",
+    viewport: {
+      defaultViewport: "brazilDesktop1",
+    },
+  },
 } as Meta;
 
 const Template: Story<MainLayoutProps> = (args) => <MainLayout {...args} />;

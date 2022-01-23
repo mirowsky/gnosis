@@ -27,6 +27,13 @@ const Footer = ({
           data-testid={FOOTER_TEST_ID.CONTACTS_CONTAINER.toString()}
           sx={styles.contactContainer}
         >
+          <Typography
+            variant="h5"
+            fontWeight="bolder"
+            color="primary.contrastText"
+          >
+            Contato
+          </Typography>
           {contacts.map((contact, index) => {
             return (
               <Typography
@@ -46,6 +53,14 @@ const Footer = ({
           data-testid={FOOTER_TEST_ID.EMAIL_CONTACT_CONTAINER}
           sx={styles.emailContactContainer}
         >
+          <Typography
+            variant="h5"
+            fontWeight="bolder"
+            color="primary.contrastText"
+          >
+            Contato por email
+          </Typography>
+
           {emailContacts.map((emailContact, index) => {
             return (
               <Typography
@@ -99,7 +114,7 @@ const contactStyles = {
   gap: (theme) => ({ xs: theme.spacing(2) }),
   display: "flex",
   justifyContent: "center",
-  alignItems: "center",
+  alignItems: { xs: "center", lg: "flex-start" },
 } as SxProps<Theme>;
 
 const styles = stylesheet.create({
@@ -119,7 +134,7 @@ const styles = stylesheet.create({
       lg: "minmax(0, 0.33fr) minmax(0, 0.33fr) minmax(0, 0.33fr)",
     },
     gridTemplateRows: { xs: "minmax(0, 1fr)" },
-    gap: (theme) => ({ xs: theme.spacing(4), lg: "0px" }),
+    gap: (theme) => ({ xs: theme.spacing(6), lg: "0px" }),
   },
 
   // Container
