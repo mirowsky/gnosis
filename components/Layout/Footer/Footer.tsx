@@ -1,4 +1,4 @@
-import { Box, IconButton, Typography } from "@mui/material";
+import { Box, IconButton, Theme, Typography, SxProps } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
 import React from "react";
 import { FOOTER_TEST_ID } from "./constants";
@@ -22,6 +22,7 @@ const Footer = ({
   return (
     <Box sx={styles.root}>
       <Box sx={styles.grid}>
+        {/* Contacts */}
         <Box
           data-testid={FOOTER_TEST_ID.CONTACTS_CONTAINER.toString()}
           sx={styles.contactContainer}
@@ -40,7 +41,7 @@ const Footer = ({
             );
           })}
         </Box>
-
+        {/* Email contacts */}
         <Box
           data-testid={FOOTER_TEST_ID.EMAIL_CONTACT_CONTAINER}
           sx={styles.emailContactContainer}
@@ -60,17 +61,31 @@ const Footer = ({
           })}
         </Box>
 
+        {/* Social icons */}
         <Box
           data-testid={FOOTER_TEST_ID.SOCIALS_CONTAINER}
-          sx={styles.socialItem}
+          sx={styles.socialContainer}
         >
           {socials.map(({ icon: Icon, onClick }, index) => {
             return (
-              <IconButton onClick={onClick} key={index}>
+              <IconButton
+                size="large"
+                sx={styles.socialItem}
+                onClick={onClick}
+                key={index}
+              >
                 <Icon />
               </IconButton>
             );
           })}
+        </Box>
+
+        {/* Copyright text */}
+
+        <Box sx={styles.copyrightContainer}>
+          <Typography sx={styles.copyright} variant="caption" fontWeight="bold">
+            {copyright}
+          </Typography>
         </Box>
       </Box>
     </Box>
@@ -79,29 +94,63 @@ const Footer = ({
 
 export default Footer;
 
+const contactStyles = {
+  flexDirection: "column",
+  gap: (theme) => ({ xs: theme.spacing(2) }),
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+} as SxProps<Theme>;
+
 const styles = stylesheet.create({
   root: {
     display: "flex",
     width: "100%",
+    backgroundColor: (theme) => theme.palette.primary.main,
+    p: (theme) => ({ xs: theme.spacing(4) }),
   },
   grid: {
     display: "grid",
-    gridAutoFlow: "row",
+    width: "100%",
+    height: "100%",
+    justifyItems: "center",
     gridTemplateColumns: {
-      xs: "minmax(0, 1fr)",
+      xs: "1fr",
       lg: "minmax(0, 0.33fr) minmax(0, 0.33fr) minmax(0, 0.33fr)",
     },
+    gridTemplateRows: { xs: "minmax(0, 1fr)" },
+    gap: (theme) => ({ xs: theme.spacing(4), lg: "0px" }),
   },
 
   // Container
-  contactContainer: {},
-  emailContactContainer: {},
-  socialContainer: {},
-  copyrightContainer: {},
+  contactContainer: contactStyles,
+  emailContactContainer: contactStyles,
+  socialContainer: {
+    ...contactStyles,
+    flexDirection: { xs: "row" },
+  },
+  copyrightContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    height: "100%",
+    textAlign: "center",
+    py: (theme) => ({ xs: theme.spacing(2), lg: theme.spacing(4) }),
+    gridColumn: { lg: "1/4" },
+  },
 
   //Items
-  contactItem: {},
-  emailItem: {},
-  socialItem: {},
-  copyright: {},
+  contactItem: {
+    color: (theme) => theme.palette.primary.contrastText,
+  },
+  emailItem: {
+    color: (theme) => theme.palette.primary.contrastText,
+  },
+  socialItem: {
+    color: (theme) => theme.palette.primary.contrastText,
+  },
+  copyright: {
+    color: (theme) => theme.palette.primary.contrastText,
+  },
 });

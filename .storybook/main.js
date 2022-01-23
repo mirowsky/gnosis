@@ -1,6 +1,10 @@
 const path = require("path/posix");
 
 module.exports = {
+  reactOptions: {
+    fastRefresh: true,
+    strictMode: true,
+  },
   stories: ["../**/*.stories.*"],
   addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
   framework: "@storybook/react",

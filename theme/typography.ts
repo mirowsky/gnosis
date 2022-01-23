@@ -17,9 +17,7 @@ const titleStyles = (styles: CSS.Properties) => {
   };
 };
 
-const headerStyle = titleStyles({
-  fontFamily: "Inter, sans-serif",
-  color: "#2F2F2F",
+const fontStyles = titleStyles({
   textDecoration: "none",
 });
 
@@ -27,7 +25,8 @@ const typography: ThemeOptions["typography"] = {
   fontFamily: ["Inter", "sans-serif"].join(","),
   htmlFontSize: 10,
   fontSize: 10,
-  h1: headerStyle({ xs: "36px", lg: "62px" }),
-  h5: headerStyle({ xs: "18px", lg: "22px" }),
+  h1: fontStyles({ xs: "36px", lg: "62px" }),
+  h5: fontStyles({ xs: "18px", lg: "22px" }),
+  caption: fontStyles({ xs: "12px", lg: "14px" }),
 };
 export default typography;
