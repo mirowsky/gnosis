@@ -113,7 +113,7 @@ const contactStyles = {
   flexDirection: "column",
   gap: (theme) => ({ xs: theme.spacing(2) }),
   display: "flex",
-  justifyContent: "center",
+  justifyContent: { xs: "center", lg: "flex-start" },
   alignItems: { xs: "center", lg: "flex-start" },
 } as SxProps<Theme>;
 
@@ -135,6 +135,7 @@ const styles = stylesheet.create({
     },
     gridTemplateRows: { xs: "minmax(0, 1fr)" },
     gap: (theme) => ({ xs: theme.spacing(6), lg: "0px" }),
+    rowGap: (theme) => ({ lg: theme.spacing(4) }),
   },
 
   // Container
@@ -151,7 +152,6 @@ const styles = stylesheet.create({
     width: "100%",
     height: "100%",
     textAlign: "center",
-    py: (theme) => ({ xs: theme.spacing(2), lg: theme.spacing(4) }),
     gridColumn: { lg: "1/4" },
   },
 

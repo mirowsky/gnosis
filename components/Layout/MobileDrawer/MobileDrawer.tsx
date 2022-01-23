@@ -35,6 +35,7 @@ export const MobileMenu = ({
       onOpen={onOpen}
       open={open}
       anchor="left"
+      data-testid={MOBILE_DRAWER_TEST_ID.root}
     >
       <Box sx={styles.container} component={Paper} elevation={0}>
         <Box component={Paper} square elevation={5} sx={styles.logoContainer}>
