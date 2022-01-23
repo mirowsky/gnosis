@@ -1,6 +1,6 @@
 import React from "react";
 import stylesheet from "@workspace/stylesheet";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
 import { noop } from "@workspace/utility";
 
 export type HeroProps = {
@@ -38,43 +38,54 @@ const Hero = ({
 }: HeroProps) => {
   return (
     <Box sx={styles.root}>
-      <Box sx={styles.grid}>
-        <Box sx={styles.textContainer}>
-          <Box sx={styles.mainTextContainer}>
-            <Typography variant="h1" fontWeight="bold" sx={styles.mainText}>
-              {mainText}
-            </Typography>
-          </Box>
-          <Box sx={styles.altTextContainer}>
-            <Typography variant="h4" sx={styles.altText} fontWeight={600}>
-              {altText}
-            </Typography>
-          </Box>
-          <Box sx={styles.buttonContainer}>
-            <Button
-              variant="contained"
-              color="primary"
-              sx={styles.primaryButton}
-              onClick={ctaPrimary.onClick}
-            >
-              {ctaPrimary.label}
-            </Button>
+      <Container maxWidth="lg">
+        <Box sx={styles.grid}>
+          <Box sx={styles.textContainer}>
+            <Box sx={styles.mainTextContainer}>
+              <Typography
+                variant="display"
+                fontWeight="bold"
+                sx={styles.mainText}
+              >
+                {mainText}
+              </Typography>
+            </Box>
+            <Box sx={styles.altTextContainer}>
+              <Typography variant="h5" sx={styles.altText} fontWeight={600}>
+                {altText}
+              </Typography>
+            </Box>
+            <Box sx={styles.buttonContainer}>
+              <Button
+                variant="contained"
+                color="primary"
+                sx={styles.primaryButton}
+                onClick={ctaPrimary.onClick}
+              >
+                {ctaPrimary.label}
+              </Button>
 
-            <Button
-              variant="outlined"
-              color="primary"
-              sx={styles.secondaryButton}
-              onClick={ctaSecondary.onClick}
-            >
-              {ctaSecondary.label}
-            </Button>
+              <Button
+                variant="outlined"
+                color="primary"
+                sx={styles.secondaryButton}
+                onClick={ctaSecondary.onClick}
+              >
+                {ctaSecondary.label}
+              </Button>
+            </Box>
+          </Box>
+
+          <Box sx={styles.imageContainer}>
+            <Box
+              component="img"
+              sx={styles.image}
+              src={img.src}
+              alt={img.alt}
+            />
           </Box>
         </Box>
-
-        <Box sx={styles.imageContainer}>
-          <Box component="img" sx={styles.image} src={img.src} alt={img.alt} />
-        </Box>
-      </Box>
+      </Container>
     </Box>
   );
 };
@@ -86,6 +97,8 @@ const styles = stylesheet.create({
     display: "flex",
     width: "100%",
     height: "auto",
+    maxHeight: "90vh",
+    overflow: "hidden",
   },
 
   grid: {
@@ -94,12 +107,23 @@ const styles = stylesheet.create({
     height: "100%",
     gridTemplateColumns: {
       xs: "minmax(0, 1fr)",
-      lg: "minmax(0, 0.5fr) minmax(0, 0.5fr)",
+      lg: "minmax(0, 0.55fr) minmax(0, 0.45fr)",
     },
   },
   //Outer Container
-  textContainer: {},
-  imageContainer: {},
+  textContainer: {
+    display: "flex",
+    flexDirection: "column",
+    gap: (theme) => ({ lg: theme.spacing(4) }),
+    width: "100%",
+    height: "100%",
+    justifyContent: { lg: "center" },
+  },
+  imageContainer: {
+    display: "flex",
+    width: "auto",
+    height: "auto",
+  },
 
   //Inner Container
   mainTextContainer: {},
@@ -107,9 +131,18 @@ const styles = stylesheet.create({
   buttonContainer: {},
 
   // Item
-  mainText: {},
-  altText: {},
+  mainText: {
+    display: "block",
+    maxWidth: { lg: "20ch" },
+  },
+  altText: {
+    color: (theme) => theme.palette.grey[800],
+  },
   primaryButton: {},
   secondaryButton: {},
-  image: {},
+  image: {
+    width: "100%",
+    height: "100%",
+    objectFit: "contain",
+  },
 });
