@@ -1,6 +1,7 @@
 import { SwipeableDrawer, Paper, Box, Button } from "@mui/material";
 import React from "react";
 import { stylesheet } from "@workspace/stylesheet";
+import { MOBILE_DRAWER_TEST_ID } from "./constants";
 
 type HeaderItem = {
   onClick: (...args: unknown[]) => unknown;
@@ -76,6 +77,7 @@ const styles = stylesheet.create({
     py: { xs: 3 },
     fontWeight: 900,
     fontSize: { xs: "2em" },
+    borderRadius: "0px",
   },
 
   listIcon: {
@@ -102,6 +104,6 @@ const styles = stylesheet.create({
   },
   container: {
     height: "100%",
-    maxWidth: { xs: "30em" },
+    minWidth: { xs: "25em" },
   },
 });

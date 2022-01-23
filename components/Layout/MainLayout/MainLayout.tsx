@@ -3,20 +3,24 @@ import React from "react";
 import stylesheet from "@workspace/stylesheet";
 import Header, { HeaderProps } from "../Header/Header";
 import Footer, { FooterProps } from "../Footer/Footer";
+import MobileMenu, { MobileMenuProps } from "../MobileDrawer/MobileDrawer";
 
 export type MainLayoutProps = {
   children: React.ReactNode;
-  headerProps: HeaderProps;
-  footerProps: FooterProps;
+  HeaderProps: HeaderProps;
+  FooterProps: FooterProps;
+  MobileMenuProps: MobileMenuProps;
 };
 
 const MainLayout = ({
   children,
-  footerProps,
-  headerProps,
+  FooterProps: footerProps,
+  HeaderProps: headerProps,
+  MobileMenuProps: mobileMenuProps,
 }: MainLayoutProps) => {
   return (
     <Box sx={styles.root}>
+      <MobileMenu {...mobileMenuProps} />
       <Header {...headerProps} />
       {children}
       <Footer {...footerProps} />
