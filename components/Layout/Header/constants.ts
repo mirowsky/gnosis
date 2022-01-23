@@ -6,7 +6,7 @@ export const TEST_ID = {
   CALL_TO_ACTION: "header-call-to-action",
 } as const;
 
-export const DEFAULT_TESTING_PROPS: HeaderProps = {
+export const DEFAULT_HEADER_TESTING_PROPS: HeaderProps = {
   logo: {
     src: "https://via.placeholder.com/1500",
     alt: "Logo alt text",
