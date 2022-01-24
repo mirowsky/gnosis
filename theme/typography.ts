@@ -8,6 +8,7 @@ import * as CSS from "csstype";
 import { Head } from "@workspace/types";
 
 const responsiveFontSize = themeResponsiveStyles("fontSize");
+const resposiveLineHeight = themeResponsiveStyles("lineHeight");
 
 const titleStyles = (styles: CSS.Properties) => {
   return (args: Head<typeof responsiveFontSize>) => {
@@ -16,6 +17,10 @@ const titleStyles = (styles: CSS.Properties) => {
     return { ...fontSizes, ...styles };
   };
 };
+
+const displayStyle = titleStyles({
+  fontWeight: "bold",
+});
 
 const fontStyles = titleStyles({
   textDecoration: "none",

@@ -15,7 +15,7 @@ export const DEFAULT_HERO_TESTING_PROPS: HeroProps = {
   },
   img: {
     alt: "this is an alt text, replace me",
-    src: "../../../public/images/hero-doc-cut-opt.webp",
+    src: "https://via.placeholder.com",
   },
 };
 
