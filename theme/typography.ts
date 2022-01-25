@@ -4,13 +4,13 @@ import {
   themeResponsiveStyles,
 } from "./createResponsiveProperty";
 import breakpoints from "./breakpoints";
-import * as CSS from "csstype";
+import { Properties } from "csstype";
 import { Head } from "@workspace/types";
 
 const responsiveFontSize = themeResponsiveStyles("fontSize");
 const resposiveLineHeight = themeResponsiveStyles("lineHeight");
 
-const titleStyles = (styles: CSS.Properties) => {
+const titleStyles = (styles: Properties) => {
   return (args: Head<typeof responsiveFontSize>) => {
     const fontSizes = responsiveFontSize(args);
 
