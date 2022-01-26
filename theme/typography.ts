@@ -30,8 +30,7 @@ const typography: ThemeOptions["typography"] = {
   fontFamily: ["Inter", "sans-serif"].join(","),
   htmlFontSize: 10,
   fontSize: 10,
-  display: fontStyles({ xs: "30px", lg: "50px" }),
-  h1: fontStyles({ xs: "36px", lg: "62px" }),
+  h1: fontStyles({ xs: "42px", lg: "64px" }),
   h5: fontStyles({ xs: "18px", lg: "22px" }),
   caption: fontStyles({ xs: "12px", lg: "14px" }),
 };
