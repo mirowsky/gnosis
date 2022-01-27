@@ -3,7 +3,7 @@ type FluidTypographyParameters = {
   maxFontSize: number;
   minBreakpoint: number;
   maxBreakpoint: number;
-  options: {
+  options?: {
     htmlFontSize: number;
   };
 };
@@ -15,13 +15,10 @@ export const fluidTypography = ({
   minBreakpoint,
   options = { htmlFontSize: 16 },
 }: FluidTypographyParameters) => {
-  // slope => m = y2 - y2 / x2 - x1
   const slope = (maxFontSize - minFontSize) / (maxBreakpoint - minBreakpoint);
 
-  // y = mx + b => this is b
   const yAxisIntercept = minFontSize - slope * minBreakpoint;
 
-  // convert to rem units
   const fluidValue = `${toFixedIfDecimal(slope * 100)}vw + ${pixelToRem(
     yAxisIntercept,
     { htmlFontSize: options.htmlFontSize }

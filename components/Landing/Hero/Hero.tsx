@@ -37,7 +37,12 @@ const Hero = ({
   },
   mainText = "Impact text that should invite your users to explore your products",
 }: HeroProps) => {
-  const fluid = fluidTypography(64, 30, 360, 1920);
+  const fluid = fluidTypography({
+    maxBreakpoint: 1920,
+    maxFontSize: 64,
+    minBreakpoint: 360,
+    minFontSize: 32,
+  });
 
   console.log(fluid);
 
