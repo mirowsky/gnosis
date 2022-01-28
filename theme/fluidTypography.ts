@@ -1,4 +1,4 @@
-type FluidTypographyParameters = {
+export type FluidTypographyParameters = {
   minFontSize: number;
   maxFontSize: number;
   minBreakpoint: number;
