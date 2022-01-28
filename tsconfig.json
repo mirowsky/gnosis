@@ -22,6 +22,6 @@
       "@workspace/types": ["./types.ts"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "global.d.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "global.d.ts", "augmentation.d.ts"],
   "exclude": ["node_modules"]
 }

@@ -15,10 +15,14 @@ export const fluidTypography = ({
   minBreakpoint,
   options = { htmlFontSize: 16 },
 }: FluidTypographyParameters) => {
+  // m = (y2 - y1) / (x2 - x1)
   const slope = (maxFontSize - minFontSize) / (maxBreakpoint - minBreakpoint);
 
+  // y(minFontSize) = m(slope) * x(minBreakpoint) + b
+  // b = slope * minBreakpoint -minFontSize
   const yAxisIntercept = minFontSize - slope * minBreakpoint;
 
+  // y(fluidValue) = m(slope) * x(vw) + b(yAxisIntercept)
   const fluidValue = `${toFixedIfDecimal(slope * 100)}vw + ${pixelToRem(
     yAxisIntercept,
     { htmlFontSize: options.htmlFontSize }
@@ -30,7 +34,7 @@ export const fluidTypography = ({
     htmlFontSize: options.htmlFontSize,
   });
 
-  return `clamp(${minFontSizeToRem}, ${fluidValue}, ${maxFontSizeToRem}) `;
+  return `clamp(${minFontSizeToRem}, ${fluidValue}, ${maxFontSizeToRem})`;
 };
 
 const pixelToRem = (
