@@ -1,5 +1,6 @@
-import breakpoints, { CoreBreakpoints as Breakpoint } from "./breakpoints";
 import * as CSS from "csstype";
+import type { Theme, Breakpoint } from "@mui/system";
+import theme from "./theme";
 
 export type ResponsiveStyleValue<
   TType,
@@ -8,20 +9,30 @@ export type ResponsiveStyleValue<
   [Key in keyof TBreakpoint]?: TType | null;
 };
 
-export function createResponsiveStyle<
-  TBreakpoint extends Breakpoint = Breakpoint
->(breakpoints: TBreakpoint) {
+export function createResponsiveStyle<TTheme extends Theme = Theme>(
+  theme: TTheme
+) {
   return function <TCSSProperty extends keyof CSS.Properties>(
     property: TCSSProperty
   ) {
     return function (
-      value: ResponsiveStyleValue<CSS.Properties[TCSSProperty], TBreakpoint>
+      value: ResponsiveStyleValue<
+        CSS.Properties[TCSSProperty],
+        TTheme["breakpoints"]["keys"][number]
+      >
     ) {
       return Object.fromEntries(
         Object.keys(value).map((key, _index) => {
           return [
-            `@media (min-width: ${breakpoints[key as keyof TBreakpoint]}px)`,
-            { [`${property}`]: value[key as keyof TBreakpoint] },
+            `@media (min-width: ${
+              theme.breakpoints.values[
+                key as TTheme["breakpoints"]["keys"][number]
+              ]
+            }px)`,
+            {
+              [`${property}`]:
+                value[key as keyof TTheme["breakpoints"]["keys"][number]],
+            },
           ];
         })
       );
@@ -29,4 +40,4 @@ export function createResponsiveStyle<
   };
 }
 
-export const themeResponsiveStyles = createResponsiveStyle(breakpoints);
+export const themeResponsiveStyles = createResponsiveStyle(theme);
