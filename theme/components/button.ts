@@ -10,9 +10,7 @@ export const buttonOverride = (theme: Theme): Components["MuiButton"] => {
       },
 
       sizeSmall: {
-        [`@media (min-width: ${theme.breakpoints.values.lg})`]: {
-          fontSize: theme.spacing(1 * 2),
-        },
+        fontSize: theme.spacing(1 * 2),
       },
 
       sizeMedium: {
@@ -21,6 +19,11 @@ export const buttonOverride = (theme: Theme): Components["MuiButton"] => {
 
       sizeLarge: {
         fontSize: theme.spacing(1 * 4),
+      },
+
+      outlined: {
+        fontWeight: 500,
+        padding: `${theme.spacing(1 * 1.25)} ${theme.spacing(1 * 5.25)}`,
       },
 
       contained: {

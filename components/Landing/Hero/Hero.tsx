@@ -38,12 +38,13 @@ const Hero = ({
 }: HeroProps) => {
   return (
     <Box sx={styles.root}>
-      <Container maxWidth="lg">
+      <Container maxWidth={"lg"} disableGutters>
         <Box sx={styles.grid}>
           <Box sx={styles.textContainer}>
             <Box sx={styles.mainTextContainer}>
               <Typography
-                variant="display"
+                color="primary"
+                variant="h1"
                 fontWeight="bold"
                 sx={styles.mainText}
               >
@@ -51,7 +52,12 @@ const Hero = ({
               </Typography>
             </Box>
             <Box sx={styles.altTextContainer}>
-              <Typography variant="h5" sx={styles.altText} fontWeight={600}>
+              <Typography
+                color="grey.700"
+                variant="h3"
+                sx={styles.altText}
+                fontWeight="bold"
+              >
                 {altText}
               </Typography>
             </Box>
@@ -99,6 +105,8 @@ const styles = stylesheet.create({
     height: "auto",
     maxHeight: "90vh",
     overflow: "hidden",
+    mt: (theme) => ({ lg: theme.spacing(10) }),
+    px: (theme) => ({ xs: theme.spacing(4), lg: 0 }),
   },
 
   grid: {
@@ -114,29 +122,35 @@ const styles = stylesheet.create({
   textContainer: {
     display: "flex",
     flexDirection: "column",
-    gap: (theme) => ({ lg: theme.spacing(4) }),
+    gap: (theme) => ({ lg: theme.spacing(5) }),
     width: "100%",
     height: "100%",
     justifyContent: { lg: "center" },
   },
   imageContainer: {
-    display: "flex",
+    display: { xs: "none", lg: "flex" },
+    justifyContent: "center",
+    alignItems: "center",
     width: "auto",
-    height: "auto",
+    height: { xs: "650px" },
   },
 
   //Inner Container
   mainTextContainer: {},
   altTextContainer: {},
-  buttonContainer: {},
+  buttonContainer: {
+    display: "flex",
+    gap: (theme) => ({ xs: theme.spacing(5) }),
+  },
 
   // Item
   mainText: {
     display: "block",
-    maxWidth: { lg: "20ch" },
+    maxWidth: { lg: "16ch" },
   },
   altText: {
     color: (theme) => theme.palette.grey[800],
+    maxWidth: { lg: "27ch" },
   },
   primaryButton: {},
   secondaryButton: {},

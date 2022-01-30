@@ -4,7 +4,10 @@ const typography = (theme: Theme): ThemeOptions["typography"] => ({
   fontFamily: ["Inter", "sans-serif"].join(","),
   h1: { fontSize: theme.fluidTypography({ maxFontSize: 64, minFontSize: 32 }) },
   h2: { fontSize: theme.fluidTypography({ maxFontSize: 36, minFontSize: 24 }) },
-  h3: { fontSize: theme.fluidTypography({ maxFontSize: 28, minFontSize: 22 }) },
+  h3: {
+    lineHeight: "46px",
+    fontSize: theme.fluidTypography({ maxFontSize: 28, minFontSize: 22 }),
+  },
   h4: { fontSize: theme.fluidTypography({ maxFontSize: 22, minFontSize: 20 }) },
   h5: { fontSize: theme.fluidTypography({ maxFontSize: 20, minFontSize: 18 }) },
   h6: { fontSize: theme.fluidTypography({ maxFontSize: 18, minFontSize: 16 }) },
