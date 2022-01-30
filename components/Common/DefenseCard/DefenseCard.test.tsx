@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { getByDisplayValue, render } from "@testing-library/react";
 import {
   DEFAULT_DEFENSE_CARD_TEST_PROPS,
   DEFENSE_CARD_TEST_ID,
@@ -19,9 +19,9 @@ describe("Defense card component", () => {
   });
 
   it("should display a label with the appropriate text", () => {
-    const { getByLabelText } = setup();
+    const { getByText } = setup();
 
-    const labelElement = getByLabelText(DEFAULT_DEFENSE_CARD_TEST_PROPS.label);
+    const labelElement = getByText(DEFAULT_DEFENSE_CARD_TEST_PROPS.label);
 
     expect(labelElement).toHaveTextContent(
       DEFAULT_DEFENSE_CARD_TEST_PROPS.label
