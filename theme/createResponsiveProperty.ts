@@ -1,4 +1,3 @@
-import { theme } from "./theme";
 import type { Properties } from "csstype";
 import type { Theme, Breakpoint } from "@mui/system";
 
@@ -39,5 +38,3 @@ export function createResponsiveStyle<TTheme extends Theme = Theme>(
     };
   };
 }
-
-export const themeResponsiveStyles = createResponsiveStyle(theme);

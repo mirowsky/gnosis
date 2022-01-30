@@ -9,6 +9,10 @@ import {
 } from "@mui/material";
 import React from "react";
 import { Properties } from "csstype";
+import { createResponsiveStyle } from "theme/createResponsiveProperty";
+import { createFluidTypography } from "theme/createFluidTypography";
+import { FinalReturnType, Head } from "./types";
+import { fluidTypography } from "theme/fluidTypography";
 
 type FluidTypographyParameters = {
   minFontSize: number;
@@ -37,8 +41,12 @@ declare module "@mui/material/styles" {
     };
   }
 
+  export interface ThemeOptions {
+    fluidTypography?: ReturnType<typeof createFluidTypography>;
+  }
+
   export interface Theme {
-    fluidTypography: (parameters: FluidTypographyParameters) => string;
+    fluidTypography: ReturnType<typeof createFluidTypography>;
   }
 
   export interface TypographyVariants {

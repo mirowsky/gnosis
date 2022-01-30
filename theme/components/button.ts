@@ -1,8 +1,4 @@
 import { Theme, Components } from "@mui/material";
-import { themeResponsiveStyles } from "../createResponsiveProperty";
-
-const responsiveFontSize = themeResponsiveStyles("fontSize");
-const responsivePadding = themeResponsiveStyles("padding");
 
 export const buttonOverride = (theme: Theme): Components["MuiButton"] => {
   return {
@@ -14,7 +10,9 @@ export const buttonOverride = (theme: Theme): Components["MuiButton"] => {
       },
 
       sizeSmall: {
-        ...responsiveFontSize({ lg: theme.spacing(1 * 2) }),
+        [`@media (min-width: ${theme.breakpoints.values.lg})`]: {
+          fontSize: theme.spacing(1 * 2),
+        },
       },
 
       sizeMedium: {

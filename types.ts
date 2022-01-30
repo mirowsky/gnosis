@@ -42,3 +42,8 @@ export interface TestimonialCollectionType {
 }
 
 export type Head<T> = T extends (...args: infer T) => any ? T[0] : never;
+
+export type FinalReturnType<T> = {
+  0: T;
+  1: T extends (...args: any) => infer R ? FinalReturnType<R> : T;
+}[T extends (...args: any) => infer _ ? 1 : 0];
