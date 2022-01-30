@@ -1,12 +1,12 @@
 import { ThemeOptions } from "@mui/material";
 import { themeFluidTypography } from "./createFluidTypography";
+import { themeResponsiveStyles } from "./createResponsiveProperty";
+
+const responsiveFontSize = themeResponsiveStyles("fontSize");
 
 const typography: ThemeOptions["typography"] = {
   fontFamily: ["Inter", "sans-serif"].join(","),
   h1: { fontSize: themeFluidTypography({ maxFontSize: 64, minFontSize: 32 }) },
-  h5: { fontSize: themeFluidTypography({ maxFontSize: 22, minFontSize: 18 }) },
-  caption: {
-    fontSize: themeFluidTypography({ maxFontSize: 14, minFontSize: 12 }),
-  },
+  h2: { fontSize: themeFluidTypography({ maxFontSize: 36, minFontSize: 24 }) },
 };
 export default typography;
