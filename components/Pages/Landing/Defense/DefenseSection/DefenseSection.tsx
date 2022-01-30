@@ -32,10 +32,10 @@ const styles = stylesheet.create({
   },
   grid: {
     display: "grid",
+    placeContent: "center",
     gridTemplateColumns: {
       xs: "minmax(0, 1fr)",
-      sm: "minmax(0, 0.5fr) minmax(0, 0.5fr)",
-      lg: "minmax(0, 0.333fr) minmax(0, 0.333fr) minmax(0, 0.333fr)",
+      lg: "33.333% 33.333% 33.333%",
     },
     gridAutoFlow: "row",
     width: "100%",
