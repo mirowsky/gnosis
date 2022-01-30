@@ -1,4 +1,4 @@
-const breakpointKeys = ['xs', 'sm', 'md', 'lg', 'xl'] as const;
+const breakpointKeys = ["xs", "sm", "md", "lg", "xl"] as const;
 
 export type BreakpointKeys = typeof breakpointKeys[number];
 

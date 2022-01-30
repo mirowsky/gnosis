@@ -1,6 +1,6 @@
 import React from "react";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import theme from "./theme";
+import { theme } from "./theme";
 import GlobalStyles from "./GlobalStyles";
 
 export interface CustomThemeProps {

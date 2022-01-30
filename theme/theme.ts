@@ -4,23 +4,23 @@ import components from "./components";
 import { pallete } from "./palette";
 import typography from "./typography";
 
-const _theme = createTheme({
+export const themeDefaults = createTheme({
   palette: pallete,
 });
 
-const theme = createTheme({
+export const theme = createTheme({
+  palette: {
+    ...themeDefaults.palette,
+    secondary: { ...themeDefaults.palette.secondary, contrastText: "#fff" },
+  },
   breakpoints: {
     values: breakpoints,
-  },
-  palette: {
-    ..._theme.palette,
-    secondary: { ..._theme.palette.secondary, contrastText: "#fff" },
   },
   shape: {
     borderRadius: 12,
   },
   typography: typography,
-  components: components(_theme),
+  components: components(themeDefaults),
 });
 
 export default theme;

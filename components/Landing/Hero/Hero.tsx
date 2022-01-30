@@ -1,8 +1,7 @@
 import React from "react";
-import stylesheet from "@workspace/stylesheet";
+import { stylesheet } from "@workspace/stylesheet";
 import { Box, Button, Container, Typography } from "@mui/material";
 import { noop } from "@workspace/utility";
-import { fluidTypography } from "../../../theme/fluidTypography";
 
 export type HeroProps = {
   mainText: string;
@@ -37,15 +36,6 @@ const Hero = ({
   },
   mainText = "Impact text that should invite your users to explore your products",
 }: HeroProps) => {
-  const fluid = fluidTypography({
-    maxBreakpoint: 1920,
-    maxFontSize: 64,
-    minBreakpoint: 360,
-    minFontSize: 32,
-  });
-
-  console.log(fluid);
-
   return (
     <Box sx={styles.root}>
       <Container maxWidth="lg">

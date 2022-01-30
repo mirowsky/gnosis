@@ -1,6 +1,6 @@
-import * as CSS from "csstype";
+import { theme } from "./theme";
+import type { Properties } from "csstype";
 import type { Theme, Breakpoint } from "@mui/system";
-import theme from "./theme";
 
 export type ResponsiveStyleValue<
   TType,
@@ -12,12 +12,12 @@ export type ResponsiveStyleValue<
 export function createResponsiveStyle<TTheme extends Theme = Theme>(
   theme: TTheme
 ) {
-  return function <TCSSProperty extends keyof CSS.Properties>(
+  return function <TCSSProperty extends keyof Properties>(
     property: TCSSProperty
   ) {
     return function (
       value: ResponsiveStyleValue<
-        CSS.Properties[TCSSProperty],
+        Properties[TCSSProperty],
         TTheme["breakpoints"]["keys"][number]
       >
     ) {

@@ -8,7 +8,7 @@ import {
   TypographyVariantsOptions,
 } from "@mui/material";
 import React from "react";
-import * as CSS from "csstype";
+import { Properties } from "csstype";
 
 type FluidTypographyParameters = {
   minFontSize: number;
