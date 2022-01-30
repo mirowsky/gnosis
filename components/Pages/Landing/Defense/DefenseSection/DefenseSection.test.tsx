@@ -1,5 +1,4 @@
 import { render } from "@testing-library/react";
-import { DEFENSE_CARD_TEST_ID } from "../DefenseCard/constants";
 import {
   DEFAULT_DEFENSE_SECTION_TEST_PROPS,
   DEFENSE_SECTION_TEST_ID,

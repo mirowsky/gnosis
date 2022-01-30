@@ -19,7 +19,8 @@
     "paths": {
       "@workspace/stylesheet": ["theme/stylesheet.ts"],
       "@workspace/utility": ["utility/index.ts"],
-      "@workspace/types": ["./types.ts"]
+      "@workspace/types": ["./types.ts"],
+      "@workspace/images": ["./public/images"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "global.d.ts", "augmentation.d.ts"],

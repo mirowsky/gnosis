@@ -23,6 +23,7 @@ module.exports = {
             process.cwd(),
             "theme/stylesheet.ts"
           ),
+          "@workspace/images": path.resolve(process.cwd(), "public", "images"),
           "@workspace/utility": path.resolve(process.cwd(), "utility/index.ts"),
           "@workspace/types": path.resolve(process.cwd(), "types.ts"),
           "@emotion/core": path.resolve(

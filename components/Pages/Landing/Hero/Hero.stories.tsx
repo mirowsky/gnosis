@@ -1,7 +1,7 @@
 import Hero, { HeroProps } from "./Hero";
 import { Story, Meta } from "@storybook/react";
 import { DEFAULT_HERO_TESTING_PROPS } from "./contants";
-import imageFile from "../../../public/images/hero-doc-cut-opt.webp";
+import imageFile from "@workspace/images/hero-doc-cut-opt.webp";
 
 export default {
   title: "Landing Page/Hero/Main",

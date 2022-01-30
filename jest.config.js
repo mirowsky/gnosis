@@ -13,6 +13,7 @@ const customJestConfig = {
     "@workspace/stylesheet": "<rootDir>/theme/stylesheet",
     "@workspace/utility": "<rootDir>/utility/index",
     "@workspace/types": "<rootDir>/types",
+    "@workspaces/images": "<rootDir>/public/images",
   },
 };
 
