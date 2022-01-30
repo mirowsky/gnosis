@@ -105,7 +105,7 @@ const styles = stylesheet.create({
     height: "auto",
     maxHeight: "90vh",
     overflow: "hidden",
-    mt: (theme) => ({ lg: theme.spacing(10) }),
+    mt: (theme) => ({ xs: theme.spacing(5), lg: theme.spacing(10) }),
     px: (theme) => ({ xs: theme.spacing(4), lg: 0 }),
   },
 
@@ -122,7 +122,7 @@ const styles = stylesheet.create({
   textContainer: {
     display: "flex",
     flexDirection: "column",
-    gap: (theme) => ({ lg: theme.spacing(5) }),
+    gap: (theme) => ({ xs: theme.spacing(4), lg: theme.spacing(5) }),
     width: "100%",
     height: "100%",
     justifyContent: { lg: "center" },
@@ -140,17 +140,18 @@ const styles = stylesheet.create({
   altTextContainer: {},
   buttonContainer: {
     display: "flex",
+    flexDirection: { xs: "column", sm: "row" },
     gap: (theme) => ({ xs: theme.spacing(5) }),
   },
 
   // Item
   mainText: {
     display: "block",
-    maxWidth: { lg: "16ch" },
+    maxWidth: { sm: "20ch", lg: "16ch" },
   },
   altText: {
     color: (theme) => theme.palette.grey[800],
-    maxWidth: { lg: "27ch" },
+    maxWidth: { sm: "27ch" },
   },
   primaryButton: {},
   secondaryButton: {},
