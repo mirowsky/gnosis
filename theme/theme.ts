@@ -2,6 +2,7 @@ import { createTheme } from "@mui/material";
 import breakpoints from "./breakpoints";
 import components from "./components";
 import { createFluidTypography } from "./createFluidTypography";
+import { createResponsiveStyle } from "./createResponsiveProperty";
 import { pallete } from "./palette";
 import typography from "./typography";
 
@@ -14,10 +15,14 @@ const _theme = createTheme({
 export const themeDefaults = createTheme({
   palette: pallete,
 
+  breakpoints: _theme.breakpoints,
+
   fluidTypography: createFluidTypography(
     _theme.breakpoints.values.lg,
     _theme.breakpoints.values.xs
   ),
+
+  responsiveProperty: createResponsiveStyle(_theme),
 });
 
 export const theme = createTheme({
@@ -25,8 +30,9 @@ export const theme = createTheme({
     ...themeDefaults.palette,
     secondary: { ...themeDefaults.palette.secondary, contrastText: "#fff" },
   },
-  fluidTypography: _theme.fluidTypography,
-  breakpoints: _theme.breakpoints,
+  fluidTypography: themeDefaults.fluidTypography,
+  responsiveProperty: themeDefaults.responsiveProperty,
+  breakpoints: themeDefaults.breakpoints,
   shape: {
     borderRadius: 12,
   },

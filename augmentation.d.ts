@@ -43,10 +43,12 @@ declare module "@mui/material/styles" {
 
   export interface ThemeOptions {
     fluidTypography?: ReturnType<typeof createFluidTypography>;
+    responsiveProperty?: ReturnType<typeof createResponsiveStyle>;
   }
 
   export interface Theme {
     fluidTypography: ReturnType<typeof createFluidTypography>;
+    responsiveProperty: ReturnType<typeof createResponsiveStyle>;
   }
 
   export interface TypographyVariants {
