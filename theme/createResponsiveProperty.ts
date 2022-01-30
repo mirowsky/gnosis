@@ -6,7 +6,7 @@ export type ResponsiveStyleValue<
   TType,
   TBreakpoint extends Breakpoint = Breakpoint
 > = {
-  [Key in keyof TBreakpoint]?: TType | null;
+  [Key in TBreakpoint]?: TType | null;
 };
 
 export function createResponsiveStyle<TTheme extends Theme = Theme>(
@@ -31,7 +31,7 @@ export function createResponsiveStyle<TTheme extends Theme = Theme>(
             }px)`,
             {
               [`${property}`]:
-                value[key as keyof TTheme["breakpoints"]["keys"][number]],
+                value[key as TTheme["breakpoints"]["keys"][number]],
             },
           ];
         })
