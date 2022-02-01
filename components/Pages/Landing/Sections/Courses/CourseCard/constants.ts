@@ -4,11 +4,11 @@ import { CourseCardProps } from "./CourseCard";
 
 export const DEFAULT_COURSE_CARD_TEST_PROPS: CourseCardProps = {
   primaryAction: {
-    childNode: "Saiba mais",
+    children: "Saiba mais",
     onClick: noop,
   },
   secondaryAction: {
-    childNode: WhatsApp,
+    children: WhatsApp,
     onClick: noop,
   },
   tags: [

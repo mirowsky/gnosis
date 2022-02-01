@@ -4,7 +4,7 @@ import React from "react";
 import { COURSE_CARD_TEST_ID } from "./constants";
 
 type CardButton = {
-  children: React.ReactNode;
+  children: React.ReactNode | string;
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
@@ -74,7 +74,16 @@ const CourseCard = ({
             variant="contained"
             color="primary"
           >
-            {primaryAction.children}
+            {(typeof primaryAction.children === "object" && (
+              <Box
+                component={
+                  primaryAction.children as React.ComponentType<
+                    typeof primaryAction.children
+                  >
+                }
+              />
+            )) ||
+              primaryAction.children}
           </Button>
 
           <Button
@@ -82,7 +91,16 @@ const CourseCard = ({
             color="primary"
             onClick={secondaryAction.onClick}
           >
-            {secondaryAction.children}
+            {(typeof secondaryAction.children === "object" && (
+              <Box
+                component={
+                  secondaryAction.children as React.ComponentType<
+                    typeof secondaryAction.children
+                  >
+                }
+              />
+            )) ||
+              secondaryAction.children}
           </Button>
         </Box>
       </Box>
@@ -105,7 +123,7 @@ const styles = stylesheet.create({
     gridTemplateRows: {
       xs: "minmax(0, 0.44fr) minmax(0, 0.36fr) minmax(0, 0.2fr)",
     },
-    gridTemplateColumns: "1fr",
+    gridTemplateColumns: "100%",
     height: "100%",
     width: "100%",
   },
