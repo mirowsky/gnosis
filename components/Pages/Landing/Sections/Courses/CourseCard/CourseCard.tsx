@@ -15,6 +15,10 @@ export type CourseCardProps = {
   secondaryAction: CardButton;
   title: string;
   tags: CardTag[];
+  img: {
+    src: string;
+    alt: string;
+  };
 };
 
 const CourseCard = (props: CourseCardProps) => {
