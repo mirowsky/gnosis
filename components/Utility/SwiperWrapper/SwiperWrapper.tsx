@@ -36,9 +36,8 @@ export const SwiperGenericWrapper = <T extends {}>({
   modules = [Pagination],
   sx,
 }: SwiperGenericWrapperProps<T>) => {
-  React.useEffect(() => {
-    SwiperCore.use(modules);
-  }, [modules]);
+  // Has to run during render or it wont be picked up by swiper
+  React.useMemo(() => SwiperCore.use(modules), [modules]);
 
   return (
     <Box sx={sx} component={Swiper} {...SwiperProps}>
