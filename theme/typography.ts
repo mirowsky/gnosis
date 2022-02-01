@@ -20,5 +20,6 @@ const typography = (theme: Theme): ThemeOptions["typography"] => ({
   subtitle2: { fontSize: "0.875rem" },
   overline: { fontSize: "0.75rem" },
   caption: { fontSize: "0.75rem" },
+  button: { fontSize: "1rem" },
 });
 export default typography;

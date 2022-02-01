@@ -9,26 +9,26 @@ export const buttonOverride = (theme: Theme): Components["MuiButton"] => {
         borderRadius: theme.spacing(1 * 3.125),
       },
 
-      sizeSmall: {
-        fontSize: theme.spacing(1 * 2),
-      },
+      // sizeSmall: {
+      //   fontSize: theme.spacing(1 * 2),
+      // },
 
-      sizeMedium: {
-        fontSize: theme.spacing(1 * 2.5),
-      },
+      // sizeMedium: {
+      //   fontSize: theme.spacing(1 * 2.5),
+      // },
 
-      sizeLarge: {
-        fontSize: theme.spacing(1 * 4),
-      },
+      // sizeLarge: {
+      //   fontSize: theme.spacing(1 * 4),
+      // },
 
       outlined: {
         fontWeight: 500,
-        padding: `${theme.spacing(1 * 1.25)} ${theme.spacing(1 * 5.25)}`,
+        padding: `${theme.spacing(1 * 1.15)} ${theme.spacing(1 * 5.5)}`,
       },
 
       contained: {
         fontWeight: 500,
-        padding: `${theme.spacing(1 * 1.25)} ${theme.spacing(1 * 5.25)}`,
+        padding: `${theme.spacing(1 * 1.15)} ${theme.spacing(1 * 5.5)}`,
       },
 
       text: {
