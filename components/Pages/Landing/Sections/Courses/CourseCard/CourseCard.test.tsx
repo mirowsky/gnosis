@@ -26,7 +26,7 @@ describe("Course card component", () => {
     expect(elementTitle).toBeInTheDocument();
   });
 
-  it("should have an image with the appropriate src and alt text", () => {
+  it("should have an image with the appropriate src and alt text abc", () => {
     const { getByAltText } = setup();
 
     const imageElement = getByAltText(DEFAULT_COURSE_CARD_TEST_PROPS.img.alt);
