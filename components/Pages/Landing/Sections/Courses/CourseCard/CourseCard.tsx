@@ -178,7 +178,9 @@ const styles = stylesheet.create({
     height: "100%",
     objectPosition: "center",
     borderRadius: (theme) =>
-      `${theme.shape.borderRadius} ${theme.shape.borderRadius} 0 0`,
+      `${(theme.shape.borderRadius as number) * 4}px ${
+        (theme.shape.borderRadius as number) * 4
+      }px 0 0`,
   },
   title: {
     fontWeight: 600,

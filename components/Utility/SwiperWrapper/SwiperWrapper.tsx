@@ -2,7 +2,7 @@ import { Box, BoxProps } from "@mui/material";
 import React from "react";
 import SwiperCore, { Pagination, SwiperOptions } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper-bundle.min.css";
+import "swiper/css";
 import type { SwiperModule } from "swiper/types/shared";
 
 export type SwiperSlideData = {

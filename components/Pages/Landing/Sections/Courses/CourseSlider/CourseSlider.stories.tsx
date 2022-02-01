@@ -5,6 +5,12 @@ import CourseSlider, { CourseSliderProps } from "./CourseSlider";
 export default {
   title: "Course/Slider",
   component: CourseSlider,
+  parameters: {
+    layout: "fullscreen",
+    viewport: {
+      defaultViewport: "brazilDesktop1",
+    },
+  },
 } as Meta<CourseSliderProps>;
 
 const Template: Story<CourseSliderProps> = (props) => (

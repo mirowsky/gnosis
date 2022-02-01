@@ -34,7 +34,7 @@ export const theme = createTheme({
   responsiveProperty: themeDefaults.responsiveProperty,
   breakpoints: themeDefaults.breakpoints,
   shape: {
-    borderRadius: "13px",
+    borderRadius: 4,
   },
   typography: typography(themeDefaults),
   components: components(themeDefaults),
