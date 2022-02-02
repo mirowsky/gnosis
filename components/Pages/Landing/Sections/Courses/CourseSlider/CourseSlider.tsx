@@ -5,6 +5,7 @@ import CourseCard, { CourseCardProps } from "../CourseCard/CourseCard";
 import { Box, Fab } from "@mui/material";
 import { KeyboardArrowRight } from "@mui/icons-material";
 import { Navigation } from "swiper";
+import { COURSE_SLIDER_TEST_ID } from "./constants";
 
 export type CourseSliderProps = {
   items: CourseCardProps[];
@@ -17,6 +18,7 @@ const CourseSlider = ({ items = [] }: CourseSliderProps) => {
         component={CourseCard}
         sx={styles.root}
         list={items}
+        data-testid={COURSE_SLIDER_TEST_ID.CONTAINER}
         modules={[Navigation]}
         SwiperProps={{
           navigation: { prevEl: "#prev", nextEl: "#next" },
@@ -35,11 +37,23 @@ const CourseSlider = ({ items = [] }: CourseSliderProps) => {
       />
 
       <Box sx={styles.navigationContainer}>
-        <Fab sx={styles.prevButton} id="prev" color="primary">
+        <Fab
+          aria-label="Previous item"
+          data-testid={COURSE_SLIDER_TEST_ID.PREV_BUTTON}
+          sx={styles.prevButton}
+          id="prev"
+          color="primary"
+        >
           <KeyboardArrowRight />
         </Fab>
 
-        <Fab sx={styles.nextButton} id="next" color="primary">
+        <Fab
+          aria-label="Next item"
+          data-testid={COURSE_SLIDER_TEST_ID.NEXT_BUTTON}
+          sx={styles.nextButton}
+          id="next"
+          color="primary"
+        >
           <KeyboardArrowRight />
         </Fab>
       </Box>

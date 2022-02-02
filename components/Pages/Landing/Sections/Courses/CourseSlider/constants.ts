@@ -37,4 +37,6 @@ export const DEFAULT_COURSE_SLIDER_TEST_PROPS: CourseSliderProps = {
 
 export const COURSE_SLIDER_TEST_ID = {
   CONTAINER: "course-slider-container-testid",
+  NEXT_BUTTON: "course-slider-next-button-testid",
+  PREV_BUTTON: "course-slider-prev-button-testid",
 } as const;

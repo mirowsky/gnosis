@@ -35,12 +35,13 @@ export const SwiperGenericWrapper = <T extends {}>({
   list = [],
   modules = [Pagination],
   sx,
+  ...rest
 }: SwiperGenericWrapperProps<T>) => {
   // Has to run during render or it wont be picked up by swiper
   React.useMemo(() => SwiperCore.use(modules), [modules]);
 
   return (
-    <Box sx={sx} component={Swiper} {...SwiperProps}>
+    <Box sx={sx} component={Swiper} {...rest} {...SwiperProps}>
       {list.map((value, index) => {
         return (
           <SwiperSlide key={index}>
