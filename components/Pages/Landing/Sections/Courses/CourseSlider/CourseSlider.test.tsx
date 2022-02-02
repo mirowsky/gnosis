@@ -12,7 +12,7 @@ const setup = (props: CourseSliderProps = DEFAULT_COURSE_SLIDER_TEST_PROPS) => {
   return result;
 };
 
-describe("Course section slider ", () => {
+describe("Course section slider", () => {
   it("should render", () => {
     const { baseElement } = setup();
 

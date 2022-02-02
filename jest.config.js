@@ -1,14 +1,7 @@
-const nextJest = require("next/jest");
-
-const createJestConfig = nextJest({
-  // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
-  dir: "./",
-});
-
 /** @type {import('ts-jest').InitialOptionsTsJest} */
 const customJestConfig = {
   transform: {
-    "\\.[jt]sx?$": "babel-jest",
+    "^.+\\.[t|j]sx?$": "babel-jest",
   },
 
   transformIgnorePatterns: ["<rootDir>/node_modules/(?!(swiper)/)"],
@@ -23,4 +16,4 @@ const customJestConfig = {
   testEnvironment: "jsdom",
 };
 
-module.exports = createJestConfig(customJestConfig);
+module.exports = customJestConfig;

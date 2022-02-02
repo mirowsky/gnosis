@@ -9,7 +9,7 @@
     "lint": "next lint",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test": "NODE_ENV=test jest --watch"
+    "test": "jest --watch"
   },
   "dependencies": {
     "@emotion/cache": "^11.7.1",
@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.12",
+    "@babel/plugin-transform-modules-commonjs": "^7.16.8",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
