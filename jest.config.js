@@ -8,19 +8,16 @@ const createJestConfig = nextJest({
 /** @type {import('ts-jest').InitialOptionsTsJest} */
 const customJestConfig = {
   transform: {
-    "^.*.[t|j](s|sx)$": "@swc/jest",
-    // "^.*.(esm).[t|j](s|sx)$": "jest-esm-transformer",
+    "\\.[jt]sx?$": "babel-jest",
   },
-  // transformIgnorePatterns: [
-  //   "<rootDir>/node_modules/swiper/.*.(esm).[t|j](s|sx)$",
-  // ],
-  preset: "ts-jest",
+
+  transformIgnorePatterns: ["<rootDir>/node_modules/(?!(swiper)/)"],
+
   moduleNameMapper: {
     "@workspace/stylesheet": "<rootDir>/theme/stylesheet",
     "@workspace/utility": "<rootDir>/utility/index",
     "@workspace/types": "<rootDir>/types",
     "@workspaces/images": "<rootDir>/public/images",
-    "swiper/*": "<rootDir>/node_modules/swiper/swiper-bundle.min.js",
   },
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
   testEnvironment: "jsdom",
