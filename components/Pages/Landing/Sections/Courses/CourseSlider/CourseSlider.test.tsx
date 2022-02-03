@@ -35,7 +35,7 @@ describe("Course section sli der", () => {
     });
   });
 
-  it("should have navigation buttons that fire a callback when clicked", () => {
+  it("should have navigation buttons that fire a callback when clicked ", () => {
     const mockFn = jest.fn(() => {});
 
     const { getByTestId } = setup();
@@ -46,11 +46,11 @@ describe("Course section sli der", () => {
     expect(prevButtonElement).toBeInTheDocument();
     expect(nextButtonElement).toBeInTheDocument();
 
-    prevButtonElement.click = mockFn;
+    prevButtonElement.onclick = mockFn;
 
     fireEvent.click(prevButtonElement);
 
-    expect(mockFn.mock.calls).toBe(1);
+    expect(mockFn.mock.calls.length).toBe(1);
     expect(mockFn).toHaveBeenCalled();
   });
 });
