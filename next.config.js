@@ -11,5 +11,4 @@ module.exports = {
   //   GTM: getEnvironmentGTM(),
   // },
   swcMinify: true,
-  experimental: { esmExternals: true },
 };

@@ -1,10 +1,15 @@
+const nextJest = require("next/jest");
+
+const createJestConfig = nextJest({
+  // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
+  dir: "./",
+});
+
 /** @type {import('ts-jest').InitialOptionsTsJest} */
 const customJestConfig = {
-  transform: {
-    "^.+\\.[t|j]sx?$": "babel-jest",
-  },
-
-  transformIgnorePatterns: ["<rootDir>/node_modules/(?!(swiper)/)"],
+  transformIgnorePatterns: [
+    "<rootDir>/node_modules/(?!(swiper|ssr-window|dom7|)/)",
+  ],
 
   moduleNameMapper: {
     "@workspace/stylesheet": "<rootDir>/theme/stylesheet",
@@ -13,7 +18,8 @@ const customJestConfig = {
     "@workspaces/images": "<rootDir>/public/images",
   },
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+  moduleDirectories: ["node_modules", "<rootDir>/"],
   testEnvironment: "jsdom",
 };
 
-module.exports = customJestConfig;
+module.exports = createJestConfig(customJestConfig);

@@ -2,8 +2,9 @@ import { Box, BoxProps } from "@mui/material";
 import React from "react";
 import SwiperCore, { Pagination, SwiperOptions } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import type { SwiperModule } from "swiper/types/shared";
+import "swiper/swiper.min.css";
+
+type SwiperModule = {};
 
 export type SwiperSlideData = {
   isActive: boolean;
