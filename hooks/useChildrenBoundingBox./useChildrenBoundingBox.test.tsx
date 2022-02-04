@@ -4,13 +4,17 @@ import React from "react";
 
 let HOOK_STATE = {};
 
+beforeEach(() => (HOOK_STATE = {}));
+
 const setup = (amount: number = 10, direction: "column" | "row" = "column") => {
-  const Item = () => <div style={{ width: "100px", height: "100px" }}></div>;
+  const Item = () => (
+    <div style={{ width: "100px", height: "100px" }}>hello</div>
+  );
 
   const ItemContainer = () => {
     const { ref, ...rest } = useChildrenBoundingBox<HTMLDivElement>();
 
-    React.useLayoutEffect(() => {
+    React.useEffect(() => {
       HOOK_STATE = rest;
     }, [rest]);
 
@@ -42,8 +46,6 @@ describe("useChildrenBoundingBox custom hook", () => {
     const { baseElement } = setup();
 
     expect(baseElement).toBeInTheDocument();
-
-    console.log(HOOK_STATE);
   });
 
   it("should have the appropriate ammount of child nodes", () => {
@@ -51,4 +53,6 @@ describe("useChildrenBoundingBox custom hook", () => {
 
     expect(getByTestId("container").childElementCount).toBe(15);
   });
+
+  it("should have the correct height and width for each component", () => {});
 });

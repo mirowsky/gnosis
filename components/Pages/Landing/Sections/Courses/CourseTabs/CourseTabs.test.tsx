@@ -14,4 +14,20 @@ describe("course tab component", () => {
 
     expect(baseElement).toBeInTheDocument();
   });
+
+  it("should render all the tabs when props are available", () => {
+    const { getByText } = setup();
+
+    DEFAULT_COURSE_TABS_TESTING_PROPS.items.forEach((item, _index) => {
+      const elem = getByText(item);
+
+      expect(elem).toBeInTheDocument();
+    });
+  });
+
+  it("should have no children if no props are available", () => {
+    const { container } = render(<CourseTabs items={[]} />);
+
+    expect(container.firstChild).toBeEmptyDOMElement();
+  });
 });

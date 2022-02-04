@@ -1,4 +1,5 @@
 import { Meta, Story } from "@storybook/react";
+import { DEFAULT_COURSE_TABS_TESTING_PROPS } from "./constants";
 import CourseTabs, { CourseTabsProps } from "./CourseTabs";
 
 export default {
@@ -10,4 +11,6 @@ const Template: Story<CourseTabsProps> = (props) => <CourseTabs {...props} />;
 
 export const Primary = Template.bind({});
 
-Primary.args = {};
+Primary.args = {
+  ...DEFAULT_COURSE_TABS_TESTING_PROPS,
+};
