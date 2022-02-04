@@ -60,3 +60,12 @@ Fourth.args = {
 };
 
 Fourth.storyName = "Scaled down";
+Fourth.decorators = [
+  (Story) => {
+    return (
+      <Box sx={{ width: "300px" }}>
+        <Story />
+      </Box>
+    );
+  },
+];
