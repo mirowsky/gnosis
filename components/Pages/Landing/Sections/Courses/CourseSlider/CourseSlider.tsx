@@ -81,7 +81,6 @@ const styles = stylesheet.create({
   },
 
   navigationContainer: {
-    position: "absolute",
     display: "flex",
     justifyContent: "center",
     width: "100%",

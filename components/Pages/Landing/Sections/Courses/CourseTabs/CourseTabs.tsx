@@ -24,7 +24,7 @@ export default function CourseTabs({
         centered
       >
         {items.map((label, index) => {
-          return <Tab label={label} key={index} />;
+          return <Tab sx={styles.tabItem} label={label} key={index} />;
         })}
       </Tabs>
     </Box>
@@ -39,10 +39,16 @@ const styles = stylesheet.create({
     bgcolor: (theme) => theme.palette.primary.main,
     minHeight: "48px",
     color: (theme) => theme.palette.primary.contrastText,
+    position: "relative",
+    borderRadius: (theme) => theme.shape.borderRadius,
   },
 
   hidden: {
     display: "none",
     visibility: "hidden",
+  },
+
+  tabItem: {
+    fontSize: "0.75rem",
   },
 });
