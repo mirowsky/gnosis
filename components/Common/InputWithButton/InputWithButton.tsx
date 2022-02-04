@@ -2,13 +2,22 @@ import { Box, CircularProgress, Fab, FabProps } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
 import React, { InputHTMLAttributes } from "react";
 import { KeyboardArrowRight } from "@mui/icons-material";
+import { ResponsiveStyleValue } from "../../../theme/createResponsiveProperty";
+import { Properties } from "csstype";
 
 export type InputWithButtonProps = {
   ButtonProps: FabProps & { loading?: boolean };
   InputProps: InputHTMLAttributes<HTMLInputElement>;
+  fontSize?: ResponsiveStyleValue<Properties["fontSize"]>;
 };
 
-const InputWithButton = ({ ButtonProps, InputProps }: InputWithButtonProps) => {
+const InputWithButton = ({
+  ButtonProps,
+  InputProps,
+  fontSize = { xs: "1rem" },
+}: InputWithButtonProps) => {
+  const styles = React.useMemo(() => _styles(fontSize), [fontSize]);
+
   return (
     <Box sx={styles.root}>
       <Box
@@ -17,6 +26,7 @@ const InputWithButton = ({ ButtonProps, InputProps }: InputWithButtonProps) => {
         type="text"
         placeholder="Enter Your Email"
         sx={styles.input}
+        {...InputProps}
       />
       <Fab
         disabled={ButtonProps.loading}
@@ -35,59 +45,62 @@ const InputWithButton = ({ ButtonProps, InputProps }: InputWithButtonProps) => {
 
 export default InputWithButton;
 
-const styles = stylesheet.create({
-  root: {
-    width: "100%",
-    height: "70px",
-    // backgroundColor: "#f1f1f199",
-    borderRadius: "40px",
-    position: "relative",
-    marginTop: "40px",
-  },
-  input: {
-    width: "100%",
-    height: "70px",
-    borderRadius: "40px",
-    background: "none",
-    padding: "0 30px",
-    boxShadow: (theme) => `0px 0px 0px 1px ${theme.palette.grey[400]}`,
-    outline: "none",
-    fontSize: "15px",
-    border: 0,
-    paddingRight: { sm: "80px" },
-    transition: "0.3s linear",
-
-    "&:hover, :active, :focus": {
-      boxShadow: (theme) => `0px 0px 0px 1.5px ${theme.palette.primary.main}`,
+const _styles = (fontSize: ResponsiveStyleValue<Properties["fontSize"]>) =>
+  stylesheet.create({
+    root: {
+      width: "100%",
+      height: "4.375em",
+      // backgroundColor: "#f1f1f199",
+      borderRadius: "40px",
+      position: "relative",
+      fontSize: fontSize,
     },
-  },
-  button: {
-    border: 0,
-    width: "50px",
-    height: "50px",
-    borderRadius: "50%",
-    position: "absolute",
-    right: "10px",
-    top: "10px",
-    outline: "none",
-    cursor: "pointer",
-    color: "#fff",
-    boxShadow: 0,
-    transition: "0.3s linear",
+    input: {
+      width: "100%",
+      height: "4.375em",
+      borderRadius: "40px",
+      background: "none",
+      padding: "0 1.875em",
+      boxShadow: (theme) => `0px 0px 0px 1px ${theme.palette.grey[400]}`,
+      outline: "none",
+      fontSize: "0.9375em",
+      border: 0,
+      paddingRight: { sm: "5em" },
+      transition: "0.3s linear",
+      "&:hover, :active, :focus": {
+        boxShadow: (theme) => `0px 0px 0px 1.5px ${theme.palette.primary.main}`,
+      },
+    },
+    button: {
+      fontSize: "inherit",
+      border: 0,
+      width: "3.125em",
+      height: "3.125em",
+      borderRadius: "50%",
+      position: "absolute",
+      top: "50%",
+      transform: "translateY(-50%)",
+      right: "5%",
+      outline: "none",
+      cursor: "pointer",
+      color: "#fff",
+      boxShadow: 0,
+      minHeight: 0,
+      transition: "0.3s linear",
 
-    "&:hover": {
-      opacity: "0.5s",
+      "&:hover": {
+        opacity: "0.5s",
+      },
+
+      "> svg": {
+        fontSize: "2em",
+      },
     },
 
-    "> svg": {
-      fontSize: "2rem",
+    spinner: {
+      fontSize: "inherit",
+      color: (theme) => theme.palette.grey[700],
+      height: "1.5625em !important",
+      width: "1.5625em !important",
     },
-  },
-
-  spinner: {
-    color: (theme) => theme.palette.grey[700],
-
-    height: "25px !important",
-    width: "25px !important",
-  },
-});
+  });

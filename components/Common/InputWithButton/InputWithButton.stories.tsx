@@ -49,3 +49,14 @@ Tertiary.args = {
 };
 
 Tertiary.storyName = "Disabled state";
+
+export const Fourth = Template.bind({});
+
+Fourth.args = {
+  ...Primary.args,
+  fontSize: {
+    xs: "0.5rem",
+  },
+};
+
+Fourth.storyName = "Scaled down";
