@@ -3,43 +3,31 @@ import React from "react";
 export function useChildrenBoundingBox<TNode extends HTMLElement>() {
   const ref = React.useRef<TNode>(null);
 
-  const [childNodes, setChildNodes] = React.useState<Element[]>(
-    Array.from(ref.current?.children ?? [])
-  );
   const [widths, setWidths] = React.useState<number[]>([]);
   const [heights, setHeights] = React.useState<number[]>([]);
-  const [totalHeight, setTotalHeight] = React.useState<number>();
-  const [totalWidth, setTotalWidth] = React.useState<number>();
+  const [totalHeight, setTotalHeight] = React.useState<number>(0);
+  const [totalWidth, setTotalWidth] = React.useState<number>(0);
 
   React.useLayoutEffect(() => {
-    setChildNodes(Array.from(ref.current?.children ?? []));
+    if (ref.current && ref.current.children.length > 0) {
+      const nodes = ref.current.children;
+
+      setHeights([...nodes].map((node, _i) => node.clientHeight));
+      setWidths([...nodes].map((node, _i) => node.clientWidth));
+    }
   }, []);
 
   React.useEffect(() => {
-    if (childNodes.length > 0) {
-      const childHeights = childNodes.map(
-        (element, index) => element.clientHeight
-      );
-
-      const childWidths = childNodes.map(
-        (element, index) => element.clientWidth
-      );
-
-      setWidths(childWidths);
-      setHeights(childHeights);
-
-      setTotalHeight(
-        Array.from(childHeights).reduce(
-          (prev, current, index) => prev + current
-        )
-      );
-
-      setTotalWidth(
-        Array.from(childWidths).reduce((prev, current, index) => prev + current)
-      );
+    if (widths.length > 0) {
+      setTotalWidth(widths.reduce((prev, current, _i) => prev + current));
     }
-  }, [childNodes]);
+  }, [widths]);
 
+  React.useEffect(() => {
+    if (heights.length > 0) {
+      setTotalHeight(heights.reduce((prev, current, _i, []) => prev + current));
+    }
+  }, [heights]);
   return {
     ref: ref,
     totalWidth: totalWidth,
