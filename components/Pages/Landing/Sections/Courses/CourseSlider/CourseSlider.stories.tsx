@@ -3,7 +3,7 @@ import { DEFAULT_COURSE_SLIDER_TEST_PROPS } from "./constants";
 import CourseSlider, { CourseSliderProps } from "./CourseSlider";
 
 export default {
-  title: "Course/Slider",
+  title: "Landing/Course Section/Slider",
   component: CourseSlider,
   parameters: {
     layout: "fullscreen",

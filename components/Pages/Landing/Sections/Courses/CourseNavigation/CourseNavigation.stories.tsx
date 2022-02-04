@@ -4,7 +4,7 @@ import CourseNavigation, { CourseNavigationProps } from "./CourseNavigation";
 
 export default {
   component: CourseNavigation,
-  title: "Landing Page/Course Section/Course Navigation",
+  title: "Landing/Course Section/Course Navigation",
 } as Meta<CourseNavigationProps>;
 
 const Template: Story<CourseNavigationProps> = (props) => (

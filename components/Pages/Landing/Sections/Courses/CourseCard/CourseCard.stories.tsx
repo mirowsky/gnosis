@@ -3,7 +3,7 @@ import { DEFAULT_COURSE_CARD_TEST_PROPS } from "./constants";
 import CourseCard, { CourseCardProps } from "./CourseCard";
 
 export default {
-  title: "Courses/Course Card",
+  title: "Landing/Course Section/Course Card",
   component: CourseCard,
 } as Meta<CourseCardProps>;
 

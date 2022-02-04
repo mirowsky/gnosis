@@ -3,7 +3,7 @@ import { DEFAULT_COURSES_SECTION_TESTING_PROPS } from "./constants";
 import CourseSection, { CourseSectionProps } from "./CoursesSection";
 
 export default {
-  title: "Landing/Courses/Section",
+  title: "Landing/Course Section/Section",
   component: CourseSection,
   parameters: {
     layout: "fullscreen",
