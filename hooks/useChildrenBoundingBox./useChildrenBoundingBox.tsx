@@ -41,6 +41,7 @@ export function useChildrenBoundingBox<TNode extends HTMLElement>() {
   }, [childNodes]);
 
   return {
+    ref: ref,
     totalWidth: totalWidth,
     totalHeight: totalHeight,
     heightList: heights,
