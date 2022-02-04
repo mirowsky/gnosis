@@ -26,3 +26,26 @@ export const Primary = Template.bind({});
 Primary.args = {
   ...DEFAULT_INPUT_WITH_BUTTON_TEST_PROPS,
 };
+
+export const Secondary = Template.bind({});
+
+Secondary.args = {
+  ...Primary.args,
+  ButtonProps: {
+    ...Primary.args.ButtonProps,
+    loading: true,
+  },
+};
+
+Secondary.storyName = "Loading state";
+
+export const Tertiary = Template.bind({});
+
+Tertiary.args = {
+  ...Secondary.args,
+  ButtonProps: {
+    disabled: true,
+  },
+};
+
+Tertiary.storyName = "Disabled state";

@@ -8,10 +8,7 @@ export type InputWithButtonProps = {
   InputProps: InputHTMLAttributes<HTMLInputElement>;
 };
 
-const InputWithButton = ({
-  ButtonProps = { loading: true },
-  InputProps,
-}: InputWithButtonProps) => {
+const InputWithButton = ({ ButtonProps, InputProps }: InputWithButtonProps) => {
   return (
     <Box sx={styles.root}>
       <Box
@@ -21,8 +18,14 @@ const InputWithButton = ({
         placeholder="Enter Your Email"
         sx={styles.input}
       />
-      <Fab role="button" sx={styles.button} color="primary">
-        {(ButtonProps.loading && <CircularProgress />) || (
+      <Fab
+        disabled={ButtonProps.loading}
+        role="button"
+        sx={styles.button}
+        color="primary"
+        {...ButtonProps}
+      >
+        {(ButtonProps.loading && <CircularProgress sx={styles.spinner} />) || (
           <KeyboardArrowRight />
         )}
       </Fab>
@@ -79,5 +82,12 @@ const styles = stylesheet.create({
     "> svg": {
       fontSize: "2rem",
     },
+  },
+
+  spinner: {
+    color: (theme) => theme.palette.grey[700],
+
+    height: "25px !important",
+    width: "25px !important",
   },
 });
