@@ -9,8 +9,8 @@ export const pallete: ThemeOptions["palette"] = {
   },
   special: {
     main: "#E1ECFE",
-    dark: darken("#E1ECFE", 0.33),
-    light: lighten("#E1ECFE", 0.33),
+    dark: darken("#E1ECFE", 0.15),
+    light: lighten("#E1ECFE", 0.15),
   },
 };
 

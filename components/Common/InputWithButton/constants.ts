@@ -8,7 +8,6 @@ export const DEFAULT_INPUT_WITH_BUTTON_TEST_PROPS: InputWithButtonProps = {
   },
   TextFieldProps: {
     onChange: noop,
-    value: "I have a value",
     label: "Label placeholder",
   },
 };
