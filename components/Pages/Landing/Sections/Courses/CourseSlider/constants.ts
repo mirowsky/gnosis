@@ -33,6 +33,10 @@ export const DEFAULT_COURSE_SLIDER_TEST_PROPS: CourseSliderProps = {
     { ...COURSE_SLIDER_ITEM, title: "Psicologia" },
     { ...COURSE_SLIDER_ITEM, title: "Pediatria" },
   ],
+  navigation: {
+    nextEl: "#next",
+    prevEl: "#prev",
+  },
 };
 
 export const COURSE_SLIDER_TEST_ID = {

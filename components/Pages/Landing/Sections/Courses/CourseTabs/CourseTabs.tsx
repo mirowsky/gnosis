@@ -40,7 +40,7 @@ const styles = stylesheet.create({
     minHeight: "48px",
     color: (theme) => theme.palette.primary.contrastText,
     position: "relative",
-    borderRadius: (theme) => theme.shape.borderRadius,
+    borderRadius: (theme) => ({ xs: 0, sm: theme.shape.borderRadius }),
   },
 
   hidden: {
@@ -49,6 +49,6 @@ const styles = stylesheet.create({
   },
 
   tabItem: {
-    fontSize: "0.75rem",
+    fontSize: { xs: "0.6rem", sm: "0.75rem" },
   },
 });

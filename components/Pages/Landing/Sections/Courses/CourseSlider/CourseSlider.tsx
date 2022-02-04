@@ -4,14 +4,15 @@ import React from "react";
 import CourseCard, { CourseCardProps } from "../CourseCard/CourseCard";
 import { Box, Fab } from "@mui/material";
 import { KeyboardArrowRight } from "@mui/icons-material";
-import { Navigation } from "swiper";
+import { Navigation, SwiperOptions } from "swiper";
 import { COURSE_SLIDER_TEST_ID } from "./constants";
 
 export type CourseSliderProps = {
   items: CourseCardProps[];
+  navigation: SwiperOptions["navigation"];
 };
 
-const CourseSlider = ({ items = [] }: CourseSliderProps) => {
+const CourseSlider = ({ items = [], navigation = {} }: CourseSliderProps) => {
   return (
     <Box>
       <SwiperGenericWrapper
@@ -21,7 +22,7 @@ const CourseSlider = ({ items = [] }: CourseSliderProps) => {
         data-testid={COURSE_SLIDER_TEST_ID.CONTAINER}
         modules={[Navigation]}
         SwiperProps={{
-          navigation: { prevEl: "#prev", nextEl: "#next" },
+          navigation: navigation,
           slidesPerView: 1,
           initialSlide: 1,
           autoplay: false,
@@ -35,28 +36,6 @@ const CourseSlider = ({ items = [] }: CourseSliderProps) => {
           },
         }}
       />
-
-      <Box sx={styles.navigationContainer}>
-        <Fab
-          aria-label="Previous item"
-          data-testid={COURSE_SLIDER_TEST_ID.PREV_BUTTON}
-          sx={styles.prevButton}
-          id="prev"
-          color="primary"
-        >
-          <KeyboardArrowRight />
-        </Fab>
-
-        <Fab
-          aria-label="Next item"
-          data-testid={COURSE_SLIDER_TEST_ID.NEXT_BUTTON}
-          sx={styles.nextButton}
-          id="next"
-          color="primary"
-        >
-          <KeyboardArrowRight />
-        </Fab>
-      </Box>
     </Box>
   );
 };
@@ -71,30 +50,12 @@ const styles = stylesheet.create({
       justifyContent: "center",
       width: "100%",
       alignItems: "flex-start",
-      paddingBottom: "30px",
+      paddingBottom: "5px",
     },
 
     "& .swiper-container": {
       height: "auto",
       overflowY: "visible",
-    },
-  },
-
-  navigationContainer: {
-    display: "flex",
-    justifyContent: "center",
-    width: "100%",
-    gap: "5rem",
-  },
-  prevButton: {
-    "> svg": {
-      fontSize: "2.5rem",
-      transform: "rotateY(180deg)",
-    },
-  },
-  nextButton: {
-    "> svg": {
-      fontSize: "2.5rem",
     },
   },
 });
