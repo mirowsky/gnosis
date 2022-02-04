@@ -1,18 +1,19 @@
 import { AppBar, Tab, Tabs, Box } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
 import React from "react";
+import { noop } from "@workspace/utility";
 
 export type CourseTabsProps = {
   items: string[];
+  handleChange: (event: React.SyntheticEvent, newValue: number) => void;
+  value: number;
 };
 
-export default function CourseTabs({ items = [] }: CourseTabsProps) {
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
-  };
-
+export default function CourseTabs({
+  items = [],
+  handleChange = noop,
+  value = 0,
+}: CourseTabsProps) {
   return items.length > 0 ? (
     <Box component={AppBar} sx={styles.root}>
       <Tabs
