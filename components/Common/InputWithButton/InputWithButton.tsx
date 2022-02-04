@@ -39,23 +39,23 @@ const styles = stylesheet.create({
     borderRadius: "40px",
     position: "relative",
     marginTop: "40px",
-    transition: "0.3s linear",
-    boxShadow: (theme) => `0px 0px 3px ${theme.palette.special.main}`,
-
-    "&:hover": {
-      boxShadow: (theme) => `0px 0px 8px ${theme.palette.special.main}`,
-    },
   },
   input: {
     width: "100%",
     height: "70px",
     borderRadius: "40px",
-    border: 0,
     background: "none",
     padding: "0 30px",
+    boxShadow: (theme) => `0px 0px 0px 1px ${theme.palette.grey[400]}`,
     outline: "none",
     fontSize: "15px",
+    border: 0,
     paddingRight: { sm: "80px" },
+    transition: "0.3s linear",
+
+    "&:hover, :active, :focus": {
+      boxShadow: (theme) => `0px 0px 0px 1.5px ${theme.palette.primary.main}`,
+    },
   },
   button: {
     border: 0,
@@ -68,6 +68,7 @@ const styles = stylesheet.create({
     outline: "none",
     cursor: "pointer",
     color: "#fff",
+    boxShadow: 0,
     transition: "0.3s linear",
 
     "&:hover": {
