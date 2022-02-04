@@ -6,9 +6,9 @@ export const DEFAULT_INPUT_WITH_BUTTON_TEST_PROPS: InputWithButtonProps = {
     onClick: noop,
     children: "Click me",
   },
-  TextFieldProps: {
+  InputProps: {
     onChange: noop,
-    label: "Label placeholder",
+    "aria-label": "Label placeholder",
   },
 };
 

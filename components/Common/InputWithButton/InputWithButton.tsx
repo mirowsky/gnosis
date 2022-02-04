@@ -1,17 +1,16 @@
-import { Box, Fab, TextField, TextFieldProps } from "@mui/material";
-import { LoadingButton, LoadingButtonProps } from "@mui/lab";
+import { Box, CircularProgress, Fab, FabProps } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
-import React from "react";
+import React, { InputHTMLAttributes } from "react";
 import { KeyboardArrowRight } from "@mui/icons-material";
 
 export type InputWithButtonProps = {
-  ButtonProps: LoadingButtonProps;
-  TextFieldProps: TextFieldProps;
+  ButtonProps: FabProps & { loading?: boolean };
+  InputProps: InputHTMLAttributes<HTMLInputElement>;
 };
 
 const InputWithButton = ({
-  ButtonProps,
-  TextFieldProps,
+  ButtonProps = { loading: true },
+  InputProps,
 }: InputWithButtonProps) => {
   return (
     <Box sx={styles.root}>
@@ -23,7 +22,9 @@ const InputWithButton = ({
         sx={styles.input}
       />
       <Fab role="button" sx={styles.button} color="primary">
-        <KeyboardArrowRight />
+        {(ButtonProps.loading && <CircularProgress />) || (
+          <KeyboardArrowRight />
+        )}
       </Fab>
     </Box>
   );
