@@ -11,6 +11,7 @@ export type NewsLetterSectionProps = {
     alt: string;
   };
   InputWithButtonProps: InputWithButtonProps;
+  sectionTitle: string;
 };
 
 const NewsLetterSection = ({
@@ -18,6 +19,8 @@ const NewsLetterSection = ({
     alt: "This is a placeholder, change me",
     src: "https://via.placeholder.com",
   },
+  InputWithButtonProps,
+  sectionTitle = "Assine nossa Newsletter e fique por dentro das novidades.",
 }: NewsLetterSectionProps) => {
   return (
     <Box sx={styles.root}>
@@ -33,10 +36,13 @@ const NewsLetterSection = ({
 
         <Box sx={styles.formContainer}>
           <Typography variant="h3" sx={styles.formTitle}>
-            Assine nossa Newsletter e fique por dentro das novidades.
+            {sectionTitle}
           </Typography>
 
-          <InputWithButton fontSize={{ xs: "0.75rem", lg: "1rem" }} />
+          <InputWithButton
+            {...InputWithButtonProps}
+            fontSize={{ xs: "0.75rem", lg: "1rem" }}
+          />
         </Box>
       </Box>
     </Box>
