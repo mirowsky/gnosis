@@ -6,13 +6,13 @@ import { ResponsiveStyleValue } from "../../../theme/createResponsiveProperty";
 import { Properties } from "csstype";
 
 export type InputWithButtonProps = {
-  ButtonProps: FabProps & { loading?: boolean };
-  InputProps: InputHTMLAttributes<HTMLInputElement>;
+  ButtonProps?: FabProps & { loading?: boolean };
+  InputProps?: InputHTMLAttributes<HTMLInputElement>;
   fontSize?: ResponsiveStyleValue<Properties["fontSize"]>;
 };
 
 const InputWithButton = ({
-  ButtonProps,
+  ButtonProps = { loading: false },
   InputProps,
   fontSize = { xs: "1rem" },
 }: InputWithButtonProps) => {
@@ -50,10 +50,17 @@ const _styles = (fontSize: ResponsiveStyleValue<Properties["fontSize"]>) =>
     root: {
       width: "100%",
       height: "4.375em",
-      // backgroundColor: "#f1f1f199",
+      backgroundColor: "#fff",
       borderRadius: "40px",
       position: "relative",
       fontSize: fontSize,
+      transition: "0.3s linear",
+
+      boxShadow: (theme) => `0px 0px 0px 1px ${theme.palette.grey[400]}`,
+
+      "&:hover, :active, :focus, :focus-within": {
+        boxShadow: (theme) => `0px 0px 5px 1px ${theme.palette.primary.light}`,
+      },
     },
     input: {
       width: "100%",
@@ -61,15 +68,10 @@ const _styles = (fontSize: ResponsiveStyleValue<Properties["fontSize"]>) =>
       borderRadius: "40px",
       background: "none",
       padding: "0 1.875em",
-      boxShadow: (theme) => `0px 0px 0px 1px ${theme.palette.grey[400]}`,
       outline: "none",
       fontSize: "0.9375em",
       border: 0,
       paddingRight: { sm: "5em" },
-      transition: "0.3s linear",
-      "&:hover, :active, :focus": {
-        boxShadow: (theme) => `0px 0px 0px 1.5px ${theme.palette.primary.main}`,
-      },
     },
     button: {
       fontSize: "inherit",

@@ -54,7 +54,7 @@ describe("Input with button component", () => {
     const { getByLabelText } = setup();
 
     const elem = getByLabelText(
-      DEFAULT_INPUT_WITH_BUTTON_TEST_PROPS.InputProps["aria-label"] as string
+      DEFAULT_INPUT_WITH_BUTTON_TEST_PROPS.InputProps!["aria-label"] as string
     );
 
     expect(elem).toBeInTheDocument();

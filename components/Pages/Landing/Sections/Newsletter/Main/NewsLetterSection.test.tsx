@@ -58,7 +58,7 @@ describe("newsletter section", () => {
     expect(elem).not.toBeDisabled();
   });
 
-  it("the button should be disabled if the input is not valid", () => {
+  it("the button should be disabled i f the input is not valid", () => {
     const callback = jest.fn(() => {});
 
     const { getByRole } = setup();
