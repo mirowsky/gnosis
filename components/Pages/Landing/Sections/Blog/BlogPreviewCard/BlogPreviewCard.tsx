@@ -2,6 +2,7 @@ import { WatchLater } from "@mui/icons-material";
 import { Box, Typography, Chip } from "@mui/material";
 import { ThemeProvider } from "@mui/system";
 import stylesheet from "@workspace/stylesheet";
+import { webkitVerticalTruncate } from "mixins/webkitVerticalTruncate";
 import React from "react";
 
 export type BlogPreviewCardProps = {
@@ -91,6 +92,7 @@ const styles = stylesheet.create({
   title: {
     color: (theme) => theme.palette.primary.main,
     fontWeight: 700,
+    ...(webkitVerticalTruncate(3) as {}),
   },
   timeIcon: {
     color: (theme) => theme.palette.secondary.main,
