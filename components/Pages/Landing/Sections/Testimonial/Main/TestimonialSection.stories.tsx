@@ -2,6 +2,7 @@ import type { TestimonialSectionProps } from "./TestimonialSection";
 import TestimonialSection from "./TestimonialSection";
 import React from "react";
 import { Story, Meta } from "@storybook/react";
+import { DEFAULT_TestimonialSection_TESTING_PROPS } from "./TestimonialSection.fixture";
 
 export default {
   title: "Landing/Testimonial Section/Main",
@@ -18,4 +19,6 @@ const Template: Story<TestimonialSectionProps> = (props) => (
   <TestimonialSection {...props} />
 );
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  ...DEFAULT_TestimonialSection_TESTING_PROPS,
+};

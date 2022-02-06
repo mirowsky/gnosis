@@ -6,7 +6,10 @@ const typography = (theme: Theme): ThemeOptions["typography"] => ({
     fontSize: theme.fluidTypography({ maxFontSize: 64, minFontSize: 32 }),
     lineHeight: 1.35,
   },
-  h2: { fontSize: theme.fluidTypography({ maxFontSize: 36, minFontSize: 24 }) },
+  h2: {
+    fontSize: theme.fluidTypography({ maxFontSize: 36, minFontSize: 24 }),
+    lineHeight: 1.5,
+  },
   h3: {
     lineHeight: 1.65,
     fontSize: theme.fluidTypography({ maxFontSize: 28, minFontSize: 22 }),
