@@ -7,6 +7,11 @@ import { DEFAULT_FAQCard_TESTING_PROPS } from "./FAQCard.fixture";
 export default {
   title: "Landing/FAQ Section/FAQ Card",
   component: FAQCard,
+  parameters: {
+    viewport: {
+      defaultViewport: "brazilDesktop1",
+    },
+  },
 } as Meta<FAQCardProps>;
 
 const Template: Story<FAQCardProps> = (props) => <FAQCard {...props} />;

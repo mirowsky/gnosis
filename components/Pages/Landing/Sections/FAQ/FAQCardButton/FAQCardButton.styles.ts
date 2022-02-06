@@ -14,6 +14,7 @@ export const FAQCardButtonStyles = (
 
   return stylesheet.create({
     root: {
+      userSelect: "none",
       cursor: "pointer",
       borderRadius: "6px",
       display: "flex",
@@ -33,20 +34,6 @@ export const FAQCardButtonStyles = (
           open
             ? theme.palette[color][REVERSE_INVERT]
             : theme.palette[color][INVERT],
-      },
-
-      "&:hover": {
-        bgcolor: (theme) =>
-          open
-            ? theme.palette[color][REVERSE_INVERT]
-            : theme.palette[color][INVERT],
-
-        "& > svg": {
-          color: (theme) =>
-            open
-              ? theme.palette[color][INVERT]
-              : theme.palette[color][REVERSE_INVERT],
-        },
       },
     },
     chevron: {

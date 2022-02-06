@@ -7,7 +7,7 @@ import { ResponsiveStyleValue } from "@workspace/types";
 import { FAQCardButtonStyles } from "./FAQCardButton.styles";
 const CONTAINER_VARIANTS: Variants = {
   closed: {
-    boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.55)",
+    boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.55)",
   },
   open: {
     boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.25)",
@@ -16,7 +16,7 @@ const CONTAINER_VARIANTS: Variants = {
     scale: 0.9,
   },
   hover: {
-    boxShadow: "0px 0px 1px rgba(0, 0, 0, 0.25)",
+    boxShadow: "0px 2px 7px rgba(0, 0, 0, 0.25)",
   },
 };
 const CHEVRON_VARIANTS: Variants = {
@@ -33,6 +33,7 @@ export type FAQCardButtonProps = {
   fontSize?: ResponsiveStyleValue<Properties["fontSize"]>;
   inverted?: boolean;
   color?: "primary" | "secondary";
+  onClick?: (...args: unknown[]) => void;
 };
 
 export const FAQCardButton = ({
@@ -40,6 +41,7 @@ export const FAQCardButton = ({
   fontSize = { xs: "1rem" },
   color = "primary",
   inverted,
+  onClick,
 }: FAQCardButtonProps) => {
   const styles = React.useMemo(
     () => FAQCardButtonStyles(open, fontSize, inverted, color),
@@ -48,6 +50,7 @@ export const FAQCardButton = ({
 
   return (
     <MotionBox
+      onClick={onClick}
       variants={CONTAINER_VARIANTS}
       animate={open ? "open" : "closed"}
       whileHover="hover"
