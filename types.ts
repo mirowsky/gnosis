@@ -1,3 +1,5 @@
+import { Breakpoint } from "@mui/system";
+
 export interface CourseCollectionType {
   courseArea: string;
   courseDescription: string;
@@ -47,3 +49,10 @@ export type FinalReturnType<T> = {
   0: T;
   1: T extends (...args: any) => infer R ? FinalReturnType<R> : T;
 }[T extends (...args: any) => infer _ ? 1 : 0];
+
+export type ResponsiveStyleValue<
+  TType,
+  TBreakpoint extends Breakpoint = Breakpoint
+> = {
+  [Key in TBreakpoint]?: TType | null;
+};

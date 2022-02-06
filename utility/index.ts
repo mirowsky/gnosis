@@ -1,6 +1,5 @@
-export { default as convertToSlug } from "./convertToSlug";
-export { default as courseCollectionSlug } from "./courseCollectionSlug";
-export { evaluateAnimateInType } from "./evaluateAnimateInType";
+export { convertToSlug } from "./convertToSlug";
+export { createCourseCollectionWithSlug } from "./courseCollectionSlug";
 export { pageView } from "./gtag";
 export { handleMenuClick } from "./handleMenuClick";
 export { isMobile } from "./isMobile";
@@ -11,5 +10,3 @@ export {
   scrollToElem,
   smoothScrollTo,
 } from "./scrollToElem";
-export { AtlasStylesheet } from "./stylesheet";
-export { MotionBox } from "./MotionBox";

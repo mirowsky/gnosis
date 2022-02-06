@@ -1,7 +1,7 @@
 import { CourseCollectionType } from "../types";
 import convertToSlug from "./convertToSlug";
 
-const createCourseCollectionWithSlug = (
+export const createCourseCollectionWithSlug = (
   courses: CourseCollectionType[]
 ): Array<CourseCollectionType & { slug: string }> => {
   const outArray: Array<CourseCollectionType & { slug: string }> = courses.map(

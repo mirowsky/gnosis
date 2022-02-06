@@ -1,4 +1,4 @@
-const convertToSlug = (str: any): string => {
+export const convertToSlug = (str: any): string => {
   str = String(str).toString();
   str = str.replace(/^\s+|\s+$/g, ""); // trim
   str = str.toLowerCase();
