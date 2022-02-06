@@ -21,7 +21,8 @@
       "@workspace/utility": ["./utility/index.ts"],
       "@workspace/types": ["./types.ts"],
       "@workspace/images": ["./public/images"],
-      "@workspace/jss-mixins": ["./mixins/index.ts"]
+      "@workspace/jss-mixins": ["./mixins/index.ts"],
+      "@workspace/components/utility": ["./components/Utility/index.ts"]
     }
   },
   "include": [

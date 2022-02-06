@@ -11,6 +11,8 @@ const Template: Story<TestimonialSliderProps> = (props) => (
   <TestimonialSlider {...props} />
 );
 
-export const Primary = {
+export const Primary = Template.bind({});
+
+Primary.args = {
   ...DEFAULT_TESTIMONIAL_SLIDER_TESTING_PROPS,
 };
