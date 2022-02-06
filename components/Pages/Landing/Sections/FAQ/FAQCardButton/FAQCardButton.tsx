@@ -68,6 +68,7 @@ const _styles = (
 ) =>
   stylesheet.create({
     root: {
+      cursor: "pointer",
       borderRadius: "6px",
       fontSize: fontSize,
       display: "flex",
@@ -96,5 +97,6 @@ const _styles = (
     },
     chevron: {
       fontSize: "2em",
+      pointerEvents: "none",
     },
   });
