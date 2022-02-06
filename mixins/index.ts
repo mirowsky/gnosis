@@ -1,0 +1,1 @@
+export { webkitVerticalTruncate } from "./webkitVerticalTruncate";

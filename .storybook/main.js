@@ -1,3 +1,4 @@
+const path = require("path/posix");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 module.exports = {
@@ -11,10 +12,16 @@ module.exports = {
   core: {
     builder: "webpack5",
   },
-  webpackFinal: async (config, { configType }) => {
-    return {
-      ...config,
-      plugins: [...config.plugins, new TsconfigPathsPlugin()],
-    };
+  webpackFinal: async (config) => {
+    (config.resolve.alias = {
+      "@workspace/images": path.resolve(process.cwd(), "public", "images"),
+    }),
+      (config.resolve.plugins = [
+        ...(config.resolve.plugins || []),
+        new TsconfigPathsPlugin({
+          extensions: [...config.resolve.extensions],
+        }),
+      ]);
+    return config;
   },
 };
