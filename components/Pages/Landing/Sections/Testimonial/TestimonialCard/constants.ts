@@ -6,7 +6,7 @@ export const DEFAULT_TESTIMONIAL_CARD_TESTING_PROPS: TestimonialCardProps = {
   testimonialExtra: "SP/São Paulo",
   testimonialName: "Paulo Lima",
   testimonialPicture: {
-    src: "https://via.placeholder.com",
+    src: "https://via.placeholder.com/1500",
     alt: "placeholder alt text, change me",
   },
 };

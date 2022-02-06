@@ -1,4 +1,5 @@
 import { Meta, Story } from "@storybook/react";
+import { DEFAULT_TESTIMONIAL_CARD_TESTING_PROPS } from "./constants";
 import TestimonialCard, { TestimonialCardProps } from "./TestimonialCard";
 
 export default {
@@ -12,4 +13,6 @@ const Template: Story<TestimonialCardProps> = (args) => (
 
 export const Primary = Template.bind({});
 
-Primary.args = {};
+Primary.args = {
+  ...DEFAULT_TESTIMONIAL_CARD_TESTING_PROPS,
+};
