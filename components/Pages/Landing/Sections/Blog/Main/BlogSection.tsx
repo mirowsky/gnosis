@@ -1,4 +1,4 @@
-import { Box, Button, ButtonProps, Typography } from "@mui/material";
+import { Box, Button, ButtonProps, Container, Typography } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
 import React from "react";
 import BlogPreviewCard, {
@@ -31,7 +31,7 @@ const BlogSection = ({
       </Box>
 
       <Box sx={styles.buttonContainer}>
-        <Button {...ButtonProps} />
+        <Button {...ButtonProps} variant="outlined" color="primary" />
       </Box>
     </Box>
   );
@@ -44,16 +44,19 @@ const styles = stylesheet.create({
     width: "100%",
     display: "flex",
     flexDirection: "column",
+    gap: (theme) => ({ xs: theme.spacing(8) }),
   },
   grid: {
     width: "100%",
     display: "grid",
     gridTemplateColumns: {
       xs: "minmax(0, 1fr)",
-      sm: "minmax(0, 0.5fr) mimmax(0, 0.5fr)",
-      lg: "minmax(0, 0.333fr) minmax(0, 0.333fr) minmax(0, 0.333fr)",
+      lg: "repeat(2, minmax(0, 0.5fr))",
+      xl: "repeat(3, minmax(0, 0.333fr))",
     },
-    gridAutoFlow: "row",
+    justifyItems: "center",
+    gap: (theme) => ({ xs: theme.spacing(4) }),
+    rowGap: (theme) => ({ xs: theme.spacing(6) }),
   },
 
   titleContainer: {
