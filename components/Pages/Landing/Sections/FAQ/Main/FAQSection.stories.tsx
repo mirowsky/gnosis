@@ -1,5 +1,6 @@
 import type { FAQSectionProps } from "./FAQSection";
 import FAQSection from "./FAQSection";
+import { DEFAULT_FAQSection_TESTING_PROPS } from "./FAQSection.fixture";
 import React from "react";
 import { Story, Meta } from "@storybook/react";
 
@@ -10,4 +11,6 @@ export default {
 
 const Template: Story<FAQSectionProps> = (props) => <FAQSection {...props} />;
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  ...DEFAULT_FAQSection_TESTING_PROPS,
+};

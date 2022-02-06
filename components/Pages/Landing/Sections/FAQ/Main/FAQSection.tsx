@@ -1,9 +1,74 @@
+import { Box, Button, ButtonProps, Typography } from "@mui/material";
+import stylesheet from "@workspace/stylesheet";
 import React from "react";
+import FAQCard, { FAQCardProps } from "../FAQCard/FAQCard";
 
-export type FAQSectionProps = {};
+export type FAQSectionProps = {
+  items: FAQCardProps[];
+  sectionTitle?: string;
+  LoadMoreButtonProps?: ButtonProps;
+};
 
-export const FAQSection = (props: FAQSectionProps) => {
-  return <div>Hello, FAQSection!</div>;
+export const FAQSection = ({
+  items = [],
+  sectionTitle = "Encontre as respostas que você precisa em nosso centro de ajuda",
+  LoadMoreButtonProps = { children: "Mais perguntas", onClick: () => {} },
+}: FAQSectionProps) => {
+  return (
+    <Box sx={styles.root}>
+      <Box sx={styles.titleContainer}>
+        <Typography variant="h2" sx={styles.title}>
+          {sectionTitle}
+        </Typography>
+      </Box>
+
+      <Box sx={styles.cardsContainer}>
+        {items.map((item, index) => {
+          return <FAQCard {...item} key={index} />;
+        })}
+      </Box>
+
+      <Box sx={styles.loadMoreButtonContainer}>
+        <Button {...LoadMoreButtonProps} variant="outlined" color="primary" />
+      </Box>
+    </Box>
+  );
 };
 
 export default FAQSection;
+
+const styles = stylesheet.create({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    width: "100%",
+  },
+  titleContainer: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    textAlign: "center",
+  },
+  cardsContainer: {
+    gap: (theme) => ({ xs: theme.spacing(5), sm: theme.spacing(3) }),
+    display: "grid",
+    justifyItems: "center",
+    gridTemplateColumns: {
+      xs: "repeat(1, minmax(0, 1fr))",
+      sm: "repeat(2, minmax(0, 0.5fr))",
+      xl: "repeat(3, minmax(0, 0.333fr))",
+    },
+  },
+  loadMoreButtonContainer: {
+    display: "flex",
+    justifyContent: "center",
+  },
+
+  title: {
+    fontWeight: 700,
+    color: (theme) => theme.palette.primary.main,
+    maxWidth: "22ch",
+  },
+  loadMoreButton: {},
+});

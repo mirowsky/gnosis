@@ -5,6 +5,7 @@
     "body": [
       "import type { ${TM_FILENAME_BASE/(.stories)//}Props } from './${TM_FILENAME_BASE/(.stories)//}'",
       "import ${TM_FILENAME_BASE/(.stories)//} from './${TM_FILENAME_BASE/(.stories)//}'",
+      "import { DEFAULT_${TM_FILENAME_BASE/(.stories)//}_TESTING_PROPS } from './${TM_FILENAME_BASE/(.stories)//}.fixture'",
       "import React from 'react'",
       "import {Story, Meta} from '@storybook/react'",
       "",
@@ -15,7 +16,9 @@
       "",
       "const Template: Story<${TM_FILENAME_BASE/(.stories)//}Props> = (props) => <${TM_FILENAME_BASE/(.stories)//} {...props} />",
       "export const Primary = Template.bind({})",
-      "Primary.args = {};"
+      "Primary.args = {",
+      "...DEFAULT_${TM_FILENAME_BASE/(.stories)//}_TESTING_PROPS",
+      "};"
     ],
     "description": "Generates storybook file based on relative path"
   }
