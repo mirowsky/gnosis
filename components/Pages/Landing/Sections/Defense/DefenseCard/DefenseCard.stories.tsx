@@ -3,7 +3,7 @@ import { DEFAULT_DEFENSE_CARD_TEST_PROPS } from "./constants";
 import DefenseCard, { DefenseCardProps } from "./DefenseCard";
 
 export default {
-  title: "Landing Page/Defense/Defense Card",
+  title: "Landing/Defense Section/Defense Card",
   component: DefenseCard,
   parameters: {
     layout: "fullscreen",

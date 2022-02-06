@@ -4,7 +4,7 @@ import { DEFAULT_HERO_TESTING_PROPS } from "./contants";
 import imageFile from "@workspace/images/hero-doc-cut-opt.webp";
 
 export default {
-  title: "Landing Page/Hero/Main",
+  title: "Landing/Hero Section/Main",
   component: Hero,
   parameters: {
     layout: "fullscreen",

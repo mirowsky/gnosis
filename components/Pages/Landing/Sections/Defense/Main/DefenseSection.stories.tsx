@@ -3,7 +3,7 @@ import DefenseSection, { DefenseSectionProps } from "./DefenseSection";
 import { DEFAULT_DEFENSE_SECTION_TEST_PROPS } from "./constants";
 
 export default {
-  title: "Landing Page/Defense/Defense Section",
+  title: "Landing/Defense Section/Main",
   component: DefenseSection,
   parameters: {
     layout: "fullscreen",

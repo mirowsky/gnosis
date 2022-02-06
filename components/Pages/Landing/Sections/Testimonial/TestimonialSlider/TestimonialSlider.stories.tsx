@@ -5,6 +5,12 @@ import TestimonialSlider, { TestimonialSliderProps } from "./TestimonialSlider";
 export default {
   title: "Landing/Testimonial Section/Testimonial Slider",
   component: TestimonialSlider,
+  parameters: {
+    layout: "fullscreen",
+    viewport: {
+      defaultViewport: "brazilDesktop1",
+    },
+  },
 } as Meta<TestimonialSliderProps>;
 
 const Template: Story<TestimonialSliderProps> = (props) => (
