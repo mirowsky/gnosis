@@ -1,7 +1,7 @@
 import { WatchLater } from "@mui/icons-material";
 import { Box, Typography, Chip } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
-import { webkitVerticalTruncate } from "mixins/webkitVerticalTruncate";
+import { webkitVerticalTruncate } from "../../../../../../mixins/webkitVerticalTruncate";
 import React from "react";
 
 export type BlogPreviewCardProps = {
@@ -44,7 +44,15 @@ const BlogPreviewCard = ({
 
       <Box sx={styles.tagsContainer}>
         {tags.map((tag, index) => {
-          return <Chip clickable label={tag} key={index} />;
+          return (
+            <Chip
+              sx={styles.tag}
+              color="primary"
+              clickable
+              label={tag}
+              key={index}
+            />
+          );
         })}
       </Box>
     </Box>
@@ -53,50 +61,59 @@ const BlogPreviewCard = ({
 
 export default BlogPreviewCard;
 
-const styles = stylesheet.create({
-  root: {
-    display: "flex",
-    flexDirection: "column",
-    fontSize: (theme) =>
-      theme.fluidTypography({ maxFontSize: 16, minFontSize: 16 * 0.75 }),
-    gap: (theme) => theme.spacing(2),
-  },
+const styles = (function () {
+  const HEIGHT = "18.45em";
 
-  // Container
-  timeContainer: {
-    display: "flex",
-    alignItems: "center",
-    gap: (theme) => theme.spacing(1),
-  },
-  pictureContainer: {
-    width: "26.25em",
-    height: "18.45em",
-  },
-  titleContainer: {},
-  tagsContainer: {},
+  return stylesheet.create({
+    root: {
+      display: "flex",
+      flexDirection: "column",
+      fontSize: (theme) =>
+        theme.fluidTypography({ maxFontSize: 16, minFontSize: 16 * 0.75 }),
+      gap: (theme) => theme.spacing(2),
+      width: "26.25em",
+      height: "auto",
+    },
 
-  // Item
-  tag: {
-    bgcolor: (theme) => theme.palette.primary.main,
-    color: (theme) => theme.palette.primary.contrastText,
-    fontWeight: 700,
-  },
-  picture: {
-    objectFit: "cover",
-    objectPosition: "center",
-    width: "100%",
-    height: "100%",
-    borderRadius: (theme) => theme.shape.borderRadius,
-  },
-  title: {
-    color: (theme) => theme.palette.primary.main,
-    fontWeight: 700,
-    ...(webkitVerticalTruncate(3) as {}),
-  },
-  timeIcon: {
-    color: (theme) => theme.palette.secondary.main,
-  },
-  timeLabel: {
-    color: (theme) => theme.palette.grey[700],
-  },
-});
+    // Container
+    timeContainer: {
+      display: "flex",
+      alignItems: "center",
+      gap: (theme) => theme.spacing(1),
+    },
+    pictureContainer: {
+      width: "100%",
+      height: HEIGHT,
+    },
+    titleContainer: {},
+    tagsContainer: {
+      display: "grid",
+      gridTemplateColumns: "repeat(3, minmax(0, 0.333fr))",
+      gap: (theme) => theme.spacing(1),
+    },
+
+    // Item
+    tag: {
+      fontWeight: 700,
+      fontSize: "0.75em",
+    },
+    picture: {
+      objectFit: "cover",
+      objectPosition: "center",
+      width: "100%",
+      height: "100%",
+      borderRadius: (theme) => theme.shape.borderRadius,
+    },
+    title: {
+      color: (theme) => theme.palette.primary.main,
+      fontWeight: 700,
+      ...(webkitVerticalTruncate(3) as {}),
+    },
+    timeIcon: {
+      color: (theme) => theme.palette.secondary.main,
+    },
+    timeLabel: {
+      color: (theme) => theme.palette.grey[700],
+    },
+  });
+})();

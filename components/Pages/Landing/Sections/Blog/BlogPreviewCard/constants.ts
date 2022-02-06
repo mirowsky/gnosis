@@ -6,7 +6,7 @@ export const DEFAULT_BLOG_PREVIEW_CARDS_TEST_PROPS: BlogPreviewCardProps = {
     alt: "This is a placeholder, replace me",
   },
   readingTime: "10 min de leitura",
-  tags: [],
+  tags: ["#Marketing digital", "#Desenvolvimento", "#Tecnologia"],
   title: "Placeholder title",
 };
 

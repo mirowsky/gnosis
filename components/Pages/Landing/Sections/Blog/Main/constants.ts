@@ -3,7 +3,7 @@ import { BlogSectionProps } from "./BlogSection";
 
 export const DEFAULT_BLOG_SECTION_TESTING_PROPS: BlogSectionProps = {
   ButtonProps: {
-    children: "Load more",
+    children: "Veja mais postagens",
   },
   items: [
     DEFAULT_BLOG_PREVIEW_CARDS_TEST_PROPS,

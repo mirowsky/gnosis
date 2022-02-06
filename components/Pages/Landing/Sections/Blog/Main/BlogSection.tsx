@@ -41,11 +41,19 @@ export default BlogSection;
 
 const styles = stylesheet.create({
   root: {
+    width: "100%",
     display: "flex",
     flexDirection: "column",
   },
   grid: {
     width: "100%",
+    display: "grid",
+    gridTemplateColumns: {
+      xs: "minmax(0, 1fr)",
+      sm: "minmax(0, 0.5fr) mimmax(0, 0.5fr)",
+      lg: "minmax(0, 0.333fr) minmax(0, 0.333fr) minmax(0, 0.333fr)",
+    },
+    gridAutoFlow: "row",
   },
 
   titleContainer: {
