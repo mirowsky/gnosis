@@ -1,0 +1,22 @@
+{
+  "Generate component story based on relative path": {
+    "scope": "typescriptreact, typescript",
+    "prefix": "amboss-storybook",
+    "body": [
+      "import type { ${TM_FILENAME_BASE/(.stories)//}Props } from './${TM_FILENAME_BASE/(.stories)//}'",
+      "import ${TM_FILENAME_BASE/(.stories)//} from './${TM_FILENAME_BASE/(.stories)//}'",
+      "import React from 'react'",
+      "import {Story, Meta} from '@storybook/react'",
+      "",
+      "export default {",
+      "  title: $1,",
+      "  component: ${TM_FILENAME_BASE/(.stories)//}",
+      "} as Meta<${TM_FILENAME_BASE/(.stories)//}Props>",
+      "",
+      "const Template: Story<${TM_FILENAME_BASE/(.stories)//}Props> = (props) => <${TM_FILENAME_BASE/(.stories)//} {...props} />",
+      "export const Primary = Template.bind({})",
+      "Primary.args = {};"
+    ],
+    "description": "Generates storybook file based on relative path"
+  }
+}

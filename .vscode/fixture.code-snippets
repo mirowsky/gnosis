@@ -1,0 +1,14 @@
+{
+  "Generate fixture ": {
+    "prefix": "amboss-fixture",
+    "scope": "typescript",
+    "body": [
+      "import type {${TM_FILENAME_BASE/(.fixture)//}Props} from './${TM_FILENAME_BASE/(.fixture)//}'",
+      "",
+      "export const DEFAULT_${TM_FILENAME_BASE/(.fixture)//}_TESTING_PROPS: ${TM_FILENAME_BASE/(.fixture)//}Props = {};",
+      "",
+      "export const ${TM_FILENAME_BASE/(.fixture)//}_TEST_ID = {} as const;"
+    ],
+    "description": "Generates fixture based on relative component interface"
+  }
+}

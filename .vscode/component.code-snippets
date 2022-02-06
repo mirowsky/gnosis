@@ -1,0 +1,20 @@
+{
+  "Generate component skeleton based on relative path": {
+    "prefix": "amboss-component",
+    "scope": "typescriptreact, typescript",
+    "body": [
+      "import React from 'react'",
+      "",
+      "export type ${TM_FILENAME_BASE}Props = {}",
+      "",
+      "export const ${TM_FILENAME_BASE} = (props: ${TM_FILENAME_BASE}Props) => {",
+      "",
+      "    return <div>Hello, ${TM_FILENAME_BASE}!</div>",
+      "",
+      "};",
+      "",
+      "export default ${TM_FILENAME_BASE}"
+    ],
+    "description": "Generates storybook file based on relative path"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "Generate fixture ": {
+    "prefix": "amboss-test",
+    "scope": "typescript, typescriptreact",
+    "body": [
+      "import {render} from '@testing-library/react'",
+      "import type {${TM_FILENAME_BASE/(.test)//}Props} from './${TM_FILENAME_BASE/(.test)//}'",
+      "import { DEFAULT_${TM_FILENAME_BASE/(.test)//}_TESTING_PROPS } from './${TM_FILENAME_BASE/(.test)//}.fixture'",
+      "import {${TM_FILENAME_BASE/(.test)//}} from './${TM_FILENAME_BASE/(.test)//}'",
+      "",
+      "const setup = (props: ${TM_FILENAME_BASE/(.test)//}Props = DEFAULT_${TM_FILENAME_BASE/(.test)//}_TESTING_PROPS) => {",
+      "",
+      "const result = render(<${TM_FILENAME_BASE/(.test)//} {...props}/>)",
+      "",
+      "return result",
+      "",
+      "};",
+      "",
+      "",
+      "describe('${TM_FILENAME_BASE/(.test)//} component', () => {",
+      "",
+      "     it('should render', () => {",
+      "        const {baseElement} = setup();",
+      "        expect(baseElement).toBeInTheDocument();",
+      "})",
+      "})"
+    ],
+    "description": "Generates fixture based on relative component interface"
+  }
+}
