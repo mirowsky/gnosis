@@ -1,6 +1,7 @@
 import { Box, Button, ButtonProps, Typography } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
 import React from "react";
+import theme from "theme/theme";
 import FAQCard, { FAQCardProps } from "../FAQCard/FAQCard";
 
 export type FAQSectionProps = {
@@ -43,6 +44,7 @@ const styles = stylesheet.create({
     flexDirection: "column",
     alignItems: "center",
     width: "100%",
+    gap: (theme) => ({ xs: theme.spacing(8), md: theme.spacing(10) }),
   },
   titleContainer: {
     width: "100%",
@@ -52,12 +54,13 @@ const styles = stylesheet.create({
   },
   cardsContainer: {
     gap: (theme) => ({ xs: theme.spacing(5), sm: theme.spacing(3) }),
+    rowGap: (theme) => ({ lg: theme.spacing(8) }),
     display: "grid",
     justifyItems: "center",
     gridTemplateColumns: {
       xs: "repeat(1, minmax(0, 1fr))",
-      sm: "repeat(2, minmax(0, 0.5fr))",
-      xl: "repeat(3, minmax(0, 0.333fr))",
+      sm: "repeat(2, minmax(0, 1fr))",
+      xl: "repeat(3, minmax(0, 1fr))",
     },
   },
   loadMoreButtonContainer: {
