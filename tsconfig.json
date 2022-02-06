@@ -17,10 +17,11 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@workspace/stylesheet": ["theme/stylesheet.ts"],
-      "@workspace/utility": ["utility/index.ts"],
+      "@workspace/stylesheet": ["./theme/stylesheet.ts"],
+      "@workspace/utility": ["./utility/index.ts"],
       "@workspace/types": ["./types.ts"],
-      "@workspace/images": ["./public/images"]
+      "@workspace/images": ["./public/images"],
+      "@workspace/jss-mixins/*": ["./mixins/*"]
     }
   },
   "include": [
