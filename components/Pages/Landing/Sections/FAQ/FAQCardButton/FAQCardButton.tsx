@@ -16,7 +16,7 @@ const CONTAINER_VARIANTS: Variants = {
     scale: 0.9,
   },
   hover: {
-    boxShadow: "0px 3px 10px rgba(0, 0, 0, 0.25)",
+    boxShadow: "0px 0px 1px rgba(0, 0, 0, 0.25)",
   },
 };
 const CHEVRON_VARIANTS: Variants = {

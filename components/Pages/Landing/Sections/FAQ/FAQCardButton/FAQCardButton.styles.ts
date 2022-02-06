@@ -1,5 +1,4 @@
 import stylesheet from "@workspace/stylesheet";
-import { Console } from "console";
 import { FAQCardButtonProps } from "./FAQCardButton";
 
 const invert = (bool: boolean) => (bool ? "main" : "contrastText");
@@ -12,8 +11,6 @@ export const FAQCardButtonStyles = (
 ) => {
   const INVERT = invert(!inverted);
   const REVERSE_INVERT = invert(inverted);
-
-  console.log(INVERT, REVERSE_INVERT);
 
   return stylesheet.create({
     root: {
