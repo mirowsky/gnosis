@@ -48,6 +48,8 @@ export const FAQCardButton = ({
       whileTap="pressed"
       initial="closed"
       sx={styles.root}
+      role="button"
+      aria-labelledby="Toggle button"
     >
       <MotionBox
         initial="closed"
