@@ -3,6 +3,7 @@ import ContactSection from "./ContactSection";
 import { DEFAULT_ContactSection_TESTING_PROPS } from "./ContactSection.fixture";
 import React from "react";
 import { Story, Meta } from "@storybook/react";
+import { Container } from "@mui/material";
 
 export default {
   title: "Landing/Contact Section/Main",
@@ -16,3 +17,11 @@ export const Primary = Template.bind({});
 Primary.args = {
   ...DEFAULT_ContactSection_TESTING_PROPS,
 };
+
+Primary.decorators = [
+  (Story) => (
+    <Container maxWidth="lg">
+      <Story />
+    </Container>
+  ),
+];
