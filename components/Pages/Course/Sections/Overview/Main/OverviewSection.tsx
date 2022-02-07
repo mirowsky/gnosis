@@ -1,9 +1,42 @@
+import { Box } from "@mui/material";
+import stylesheet from "@workspace/stylesheet";
 import React from "react";
+import OverviewItem, { OverviewItemProps } from "../OverviewItem/OverviewItem";
+import { DEFAULT_OverviewSection_TESTING_PROPS } from "./OverviewSection.fixture";
 
-export type OverviewSectionProps = {};
+export type OverviewSectionProps = {
+  items: OverviewItemProps[];
+};
 
-export const OverviewSection = (props: OverviewSectionProps) => {
-  return <div>Hello, OverviewSection!</div>;
+export const OverviewSection = ({
+  items,
+}: OverviewSectionProps = DEFAULT_OverviewSection_TESTING_PROPS) => {
+  return (
+    <Box sx={styles.root}>
+      <Box sx={styles.grid}>
+        {items.map((item, index) => {
+          return <OverviewItem {...item} key={index} />;
+        })}
+      </Box>
+    </Box>
+  );
 };
 
 export default OverviewSection;
+
+const styles = stylesheet.create({
+  root: {
+    width: "100%",
+  },
+  grid: {
+    display: "grid",
+    placeItems: "center",
+    gap: (theme) => ({ xs: theme.spacing(8) }),
+    width: "100%",
+    gridTemplateColumns: {
+      xs: "repeat(1, minmax(0, 1fr))",
+      sm: "repeat(2, minmax(0, 1fr))",
+      lg: "repeat(4, minmax(0, 1fr))",
+    },
+  },
+});

@@ -7,6 +7,12 @@ import { Story, Meta } from "@storybook/react";
 export default {
   title: "Course/Overview Section/Main",
   component: OverviewSection,
+  parameters: {
+    layout: "fullscreen",
+    viewport: {
+      defaultViewport: "brazilDesktop1",
+    },
+  },
 } as Meta<OverviewSectionProps>;
 
 const Template: Story<OverviewSectionProps> = (props) => (
