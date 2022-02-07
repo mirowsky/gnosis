@@ -41,9 +41,6 @@ export const FAQCard = ({
           },
         }}
         sx={styles.answerContainer}
-        transition={{
-          delay: 0.3,
-        }}
       >
         <Typography sx={styles.answer} variant="body2">
           {answer}
@@ -74,7 +71,7 @@ const _styles = (open: boolean) =>
       boxShadow: (theme) => theme.shadows[3],
       display: "flex",
       flexDirection: "column",
-      transition: "background-color 0.5s ease, color 0.5s ease",
+      transition: "background-color 0.2s linear, color 0.2s linear",
       backgroundColor: (theme) =>
         open ? theme.palette.primary.main : theme.palette.primary.contrastText,
     },
