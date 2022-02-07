@@ -12,4 +12,18 @@ export default CourseHeroSection;
 
 const styles = stylesheet.create({
   root: {},
+  picture: {},
+  overlay: {},
+
+  container: {},
+  infoContainer: {},
+  scrollButtonContainer: {},
+  actionsContainer: {},
+
+  chip: {},
+  title: {},
+  subtitle: {},
+
+  primaryButton: {},
+  secondaryButton: {},
 });
