@@ -8,6 +8,12 @@ import { Container } from "@mui/material";
 export default {
   title: "Landing/Contact Section/Main",
   component: ContactSection,
+  parameters: {
+    layout: "fullscreen",
+    viewport: {
+      defaultViewport: "brazilDesktop1",
+    },
+  },
 } as Meta<ContactSectionProps>;
 
 const Template: Story<ContactSectionProps> = (props) => (
