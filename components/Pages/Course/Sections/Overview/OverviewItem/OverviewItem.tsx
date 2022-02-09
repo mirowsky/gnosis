@@ -20,7 +20,7 @@ export const OverviewItem = ({
         <Box component={Icon} sx={styles.icon} />
       </Box>
       <Box sx={styles.infoContainer}>
-        <Typography variant="h5" component="caption" sx={styles.caption}>
+        <Typography variant="h5" component="p" sx={styles.caption}>
           {caption}
         </Typography>
 

@@ -7,6 +7,12 @@ import { Story, Meta } from "@storybook/react";
 export default {
   title: "Course/Hero Section/Main",
   component: CourseHeroSection,
+  parameters: {
+    layout: "fullscreen",
+    viewport: {
+      defaultViewport: "brazilDesktop1",
+    },
+  },
 } as Meta<CourseHeroSectionProps>;
 
 const Template: Story<CourseHeroSectionProps> = (props) => (

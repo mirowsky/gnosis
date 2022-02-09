@@ -10,7 +10,11 @@ export const DEFAULT_CourseHeroSection_TESTING_PROPS: CourseHeroSectionProps = {
     children: "Manifeste interesse",
   },
   SecondaryButtonProps: {
-    children: WhatsApp({}),
+    children: <WhatsApp />,
+  },
+  img: {
+    src: "https://source.unsplash.com/random",
+    alt: "Placeholder alt text, change me",
   },
 };
 
