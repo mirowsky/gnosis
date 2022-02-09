@@ -10,11 +10,13 @@ import { MotionBox } from "@workspace/components/utility";
 export type ScrollIconAnimationProps = {
   fontSize?: ResponsiveStyleValue<Properties["fontSize"]>;
   color?: "primary" | "secondary";
+  onClick?: (...args: unknown[]) => void;
 };
 
 export const ScrollIconAnimation = ({
   color = "secondary",
   fontSize = { xs: "1rem" },
+  onClick = () => {},
 }: ScrollIconAnimationProps) => {
   const styles = React.useMemo(
     () => _styles(fontSize, color),
@@ -22,7 +24,7 @@ export const ScrollIconAnimation = ({
   );
 
   return (
-    <Box sx={styles.root}>
+    <Box onClick={onClick} component="button" role="button" sx={styles.root}>
       <Scroll fontSize="inherit" color="inherit" />
       <Box sx={styles.arrowBox}>
         <MotionBox
@@ -70,11 +72,15 @@ const _styles = (
 ) =>
   stylesheet.create({
     root: {
+      cursor: "pointer",
       fontSize: fontSize,
       color: (theme) => theme.palette[color].main,
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
+      backgroundColor: "transparent",
+      border: "none",
+      outline: "none",
     },
 
     arrowBox: {
