@@ -5,6 +5,7 @@ import { ResponsiveStyleValue } from "@workspace/types";
 import { Properties } from "csstype";
 import React from "react";
 import { KeyboardArrowDown } from "@mui/icons-material";
+import { MotionBox } from "@workspace/components/utility";
 
 export type ScrollIconAnimationProps = {
   fontSize?: ResponsiveStyleValue<Properties["fontSize"]>;
@@ -24,17 +25,37 @@ export const ScrollIconAnimation = ({
     <Box sx={styles.root}>
       <Scroll fontSize="inherit" color="inherit" />
       <Box sx={styles.arrowBox}>
-        <KeyboardArrowDown
+        <MotionBox
+          transition={{
+            repeat: Infinity,
+            repeatType: "loop",
+          }}
+          animate={{ opacity: [1, 0.3, 1] }}
+          component={KeyboardArrowDown}
           sx={styles.arrow}
           color="inherit"
           fontSize="inherit"
         />
-        <KeyboardArrowDown
+        <MotionBox
+          transition={{
+            repeat: Infinity,
+            repeatType: "loop",
+            delay: 0.25,
+          }}
+          animate={{ opacity: [1, 0.3, 1] }}
+          component={KeyboardArrowDown}
           sx={styles.arrow}
           color="inherit"
           fontSize="inherit"
         />
-        <KeyboardArrowDown
+        <MotionBox
+          transition={{
+            repeat: Infinity,
+            repeatType: "loop",
+            delay: 0.5,
+          }}
+          animate={{ opacity: [1, 0.3, 1] }}
+          component={KeyboardArrowDown}
           sx={styles.arrow}
           color="inherit"
           fontSize="inherit"
