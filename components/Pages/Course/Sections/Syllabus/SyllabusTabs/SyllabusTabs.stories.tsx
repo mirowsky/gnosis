@@ -7,6 +7,12 @@ import { Story, Meta } from "@storybook/react";
 export default {
   title: "Course/Syllabus Section/Syllabus Tabs",
   component: SyllabusTabs,
+  parameters: {
+    layout: "fullscreen",
+    viewport: {
+      defaultViewport: "brazilDesktop1",
+    },
+  },
 } as Meta<SyllabusTabsProps>;
 
 const Template: Story<SyllabusTabsProps> = (props) => (
