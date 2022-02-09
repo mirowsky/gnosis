@@ -1,9 +1,77 @@
+import { Box, BoxProps } from "@mui/material";
+import stylesheet from "@workspace/stylesheet";
+import { Scroll } from "@workspace/svg";
+import { ResponsiveStyleValue } from "@workspace/types";
+import { Properties } from "csstype";
 import React from "react";
+import { KeyboardArrowDown } from "@mui/icons-material";
 
-export type ScrollIconAnimationProps = {};
+export type ScrollIconAnimationProps = {
+  fontSize?: ResponsiveStyleValue<Properties["fontSize"]>;
+  color?: "primary" | "secondary";
+};
 
-export const ScrollIconAnimation = (props: ScrollIconAnimationProps) => {
-  return <div>Hello, ScrollIconAnimation!</div>;
+export const ScrollIconAnimation = ({
+  color = "secondary",
+  fontSize = { xs: "1rem" },
+}: ScrollIconAnimationProps) => {
+  const styles = React.useMemo(
+    () => _styles(fontSize, color),
+    [fontSize, color]
+  );
+
+  return (
+    <Box sx={styles.root}>
+      <Scroll fontSize="inherit" color="inherit" />
+      <Box sx={styles.arrowBox}>
+        <KeyboardArrowDown
+          sx={styles.arrow}
+          color="inherit"
+          fontSize="inherit"
+        />
+        <KeyboardArrowDown
+          sx={styles.arrow}
+          color="inherit"
+          fontSize="inherit"
+        />
+        <KeyboardArrowDown
+          sx={styles.arrow}
+          color="inherit"
+          fontSize="inherit"
+        />
+      </Box>
+    </Box>
+  );
 };
 
 export default ScrollIconAnimation;
+
+const _styles = (
+  fontSize: ResponsiveStyleValue<Properties["fontSize"]> = { xs: "1rem" },
+  color: "primary" | "secondary" = "primary"
+) =>
+  stylesheet.create({
+    root: {
+      fontSize: fontSize,
+      color: (theme) => theme.palette[color].main,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+    },
+
+    arrowBox: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+
+      "& svg:first-of-type": {
+        mt: "-15%",
+      },
+
+      "& svg:not(:first-of-type)": {
+        mt: "-47.5%",
+      },
+    },
+
+    arrow: {},
+  });

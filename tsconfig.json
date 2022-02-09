@@ -23,7 +23,8 @@
       "@workspace/images": ["./public/images"],
       "@workspace/jss-mixins": ["./mixins/index.ts"],
       "@workspace/components/utility": ["./components/Utility/index.ts"],
-      "@workspace/svg": ["./svg/index.ts"]
+      "@workspace/svg": ["./svg/index.ts"],
+      "@workspace/animations": ["./animations/index.ts"]
     }
   },
   "include": [
