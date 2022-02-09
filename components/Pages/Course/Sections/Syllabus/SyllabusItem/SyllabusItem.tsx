@@ -45,7 +45,7 @@ const _styles = (fontSize: ResponsiveFontSize = { xs: "1rem" }) =>
       minHeight: "3.3125em",
       borderRadius: "55px",
       display: "grid",
-      gridTemplateColumns: "minmax(0, 0.3fr) minmax(0, 0.7fr)",
+      gridTemplateColumns: "minmax(0, 0.25fr) minmax(0, 0.75fr)",
       alignContent: "center",
       p: 0.5,
       py: 1.5,
@@ -72,5 +72,6 @@ const _styles = (fontSize: ResponsiveFontSize = { xs: "1rem" }) =>
       color: (theme) => theme.palette.grey[700],
       fontWeight: 500,
       fontSize: "1em",
+      p: "0.5em",
     },
   });
