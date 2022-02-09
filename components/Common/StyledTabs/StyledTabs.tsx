@@ -1,4 +1,4 @@
-import { AppBar, Box, Tab, Tabs } from "@mui/material";
+import { AppBar, Box, BoxProps, Tab, Tabs } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
 import React from "react";
 
@@ -6,16 +6,18 @@ export type StyledTabsProps = {
   tabLabels: string[];
   handleChange: (event: React.SyntheticEvent, newValue: number) => void;
   activeIndex: number;
+  sx?: Pick<BoxProps, "sx">;
 };
 
 export const StyledTabs = ({
   activeIndex,
   handleChange,
   tabLabels,
+  sx,
 }: StyledTabsProps) => {
   return (
     <Box>
-      <Box component={AppBar} sx={styles.root}>
+      <Box component={AppBar} sx={{ ...styles.root, ...sx }}>
         <Tabs
           indicatorColor="secondary"
           textColor="inherit"
@@ -36,6 +38,7 @@ export default StyledTabs;
 
 const styles = stylesheet.create({
   root: {
+    fontSize: "1rem",
     width: "100%",
     bgcolor: (theme) => theme.palette.primary.main,
     minHeight: "48px",
@@ -45,6 +48,6 @@ const styles = stylesheet.create({
   },
 
   tabItem: {
-    fontSize: { xs: "0.6rem", sm: "0.75rem" },
+    fontSize: { xs: "0.6em", sm: "0.75em" },
   },
 });
