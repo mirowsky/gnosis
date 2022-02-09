@@ -1,4 +1,5 @@
 import { Breakpoint } from "@mui/system";
+import { Properties } from "csstype";
 
 export interface CourseCollectionType {
   courseArea: string;
@@ -56,3 +57,5 @@ export type ResponsiveStyleValue<
 > = {
   [Key in TBreakpoint]?: TType | null;
 };
+
+export type ResponsiveFontSize = ResponsiveStyleValue<Properties["fontSize"]>;
