@@ -1,7 +1,7 @@
 {
   "Generate fixture ": {
     "prefix": "amboss-fixture",
-    "scope": "typescript",
+    "scope": "typescript, typescriptreact",
     "body": [
       "import type {${TM_FILENAME_BASE/(.fixture)//}Props} from './${TM_FILENAME_BASE/(.fixture)//}'",
       "",
