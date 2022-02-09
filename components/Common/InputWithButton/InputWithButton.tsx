@@ -64,7 +64,7 @@ const _styles = (fontSize: ResponsiveStyleValue<Properties["fontSize"]>) =>
     },
     input: {
       width: "100%",
-      height: "4.375em",
+      height: "100%",
       borderRadius: "40px",
       background: "none",
       padding: "0 1.875em",
