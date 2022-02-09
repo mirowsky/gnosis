@@ -1,4 +1,4 @@
-import { Box, BoxProps } from "@mui/material";
+import { Box } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
 import { Scroll } from "@workspace/svg";
 import { ResponsiveStyleValue } from "@workspace/types";
@@ -32,7 +32,6 @@ export const ScrollIconAnimation = ({
           }}
           animate={{ opacity: [1, 0.3, 1] }}
           component={KeyboardArrowDown}
-          sx={styles.arrow}
           color="inherit"
           fontSize="inherit"
         />
@@ -44,7 +43,6 @@ export const ScrollIconAnimation = ({
           }}
           animate={{ opacity: [1, 0.3, 1] }}
           component={KeyboardArrowDown}
-          sx={styles.arrow}
           color="inherit"
           fontSize="inherit"
         />
@@ -56,7 +54,6 @@ export const ScrollIconAnimation = ({
           }}
           animate={{ opacity: [1, 0.3, 1] }}
           component={KeyboardArrowDown}
-          sx={styles.arrow}
           color="inherit"
           fontSize="inherit"
         />
@@ -93,6 +90,4 @@ const _styles = (
         mt: "-47.5%",
       },
     },
-
-    arrow: {},
   });
