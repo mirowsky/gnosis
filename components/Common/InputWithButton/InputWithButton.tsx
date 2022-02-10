@@ -11,7 +11,7 @@ export type InputWithButtonProps = {
   fontSize?: ResponsiveStyleValue<Properties["fontSize"]>;
 };
 
-const InputWithButton = ({
+export const InputWithButton = ({
   ButtonProps = { loading: false },
   InputProps,
   fontSize = { xs: "1rem" },
