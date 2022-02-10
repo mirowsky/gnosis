@@ -20,13 +20,11 @@ export interface SyllabusSectionProps {
   activeIndex: number;
   handleChange: (...args: unknown[]) => void;
   syllabusItems: SyllabusItemProps[];
-  courseType: string;
   prerequisites: string;
   emec: EMEC;
 }
 
 export const SyllabusSection = ({
-  courseType,
   emec,
   prerequisites,
   syllabusItems,
@@ -77,10 +75,6 @@ const SyllabusPrerequisites = ({
   prerequisites: string;
 }) => {
   return <Box sx={styles.syllabusPrerequisites}>{prerequisites}</Box>;
-};
-
-const SyllabusCourseType = ({ type }: { type: string }) => {
-  return <Box sx={styles.syllabusCourseType}>{type}</Box>;
 };
 
 const SyllabusGrid = ({ items }: { items: SyllabusItemProps[] }) => {

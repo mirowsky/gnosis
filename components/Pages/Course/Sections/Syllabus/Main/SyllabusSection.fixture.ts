@@ -16,7 +16,6 @@ export const DEFAULT_SyllabusSection_TESTING_PROPS: SyllabusSectionProps = {
     syllabus_item,
   ],
   prerequisites: "Diploma de medicina válido em território brasileiro",
-  courseType: "À partir de 600 horas",
   emec: {
     img: {
       alt: "alt text, change me",
