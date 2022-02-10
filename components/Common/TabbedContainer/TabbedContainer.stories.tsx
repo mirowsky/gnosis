@@ -8,6 +8,12 @@ import { Box } from "@mui/material";
 export default {
   title: "General Components/Tabbed Container",
   component: TabbedContainer,
+  parameters: {
+    layout: "fullscreen",
+    viewport: {
+      defaultViewport: "brazilDesktop1",
+    },
+  },
   decorators: [
     (Story) => (
       <Box
