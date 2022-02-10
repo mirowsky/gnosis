@@ -28,8 +28,9 @@ const _styles = ({
   stylesheet.create({
     root: {
       fontSize: fontSize,
-      width: { xs: "18.125em" },
-      height: { xs: "18.125em" },
+      width: { xs: "10em" },
+      height: { xs: "10em" },
+      borderRadius: "50%",
       backgroundColor: (theme) =>
         color == "primary" || color === "secondary"
           ? theme.palette[color].main

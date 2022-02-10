@@ -5,7 +5,7 @@ import React from "react";
 import { Story, Meta } from "@storybook/react";
 
 export default {
-  title: "Landing/About/About images",
+  title: "Landing/About Section/About images",
   component: AboutImages,
   parameters: {
     layout: "fullscreen",
