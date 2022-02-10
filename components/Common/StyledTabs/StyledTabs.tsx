@@ -6,7 +6,8 @@ export type StyledTabsProps = {
   tabLabels: string[];
   handleChange: (event: React.SyntheticEvent, newValue: number) => void;
   activeIndex: number;
-  sx?: Pick<BoxProps, "sx">;
+  sx?: Pick<BoxProps, "sx">["sx"];
+  centered?: boolean;
 };
 
 export const StyledTabs = ({
@@ -14,6 +15,7 @@ export const StyledTabs = ({
   handleChange,
   tabLabels,
   sx,
+  centered,
 }: StyledTabsProps) => {
   return (
     <Box>
@@ -23,7 +25,7 @@ export const StyledTabs = ({
           textColor="inherit"
           value={activeIndex}
           onChange={handleChange}
-          centered
+          centered={centered}
         >
           {tabLabels.map((label, index) => {
             return <Tab sx={styles.tabItem} label={label} key={index} />;

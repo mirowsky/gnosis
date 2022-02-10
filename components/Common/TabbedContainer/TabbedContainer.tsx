@@ -1,15 +1,42 @@
 import { Box } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
 import React from "react";
+import StyledTabs, { StyledTabsProps } from "../StyledTabs/StyledTabs";
+import TabPanel from "../TabPanel/TabPanel";
 
-export type TabbedContainerProps = {};
+export type TabbedContainerProps = {
+  items: React.ReactNode[];
+  TabProps: StyledTabsProps;
+};
 
-export const TabbedContainer = (props: TabbedContainerProps) => {
-  return <Box sx={styles.root}></Box>;
+export const TabbedContainer = ({
+  items = [],
+  TabProps,
+}: TabbedContainerProps) => {
+  return (
+    <Box sx={styles.root}>
+      <StyledTabs
+        sx={{ borderRadius: { xs: "0px", lg: "12px 12px 0px 0px" } }}
+        centered
+        {...TabProps}
+      />
+      {items.map((item, index) => {
+        return (
+          <TabPanel index={index} key={index} value={TabProps.activeIndex}>
+            {item}
+          </TabPanel>
+        );
+      })}
+    </Box>
+  );
 };
 
 export default TabbedContainer;
 
 const styles = stylesheet.create({
-  root: {},
+  root: {
+    bgcolor: (theme) => theme.palette.background.paper,
+    boxShadow: "0px 2px 10px 1px #D9E7FD;",
+    borderRadius: "0px 0px 15px 15px",
+  },
 });
