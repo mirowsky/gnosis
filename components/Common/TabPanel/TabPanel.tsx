@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, BoxProps } from "@mui/material";
 import { MotionBox } from "@workspace/components/utility";
 import React from "react";
 
@@ -6,16 +6,19 @@ export type TabPanelProps = {
   children?: React.ReactNode;
   index: number;
   value: number;
+  sx?: BoxProps<"div">;
 };
 
 export const TabPanel = ({
   index,
   value,
   children,
+  sx,
   ...rest
 }: TabPanelProps) => {
   return (
     <Box
+      sx={sx}
       role="tabpanel"
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}

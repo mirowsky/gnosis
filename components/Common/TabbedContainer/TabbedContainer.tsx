@@ -2,16 +2,18 @@ import { Box } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
 import React from "react";
 import StyledTabs, { StyledTabsProps } from "../StyledTabs/StyledTabs";
-import TabPanel from "../TabPanel/TabPanel";
+import TabPanel, { TabPanelProps } from "../TabPanel/TabPanel";
 
 export type TabbedContainerProps = {
   items: React.ReactNode[];
   TabProps: StyledTabsProps;
+  tabPanelStyles?: TabPanelProps["sx"];
 };
 
 export const TabbedContainer = ({
   items = [],
   TabProps,
+  tabPanelStyles,
 }: TabbedContainerProps) => {
   return (
     <Box sx={styles.root}>
@@ -22,7 +24,12 @@ export const TabbedContainer = ({
       />
       {items.map((item, index) => {
         return (
-          <TabPanel index={index} key={index} value={TabProps.activeIndex}>
+          <TabPanel
+            sx={tabPanelStyles}
+            index={index}
+            key={index}
+            value={TabProps.activeIndex}
+          >
             {item}
           </TabPanel>
         );

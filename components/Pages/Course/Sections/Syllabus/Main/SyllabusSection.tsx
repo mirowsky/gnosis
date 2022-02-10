@@ -1,9 +1,6 @@
 /* eslint-disable react/jsx-key */
 import { Box } from "@mui/material";
-import {
-  TabbedContainer,
-  TabbedContainerProps,
-} from "@workspace/components/common";
+import { TabbedContainer } from "@workspace/components/common";
 import stylesheet from "@workspace/stylesheet";
 import React from "react";
 import SyllabusItem, { SyllabusItemProps } from "../SyllabusItem/SyllabusItem";
@@ -39,9 +36,9 @@ export const SyllabusSection = ({
   return (
     <Box sx={styles.root}>
       <TabbedContainer
+        tabPanelStyles={{ maxHeight: "500px", overflow: "scroll" }}
         items={[
           <SyllabusGrid items={syllabusItems} />,
-          <SyllabusCourseType type={courseType} />,
           <SyllabusPrerequisites prerequisites={prerequisites} />,
           <SyllabusEMEC emec={emec} />,
         ]}
@@ -49,12 +46,7 @@ export const SyllabusSection = ({
           activeIndex: activeIndex,
           handleChange: handleChange,
           centered: true,
-          tabLabels: [
-            "Matriz curricular",
-            "Modalidade",
-            "Pré-requisitos",
-            "E-MEC",
-          ],
+          tabLabels: ["Matriz curricular", "Pré-requisitos", "E-MEC"],
         }}
       />
     </Box>
@@ -95,7 +87,13 @@ const SyllabusGrid = ({ items }: { items: SyllabusItemProps[] }) => {
   return (
     <Box sx={styles.syllabusGrid}>
       {items.map((item, index) => {
-        <SyllabusItem {...item} key={index} />;
+        return (
+          <SyllabusItem
+            {...item}
+            key={index}
+            fontSize={{ xs: "0.65rem", lg: "0.85rem" }}
+          />
+        );
       })}
     </Box>
   );
@@ -106,11 +104,26 @@ export default SyllabusSection;
 const styles = stylesheet.create({
   root: {},
 
-  syllabusGrid: {},
+  syllabusGrid: {
+    display: "flex",
+    flexDirection: "column",
+    gap: (theme) => theme.spacing(3),
+  },
   syllabusCourseType: {},
   syllabusPrerequisites: {},
 
-  syllabusEMECContainer: {},
-  syllabusEMECImage: {},
+  syllabusEMECContainer: {
+    height: "300px",
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "column",
+    gap: (theme) => theme.spacing(4),
+  },
+  syllabusEMECImage: {
+    objectFit: "contain",
+    width: "100%",
+    height: "100%",
+  },
   syllabusEMECURL: {},
 });
