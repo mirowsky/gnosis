@@ -7,6 +7,12 @@ import { Story, Meta } from "@storybook/react";
 export default {
   title: "Landing/About/About images",
   component: AboutImages,
+  parameters: {
+    layout: "fullscreen",
+    viewport: {
+      defaultViewport: "brazilDesktop1",
+    },
+  },
 } as Meta<AboutImagesProps>;
 
 const Template: Story<AboutImagesProps> = (props) => <AboutImages {...props} />;
