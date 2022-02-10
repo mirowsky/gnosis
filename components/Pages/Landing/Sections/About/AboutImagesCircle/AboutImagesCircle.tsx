@@ -11,6 +11,7 @@ export type AboutImagesCircleProps = {
 export const AboutImagesCircle = ({
   color = "primary",
   fontSize = { xs: "1rem" },
+  ...rest
 }: AboutImagesCircleProps) => {
   const circle_styles = React.useMemo(
     () => _styles({ color: color, fontSize: fontSize }),
