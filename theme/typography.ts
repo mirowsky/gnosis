@@ -1,14 +1,14 @@
 import { Theme, ThemeOptions } from "@mui/material";
 
 const typography = (theme: Theme): ThemeOptions["typography"] => ({
-  fontFamily: ["Inter", "sans-serif"].join(","),
+  fontFamily: ["Intervar", "sans-serif"].join(","),
   h1: {
     fontSize: theme.fluidTypography({ maxFontSize: 64, minFontSize: 32 }),
-    lineHeight: 1.35,
+    lineHeight: 1.2,
   },
   h2: {
     fontSize: theme.fluidTypography({ maxFontSize: 36, minFontSize: 24 }),
-    lineHeight: 1.5,
+    lineHeight: 1.35,
   },
   h3: {
     lineHeight: 1.65,

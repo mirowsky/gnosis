@@ -3,6 +3,7 @@ import { CacheProvider, EmotionCache } from "@emotion/react";
 import createEmotionCache from "@emotion/cache";
 import React from "react";
 import CustomTheme from "theme/CustomTheme";
+import "../styles/global.styles.css";
 
 function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
   const clientSideCache = createEmotionCache({ key: "css" });

@@ -2,6 +2,7 @@ import React from "react";
 import { stylesheet } from "@workspace/stylesheet";
 import { Box, Button, Container, Typography } from "@mui/material";
 import { noop } from "@workspace/utility";
+import { Blob } from "@workspace/svg";
 
 export type HeroProps = {
   mainText: string;
@@ -38,6 +39,9 @@ const Hero = ({
 }: HeroProps) => {
   return (
     <Box sx={styles.root}>
+      <Blob sx={styles.firstBlob} />
+      <Blob sx={styles.secondBlob} />
+
       <Container maxWidth={"lg"} disableGutters>
         <Box sx={styles.grid}>
           <Box sx={styles.textContainer}>
@@ -104,9 +108,9 @@ const styles = stylesheet.create({
     width: "100%",
     height: "auto",
     maxHeight: "90vh",
-    overflow: "hidden",
     mt: (theme) => ({ xs: theme.spacing(5), lg: theme.spacing(10) }),
     px: (theme) => ({ xs: theme.spacing(4), lg: 0 }),
+    position: "relative",
   },
 
   grid: {
@@ -118,14 +122,36 @@ const styles = stylesheet.create({
       lg: "minmax(0, 0.55fr) minmax(0, 0.45fr)",
     },
   },
+
+  // Blobs
+  firstBlob: {
+    fontSize: { lg: "0.7rem", xl: "1rem" },
+    position: "absolute",
+    zIndex: -1,
+    left: "-10%",
+    top: { lg: "-15%", xl: "-35%" },
+    filter: { lg: "blur(260px)", xl: "blur(260px)" },
+    display: { xs: "none", lg: "block" },
+  },
+  secondBlob: {
+    fontSize: { lg: "1rem", xl: "1.5rem" },
+    position: "absolute",
+    top: { lg: "-20%", xl: "-35%" },
+    right: "-15%",
+    zIndex: -1,
+    filter: { lg: "blur(225px)", xl: "blur(275px)" },
+    display: { xs: "none", lg: "block" },
+  },
+
   //Outer Container
   textContainer: {
     display: "flex",
     flexDirection: "column",
-    gap: (theme) => ({ xs: theme.spacing(4), lg: theme.spacing(5) }),
+    gap: (theme) => ({ xs: theme.spacing(3), lg: theme.spacing(5) }),
     width: "100%",
     height: "100%",
     justifyContent: { lg: "center" },
+    textAlign: { xs: "center", lg: "initial" },
   },
   imageContainer: {
     display: { xs: "none", lg: "flex" },
@@ -141,7 +167,7 @@ const styles = stylesheet.create({
   buttonContainer: {
     display: "flex",
     flexDirection: { xs: "column", sm: "row" },
-    gap: (theme) => ({ xs: theme.spacing(5) }),
+    gap: (theme) => ({ xs: theme.spacing(3) }),
   },
 
   // Item
