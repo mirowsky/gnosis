@@ -1,12 +1,7 @@
 import type { NextPage } from "next";
-import AboutImages from "../components/Pages/Landing/Sections/About/AboutImages/AboutImages";
 
 const Home: NextPage = () => {
-  return (
-    <div>
-      <AboutImages />
-    </div>
-  );
+  return <div style={{ maxWidth: "70vh", margin: "auto" }}></div>;
 };
 
 export default Home;

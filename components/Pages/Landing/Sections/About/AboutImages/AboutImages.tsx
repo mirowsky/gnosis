@@ -8,21 +8,15 @@ import { ResponsiveStyleValue } from "@workspace/types";
 import { Properties } from "csstype";
 import { useComponentSize } from "@workspace/hooks";
 
-export type AboutImagesProps = {
-  maxWidth?: ResponsiveStyleValue<Properties["maxWidth"]>;
-};
+export type AboutImagesProps = {};
 
-export const AboutImages = ({
-  maxWidth = { xs: "70vw" },
-}: AboutImagesProps) => {
+export const AboutImages = (props: AboutImagesProps) => {
   const { height, ref, width } = useComponentSize();
-
-  const styles = React.useMemo(() => _styles(maxWidth), [maxWidth]);
 
   return (
     <Box ref={ref} sx={styles.root}>
       <Box sx={styles.hollowCircleBox}>
-        <Circle color="#A1ABB7" fontSize={"12vw"} />
+        <Circle color="#A1ABB7" fontSize={`calc(${width}px * 0.18)`} />
       </Box>
 
       <Box sx={styles.rightCircleBox}>
@@ -51,39 +45,34 @@ export const AboutImages = ({
 
 export default AboutImages;
 
-const _styles = (
-  maxWidth: ResponsiveStyleValue<Properties["maxWidth"]> = { xs: "70vw" }
-) =>
-  stylesheet.create({
-    root: {
-      position: "relative",
-      maxWidth: maxWidth,
-      margin: "auto",
-    },
+const styles = stylesheet.create({
+  root: {
+    position: "relative",
+  },
 
-    imageBox: {},
-    image: {
-      objectFit: "contain",
-      width: "100%",
-      height: "100%",
-    },
+  imageBox: {},
+  image: {
+    objectFit: "contain",
+    width: "100%",
+    height: "100%",
+  },
 
-    leftCircleBox: {
-      position: "absolute",
-      left: "-5%",
-      top: "30%",
-      zIndex: -1,
-    },
-    rightCircleBox: {
-      position: "absolute",
-      right: "-5%",
-      top: "-10%",
-      zIndex: -1,
-    },
+  leftCircleBox: {
+    position: "absolute",
+    left: "-5%",
+    top: "30%",
+    zIndex: -1,
+  },
+  rightCircleBox: {
+    position: "absolute",
+    right: "-5%",
+    top: "-10%",
+    zIndex: -1,
+  },
 
-    hollowCircleBox: {
-      position: "absolute",
-      bottom: "-10%",
-      right: "-5%",
-    },
-  });
+  hollowCircleBox: {
+    position: "absolute",
+    bottom: "-10%",
+    right: "-5%",
+  },
+});
