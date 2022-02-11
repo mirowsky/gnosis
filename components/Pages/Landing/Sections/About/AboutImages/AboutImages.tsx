@@ -3,9 +3,12 @@ import stylesheet from "@workspace/stylesheet";
 import React from "react";
 import image from "@workspace/images/about-full.webp";
 import AboutImagesCircle from "../AboutImagesCircle/AboutImagesCircle";
+import { useScreenSize } from "@workspace/hooks";
 export type AboutImagesProps = {};
 
 export const AboutImages = (props: AboutImagesProps) => {
+  const { height, width } = useScreenSize({ updateOnRezise: true });
+
   return (
     <Box sx={styles.root}>
       <Box sx={styles.rightCircleBox}>

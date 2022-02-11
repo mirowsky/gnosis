@@ -4,9 +4,9 @@ type UseScreenSizeOptions = {
   updateOnRezise?: boolean;
 };
 
-export const useScreenSize = ({
-  updateOnRezise = false,
-}: UseScreenSizeOptions) => {
+export const useScreenSize = (
+  { updateOnRezise }: UseScreenSizeOptions = { updateOnRezise: false }
+) => {
   const [width, setWidth] = React.useState(0);
   const [height, setHeight] = React.useState(0);
 
