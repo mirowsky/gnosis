@@ -1,12 +1,6 @@
 import React from "react";
 
-type UseScreenSizeOptions = {
-  updateOnRezise?: boolean;
-};
-
-export const useScreenSize = (
-  { updateOnRezise }: UseScreenSizeOptions = { updateOnRezise: false }
-) => {
+export const useScreenSize = (updateOnResize = false) => {
   const [width, setWidth] = React.useState(0);
   const [height, setHeight] = React.useState(0);
 
@@ -22,7 +16,7 @@ export const useScreenSize = (
 
       updateSize();
 
-      if (updateOnRezise) {
+      if (updateOnResize) {
         window.addEventListener("resize", updateSize);
 
         return () => {
@@ -30,9 +24,9 @@ export const useScreenSize = (
         };
       }
     }
-  }, [updateOnRezise]);
+  }, [updateOnResize]);
 
-  return { width, height };
+  return { width: width, height: height };
 };
 
 export default useScreenSize;

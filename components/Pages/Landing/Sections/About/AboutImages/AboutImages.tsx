@@ -4,15 +4,12 @@ import React from "react";
 import image from "@workspace/images/about-full.webp";
 import AboutImagesCircle from "../AboutImagesCircle/AboutImagesCircle";
 import { useScreenSize } from "@workspace/hooks";
+import { pixelToRem } from "utility/pixelToRem";
 export type AboutImagesProps = {};
 
 export const AboutImages = (props: AboutImagesProps) => {
-  const { height, width } = useScreenSize({ updateOnRezise: true });
-
-  console.log(height, width);
-
   return (
-    <Box sx={styles.root}>
+    <Box margin="auto" sx={styles.root}>
       <Box sx={styles.rightCircleBox}>
         <AboutImagesCircle color="primary" />
       </Box>
