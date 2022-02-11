@@ -19,8 +19,6 @@ export default {
       <Box
         sx={{
           width: "100%",
-          maxWidth: "70vw",
-          margin: "auto",
           height: "100vh",
           display: "flex",
           alignItems: "center",
