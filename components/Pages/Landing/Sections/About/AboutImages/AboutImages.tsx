@@ -42,7 +42,7 @@ export const AboutImages = ({
         <Box
           sx={styles.image}
           component="img"
-          src={image as unknown as string}
+          src={"/images/about-full.webp"}
         />
       </Box>
     </Box>

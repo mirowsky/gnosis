@@ -1,9 +1,12 @@
 import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
+import AboutImages from "../components/Pages/Landing/Sections/About/AboutImages/AboutImages";
 
 const Home: NextPage = () => {
-  return <div>welcome</div>;
+  return (
+    <div>
+      <AboutImages />
+    </div>
+  );
 };
 
 export default Home;

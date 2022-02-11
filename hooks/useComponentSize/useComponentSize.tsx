@@ -15,10 +15,19 @@ export const useComponentSize = <TNode extends HTMLElement>() => {
 
   React.useLayoutEffect(() => {
     if (ref.current) {
-      setSize({
-        height: ref.current.clientHeight,
-        width: ref.current.clientWidth,
-      });
+      const setSizeFn = () => {
+        setSize({
+          height: ref!.current!.clientHeight,
+          width: ref!.current!.clientWidth,
+        });
+      };
+
+      window.addEventListener("resize", setSizeFn);
+      setSizeFn();
+
+      return () => {
+        window.removeEventListener("resize", setSizeFn);
+      };
     }
   }, []);
 
