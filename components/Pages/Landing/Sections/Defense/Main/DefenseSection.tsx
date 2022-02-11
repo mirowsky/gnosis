@@ -8,7 +8,7 @@ export type DefenseSectionProps = {
   items: DefenseCardProps[];
 };
 
-const DefenseSection = ({ items = [] }: DefenseSectionProps) => {
+export const DefenseSection = ({ items = [] }: DefenseSectionProps) => {
   return (
     <Container maxWidth="lg" sx={styles.root}>
       <Box

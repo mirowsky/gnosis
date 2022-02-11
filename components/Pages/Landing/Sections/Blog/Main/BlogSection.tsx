@@ -11,7 +11,7 @@ export type BlogSectionProps = {
   sectionTitle: string;
 };
 
-const BlogSection = ({
+export const BlogSection = ({
   ButtonProps,
   items = [],
   sectionTitle = "Confira nossas últimas postagens",

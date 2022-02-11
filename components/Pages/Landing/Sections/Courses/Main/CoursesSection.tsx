@@ -13,7 +13,7 @@ export type CourseSectionProps = {
   CourseNavigationProps: CourseNavigationProps;
 };
 
-const CourseSection = ({
+export const CourseSection = ({
   CourseSliderProps,
   CourseTabsProps,
   CourseNavigationProps,

@@ -14,7 +14,7 @@ export type NewsLetterSectionProps = {
   sectionTitle: string;
 };
 
-const NewsLetterSection = ({
+export const NewsLetterSection = ({
   img = {
     alt: "This is a placeholder, change me",
     src: "https://via.placeholder.com",

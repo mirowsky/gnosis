@@ -21,7 +21,7 @@ export type HeroProps = {
   };
 };
 
-const Hero = ({
+export const Hero = ({
   altText = "Lorem ipsum secondary",
   ctaPrimary = {
     label: "Primary button",
