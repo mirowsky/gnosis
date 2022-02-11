@@ -6,6 +6,7 @@ import AboutImagesCircle from "../AboutImagesCircle/AboutImagesCircle";
 import { Circle } from "@workspace/svg";
 import { ResponsiveStyleValue } from "@workspace/types";
 import { Properties } from "csstype";
+import { useComponentSize } from "@workspace/hooks";
 
 export type AboutImagesProps = {
   maxWidth?: ResponsiveStyleValue<Properties["maxWidth"]>;
@@ -14,19 +15,27 @@ export type AboutImagesProps = {
 export const AboutImages = ({
   maxWidth = { xs: "70vw" },
 }: AboutImagesProps) => {
+  const { height, ref, width } = useComponentSize();
+
   const styles = React.useMemo(() => _styles(maxWidth), [maxWidth]);
 
   return (
-    <Box sx={styles.root}>
+    <Box ref={ref} sx={styles.root}>
       <Box sx={styles.hollowCircleBox}>
         <Circle color="#A1ABB7" fontSize={"12vw"} />
       </Box>
 
       <Box sx={styles.rightCircleBox}>
-        <AboutImagesCircle fontSize={{ xs: "1.4vw" }} color="primary" />
+        <AboutImagesCircle
+          fontSize={{ xs: `calc(${width}px * 0.02)` }}
+          color="primary"
+        />
       </Box>
       <Box sx={styles.leftCircleBox}>
-        <AboutImagesCircle fontSize={{ xs: "1.4vw" }} color="secondary" />
+        <AboutImagesCircle
+          fontSize={{ xs: `calc(${width}px * 0.02)` }}
+          color="secondary"
+        />
       </Box>
 
       <Box sx={styles.imageBox}>
