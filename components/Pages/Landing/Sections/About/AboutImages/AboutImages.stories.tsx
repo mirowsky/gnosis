@@ -21,6 +21,8 @@ export default {
           width: "100%",
           height: "100vh",
           display: "flex",
+          maxWidth: "70vw",
+          margin: "auto",
           alignItems: "center",
         }}
       >

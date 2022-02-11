@@ -8,6 +8,12 @@ import { Box } from "@mui/material";
 export default {
   title: "Landing/About Section/About Image Circle",
   component: AboutImagesCircle,
+  parameters: {
+    layout: "fullscreen",
+    viewport: {
+      defaultViewport: "brazilDesktop1",
+    },
+  },
   decorators: [
     (Story) => (
       <Box sx={{ m: 5 }}>
