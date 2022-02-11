@@ -11,10 +11,10 @@ export const AboutImages = (props: AboutImagesProps) => {
   return (
     <Box margin="auto" sx={styles.root}>
       <Box sx={styles.rightCircleBox}>
-        <AboutImagesCircle color="primary" />
+        <AboutImagesCircle fontSize={{ xs: "1.4vw" }} color="primary" />
       </Box>
       <Box sx={styles.leftCircleBox}>
-        <AboutImagesCircle color="secondary" />
+        <AboutImagesCircle fontSize={{ xs: "1.4vw" }} color="secondary" />
       </Box>
 
       <Box sx={styles.imageBox}>
@@ -44,14 +44,14 @@ const styles = stylesheet.create({
 
   leftCircleBox: {
     position: "absolute",
-    left: 0,
-    top: 0,
+    left: "-5%",
+    top: "30%",
     zIndex: -1,
   },
   rightCircleBox: {
     position: "absolute",
-    right: 0,
-    top: 0,
+    right: "-5%",
+    top: "-10%",
     zIndex: -1,
   },
 });
