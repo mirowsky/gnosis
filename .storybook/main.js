@@ -8,18 +8,15 @@ module.exports = {
   },
   stories: ["../**/*.stories.*"],
   addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
+  staticDirs: ["../public"],
   framework: "@storybook/react",
   core: {
     builder: "webpack5",
   },
   webpackFinal: async (config) => {
-    (config.output = {
-      ...config.output,
-      publicPath: "../public/",
+    (config.resolve.alias = {
+      "@workspace/images": path.resolve(process.cwd(), "public", "images"),
     }),
-      (config.resolve.alias = {
-        "@workspace/images": path.resolve(process.cwd(), "public", "images"),
-      }),
       (config.resolve.plugins = [
         ...(config.resolve.plugins || []),
         new TsconfigPathsPlugin({
