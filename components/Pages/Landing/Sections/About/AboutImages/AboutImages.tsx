@@ -9,6 +9,8 @@ export type AboutImagesProps = {};
 export const AboutImages = (props: AboutImagesProps) => {
   const { height, width } = useScreenSize({ updateOnRezise: true });
 
+  console.log(height, width);
+
   return (
     <Box sx={styles.root}>
       <Box sx={styles.rightCircleBox}>

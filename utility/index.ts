@@ -10,3 +10,4 @@ export {
   scrollToElem,
   smoothScrollTo,
 } from "./scrollToElem";
+export { pixelToRem } from "./pixelToRem";
