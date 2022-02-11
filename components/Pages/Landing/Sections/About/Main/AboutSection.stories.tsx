@@ -22,3 +22,13 @@ export const Primary = Template.bind({});
 Primary.args = {
   ...DEFAULT_AboutSection_TESTING_PROPS,
 };
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+  ...Primary.args,
+  ButtonProps: {
+    children: "Saiba mais",
+  },
+};
+
+Secondary.storyName = "With Button";
