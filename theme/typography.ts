@@ -1,9 +1,9 @@
 import { Theme, ThemeOptions } from "@mui/material";
 
 const typography = (theme: Theme): ThemeOptions["typography"] => ({
-  fontFamily: ["Intervar", "sans-serif"].join(","),
+  fontFamily: ["Inter", "sans-serif"].join(","),
   h1: {
-    fontSize: theme.fluidTypography({ maxFontSize: 64, minFontSize: 32 }),
+    fontSize: theme.fluidTypography({ maxFontSize: 64, minFontSize: 36 }),
     lineHeight: 1.2,
   },
   h2: {
@@ -11,7 +11,7 @@ const typography = (theme: Theme): ThemeOptions["typography"] => ({
     lineHeight: 1.35,
   },
   h3: {
-    lineHeight: 1.65,
+    lineHeight: 1.5,
     fontSize: theme.fluidTypography({ maxFontSize: 28, minFontSize: 22 }),
   },
   h4: { fontSize: theme.fluidTypography({ maxFontSize: 22, minFontSize: 20 }) },

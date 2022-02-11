@@ -49,7 +49,7 @@ const Hero = ({
               <Typography
                 color="primary"
                 variant="h1"
-                fontWeight="bold"
+                fontWeight={800}
                 sx={styles.mainText}
               >
                 {mainText}
@@ -57,10 +57,10 @@ const Hero = ({
             </Box>
             <Box sx={styles.altTextContainer}>
               <Typography
-                color="grey.700"
+                color="grey.600"
                 variant="h3"
                 sx={styles.altText}
-                fontWeight="bold"
+                fontWeight={500}
               >
                 {altText}
               </Typography>
@@ -147,10 +147,15 @@ const styles = stylesheet.create({
   textContainer: {
     display: "flex",
     flexDirection: "column",
-    gap: (theme) => ({ xs: theme.spacing(3), lg: theme.spacing(5) }),
+    gap: (theme) => ({
+      xs: theme.spacing(5),
+      sm: theme.spacing(7),
+      lg: theme.spacing(5),
+    }),
     width: "100%",
     height: "100%",
     justifyContent: { lg: "center" },
+    alignItems: { sm: "center", lg: "initial" },
     textAlign: { xs: "center", lg: "initial" },
   },
   imageContainer: {
