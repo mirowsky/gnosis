@@ -25,7 +25,8 @@
       "@workspace/components/utility": ["./components/Utility/index.ts"],
       "@workspace/svg": ["./svg/index.ts"],
       "@workspace/animations": ["./animations/index.ts"],
-      "@workspace/components/common": ["./components/Common/index.ts"]
+      "@workspace/components/common": ["./components/Common/index.ts"],
+      "@workspace/hooks": ["./hooks/index.ts"]
     }
   },
   "include": [
