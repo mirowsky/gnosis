@@ -40,6 +40,7 @@ specifiers:
   typescript: 4.5.4
   webpack: ^5.66.0
   yup: ^0.32.11
+  zustand: ^3.7.0
 
 dependencies:
   '@emotion/cache': 11.7.1
@@ -60,6 +61,7 @@ dependencies:
   swiper: 6.8.4
   webpack: 5.68.0
   yup: 0.32.11
+  zustand: 3.7.0_react@17.0.2
 
 devDependencies:
   '@storybook/addon-actions': 6.4.18_b3482aaf5744fc7c2aeb7941b0e0a78f
@@ -14001,6 +14003,18 @@ packages:
       nanoclone: 0.2.1
       property-expr: 2.0.5
       toposort: 2.0.2
+    dev: false
+
+  /zustand/3.7.0_react@17.0.2:
+    resolution: {integrity: sha512-USzVzLGrvZ8VK1/sEsOAmeqa8N7D3OBdZskVaL7DL89Q4QLTYD053iIlZ5KDidyZ+Od80Dttin/f8ZulOLFFDQ==}
+    engines: {node: '>=12.7.0'}
+    peerDependencies:
+      react: '>=16.8'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      react: 17.0.2
     dev: false
 
   /zwitch/1.0.5:
