@@ -6,7 +6,7 @@ import { Story, Meta } from "@storybook/react";
 import { Container } from "@mui/material";
 
 export default {
-  title: "Landing/Contact Section/Main",
+  title: "Layout/Contact Section/Main",
   component: ContactSection,
   parameters: {
     layout: "fullscreen",

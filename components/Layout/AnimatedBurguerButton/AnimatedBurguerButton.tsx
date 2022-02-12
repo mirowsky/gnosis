@@ -3,7 +3,7 @@ import { stylesheet } from "@workspace/stylesheet";
 import { SxProps } from "@mui/system";
 import { Box, Theme } from "@mui/material";
 import { useAnimation } from "framer-motion";
-import { MotionBox } from "@workspace/utility";
+import { MotionBox } from "@workspace/components/utility";
 
 export interface AnimatedBurguerButtonProps {
   open: boolean;

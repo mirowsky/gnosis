@@ -6,7 +6,7 @@ import { Story, Meta } from "@storybook/react";
 import { Box } from "@mui/material";
 
 export default {
-  title: "Landing/Contact Section/Contact Form",
+  title: "Layout/Contact Section/Contact Form",
   component: ContactForm,
   parameters: {
     viewport: {
