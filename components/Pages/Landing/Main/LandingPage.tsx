@@ -28,7 +28,7 @@ import { FAQSection, FAQSectionProps } from "../Sections/FAQ/Main/FAQSection";
 import {
   ContactSection,
   ContactSectionProps,
-} from "../Sections/Contact/Main/ContactSection";
+} from "../../../Layout/Contact/Main/ContactSection";
 
 export type LandingPageProps = {};
 

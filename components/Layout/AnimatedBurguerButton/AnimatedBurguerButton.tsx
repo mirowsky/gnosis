@@ -92,11 +92,11 @@ const lineBaseStyles: SxProps<Theme> = {
 
 const styles = stylesheet.create({
   root: {
-    fontSize: "0.4rem",
+    fontSize: "0.35rem",
   },
 
   lineContainer: {
-    width: { xs: "10em" },
+    width: { xs: "8em" },
     height: { xs: "auto" },
     display: { xs: "flex" },
     position: "relative",
