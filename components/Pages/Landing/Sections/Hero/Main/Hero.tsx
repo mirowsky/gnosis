@@ -42,6 +42,8 @@ export const Hero = ({
       <Blob sx={styles.firstBlob} />
       <Blob sx={styles.secondBlob} />
 
+      <Box sx={styles.pattern}></Box>
+
       <Container maxWidth={"lg"} disableGutters>
         <Box sx={styles.grid}>
           <Box sx={styles.textContainer}>
@@ -108,15 +110,33 @@ const styles = stylesheet.create({
     width: "100%",
     height: "auto",
     maxHeight: "90vh",
-    mt: (theme) => ({ xs: theme.spacing(5), lg: theme.spacing(10) }),
-    px: (theme) => ({ xs: theme.spacing(4), lg: 0 }),
     position: "relative",
+    overflow: "hidden",
+  },
+
+  pattern: {
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    backgroundColor: "#F6F9FB",
+    top: 0,
+    left: 0,
+    opacity: 0.05,
+    zIndex: -1,
+    backgroundImage:
+      "linear-gradient(#002946 1.6px, transparent 1.6px), linear-gradient(90deg, #002946 1.6px, transparent 1.6px), linear-gradient(#002946 0.8px, transparent 0.8px), linear-gradient(90deg, #002946 0.8px, #F6F9FB 0.8px)",
+    backgroundSize: "40px 40px, 40px 40px, 8px 8px, 8px 8px",
+    backgroundPosition:
+      "-1.6px -1.6px, -1.6px -1.6px, -0.8px -0.8px, -0.8px -0.8px",
   },
 
   grid: {
+    p: (theme) => ({ xs: theme.spacing(4), lg: theme.spacing(4) }),
+    pb: (theme) => ({ xs: theme.spacing(4), lg: 0 }),
     display: "grid",
     width: "100%",
     height: "100%",
+    alignContent: { xs: "center", lg: "initial" },
     gridTemplateColumns: {
       xs: "minmax(0, 1fr)",
       lg: "minmax(0, 0.55fr) minmax(0, 0.45fr)",
