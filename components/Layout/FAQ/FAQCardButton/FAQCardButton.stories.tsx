@@ -5,7 +5,7 @@ import { Story, Meta } from "@storybook/react";
 import { DEFAULT_FAQCardButton_TESTING_PROPS } from "./FAQCardButton.fixture";
 
 export default {
-  title: "Landing/FAQ Section/FAQ Card Button",
+  title: "Dynamic Sections/FAQ Section/FAQ Card Button",
   component: FAQCardButton,
 } as Meta<FAQCardButtonProps>;
 

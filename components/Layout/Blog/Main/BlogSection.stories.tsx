@@ -4,7 +4,7 @@ import { DEFAULT_BLOG_SECTION_TESTING_PROPS } from "./constants";
 
 export default {
   component: BlogSection,
-  title: "Landing/Blog Section/Main",
+  title: "Dynamic Sections/Blog Section/Main",
   parameters: {
     layout: "fullscreen",
     viewport: {

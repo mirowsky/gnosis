@@ -3,7 +3,7 @@ import BlogPreviewCard, { BlogPreviewCardProps } from "./BlogPreviewCard";
 import { DEFAULT_BLOG_PREVIEW_CARDS_TEST_PROPS } from "./constants";
 
 export default {
-  title: "Landing/Blog Section/Blog Preview Card",
+  title: "Dynamic Sections/Blog Section/Blog Preview Card",
   component: BlogPreviewCard,
 } as Meta<BlogPreviewCardProps>;
 

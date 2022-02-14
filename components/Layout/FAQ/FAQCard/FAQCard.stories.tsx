@@ -5,7 +5,7 @@ import { Story, Meta } from "@storybook/react";
 import { DEFAULT_FAQCard_TESTING_PROPS } from "./FAQCard.fixture";
 
 export default {
-  title: "Landing/FAQ Section/FAQ Card",
+  title: "Dynamic Sections/FAQ Section/FAQ Card",
   component: FAQCard,
   parameters: {
     viewport: {

@@ -5,7 +5,7 @@ import React from "react";
 export type DynamicSectionsProps = {};
 
 export const DynamicSections = (props: DynamicSectionsProps) => {
-  return <Box sx={styles.root}>Hello Dynamic Section!</Box>;
+  return <Box sx={styles.root}></Box>;
 };
 
 export default DynamicSections;

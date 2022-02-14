@@ -5,7 +5,7 @@ import React from "react";
 import { Story, Meta } from "@storybook/react";
 
 export default {
-  title: "Landing/FAQ Section/Main",
+  title: "Dynamic Sections/FAQ Section/Main",
   component: FAQSection,
 } as Meta<FAQSectionProps>;
 

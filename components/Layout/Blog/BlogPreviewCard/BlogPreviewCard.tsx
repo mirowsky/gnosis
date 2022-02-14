@@ -1,7 +1,7 @@
 import { WatchLater } from "@mui/icons-material";
 import { Box, Typography, Chip } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
-import { webkitVerticalTruncate } from "../../../../../../mixins/webkitVerticalTruncate";
+import { webkitVerticalTruncate } from "../../../../mixins/webkitVerticalTruncate";
 import React from "react";
 
 export type BlogPreviewCardProps = {

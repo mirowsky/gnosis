@@ -3,7 +3,7 @@ import { DEFAULT_TESTIMONIAL_CARD_TESTING_PROPS } from "./constants";
 import TestimonialCard, { TestimonialCardProps } from "./TestimonialCard";
 
 export default {
-  title: "Landing/Testimonial Section/Testimonial Card",
+  title: "Dynamic Sections/Testimonial Section/Testimonial Card",
   component: TestimonialCard,
   parameters: {
     layout: "fullscreen",

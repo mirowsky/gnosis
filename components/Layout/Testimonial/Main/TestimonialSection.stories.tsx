@@ -5,7 +5,7 @@ import { Story, Meta } from "@storybook/react";
 import { DEFAULT_TestimonialSection_TESTING_PROPS } from "./TestimonialSection.fixture";
 
 export default {
-  title: "Landing/Testimonial Section/Main",
+  title: "Dynamic Sections/Testimonial Section/Main",
   component: TestimonialSection,
   parameters: {
     layout: "fullscreen",

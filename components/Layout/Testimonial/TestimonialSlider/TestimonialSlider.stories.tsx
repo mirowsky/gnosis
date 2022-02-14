@@ -3,7 +3,7 @@ import { DEFAULT_TESTIMONIAL_SLIDER_TESTING_PROPS } from "./constants";
 import TestimonialSlider, { TestimonialSliderProps } from "./TestimonialSlider";
 
 export default {
-  title: "Landing/Testimonial Section/Testimonial Slider",
+  title: "Dynamic Sections/Testimonial Section/Testimonial Slider",
   component: TestimonialSlider,
   parameters: {
     layout: "fullscreen",
