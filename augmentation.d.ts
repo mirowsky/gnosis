@@ -39,6 +39,11 @@ declare module "@mui/material/styles" {
       light: string;
       contrastText: string;
     };
+
+    bg: {
+      primary: string;
+      secondary: string;
+    };
   }
 
   export interface ThemeOptions {
@@ -65,6 +70,11 @@ declare module "@mui/material/styles" {
       dark?: string;
       light?: string;
       contrastText?: string;
+    };
+
+    bg?: {
+      primary?: string;
+      secondary?: string;
     };
   }
 }

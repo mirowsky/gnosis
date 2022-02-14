@@ -12,6 +12,11 @@ export const pallete: ThemeOptions["palette"] = {
     dark: darken("#E1ECFE", 0.15),
     light: lighten("#E1ECFE", 0.15),
   },
+
+  bg: {
+    primary: "#F6F9FB",
+    secondary: "#FFFFFF",
+  },
 };
 
 export default pallete;
