@@ -34,17 +34,11 @@ export const LandingPage = ({
     <Box sx={styles.root}>
       <Hero {...HeroSectionProps} />
 
-      <Box sx={styles.defenseSectionBox}>
-        <DefenseSection {...DefenseSectionProps} />
-      </Box>
+      <DefenseSection {...DefenseSectionProps} />
 
-      <Box sx={styles.aboutUsBox}>
-        <AboutSection {...AboutSectionProps} />
-      </Box>
+      <AboutSection {...AboutSectionProps} />
 
-      <Box sx={styles.courseSectionBox}>
-        <CourseSection {...CourseSectionProps} />
-      </Box>
+      <CourseSection {...CourseSectionProps} />
       <DynamicSections {...DynamicSectionsProps} />
     </Box>
   );

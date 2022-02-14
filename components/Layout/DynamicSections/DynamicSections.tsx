@@ -24,7 +24,10 @@ export const DynamicSections = ({
 
       <TestimonialSection {...TestimonialSectionProps} />
 
-      <FAQSection {...FAQSectionProps} />
+      <FAQSection
+        {...FAQSectionProps}
+        sx={{ py: (theme) => ({ xs: theme.spacing(6) }) }}
+      />
     </Box>
   );
 };

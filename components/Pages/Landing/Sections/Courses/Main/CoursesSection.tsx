@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
+import { ThemeStyles } from "@workspace/types";
 import React from "react";
 import CourseNavigation, {
   CourseNavigationProps,
@@ -11,15 +12,17 @@ export type CourseSectionProps = {
   CourseTabsProps: CourseTabsProps;
   CourseSliderProps: CourseSliderProps;
   CourseNavigationProps: CourseNavigationProps;
+  sx?: ThemeStyles;
 };
 
 export const CourseSection = ({
   CourseSliderProps,
   CourseTabsProps,
   CourseNavigationProps,
+  sx,
 }: CourseSectionProps) => {
   return (
-    <Box sx={styles.root}>
+    <Box sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.tabsOuterContainer}>
         <Box sx={styles.tabsContainer}>
           <CourseTabs {...CourseTabsProps} />

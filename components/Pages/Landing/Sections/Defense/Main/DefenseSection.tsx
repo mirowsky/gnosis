@@ -1,16 +1,18 @@
 import { Box, Container } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
+import { ThemeStyles } from "@workspace/types";
 import React from "react";
 import DefenseCard, { DefenseCardProps } from "../DefenseCard/DefenseCard";
 import { DEFENSE_SECTION_TEST_ID } from "./constants";
 
 export type DefenseSectionProps = {
   items: DefenseCardProps[];
+  sx?: ThemeStyles;
 };
 
-export const DefenseSection = ({ items = [] }: DefenseSectionProps) => {
+export const DefenseSection = ({ items = [], sx }: DefenseSectionProps) => {
   return (
-    <Container maxWidth="lg" sx={styles.root}>
+    <Container maxWidth="lg" sx={{ ...styles.root, ...sx }}>
       <Box
         data-testid={DEFENSE_SECTION_TEST_ID.GRID_CONTAINER}
         sx={styles.grid}

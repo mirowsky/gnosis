@@ -1,5 +1,6 @@
 import { Box, Button, ButtonProps, Typography } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
+import { ThemeStyles } from "@workspace/types";
 import React from "react";
 import AboutImages from "../AboutImages/AboutImages";
 import { DEFAULT_AboutSection_TESTING_PROPS } from "./AboutSection.fixture";
@@ -8,15 +9,17 @@ export type AboutSectionProps = {
   sectionTitle: string;
   aboutText: string;
   ButtonProps?: ButtonProps;
+  sx?: ThemeStyles;
 };
 
 export const AboutSection = ({
   aboutText,
   sectionTitle,
   ButtonProps,
+  sx,
 }: AboutSectionProps = DEFAULT_AboutSection_TESTING_PROPS) => {
   return (
-    <Box sx={styles.root}>
+    <Box sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.textContainer}>
         <Typography sx={styles.sectionTitle} variant="h1" component="h2">
           {sectionTitle}
