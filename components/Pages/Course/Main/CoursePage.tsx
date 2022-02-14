@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
 import React from "react";
 import CourseHeroSection, {
@@ -26,9 +26,24 @@ export const CoursePage = ({
     <Box sx={styles.root}>
       <CourseHeroSection {...CourseHeroSectionProps} />
 
-      <OverviewSection {...CourseOverviewSectionProps} />
+      <Container maxWidth="xl">
+        <OverviewSection
+          {...CourseOverviewSectionProps}
+          sx={{ py: (theme) => theme.spacing(10) }}
+        />
+      </Container>
 
-      <SyllabusSection {...CourseSyllabusSectionProps} />
+      <Box sx={{ bgcolor: (theme) => theme.palette.bg.primary }}>
+        <Container maxWidth="lg">
+          <SyllabusSection
+            {...CourseSyllabusSectionProps}
+            sx={{
+              py: (theme) => ({ xs: theme.spacing(10) }),
+              pb: (theme) => ({ lg: theme.spacing(16) }),
+            }}
+          />
+        </Container>
+      </Box>
     </Box>
   );
 };

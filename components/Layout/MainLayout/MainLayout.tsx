@@ -43,6 +43,8 @@ const MainLayout = ({
         sx={{
           px: (theme) => ({ xs: theme.spacing(4), sm: theme.spacing(10) }),
           pt: (theme) => theme.spacing(10),
+          maxWidth: (theme) => theme.breakpoints.values.xl,
+          margin: "auto",
         }}
       />
       <Footer {...footerProps} />

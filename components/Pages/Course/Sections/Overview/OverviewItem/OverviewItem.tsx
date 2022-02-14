@@ -38,7 +38,7 @@ const styles = stylesheet.create({
   root: {
     display: "flex",
     flexDirection: "column",
-    gap: (theme) => theme.spacing(1),
+    gap: (theme) => theme.spacing(1.5),
     width: "fit-content",
   },
   iconContainer: {
@@ -48,13 +48,13 @@ const styles = stylesheet.create({
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
-    gap: (theme) => theme.spacing(1),
+    gap: (theme) => theme.spacing(1.5),
     width: "min-content",
   },
 
   icon: {
     color: (theme) => theme.palette.secondary.main,
-    fontSize: { xs: "4em" },
+    fontSize: { xs: "3.25em" },
   },
   title: {
     maxWidth: "13ch",
