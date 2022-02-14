@@ -20,13 +20,22 @@ export const DynamicSections = ({
 }: DynamicSectionsProps) => {
   return (
     <Box sx={styles.root}>
-      <BlogSection {...BlogSectionProps} />
+      <BlogSection
+        {...BlogSectionProps}
+        sx={{ py: (theme) => ({ xs: theme.spacing(8) }) }}
+      />
 
-      <TestimonialSection {...TestimonialSectionProps} />
+      <TestimonialSection
+        {...TestimonialSectionProps}
+        sx={{
+          py: (theme) => ({ xs: theme.spacing(8) }),
+          bgcolor: (theme) => theme.palette.bg.primary,
+        }}
+      />
 
       <FAQSection
         {...FAQSectionProps}
-        sx={{ py: (theme) => ({ xs: theme.spacing(6) }) }}
+        sx={{ py: (theme) => ({ xs: theme.spacing(8) }) }}
       />
     </Box>
   );
@@ -38,6 +47,5 @@ const styles = stylesheet.create({
   root: {
     display: "flex",
     flexDirection: "column",
-    gap: { xs: "6rem" },
   },
 });

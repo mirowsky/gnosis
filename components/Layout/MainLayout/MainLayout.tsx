@@ -41,8 +41,8 @@ const MainLayout = ({
       <ContactSection
         {...ContactSectionProps}
         sx={{
-          px: (theme) => theme.spacing(6),
-          pt: (theme) => theme.spacing(6),
+          px: (theme) => ({ xs: theme.spacing(4), sm: theme.spacing(10) }),
+          pt: (theme) => theme.spacing(10),
         }}
       />
       <Footer {...footerProps} />

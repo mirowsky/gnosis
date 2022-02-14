@@ -12,16 +12,14 @@ export type DefenseSectionProps = {
 
 export const DefenseSection = ({ items = [], sx }: DefenseSectionProps) => {
   return (
-    <Container maxWidth="lg" sx={{ ...styles.root, ...sx }}>
-      <Box
-        data-testid={DEFENSE_SECTION_TEST_ID.GRID_CONTAINER}
-        sx={styles.grid}
-      >
-        {items.map((value, index) => {
-          return <DefenseCard key={index} {...value} />;
-        })}
-      </Box>
-    </Container>
+    <Box
+      data-testid={DEFENSE_SECTION_TEST_ID.GRID_CONTAINER}
+      sx={{ ...styles.root, ...sx }}
+    >
+      {items.map((value, index) => {
+        return <DefenseCard key={index} {...value} />;
+      })}
+    </Box>
   );
 };
 
@@ -31,18 +29,16 @@ const styles = stylesheet.create({
   root: {
     height: "auto",
     width: "100%",
-  },
-  grid: {
     display: "grid",
     placeContent: "center",
+    placeItems: "center",
     gridTemplateColumns: {
       xs: "minmax(0, 1fr)",
-      lg: "33.333% 33.333% 33.333%",
+      lg: "repeat(3, minmax(0, 1fr))",
     },
     gridAutoFlow: "row",
-    width: "100%",
-    height: "100%",
     gap: (theme) => ({ xs: theme.spacing(6) }),
+    rowGap: (theme) => ({ xs: theme.spacing(8), lg: theme.spacing(12) }),
   },
 
   item: {},
