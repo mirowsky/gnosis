@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
 import { Blob } from "@workspace/svg";
+import { ThemeStyles } from "@workspace/types";
 import React from "react";
 import ContactForm, { ContactFormProps } from "../ContactForm/ContactForm";
 import { DEFAULT_ContactSection_TESTING_PROPS } from "./ContactSection.fixture";
@@ -12,15 +13,17 @@ export type ContactSectionProps = {
     src: string;
     alt: string;
   };
+  sx?: ThemeStyles;
 };
 
 export const ContactSection = ({
   ContactFormProps,
   sectionTitle,
   img,
+  sx,
 }: ContactSectionProps = DEFAULT_ContactSection_TESTING_PROPS) => {
   return (
-    <Box sx={styles.root}>
+    <Box sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.sectionTitleContainer}>
         <Typography variant="h2" sx={styles.sectionTitle}>
           {sectionTitle}

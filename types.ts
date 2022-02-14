@@ -1,4 +1,5 @@
-import { Breakpoint } from "@mui/system";
+import { Theme } from "@mui/material";
+import { Breakpoint, SxProps } from "@mui/system";
 import { Properties } from "csstype";
 
 export interface CourseCollectionType {
@@ -59,3 +60,5 @@ export type ResponsiveStyleValue<
 };
 
 export type ResponsiveFontSize = ResponsiveStyleValue<Properties["fontSize"]>;
+
+export type ThemeStyles = SxProps<Theme>;

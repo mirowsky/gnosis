@@ -36,13 +36,15 @@ const MainLayout = ({
       <Header {...headerProps} />
       {children}
 
-      <Box sx={styles.newsletterBox}>
-        <NewsLetterSection {...NewsLetterSectionProps} />
-      </Box>
+      <NewsLetterSection {...NewsLetterSectionProps} />
 
-      <Box sx={styles.contactSectionBox}>
-        <ContactSection {...ContactSectionProps} />
-      </Box>
+      <ContactSection
+        {...ContactSectionProps}
+        sx={{
+          px: (theme) => theme.spacing(6),
+          pt: (theme) => theme.spacing(6),
+        }}
+      />
       <Footer {...footerProps} />
     </Box>
   );
@@ -50,25 +52,9 @@ const MainLayout = ({
 
 export default MainLayout;
 
-const horizontal_padding: ResponsiveStyleValue<Properties["padding"]> = {
-  xs: "4rem",
-};
-
-const section_margin: ResponsiveStyleValue<Properties["margin"]> = {
-  xs: "4em",
-};
-
 const styles = stylesheet.create({
   root: {
     display: "flex",
     flexDirection: "column",
-  },
-
-  newsletterBox: {
-    mt: section_margin,
-  },
-
-  contactSectionBox: {
-    px: horizontal_padding,
   },
 });

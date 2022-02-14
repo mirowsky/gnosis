@@ -4,6 +4,7 @@ import InputWithButton, {
   InputWithButtonProps,
 } from "../../../Common/InputWithButton/InputWithButton";
 import React from "react";
+import { ThemeStyles } from "@workspace/types";
 
 export type NewsLetterSectionProps = {
   img: {
@@ -12,6 +13,7 @@ export type NewsLetterSectionProps = {
   };
   InputWithButtonProps: InputWithButtonProps;
   sectionTitle: string;
+  sx?: ThemeStyles;
 };
 
 export const NewsLetterSection = ({
@@ -21,9 +23,10 @@ export const NewsLetterSection = ({
   },
   InputWithButtonProps,
   sectionTitle = "Assine nossa Newsletter e fique por dentro das novidades.",
+  sx,
 }: NewsLetterSectionProps) => {
   return (
-    <Box sx={styles.root}>
+    <Box sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.container}>
         <Box sx={styles.pictureContainer}>
           <Box
