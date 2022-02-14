@@ -71,6 +71,7 @@ const styles = stylesheet.create({
   formContainer: {
     gridColumn: { lg: "1/2" },
     alignSelf: { lg: "center" },
+    pb: (theme) => ({ xs: theme.spacing(4) }),
   },
   pictureContainer: {
     display: { xs: "none", lg: "flex" },
