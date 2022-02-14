@@ -52,7 +52,6 @@ export default MainLayout;
 
 const horizontal_padding: ResponsiveStyleValue<Properties["padding"]> = {
   xs: "2rem",
-  lg: "4rem",
 };
 
 const section_margin: ResponsiveStyleValue<Properties["margin"]> = {

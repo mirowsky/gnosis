@@ -1,39 +1,36 @@
+import { Box } from "@mui/material";
+import stylesheet from "@workspace/stylesheet";
 import React from "react";
-import { HeroProps, Hero } from "../Sections/Hero/Main/Hero";
-import {
-  AboutSection,
-  AboutSectionProps,
-} from "../Sections/About/Main/AboutSection";
-import {
-  DefenseSectionProps,
-  DefenseSection,
-} from "../Sections/Defense/Main/DefenseSection";
-import {
+import CourseSection, {
   CourseSectionProps,
-  CourseSection,
 } from "../Sections/Courses/Main/CoursesSection";
-import {
-  NewsLetterSectionProps,
-  NewsLetterSection,
-} from "../../../Layout/Newsletter/Main/NewsLetterSection";
-import {
-  BlogSectionProps,
-  BlogSection,
-} from "../Sections/Blog/Main/BlogSection";
-import {
-  TestimonialSection,
-  TestimonialSectionProps,
-} from "../Sections/Testimonial/Main/TestimonialSection";
-import { FAQSection, FAQSectionProps } from "../Sections/FAQ/Main/FAQSection";
-import {
-  ContactSection,
-  ContactSectionProps,
-} from "../../../Layout/Contact/Main/ContactSection";
+import DefenseSection, {
+  DefenseSectionProps,
+} from "../Sections/Defense/Main/DefenseSection";
+import { HeroProps, Hero } from "../Sections/Hero/Main/Hero";
 
-export type LandingPageProps = {};
+export type LandingPageProps = {
+  HeroSectionProps: HeroProps;
+  DefenseSectionProps: DefenseSectionProps;
+  CourseSectionProps: CourseSectionProps;
+};
 
-export const LandingPage = (props: LandingPageProps) => {
-  return <div>Hello, LandingPage!</div>;
+export const LandingPage = ({
+  HeroSectionProps,
+  DefenseSectionProps,
+  CourseSectionProps,
+}: LandingPageProps) => {
+  return (
+    <Box sx={styles.root}>
+      <Hero {...HeroSectionProps} />
+      <DefenseSection {...DefenseSectionProps} />
+      <CourseSection {...CourseSectionProps} />
+    </Box>
+  );
 };
 
 export default LandingPage;
+
+const styles = stylesheet.create({
+  root: {},
+});
