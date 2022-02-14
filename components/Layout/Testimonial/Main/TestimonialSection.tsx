@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
+import { ThemeStyles } from "@workspace/types";
 import React from "react";
 import TestimonialSlider, {
   TestimonialSliderProps,
@@ -8,14 +9,16 @@ import TestimonialSlider, {
 export type TestimonialSectionProps = {
   sectionTitle: string;
   TestimonialSliderProps: TestimonialSliderProps;
+  sx?: ThemeStyles;
 };
 
 export const TestimonialSection = ({
   TestimonialSliderProps = { items: [] },
   sectionTitle = "O que nossos alunos dizem sobre o Instituto Gnosis",
+  sx,
 }: TestimonialSectionProps) => {
   return (
-    <Box sx={styles.root}>
+    <Box sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.titleContainer}>
         <Typography variant="h2" color="primary" sx={styles.title}>
           {sectionTitle}

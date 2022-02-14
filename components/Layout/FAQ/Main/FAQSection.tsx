@@ -1,5 +1,6 @@
 import { Box, Button, ButtonProps, Typography } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
+import { ThemeStyles } from "@workspace/types";
 import React from "react";
 import theme from "theme/theme";
 import FAQCard, { FAQCardProps } from "../FAQCard/FAQCard";
@@ -8,15 +9,17 @@ export type FAQSectionProps = {
   items: FAQCardProps[];
   sectionTitle?: string;
   LoadMoreButtonProps?: ButtonProps;
+  sx?: ThemeStyles;
 };
 
 export const FAQSection = ({
   items = [],
+  sx,
   sectionTitle = "Encontre as respostas que você precisa em nosso centro de ajuda",
   LoadMoreButtonProps = { children: "Mais perguntas", onClick: () => {} },
 }: FAQSectionProps) => {
   return (
-    <Box sx={styles.root}>
+    <Box sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.titleContainer}>
         <Typography variant="h2" sx={styles.title}>
           {sectionTitle}

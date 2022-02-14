@@ -1,5 +1,6 @@
 import { Box, Button, ButtonProps, Container, Typography } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
+import { ThemeStyles } from "@workspace/types";
 import React from "react";
 import BlogPreviewCard, {
   BlogPreviewCardProps,
@@ -9,15 +10,17 @@ export type BlogSectionProps = {
   ButtonProps?: ButtonProps;
   items: BlogPreviewCardProps[];
   sectionTitle: string;
+  sx?: ThemeStyles;
 };
 
 export const BlogSection = ({
   ButtonProps,
   items = [],
   sectionTitle = "Confira nossas últimas postagens",
+  sx,
 }: BlogSectionProps) => {
   return (
-    <Box sx={styles.root}>
+    <Box sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.titleContainer}>
         <Typography color="primary" variant="h2" sx={styles.title}>
           {sectionTitle}
