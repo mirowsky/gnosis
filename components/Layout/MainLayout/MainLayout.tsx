@@ -10,6 +10,8 @@ import ContactSection, {
 import NewsLetterSection, {
   NewsLetterSectionProps,
 } from "components/Layout/Newsletter/Main/NewsLetterSection";
+import { ResponsiveStyleValue } from "@workspace/types";
+import { Properties } from "csstype";
 
 export type MainLayoutProps = {
   children: React.ReactNode;
@@ -33,8 +35,14 @@ const MainLayout = ({
       <MobileMenu {...mobileMenuProps} />
       <Header {...headerProps} />
       {children}
-      <NewsLetterSection {...NewsLetterSectionProps} />
-      <ContactSection {...ContactSectionProps} />
+
+      <Box sx={styles.newsletterBox}>
+        <NewsLetterSection {...NewsLetterSectionProps} />
+      </Box>
+
+      <Box sx={styles.contactSectionBox}>
+        <ContactSection {...ContactSectionProps} />
+      </Box>
       <Footer {...footerProps} />
     </Box>
   );
@@ -42,9 +50,27 @@ const MainLayout = ({
 
 export default MainLayout;
 
+const horizontal_padding: ResponsiveStyleValue<Properties["padding"]> = {
+  xs: "2rem",
+  lg: "4rem",
+};
+
+const section_margin: ResponsiveStyleValue<Properties["margin"]> = {
+  xs: "4em",
+};
+
 const styles = stylesheet.create({
   root: {
     display: "flex",
     flexDirection: "column",
+  },
+
+  newsletterBox: {
+    mt: section_margin,
+  },
+
+  contactSectionBox: {
+    mt: section_margin,
+    px: horizontal_padding,
   },
 });
