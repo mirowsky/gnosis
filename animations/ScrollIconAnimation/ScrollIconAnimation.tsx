@@ -81,6 +81,20 @@ const _styles = (
       backgroundColor: "transparent",
       border: "none",
       outline: "none",
+      position: "relative",
+
+      "& :before": {
+        position: "absolute",
+        width: "100%",
+        height: "100%",
+        top: 0,
+        left: 0,
+        content: `""`,
+        boxShadow: "0px 0px 0px 10px",
+        borderRadius: "50px",
+        filter: "blur(50px)",
+        backgroundColor: (theme) => theme.palette.secondary.main,
+      },
     },
 
     arrowBox: {
