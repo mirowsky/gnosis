@@ -22,20 +22,20 @@ export const DynamicSections = ({
     <Box sx={styles.root}>
       <BlogSection
         {...BlogSectionProps}
-        sx={{ py: (theme) => ({ xs: theme.spacing(8) }) }}
+        sx={{ py: (theme) => ({ xs: theme.spacing(10) }) }}
       />
 
       <TestimonialSection
         {...TestimonialSectionProps}
         sx={{
-          py: (theme) => ({ xs: theme.spacing(8) }),
+          py: (theme) => ({ xs: theme.spacing(10) }),
           bgcolor: (theme) => theme.palette.bg.primary,
         }}
       />
 
       <FAQSection
         {...FAQSectionProps}
-        sx={{ py: (theme) => ({ xs: theme.spacing(8) }) }}
+        sx={{ py: (theme) => ({ xs: theme.spacing(10) }) }}
       />
     </Box>
   );
@@ -47,5 +47,6 @@ const styles = stylesheet.create({
   root: {
     display: "flex",
     flexDirection: "column",
+    gap: { xs: "6rem" },
   },
 });
