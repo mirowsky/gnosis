@@ -20,8 +20,4 @@ export const Primary = Template.bind({});
 
 Primary.args = {
   ...DEFAULT_HERO_TESTING_PROPS,
-  img: {
-    alt: "alt text",
-    src: imageFile as unknown as string,
-  },
 };

@@ -41,7 +41,7 @@ const styles = stylesheet.create({
   root: {
     display: "flex",
     flexDirection: "column",
-    gap: { xs: "4rem" },
+    gap: { xs: "6rem" },
   },
 
   blogSectionBox: {},
