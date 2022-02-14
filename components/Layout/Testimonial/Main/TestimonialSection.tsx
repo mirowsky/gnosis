@@ -42,9 +42,11 @@ const styles = stylesheet.create({
     display: "flex",
     justifyContent: "center",
     textAlign: "center",
+    px: { xs: "1rem" },
   },
   sliderContainer: {
     width: "100%",
+    pl: { xs: "0.75rem", sm: 0 },
   },
   title: {
     maxWidth: "24ch",
