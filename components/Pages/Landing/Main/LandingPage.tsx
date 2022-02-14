@@ -15,7 +15,7 @@ import {
 import {
   NewsLetterSectionProps,
   NewsLetterSection,
-} from "../Sections/Newsletter/Main/NewsLetterSection";
+} from "../../../Layout/Newsletter/Main/NewsLetterSection";
 import {
   BlogSectionProps,
   BlogSection,

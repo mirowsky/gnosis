@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
 import InputWithButton, {
   InputWithButtonProps,
-} from "../../../../../Common/InputWithButton/InputWithButton";
+} from "../../../Common/InputWithButton/InputWithButton";
 import React from "react";
 
 export type NewsLetterSectionProps = {
@@ -54,7 +54,7 @@ export default NewsLetterSection;
 const styles = stylesheet.create({
   root: {
     width: "100%",
-    height: (theme) => ({ xs: theme.spacing(68.75), lg: theme.spacing(62) }),
+    height: (theme) => ({ xs: theme.spacing(68.75), lg: theme.spacing(43) }),
     backgroundColor: (theme) => theme.palette.secondary.light,
     px: (theme) => ({ xs: theme.spacing(4) }),
   },

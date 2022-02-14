@@ -5,6 +5,7 @@ import { DEFAULT_FOOTER_TEST_PROPS } from "../Footer/constants";
 import { DEFAULT_HEADER_TESTING_PROPS } from "../Header/constants";
 import { DEFAULT_MOBILE_DRAWER_TEST_PROPS } from "../MobileDrawer/constants";
 import { MobileMenuProps } from "../MobileDrawer/MobileDrawer";
+import { MAIN_LAYOUT_DEFAULT_PROPS } from "./constants";
 
 export default {
   title: "Layout/Main Layout",
@@ -22,9 +23,7 @@ const Template: Story<MainLayoutProps> = (args) => <MainLayout {...args} />;
 export const Primary = Template.bind({});
 
 Primary.args = {
-  FooterProps: DEFAULT_FOOTER_TEST_PROPS,
-  HeaderProps: DEFAULT_HEADER_TESTING_PROPS,
-  MobileMenuProps: DEFAULT_MOBILE_DRAWER_TEST_PROPS,
+  ...MAIN_LAYOUT_DEFAULT_PROPS,
 };
 
 export const Secondary = Template.bind({});
