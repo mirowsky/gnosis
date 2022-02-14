@@ -11,11 +11,15 @@ import DefenseSection, {
   DefenseSectionProps,
 } from "../Sections/Defense/Main/DefenseSection";
 import { HeroProps, Hero } from "../Sections/Hero/Main/Hero";
+import AboutSection, {
+  AboutSectionProps,
+} from "../Sections/About/Main/AboutSection";
 
 export type LandingPageProps = {
   HeroSectionProps: HeroProps;
   DefenseSectionProps: DefenseSectionProps;
   CourseSectionProps: CourseSectionProps;
+  AboutSectionProps: AboutSectionProps;
   DynamicSectionsProps: DynamicSectionsProps;
 };
 
@@ -23,6 +27,7 @@ export const LandingPage = ({
   HeroSectionProps,
   DefenseSectionProps,
   CourseSectionProps,
+  AboutSectionProps,
   DynamicSectionsProps,
 }: LandingPageProps) => {
   return (
@@ -31,6 +36,10 @@ export const LandingPage = ({
 
       <Box sx={styles.defenseSectionBox}>
         <DefenseSection {...DefenseSectionProps} />
+      </Box>
+
+      <Box sx={styles.aboutUsBox}>
+        <AboutSection {...AboutSectionProps} />
       </Box>
 
       <Box sx={styles.courseSectionBox}>
@@ -50,9 +59,11 @@ const styles = stylesheet.create({
     gap: { xs: "6rem" },
   },
 
+  aboutUsBox: {
+    py: { xs: "4rem" },
+  },
+
   defenseSectionBox: {},
 
-  courseSectionBox: {
-    bgcolor: (theme) => theme.palette.bg.primary,
-  },
+  courseSectionBox: {},
 });

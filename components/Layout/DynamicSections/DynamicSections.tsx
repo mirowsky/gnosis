@@ -44,10 +44,15 @@ const styles = stylesheet.create({
     gap: { xs: "6rem" },
   },
 
-  blogSectionBox: {},
-  testimonialSectionBox: {
+  blogSectionBox: {
     bgcolor: (theme) => theme.palette.bg.primary,
     py: { xs: "4rem" },
   },
-  faqSectionBox: {},
+  testimonialSectionBox: {
+    py: { xs: "4rem" },
+  },
+  faqSectionBox: {
+    bgcolor: (theme) => theme.palette.bg.primary,
+    py: { xs: "4rem" },
+  },
 });

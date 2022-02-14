@@ -51,7 +51,7 @@ const MainLayout = ({
 export default MainLayout;
 
 const horizontal_padding: ResponsiveStyleValue<Properties["padding"]> = {
-  xs: "2rem",
+  xs: "4rem",
 };
 
 const section_margin: ResponsiveStyleValue<Properties["margin"]> = {
@@ -69,7 +69,6 @@ const styles = stylesheet.create({
   },
 
   contactSectionBox: {
-    mt: section_margin,
     px: horizontal_padding,
   },
 });

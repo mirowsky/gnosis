@@ -10,7 +10,7 @@ export interface CustomThemeProps {
 const CustomTheme = ({ children }: CustomThemeProps) => {
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyles />
+      <GlobalStyles theme={theme} />
       <CssBaseline />
       {children}
     </ThemeProvider>
