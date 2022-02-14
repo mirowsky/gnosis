@@ -2,6 +2,7 @@
 import { Box } from "@mui/material";
 import { TabbedContainer } from "@workspace/components/common";
 import stylesheet from "@workspace/stylesheet";
+import { ThemeStyles } from "@workspace/types";
 import React from "react";
 import SyllabusItem, { SyllabusItemProps } from "../SyllabusItem/SyllabusItem";
 
@@ -22,6 +23,7 @@ export interface SyllabusSectionProps {
   syllabusItems: SyllabusItemProps[];
   prerequisites: string;
   emec: EMEC;
+  sx?: ThemeStyles;
 }
 
 export const SyllabusSection = ({
@@ -30,9 +32,10 @@ export const SyllabusSection = ({
   syllabusItems,
   activeIndex = 0,
   handleChange = () => {},
+  sx,
 }: SyllabusSectionProps) => {
   return (
-    <Box sx={styles.root}>
+    <Box sx={{ ...styles.root, ...sx }}>
       <TabbedContainer
         tabPanelStyles={{ maxHeight: "500px", overflow: "scroll" }}
         items={[

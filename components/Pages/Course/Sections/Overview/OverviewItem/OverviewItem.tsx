@@ -54,7 +54,7 @@ const styles = stylesheet.create({
 
   icon: {
     color: (theme) => theme.palette.secondary.main,
-    fontSize: { xs: "5em" },
+    fontSize: { xs: "4em" },
   },
   title: {
     maxWidth: "13ch",

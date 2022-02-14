@@ -1,6 +1,7 @@
 import { Box, Button, ButtonProps, Chip, Typography } from "@mui/material";
 import { ScrollIconAnimation } from "@workspace/animations";
 import stylesheet from "@workspace/stylesheet";
+import { ThemeStyles } from "@workspace/types";
 import React from "react";
 import { DEFAULT_CourseHeroSection_TESTING_PROPS } from "./CourseHeroSection.fixture";
 
@@ -14,6 +15,7 @@ export type CourseHeroSectionProps = {
   };
   PrimaryButtonProps?: ButtonProps;
   SecondaryButtonProps?: ButtonProps;
+  sx?: ThemeStyles;
 };
 
 export const CourseHeroSection = ({
@@ -23,9 +25,10 @@ export const CourseHeroSection = ({
   PrimaryButtonProps,
   SecondaryButtonProps,
   img,
+  sx,
 }: CourseHeroSectionProps = DEFAULT_CourseHeroSection_TESTING_PROPS) => {
   return (
-    <Box sx={styles.root}>
+    <Box sx={{ ...styles.root, ...sx }}>
       <Box
         sx={styles.picture}
         component="img"
