@@ -45,6 +45,9 @@ const styles = stylesheet.create({
   },
 
   blogSectionBox: {},
-  testimonialSectionBox: {},
+  testimonialSectionBox: {
+    bgcolor: (theme) => theme.palette.bg.primary,
+    py: { xs: "4rem" },
+  },
   faqSectionBox: {},
 });

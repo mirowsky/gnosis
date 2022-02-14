@@ -28,8 +28,14 @@ export const LandingPage = ({
   return (
     <Box sx={styles.root}>
       <Hero {...HeroSectionProps} />
-      <DefenseSection {...DefenseSectionProps} />
-      <CourseSection {...CourseSectionProps} />
+
+      <Box sx={styles.defenseSectionBox}>
+        <DefenseSection {...DefenseSectionProps} />
+      </Box>
+
+      <Box sx={styles.courseSectionBox}>
+        <CourseSection {...CourseSectionProps} />
+      </Box>
       <DynamicSections {...DynamicSectionsProps} />
     </Box>
   );
@@ -42,5 +48,11 @@ const styles = stylesheet.create({
     display: "flex",
     flexDirection: "column",
     gap: { xs: "6rem" },
+  },
+
+  defenseSectionBox: {},
+
+  courseSectionBox: {
+    bgcolor: (theme) => theme.palette.bg.primary,
   },
 });
