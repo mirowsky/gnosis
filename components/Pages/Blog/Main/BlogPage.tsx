@@ -14,7 +14,7 @@ import BlogSection, {
 } from "../../../Layout/Blog/Main/BlogSection";
 
 /* eslint-disable-next-line */
-export interface BlogPageLayoutProps {
+export interface BlogPageProps {
   content?: string;
   title?: string;
   featuredImage?: string;
@@ -31,7 +31,7 @@ export function BlogPageLayout({
   SocialMediaShareTrayProps,
   BlogSectionProps,
   ...rest
-}: BlogPageLayoutProps) {
+}: BlogPageProps) {
   const { ref, inView } = useInView({
     triggerOnce: false,
   });

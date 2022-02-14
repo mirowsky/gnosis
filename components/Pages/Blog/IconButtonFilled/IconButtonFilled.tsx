@@ -43,11 +43,12 @@ const _styles = (color: "primary" | "secondary" = "primary") =>
     root: {
       display: "flex",
       fontSize: "1rem",
-      width: "3em",
-      height: "3em",
+      width: "auto",
+      height: "auto",
       borderRadius: "50%",
       alignItems: "center",
       justifyContent: "center",
+      p: 1,
       bgcolor: (theme) => theme.palette[color].main,
 
       ".link": {
@@ -62,7 +63,10 @@ const _styles = (color: "primary" | "secondary" = "primary") =>
 
       ".icon": {
         fill: (theme) => theme.palette[color].contrastText,
-        fontSize: "1.6em",
+
+        "& > svg": {
+          fontSize: "2.2em",
+        },
       },
     },
   });

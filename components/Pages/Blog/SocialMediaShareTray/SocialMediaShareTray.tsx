@@ -56,15 +56,15 @@ export default SocialMediaShareTray;
 
 const defaultStyles = stylesheet.create({
   root: {
-    fontSize: "10px",
+    fontSize: "0.85rem",
     display: "flex",
-    width: "20em",
-    height: "16em",
+    width: "fit-content",
+    height: "auto",
     gap: 2.5,
 
     ".bar": {
-      width: "8px",
-      height: "100%",
+      width: "5px",
+      height: "auto",
       bgcolor: (theme) => theme.palette.secondary.main,
       borderRadius: "2.5em",
     },
@@ -77,8 +77,9 @@ const defaultStyles = stylesheet.create({
     },
 
     ".typography": {
-      fontSize: "1.1em",
+      fontSize: "1em",
       fontWeight: 600,
+      maxWidth: "15ch",
       color: (theme) => theme.palette.secondary.light,
     },
 
@@ -93,6 +94,7 @@ const defaultStyles = stylesheet.create({
 
       ".icon": {
         fill: (theme) => theme.palette.secondary.contrastText,
+        fontSize: "1em",
       },
     },
   },
