@@ -1,8 +1,7 @@
 import { useScrollTrigger, Slide } from "@mui/material";
 
-/* eslint-disable-next-line */
 export interface HideOnScrollProps {
-  children?: JSX.Element;
+  children: JSX.Element;
 }
 
 export function HideOnScroll({ children }: HideOnScrollProps) {
@@ -15,7 +14,7 @@ export function HideOnScroll({ children }: HideOnScrollProps) {
       direction="down"
       in={!trigger}
     >
-      {children || <div></div>}
+      {children}
     </Slide>
   );
 }

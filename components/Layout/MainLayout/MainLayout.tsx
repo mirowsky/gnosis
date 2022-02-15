@@ -13,6 +13,7 @@ import NewsLetterSection, {
 import { ResponsiveStyleValue } from "@workspace/types";
 import { Properties } from "csstype";
 import ContactDial, { ContactDialProps } from "../ContactDial/Main/ContactDial";
+import { HideOnScroll } from "@workspace/components/utility";
 
 export type MainLayoutProps = {
   children: React.ReactNode;
@@ -39,7 +40,21 @@ const MainLayout = ({
         <ContactDial {...ContactDialProps} />
       </Box>
       <MobileMenu {...mobileMenuProps} />
-      <Header {...headerProps} />
+
+      <HideOnScroll>
+        <div
+          style={{
+            position: "sticky",
+            top: 0,
+            left: 0,
+            width: "100%",
+            zIndex: 10,
+          }}
+        >
+          <Header {...headerProps} />
+        </div>
+      </HideOnScroll>
+
       {children}
 
       <NewsLetterSection {...NewsLetterSectionProps} />

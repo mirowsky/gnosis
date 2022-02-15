@@ -95,6 +95,7 @@ const styles = stylesheet.create({
       lg: theme.spacing(14),
     }),
     boxShadow: (theme) => `2px 3px 5px ${theme.palette.special.main}`,
+    bgcolor: (theme) => theme.palette.background.paper,
   },
 
   burguerButton: {
