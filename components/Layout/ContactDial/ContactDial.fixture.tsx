@@ -2,9 +2,13 @@ import type { ContactDialItem, ContactDialProps } from "./ContactDial";
 import { FileCopy, Save, Print, Share } from "@mui/icons-material";
 
 const actions: ContactDialItem[] = [
-  { icon: FileCopy, label: "Copy", action: () => {} },
-  { icon: Save, label: "Save", action: () => {} },
-  { icon: Print, label: "Print", action: () => {} },
+  { icon: FileCopy, label: "Informações sobre cursos", action: () => {} },
+  { icon: Save, label: "Dúvidas sobre valores", action: () => {} },
+  {
+    icon: Print,
+    label: "Informações sobre pré-requisitos para cada curso",
+    action: () => {},
+  },
   { icon: Share, label: "Share", action: () => {} },
 ];
 

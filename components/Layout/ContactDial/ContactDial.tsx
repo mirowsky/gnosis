@@ -42,7 +42,7 @@ export const ContactDial = ({
         {actions.map(({ action, icon: Icon, label }, index) => (
           <SpeedDialAction
             key={label}
-            icon={Icon}
+            icon={<Icon />}
             tooltipTitle={label}
             tooltipOpen
             onClick={action}
