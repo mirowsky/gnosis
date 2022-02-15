@@ -83,5 +83,6 @@ const _styles = (
 
     icon: {
       position: "absolute",
+      fontSize: "1.5em",
     },
   });

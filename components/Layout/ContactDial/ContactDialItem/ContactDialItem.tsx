@@ -36,6 +36,7 @@ const styles = stylesheet.create({
   root: {
     display: "flex",
     gap: (theme) => theme.spacing(2),
+    width: "fit-content",
   },
 
   labelPaper: {
@@ -59,6 +60,7 @@ const styles = stylesheet.create({
     p: 2,
     borderRadius: "6px",
     height: "fit-content",
+    width: "fit-content",
   },
   icon: {
     color: (theme) => theme.palette.grey[700],

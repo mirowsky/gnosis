@@ -8,7 +8,6 @@ export default {
   title: "Layout/Contact Dial/Main",
   component: ContactDial,
   parameters: {
-    layout: "fullscreen",
     viewport: {
       defaultViewport: "brazilDesktop1",
     },
