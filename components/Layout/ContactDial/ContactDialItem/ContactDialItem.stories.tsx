@@ -8,7 +8,6 @@ export default {
   title: "Layout/Contact Dial/Contact Dial Item",
   component: ContactDialItem,
   parameters: {
-    layout: "fullscreen",
     viewport: {
       defaultViewport: "brazilDesktop1",
     },
@@ -22,3 +21,13 @@ export const Primary = Template.bind({});
 Primary.args = {
   ...DEFAULT_ContactDialItem_TESTING_PROPS,
 };
+
+export const Secondary = Template.bind({});
+
+Secondary.args = {
+  ...Primary.args,
+  label:
+    "This is a really long label used to visual text what happens when a longer sentence is passed down as props to this component",
+};
+
+Secondary.storyName = "Long label";
