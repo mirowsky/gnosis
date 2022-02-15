@@ -1,12 +1,14 @@
 import { Close, SvgIconComponent, WhatsApp } from "@mui/icons-material";
 import { Box } from "@mui/material";
+import { MotionBox } from "@workspace/components/utility";
 import stylesheet from "@workspace/stylesheet";
 import { ResponsiveFontSize } from "@workspace/types";
+import { Variants } from "framer-motion";
 import React from "react";
 import { DEFAULT_ContactDialButton_TESTING_PROPS } from "./ContactDialButton.fixture";
 
 export type ContactDialButtonProps = {
-  open: boolean;
+  open?: boolean;
   color?: "primary" | "secondary";
   fontSize?: ResponsiveFontSize;
   iconOpen?: React.FC<Partial<SvgIconComponent>>;
@@ -19,7 +21,7 @@ export const ContactDialButton = ({
   fontSize,
   iconClosed: IconClosed = WhatsApp,
   iconOpen: IconOpen = Close,
-}: ContactDialButtonProps = DEFAULT_ContactDialButton_TESTING_PROPS) => {
+}: ContactDialButtonProps) => {
   const styles = React.useMemo(
     () => _styles(color, fontSize),
     [color, fontSize]
@@ -27,12 +29,34 @@ export const ContactDialButton = ({
 
   return (
     <Box sx={styles.root} component="button">
-      {(open && <IconOpen />) || <IconClosed />}
+      <MotionBox
+        sx={styles.icon}
+        component={IconOpen}
+        variants={VARIANTS}
+        initial="closed"
+        animate={open ? "open" : "closed"}
+      />
+      <MotionBox
+        sx={styles.icon}
+        component={IconClosed}
+        variants={VARIANTS}
+        initial="open"
+        animate={open ? "closed" : "open"}
+      />
     </Box>
   );
 };
 
 export default ContactDialButton;
+
+const VARIANTS: Variants = {
+  open: {
+    opacity: 1,
+  },
+  closed: {
+    opacity: 0,
+  },
+};
 
 const _styles = (
   color: "primary" | "secondary" = "primary",
@@ -53,5 +77,10 @@ const _styles = (
       boxShadow: (theme) => theme.shadows[5],
       color: (theme) => theme.palette[color].contrastText,
       cursor: "pointer",
+      position: "relative",
+    },
+
+    icon: {
+      position: "absolute",
     },
   });
