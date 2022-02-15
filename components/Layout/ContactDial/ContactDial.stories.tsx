@@ -20,3 +20,14 @@ export const Primary = Template.bind({});
 Primary.args = {
   ...DEFAULT_ContactDial_TESTING_PROPS,
 };
+
+Primary.storyName = "Open state";
+
+export const Secondary = Template.bind({});
+
+Secondary.args = {
+  ...Primary.args,
+  open: false,
+};
+
+Secondary.storyName = "Closed state";
