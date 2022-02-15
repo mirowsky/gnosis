@@ -1,5 +1,7 @@
 import { Box } from "@mui/material";
+import { MotionBox } from "@workspace/components/utility";
 import stylesheet from "@workspace/stylesheet";
+import { Variants } from "framer-motion";
 import React from "react";
 import ContactDialButton, {
   ContactDialButtonProps,
@@ -19,11 +21,23 @@ export const ContactDial = ({
 }: ContactDialProps) => {
   return (
     <Box sx={styles.root}>
-      <Box sx={styles.itemsBox}>
+      <MotionBox sx={styles.itemsBox}>
         {items.map((item, index) => {
-          return <ContactDialItem {...item} key={index} />;
+          return (
+            <MotionBox
+              variants={VARIANTS}
+              transition={{
+                transitionDelay: `${0.1 * index}`,
+              }}
+              key={index}
+              initial="closed"
+              animate={ContactDialButtonProps.open ? "open" : "closed"}
+            >
+              <ContactDialItem {...item} />
+            </MotionBox>
+          );
         })}
-      </Box>
+      </MotionBox>
       <Box sx={styles.buttonBox}>
         <ContactDialButton
           {...ContactDialButtonProps}
@@ -36,6 +50,17 @@ export const ContactDial = ({
 
 export default ContactDial;
 
+const VARIANTS: Variants = {
+  open: {
+    opacity: 1,
+    x: 0,
+  },
+  closed: {
+    opacity: 0,
+    x: 350,
+  },
+};
+
 const styles = stylesheet.create({
   root: {
     position: "relative",
@@ -43,7 +68,7 @@ const styles = stylesheet.create({
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-end",
-    gap: (theme) => theme.spacing(2),
+    gap: (theme) => theme.spacing(2.5),
   },
 
   buttonBox: {},
