@@ -12,6 +12,7 @@ import NewsLetterSection, {
 } from "components/Layout/Newsletter/Main/NewsLetterSection";
 import { ResponsiveStyleValue } from "@workspace/types";
 import { Properties } from "csstype";
+import ContactDial, { ContactDialProps } from "../ContactDial/Main/ContactDial";
 
 export type MainLayoutProps = {
   children: React.ReactNode;
@@ -20,6 +21,7 @@ export type MainLayoutProps = {
   MobileMenuProps: MobileMenuProps;
   ContactSectionProps: ContactSectionProps;
   NewsLetterSectionProps: NewsLetterSectionProps;
+  ContactDialProps: ContactDialProps;
 };
 
 const MainLayout = ({
@@ -29,9 +31,13 @@ const MainLayout = ({
   MobileMenuProps: mobileMenuProps,
   ContactSectionProps,
   NewsLetterSectionProps,
+  ContactDialProps,
 }: MainLayoutProps) => {
   return (
     <Box sx={styles.root}>
+      <Box sx={styles.contactDialBox}>
+        <ContactDial {...ContactDialProps} />
+      </Box>
       <MobileMenu {...mobileMenuProps} />
       <Header {...headerProps} />
       {children}
@@ -58,5 +64,12 @@ const styles = stylesheet.create({
   root: {
     display: "flex",
     flexDirection: "column",
+  },
+
+  contactDialBox: {
+    position: "fixed",
+    bottom: 0,
+    right: 0,
+    p: 4,
   },
 });
