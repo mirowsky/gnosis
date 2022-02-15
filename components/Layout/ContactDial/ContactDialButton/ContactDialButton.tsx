@@ -5,7 +5,6 @@ import stylesheet from "@workspace/stylesheet";
 import { ResponsiveFontSize } from "@workspace/types";
 import { Variants } from "framer-motion";
 import React from "react";
-import { DEFAULT_ContactDialButton_TESTING_PROPS } from "./ContactDialButton.fixture";
 
 export type ContactDialButtonProps = {
   open?: boolean;
