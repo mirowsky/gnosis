@@ -50,7 +50,7 @@ export function BlogPageLayout({
       <Box className="Atlas-BlogLayoutV1-pattern" />
       <Box className="Atlas-BlogLayoutV1-fixedSocialMediaTrayContainer">
         <AnimatePresence>
-          {!inView && !postsInView && (
+          {!inView && postsInView && (
             <MotionBox
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -94,7 +94,10 @@ export function BlogPageLayout({
           </Box>
         </Container>
 
-        <Container className="Atlas-BlogLayoutV1-contentContainer">
+        <Container
+          ref={postsRef}
+          className="Atlas-BlogLayoutV1-contentContainer"
+        >
           <Box
             className="Atlas-BlogLayoutV1-content"
             dangerouslySetInnerHTML={{ __html: content }}
@@ -110,7 +113,6 @@ export function BlogPageLayout({
           }}
         >
           <Container
-            ref={postsRef}
             className="Atlas-BlogLayoutV1-latestPosts-container"
             maxWidth="lg"
           >
@@ -126,7 +128,7 @@ export default BlogPageLayout;
 
 const defaultStyles = stylesheet.create({
   root: {
-    my: 5,
+    mt: 5,
     width: "100%",
     height: "100%",
     overflow: "hidden",
