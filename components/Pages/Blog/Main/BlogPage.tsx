@@ -103,13 +103,20 @@ export function BlogPageLayout({
       </Box>
 
       {BlogSectionProps.items.length > 0 && (
-        <Container
-          ref={postsRef}
-          className="Atlas-BlogLayoutV1-latestPosts-container"
-          maxWidth="lg"
+        <Box
+          sx={{
+            py: (theme) => theme.spacing(6),
+            bgcolor: (theme) => theme.palette.bg.primary,
+          }}
         >
-          <BlogSection {...BlogSectionProps} />
-        </Container>
+          <Container
+            ref={postsRef}
+            className="Atlas-BlogLayoutV1-latestPosts-container"
+            maxWidth="lg"
+          >
+            <BlogSection {...BlogSectionProps} />
+          </Container>
+        </Box>
       )}
     </Box>
   );

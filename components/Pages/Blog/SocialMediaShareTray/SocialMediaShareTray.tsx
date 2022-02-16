@@ -60,7 +60,7 @@ const defaultStyles = stylesheet.create({
     display: "flex",
     width: "fit-content",
     height: "auto",
-    gap: 2.5,
+    gap: 3.5,
 
     ".bar": {
       width: "5px",
@@ -73,13 +73,13 @@ const defaultStyles = stylesheet.create({
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
-      gap: 2.5,
+      gap: 3.5,
     },
 
     ".typography": {
       fontSize: "1em",
       fontWeight: 600,
-      maxWidth: "15ch",
+      maxWidth: "20ch",
       color: (theme) => theme.palette.secondary.light,
     },
 
@@ -94,7 +94,7 @@ const defaultStyles = stylesheet.create({
 
       ".icon": {
         fill: (theme) => theme.palette.secondary.contrastText,
-        fontSize: "1em",
+        fontSize: "3em",
       },
     },
   },
