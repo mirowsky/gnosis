@@ -53,6 +53,7 @@ const styles = stylesheet.create({
     display: "flex",
     justifyContent: "center",
     flexDirection: "column",
+    gap: { xs: "5em" },
   },
   textContainer: {
     display: "flex",
@@ -62,7 +63,7 @@ const styles = stylesheet.create({
     gap: (theme) => ({ xs: theme.spacing(6) }),
   },
   imageContainer: {
-    maxWidth: "60vw",
+    maxWidth: "45vw",
     margin: "auto",
     display: { xs: "none", lg: "block" },
   },
