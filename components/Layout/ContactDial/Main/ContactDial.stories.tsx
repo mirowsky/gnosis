@@ -36,3 +36,14 @@ Primary.decorators = [
     </Box>
   ),
 ];
+
+export const Secondary = Template.bind({});
+
+Secondary.args = {
+  ...Primary.args,
+  open: true,
+};
+
+Secondary.storyName = "Open state";
+
+Secondary.decorators = [...Primary.decorators];
