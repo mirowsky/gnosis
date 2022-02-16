@@ -1,107 +1,87 @@
-import { Box, IconButton, Theme, Typography, SxProps } from "@mui/material";
-import stylesheet from "@workspace/stylesheet";
 import React from "react";
-import { FOOTER_TEST_ID } from "./constants";
+import { Box, IconButton, Link } from "@mui/material";
+import {
+  Facebook,
+  Instagram,
+  WhatsApp,
+  YouTube,
+  LinkedIn,
+  Twitter,
+} from "@mui/icons-material";
 
 export interface FooterProps {
-  copyright: string;
-  contacts: string[];
-  emailContacts: string[];
-  socials: Array<{
-    icon: React.FunctionComponent;
-    onClick: (...args: unknown[]) => void;
-  }>;
+  FooterContactInfoProps?: FooterContactInfoProps;
+  FooterIconsProps?: FooterIconsProps;
+  FooterLinksProps?: FooterAdditionalLinksProps;
 }
 
-const Footer = ({
-  contacts = [],
-  copyright = "",
-  emailContacts = [],
-  socials = [],
+export const Footer = ({
+  FooterContactInfoProps,
+  FooterIconsProps,
+  FooterLinksProps,
 }: FooterProps) => {
   return (
-    <Box sx={styles.root}>
-      <Box sx={styles.grid}>
-        {/* Contacts */}
+    <Box
+      className="Atlas-Footer-rootContainer"
+      sx={{
+        backgroundColor: (theme) => theme.palette.primary.main,
+        width: "100%",
+        borderTop: (theme) => `0.5px solid ${theme.palette.grey[400]}`,
+      }}
+    >
+      <Box
+        className="Atlas-Footer-upperFlexContainer"
+        sx={{
+          width: { xs: "100%", lg: "75% " },
+          margin: "auto",
+          display: "flex",
+          flexDirection: { xs: "column", lg: "row" },
+          justifyContent: { xs: "center", lg: "space-evenly" },
+          alignItems: { xs: "center", lg: "flex-start" },
+          py: { xs: "2.5em" },
+          color: (theme) => theme.palette.primary.contrastText,
+          gap: { xs: "2.5em", lg: "0em" },
+        }}
+      >
+        <FooterContactInfo {...FooterContactInfoProps} />
+
+        {FooterLinksProps && <FooterAdditionalLinks {...FooterLinksProps} />}
+      </Box>
+
+      <Box
+        className="Atlas-Footer-bottomFlexContainer"
+        sx={{
+          width: "100%",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+          py: { xs: "1.5em" },
+          borderTop: (theme) => `0.5px solid ${theme.palette.grey[400]}`,
+        }}
+      >
         <Box
-          data-testid={FOOTER_TEST_ID.CONTACTS_CONTAINER.toString()}
-          sx={styles.contactContainer}
+          className="Atlas-Footer-bottomFlexContainer-socialIconContainer"
+          sx={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "25px",
+            py: { xs: "1.5em" },
+          }}
         >
-          <Typography
-            variant="h5"
-            fontWeight="bolder"
-            color="primary.contrastText"
-          >
-            Contato
-          </Typography>
-          {contacts.map((contact, index) => {
-            return (
-              <Typography
-                variant="h5"
-                fontWeight="bold"
-                key={index}
-                color="primary.contrastText"
-                sx={styles.contactItem}
-              >
-                {contact}
-              </Typography>
-            );
-          })}
+          <FooterIcons {...FooterIconsProps} />
         </Box>
-        {/* Email contacts */}
+
         <Box
-          data-testid={FOOTER_TEST_ID.EMAIL_CONTACT_CONTAINER}
-          sx={styles.emailContactContainer}
-        >
-          <Typography
-            variant="h5"
-            fontWeight="bolder"
-            color="primary.contrastText"
-          >
-            Contato por email
-          </Typography>
-
-          {emailContacts.map((emailContact, index) => {
-            return (
-              <Typography
-                variant="h5"
-                fontWeight="bold"
-                key={index}
-                color="primary.contrastText"
-                sx={styles.emailItem}
-              >
-                {emailContact}
-              </Typography>
-            );
-          })}
-        </Box>
-
-        {/* Social icons */}
-        <Box
-          data-testid={FOOTER_TEST_ID.SOCIALS_CONTAINER}
-          sx={styles.socialContainer}
-        >
-          {socials.map(({ icon: Icon, onClick }, index) => {
-            return (
-              <IconButton
-                size="large"
-                sx={styles.socialItem}
-                onClick={onClick}
-                key={index}
-              >
-                <Icon />
-              </IconButton>
-            );
-          })}
-        </Box>
-
-        {/* Copyright text */}
-
-        <Box sx={styles.copyrightContainer}>
-          <Typography sx={styles.copyright} variant="caption" fontWeight="bold">
-            {copyright}
-          </Typography>
-        </Box>
+          component={"p"}
+          sx={{
+            color: "#fff",
+            textTransform: "capitalize",
+            fontSize: { xs: "10px", lg: "16px" },
+            textAlign: "center",
+          }}
+        >{`© ${new Date().getFullYear()} Todos direitos reservados - Instituto Educacional Gnosis `}</Box>
       </Box>
     </Box>
   );
@@ -109,63 +89,202 @@ const Footer = ({
 
 export default Footer;
 
-const contactStyles = {
-  flexDirection: "column",
-  gap: (theme) => ({ xs: theme.spacing(2) }),
-  display: "flex",
-  justifyContent: { xs: "center", lg: "flex-start" },
-  alignItems: { xs: "center", lg: "flex-start" },
-} as SxProps<Theme>;
+interface FooterAdditionalLinksProps {
+  label: string;
+  links: string[];
+}
 
-const styles = stylesheet.create({
-  root: {
-    display: "flex",
-    width: "100%",
-    backgroundColor: (theme) => theme.palette.primary.main,
-    p: (theme) => ({ xs: theme.spacing(4) }),
-  },
-  grid: {
-    display: "grid",
-    width: "100%",
-    height: "100%",
-    justifyItems: "center",
-    gridTemplateColumns: {
-      xs: "1fr",
-      lg: "minmax(0, 0.33fr) minmax(0, 0.33fr) minmax(0, 0.33fr)",
-    },
-    gridTemplateRows: { xs: "minmax(0, 1fr)" },
-    gap: (theme) => ({ xs: theme.spacing(6), lg: "0px" }),
-    rowGap: (theme) => ({ lg: theme.spacing(4) }),
-  },
+const FooterAdditionalLinks = ({
+  label,
+  links,
+}: Partial<FooterAdditionalLinksProps>) => {
+  return (
+    <Box
+      className="Atlas-Footer-upperflexContainer-additionalLinks"
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        fontSize: { xs: "12px", lg: "14px" },
+        gap: "10px",
+      }}
+    >
+      <Box
+        className="Atlas-Footer-upperflexContainer-additionalLinks-label"
+        sx={{ fontWeight: "800" }}
+      >
+        {label}
+      </Box>
+      <Box
+        className="Atlas-Footer-upperflexContainer-additionalLinks-list"
+        sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+      >
+        {links &&
+          links.map((value, index) => {
+            return <Box key={index}> {value} </Box>;
+          })}
+      </Box>
+    </Box>
+  );
+};
 
-  // Container
-  contactContainer: contactStyles,
-  emailContactContainer: contactStyles,
-  socialContainer: {
-    ...contactStyles,
-    flexDirection: { xs: "row" },
-  },
-  copyrightContainer: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    width: "100%",
-    height: "100%",
-    textAlign: "center",
-    gridColumn: { lg: "1/4" },
-  },
+interface FooterContactInfoProps {
+  address: string;
+  registration: string;
+  phones: string[];
+  emails: string[];
+}
 
-  //Items
-  contactItem: {
-    color: (theme) => theme.palette.primary.contrastText,
-  },
-  emailItem: {
-    color: (theme) => theme.palette.primary.contrastText,
-  },
-  socialItem: {
-    color: (theme) => theme.palette.primary.contrastText,
-  },
-  copyright: {
-    color: (theme) => theme.palette.primary.contrastText,
-  },
-});
+const FooterContactInfo = ({
+  address,
+  emails,
+  phones,
+  registration,
+}: Partial<FooterContactInfoProps>) => {
+  return (
+    <Box
+      className="Atlas-Footer-upperFlexContainer-contactInfo"
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: { xs: "12px", lg: "14px" },
+        gap: "10px",
+      }}
+    >
+      <Box sx={{ fontWeight: "800" }}>Contato</Box>
+      <Box className="Atlas-Footer-upperFlexContainer-contactInfoAddress">
+        {address && <Box>{address} </Box>}
+      </Box>
+      <Box className="Atlas-Footer-upperFlexContainer-contactInfoRegistration">
+        {registration && <Box>{registration}</Box>}
+      </Box>
+      <Box className="Atlas-Footer-upperFlexContainer-contactInfoPhones">
+        {phones && (
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              flexDirection: "column",
+            }}
+          >
+            {phones.map((value, index) => {
+              return <Box key={index}>{value}</Box>;
+            })}
+          </Box>
+        )}
+      </Box>
+
+      <Box className="Atlas-Footer-upperFlexContainer-contactInfoEmails">
+        {emails && (
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            {emails.map((value, index) => {
+              return <Box key={index}>{value}</Box>;
+            })}
+          </Box>
+        )}
+      </Box>
+    </Box>
+  );
+};
+
+interface FooterIconsProps {
+  facebook: string;
+  instagram: string;
+  whatsApp: string;
+  twitter: string;
+  youtube: string;
+  linkedin: string;
+}
+
+const FooterIcons = ({
+  facebook,
+  instagram,
+  whatsApp,
+  twitter,
+  youtube,
+  linkedin,
+}: Partial<FooterIconsProps>) => {
+  return (
+    <>
+      <IconButton
+        className="Atlas-Footer-facebookIcon"
+        sx={{
+          color: (theme) => theme.palette.primary.contrastText,
+          fontSize: { xs: "16px", lg: "30px" },
+        }}
+      >
+        <Link color="inherit" href={facebook} target={"_blank"}>
+          <Facebook sx={{ fontSize: "inherit" }} />
+        </Link>
+      </IconButton>
+
+      <IconButton
+        className="Atlas-Footer-instagramIcon"
+        sx={{
+          color: (theme) => theme.palette.primary.contrastText,
+          fontSize: { xs: "16px", lg: "30px" },
+        }}
+      >
+        <Link color="inherit" href={instagram} target={"_blank"}>
+          <Instagram sx={{ fontSize: "inherit" }} />
+        </Link>
+      </IconButton>
+
+      <IconButton
+        className="Atlas-Footer-whatsAppIcon"
+        sx={{
+          color: (theme) => theme.palette.primary.contrastText,
+          fontSize: { xs: "16px", lg: "30px" },
+        }}
+      >
+        <Link color="inherit" href={whatsApp} target={"_blank"}>
+          <WhatsApp sx={{ fontSize: "inherit" }} />
+        </Link>
+      </IconButton>
+
+      <IconButton
+        className="Atlas-Footer-twitterIcon"
+        sx={{
+          color: (theme) => theme.palette.primary.contrastText,
+          fontSize: { xs: "16px", lg: "30px" },
+        }}
+      >
+        <Link color="inherit" href={twitter} target={"_blank"}>
+          <Twitter sx={{ fontSize: "inherit" }} />
+        </Link>
+      </IconButton>
+
+      <IconButton
+        className="Atlas-Footer-youtubeIcon"
+        sx={{
+          color: (theme) => theme.palette.primary.contrastText,
+          fontSize: { xs: "16px", lg: "30px" },
+        }}
+      >
+        <Link color="inherit" href={youtube} target="_blank">
+          <YouTube sx={{ fontSize: "inherit" }} />
+        </Link>
+      </IconButton>
+
+      <IconButton
+        className="Atlas-Footer-linkedinIcon"
+        sx={{
+          color: (theme) => theme.palette.primary.contrastText,
+          fontSize: { xs: "16px", lg: "30px" },
+        }}
+      >
+        <Link color="inherit" target={"_blank"} href={youtube}>
+          <LinkedIn sx={{ fontSize: "inherit" }} />
+        </Link>
+      </IconButton>
+    </>
+  );
+};

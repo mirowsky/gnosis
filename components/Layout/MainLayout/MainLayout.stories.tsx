@@ -1,7 +1,7 @@
 import { Meta, Story } from "@storybook/react";
 import MainLayout from "./MainLayout";
 import type { MainLayoutProps } from "./MainLayout";
-import { DEFAULT_FOOTER_TEST_PROPS } from "../Footer/constants";
+import { DEFAULT_Footer_TESTING_PROPS } from "../Footer/Footer.fixture";
 import { DEFAULT_HEADER_TESTING_PROPS } from "../Header/constants";
 import { DEFAULT_MOBILE_DRAWER_TEST_PROPS } from "../MobileDrawer/constants";
 import { MobileMenuProps } from "../MobileDrawer/MobileDrawer";

@@ -1,5 +1,5 @@
 import { Meta, Story } from "@storybook/react";
-import { DEFAULT_FOOTER_TEST_PROPS } from "./constants";
+import { DEFAULT_Footer_TESTING_PROPS } from "./Footer.fixture";
 import Footer, { FooterProps } from "./Footer";
 
 export default {
@@ -17,4 +17,4 @@ const Template: Story<FooterProps> = (args) => <Footer {...args} />;
 
 export const Primary = Template.bind({});
 
-Primary.args = { ...DEFAULT_FOOTER_TEST_PROPS };
+Primary.args = { ...DEFAULT_Footer_TESTING_PROPS };
