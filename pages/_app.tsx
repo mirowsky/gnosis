@@ -27,6 +27,7 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
             ContactSectionProps={CONTACT_SECTION_PROPS}
             NewsLetterSectionProps={NEWSLETTER_SECTION_PROPS}
             ContactDialProps={CONTACT_DIAL_PROPS}
+            ContactFormDialogProps={{}}
           >
             <Component {...pageProps} />
           </MainLayout>
@@ -37,6 +38,11 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
 }
 
 export default MyApp;
+
+const CONTACT_FORM_DIALOG_PROPS: MainLayoutProps["ContactFormDialogProps"] = {
+  cancelLabel: "Cancelar",
+  title: "",
+};
 
 const CONTACT_DIAL_PROPS: MainLayoutProps["ContactDialProps"] = {
   ContactDialButtonProps: {

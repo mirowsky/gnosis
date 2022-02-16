@@ -11,6 +11,7 @@ import {
   DialogProps,
   TextFieldProps,
 } from "@mui/material";
+import NumberFormat from "react-number-format";
 
 /* eslint-disable-next-line */
 export interface ContactFormDialogProps {
@@ -94,8 +95,10 @@ export function ContactFormDialog({
             fullWidth
             variant="outlined"
           />
-          <TextField
-            {...phoneInputProps}
+          <NumberFormat
+            {...(phoneInputProps as unknown)}
+            customInput={TextField}
+            format="(##) #-####-####"
             sx={{ gridColumn: "1/3" }}
             margin="dense"
             fullWidth
