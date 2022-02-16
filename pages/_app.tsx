@@ -5,7 +5,6 @@ import React from "react";
 import CustomTheme from "theme/CustomTheme";
 import "../styles/global.styles.css";
 import { MainLayout, MainLayoutProps } from "@workspace/components/layouts";
-import { useContactForm } from "@workspace/hooks";
 import { useForm } from "react-hook-form";
 
 type ContactFormInputs = {
