@@ -3,6 +3,7 @@ import { LoadingButton, LoadingButtonProps } from "@mui/lab";
 import stylesheet from "@workspace/stylesheet";
 import React from "react";
 import { DEFAULT_ContactForm_TESTING_PROPS } from "./ContactForm.fixture";
+import NumberFormat from "react-number-format";
 
 export type ContactFormProps = {
   NameInputProps?: TextFieldProps;
@@ -23,7 +24,12 @@ export const ContactForm = ({
     <Box sx={styles.root}>
       <Box sx={styles.grid}>
         <TextField fullWidth {...NameInputProps}></TextField>
-        <TextField fullWidth {...PhoneInputProps}></TextField>
+        <NumberFormat
+          customInput={TextField}
+          fullWidth
+          format="(##) #-####-####"
+          {...(PhoneInputProps as unknown)}
+        ></NumberFormat>
         <TextField
           sx={styles.emailInputBox}
           fullWidth
