@@ -10,8 +10,6 @@ import ContactSection, {
 import NewsLetterSection, {
   NewsLetterSectionProps,
 } from "components/Layout/Newsletter/Main/NewsLetterSection";
-import { ResponsiveStyleValue } from "@workspace/types";
-import { Properties } from "csstype";
 import ContactDial, { ContactDialProps } from "../ContactDial/Main/ContactDial";
 import { HideOnScroll } from "@workspace/components/utility";
 
@@ -85,6 +83,7 @@ const styles = stylesheet.create({
     position: "fixed",
     bottom: 0,
     right: 0,
-    p: 4,
+    p: 2.5,
+    zIndex: 10,
   },
 });
