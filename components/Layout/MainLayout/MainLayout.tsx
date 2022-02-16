@@ -12,6 +12,10 @@ import NewsLetterSection, {
 } from "components/Layout/Newsletter/Main/NewsLetterSection";
 import ContactDial, { ContactDialProps } from "../ContactDial/Main/ContactDial";
 import { HideOnScroll } from "@workspace/components/utility";
+import {
+  ContactFormDialog,
+  ContactFormDialogProps,
+} from "@workspace/components/common";
 
 export type MainLayoutProps = {
   children: React.ReactNode;
@@ -21,6 +25,7 @@ export type MainLayoutProps = {
   ContactSectionProps: ContactSectionProps;
   NewsLetterSectionProps: NewsLetterSectionProps;
   ContactDialProps: ContactDialProps;
+  ContactFormDialogProps: ContactFormDialogProps;
 };
 
 export const MainLayout = ({
@@ -31,6 +36,7 @@ export const MainLayout = ({
   ContactSectionProps,
   NewsLetterSectionProps,
   ContactDialProps,
+  ContactFormDialogProps,
 }: MainLayoutProps) => {
   return (
     <Box sx={styles.root}>
@@ -38,6 +44,8 @@ export const MainLayout = ({
         <ContactDial {...ContactDialProps} />
       </Box>
       <MobileMenu {...mobileMenuProps} />
+
+      <ContactFormDialog {...ContactFormDialogProps} />
 
       <HideOnScroll>
         <div
