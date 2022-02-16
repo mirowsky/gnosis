@@ -6,6 +6,8 @@ import CustomTheme from "theme/CustomTheme";
 import "../styles/global.styles.css";
 import { MainLayout, MainLayoutProps } from "@workspace/components/layouts";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
 
 type ContactFormInputs = {
   name: string;
@@ -13,6 +15,15 @@ type ContactFormInputs = {
   email: string;
   phone: string;
 };
+
+const contactFormSchema: Yup.SchemaOf<ContactFormInputs> = Yup.object({
+  email: Yup.string()
+    .email("Precisa ser um email válido")
+    .required("Este campo é obrigatório"),
+  message: Yup.string().required("Este campo é obrigatório"),
+  phone: Yup.string().required("Este campo é obrigatório"),
+  name: Yup.string().required("Este campo é obrigatório"),
+}).required();
 
 function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
   const clientSideCache = createEmotionCache({ key: "css" });
@@ -29,8 +40,15 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [contactDialOpen, setContactDialOpen] = React.useState(false);
 
-  const contactForm = useForm<ContactFormInputs>();
-  const dialogForm = useForm<ContactFormInputs>();
+  const contactForm = useForm<ContactFormInputs>({
+    mode: "onBlur",
+    resolver: yupResolver(contactFormSchema),
+  });
+  const dialogForm = useForm<ContactFormInputs>({
+    mode: "onBlur",
+    resolver: yupResolver(contactFormSchema),
+  });
+  const newsletterInput = useForm<{ email: string }>();
 
   return (
     <React.Fragment>
@@ -65,26 +83,56 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
                   ...contactForm.register("email"),
                   label: "E-mail",
                   placeholder: "Ex: joao.alves@gmail.com",
+                  error: Boolean(contactForm.formState.errors.email),
+                  helperText:
+                    contactForm.formState.errors.email?.message || " ",
                 },
                 MessageIputProps: {
                   ...contactForm.register("message"),
                   label: "Mensagem",
                   placeholder:
                     "Ex: Gostaria de saber como funciona o curso de...",
+                  error: Boolean(contactForm.formState.errors.message),
+                  helperText:
+                    contactForm.formState.errors.message?.message || " ",
                 },
                 NameInputProps: {
                   ...contactForm.register("name"),
                   label: "Nome completo",
                   placeholder: "Ex: João Alves da Silva",
+                  error: Boolean(contactForm.formState.errors.name),
+                  helperText: contactForm.formState.errors.name?.message || " ",
                 },
                 PhoneInputProps: {
                   ...contactForm.register("phone"),
+                  onValueChange: ({
+                    floatValue: _floatValue,
+                    formattedValue,
+                    value: _value,
+                  }) => {
+                    contactForm.setValue("phone", formattedValue);
+                  },
                   label: "Número de telefone",
                   placeholder: "Ex: (99) 9-8765-4321",
+                  error: Boolean(contactForm.formState.errors.phone),
+                  helperText:
+                    contactForm.formState.errors.phone?.message || " ",
                 },
               },
             }}
-            NewsLetterSectionProps={NEWSLETTER_SECTION_PROPS}
+            NewsLetterSectionProps={{
+              ...NEWSLETTER_SECTION_PROPS,
+              InputWithButtonProps: {
+                InputProps: {
+                  ...newsletterInput.register("email"),
+                  placeholder: "Digite seu e-mail aqui",
+                },
+                ButtonProps: {
+                  loading: newsletterInput.formState.isSubmitting,
+                  disabled: !newsletterInput.formState.isValid,
+                },
+              },
+            }}
             ContactDialProps={{
               ...CONTACT_DIAL_PROPS,
               ContactDialButtonProps: {
@@ -113,6 +161,9 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
                 ...dialogForm.register("name"),
               },
               phoneInputProps: {
+                onValueChange: (values) => {
+                  dialogForm.setValue("phone", values.formattedValue);
+                },
                 label: "Número de telefone",
                 placeholder: "Ex: (99) 9-8765-4321",
                 ...dialogForm.register("phone"),

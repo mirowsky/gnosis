@@ -5,6 +5,7 @@ specifiers:
   '@emotion/react': ^11.7.1
   '@emotion/server': ^11.4.0
   '@emotion/styled': ^11.6.0
+  '@hookform/resolvers': ^2.8.8
   '@mirowsky/mui-stylesheet': ^1.0.7
   '@mui/icons-material': ^5.3.0
   '@mui/lab': ^5.0.0-alpha.67
@@ -49,6 +50,7 @@ dependencies:
   '@emotion/react': 11.7.1_b08e3c15324cbe90a6ff8fcd416c932c
   '@emotion/server': 11.4.0
   '@emotion/styled': 11.6.0_0044a6ec6dcf5de7705bffaaff7afd26
+  '@hookform/resolvers': 2.8.8_react-hook-form@7.27.0
   '@mirowsky/mui-stylesheet': 1.0.7_b770672e1c0955e533c7cf24e798b62b
   '@mui/icons-material': 5.3.1_24eed9664bdfd5787fc2315015b3d0a6
   '@mui/lab': 5.0.0-alpha.67_d74df09fdf2a827e92ee08e7c12f92b0
@@ -1901,6 +1903,14 @@ packages:
   /@gar/promisify/1.1.2:
     resolution: {integrity: sha512-82cpyJyKRoQoRi+14ibCeGPu0CwypgtBAdBhq1WfvagpCZNKqwXbKwXllYSMG91DhmG4jt9gN8eP6lGOtozuaw==}
     dev: true
+
+  /@hookform/resolvers/2.8.8_react-hook-form@7.27.0:
+    resolution: {integrity: sha512-meAEDur1IJBfKyTo9yPYAuzjIfrxA7m9Ov+1nxaW/YupsqMeseWifoUjWK03+hz/RJizsVQAaUjVxFEkyu0GWg==}
+    peerDependencies:
+      react-hook-form: ^7.0.0
+    dependencies:
+      react-hook-form: 7.27.0_react@17.0.2
+    dev: false
 
   /@humanwhocodes/config-array/0.9.3:
     resolution: {integrity: sha512-3xSMlXHh03hCcCmFc0rbKp3Ivt2PFEJnQUJDDMTJQ2wkECZWdq4GePs2ctc5H8zV+cHPaq8k2vU8mrQjA6iHdQ==}

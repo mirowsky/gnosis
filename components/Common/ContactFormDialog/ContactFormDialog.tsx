@@ -12,7 +12,7 @@ import {
   TextFieldProps,
   ButtonProps,
 } from "@mui/material";
-import NumberFormat from "react-number-format";
+import NumberFormat, { NumberFormatProps } from "react-number-format";
 
 /* eslint-disable-next-line */
 export interface ContactFormDialogProps {
@@ -24,7 +24,7 @@ export interface ContactFormDialogProps {
   handleClose?: (...args: unknown[]) => void;
   open?: boolean;
   nameInputProps?: TextFieldProps;
-  phoneInputProps?: TextFieldProps;
+  phoneInputProps?: React.Component<NumberFormatProps, TextFieldProps>["props"];
   emailInputProps?: TextFieldProps;
   messageInputProps?: TextFieldProps;
   DialogProps?: DialogProps;

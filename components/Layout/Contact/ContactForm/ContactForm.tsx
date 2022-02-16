@@ -3,11 +3,11 @@ import { LoadingButton, LoadingButtonProps } from "@mui/lab";
 import stylesheet from "@workspace/stylesheet";
 import React from "react";
 import { DEFAULT_ContactForm_TESTING_PROPS } from "./ContactForm.fixture";
-import NumberFormat from "react-number-format";
+import NumberFormat, { NumberFormatProps } from "react-number-format";
 
 export type ContactFormProps = {
   NameInputProps?: TextFieldProps;
-  PhoneInputProps?: TextFieldProps;
+  PhoneInputProps?: React.Component<NumberFormatProps, TextFieldProps>["props"];
   EmailInputProps?: TextFieldProps;
   MessageIputProps?: TextFieldProps;
   LoadingButtonProps?: LoadingButtonProps;

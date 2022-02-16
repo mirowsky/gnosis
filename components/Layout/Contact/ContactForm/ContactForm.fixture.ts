@@ -18,6 +18,7 @@ export const DEFAULT_ContactForm_TESTING_PROPS: ContactFormProps = {
   },
   PhoneInputProps: {
     label: "Número de telefone",
+
     placeholder: "Ex: (99) 9-8765-4321",
   },
 };
