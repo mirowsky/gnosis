@@ -10,6 +10,7 @@ import {
   Box,
   DialogProps,
   TextFieldProps,
+  ButtonProps,
 } from "@mui/material";
 import NumberFormat from "react-number-format";
 
@@ -27,6 +28,8 @@ export interface ContactFormDialogProps {
   emailInputProps?: TextFieldProps;
   messageInputProps?: TextFieldProps;
   DialogProps?: DialogProps;
+  PrimaryButtonProps?: ButtonProps;
+  SecondaryButtonProps?: ButtonProps;
 }
 
 export function ContactFormDialog({
@@ -54,6 +57,8 @@ export function ContactFormDialog({
     placeholder: "Ex: (00) 0-0000-0000",
   },
   DialogProps,
+  PrimaryButtonProps,
+  SecondaryButtonProps,
 }: ContactFormDialogProps) {
   return (
     <Dialog

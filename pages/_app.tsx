@@ -26,18 +26,10 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
 
   const [contactFormDialogOpen, setContactFormDialogOpen] =
     React.useState(false);
-
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
-
   const [contactDialOpen, setContactDialOpen] = React.useState(false);
 
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors, isValid, isSubmitting },
-  } = useForm<ContactFormInputs>();
-
+  const contactForm = useForm<ContactFormInputs>();
   const dialogForm = useForm<ContactFormInputs>();
 
   return (
@@ -64,24 +56,29 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
             ContactSectionProps={{
               ...CONTACT_SECTION_PROPS,
               ContactFormProps: {
+                LoadingButtonProps: {
+                  loading: contactForm.formState.isSubmitting,
+                  disabled: !contactForm.formState.isValid,
+                  children: "Enviar",
+                },
                 EmailInputProps: {
-                  ...register("email"),
+                  ...contactForm.register("email"),
                   label: "E-mail",
                   placeholder: "Ex: joao.alves@gmail.com",
                 },
                 MessageIputProps: {
-                  ...register("message"),
+                  ...contactForm.register("message"),
                   label: "Mensagem",
                   placeholder:
                     "Ex: Gostaria de saber como funciona o curso de...",
                 },
                 NameInputProps: {
-                  ...register("name"),
+                  ...contactForm.register("name"),
                   label: "Nome completo",
                   placeholder: "Ex: João Alves da Silva",
                 },
                 PhoneInputProps: {
-                  ...register("phone"),
+                  ...contactForm.register("phone"),
                   label: "Número de telefone",
                   placeholder: "Ex: (99) 9-8765-4321",
                 },
