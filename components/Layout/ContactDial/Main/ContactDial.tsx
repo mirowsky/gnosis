@@ -32,9 +32,9 @@ export const ContactDial = ({
               key={index}
               initial="closed"
               animate={ContactDialButtonProps.open ? "open" : "closed"}
-            >
-              <ContactDialItem {...item} />
-            </MotionBox>
+              component={ContactDialItem}
+              {...item}
+            ></MotionBox>
           );
         })}
       </MotionBox>

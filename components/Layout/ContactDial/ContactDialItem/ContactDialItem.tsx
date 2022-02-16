@@ -1,5 +1,6 @@
+/* eslint-disable react/display-name */
 import { SvgIconComponent } from "@mui/icons-material";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, BoxProps } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
 import React from "react";
 import { DEFAULT_ContactDialItem_TESTING_PROPS } from "./ContactDialItem.fixture";
@@ -10,13 +11,12 @@ export type ContactDialItemProps = {
   action: (...args: unknown[]) => void;
 };
 
-export const ContactDialItem = ({
-  action,
-  icon: Icon,
-  label,
-}: ContactDialItemProps = DEFAULT_ContactDialItem_TESTING_PROPS) => {
+export const ContactDialItem = React.forwardRef<
+  BoxProps<"div">,
+  ContactDialItemProps
+>(({ action, icon: Icon, label, children }, ref) => {
   return (
-    <Box onClick={action} sx={styles.root}>
+    <Box onClick={action} sx={styles.root} component="div" ref={ref}>
       <Box sx={styles.labelPaper}>
         <Typography variant="body1" sx={styles.label}>
           {label}
@@ -28,7 +28,7 @@ export const ContactDialItem = ({
       </Box>
     </Box>
   );
-};
+});
 
 export default ContactDialItem;
 
@@ -36,7 +36,8 @@ const styles = stylesheet.create({
   root: {
     display: "flex",
     gap: (theme) => theme.spacing(2),
-    width: "fit-content",
+    width: "100%",
+    justifyContent: "flex-end",
   },
 
   labelPaper: {
@@ -48,6 +49,7 @@ const styles = stylesheet.create({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    width: "100%",
   },
   label: {
     color: (theme) => theme.palette.grey[700],

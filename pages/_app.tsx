@@ -8,6 +8,12 @@ import { MainLayout, MainLayoutProps } from "@workspace/components/layouts";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import {
+  Money,
+  OnlinePredictionTwoTone,
+  School,
+  SupportAgent,
+} from "@mui/icons-material";
 
 type ContactFormInputs = {
   name: string;
@@ -202,7 +208,15 @@ const CONTACT_DIAL_PROPS: MainLayoutProps["ContactDialProps"] = {
     color: "primary",
     open: false,
   },
-  items: [],
+  items: [
+    { action: () => {}, icon: Money, label: "Valores" },
+    { action: () => {}, icon: School, label: "Validação de diploma" },
+    {
+      action: () => {},
+      icon: OnlinePredictionTwoTone,
+      label: "Sistema de aprendizado virtual",
+    },
+  ],
 };
 
 const NEWSLETTER_SECTION_PROPS: MainLayoutProps["NewsLetterSectionProps"] = {
