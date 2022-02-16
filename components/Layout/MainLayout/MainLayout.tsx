@@ -23,7 +23,7 @@ export type MainLayoutProps = {
   ContactDialProps: ContactDialProps;
 };
 
-const MainLayout = ({
+export const MainLayout = ({
   children,
   FooterProps: footerProps,
   HeaderProps: headerProps,
