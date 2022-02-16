@@ -48,7 +48,16 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
     mode: "onBlur",
     resolver: yupResolver(contactFormSchema),
   });
-  const newsletterInput = useForm<{ email: string }>();
+  const newsletterInput = useForm<{ email: string }>({
+    mode: "onChange",
+    resolver: yupResolver(
+      Yup.object({
+        email: Yup.string()
+          .email("É preciso ser um email válido")
+          .required("Este campo é obrigatório"),
+      }).required()
+    ),
+  });
 
   return (
     <React.Fragment>
