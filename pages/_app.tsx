@@ -6,6 +6,14 @@ import CustomTheme from "theme/CustomTheme";
 import "../styles/global.styles.css";
 import { MainLayout, MainLayoutProps } from "@workspace/components/layouts";
 import { useContactForm } from "@workspace/hooks";
+import { useForm } from "react-hook-form";
+
+type ContactFormInputs = {
+  name: string;
+  message: string;
+  email: string;
+  phone: string;
+};
 
 function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
   const clientSideCache = createEmotionCache({ key: "css" });
@@ -24,11 +32,14 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
 
   const [contactDialOpen, setContactDialOpen] = React.useState(false);
 
-  const dialogForm = useContactForm(
-    ({ email, message, name, phone }, actions) => {}
-  );
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors, isValid, isSubmitting },
+  } = useForm<ContactFormInputs>();
 
-  const contactForm = useContactForm((values, action) => {});
+  const dialogForm = useForm<ContactFormInputs>();
 
   return (
     <React.Fragment>
@@ -54,51 +65,26 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
             ContactSectionProps={{
               ...CONTACT_SECTION_PROPS,
               ContactFormProps: {
-                LoadingButtonProps: {
-                  loading: contactForm.isSubmitting,
-                  disabled: !contactForm.isValid,
-                  children: "Enviar",
-                },
-                NameInputProps: {
-                  label: "Nome completo",
-                  placeholder: "Ex: João Alves da Silva",
-                  name: "name",
-                  value: contactForm.values.name,
-                  onChange: contactForm.handleChange,
-                  onBlur: contactForm.handleBlur,
-                  error: Boolean(contactForm.errors.name),
-                  helperText: contactForm.errors.name,
+                EmailInputProps: {
+                  ...register("email"),
+                  label: "E-mail",
+                  placeholder: "Ex: joao.alves@gmail.com",
                 },
                 MessageIputProps: {
+                  ...register("message"),
                   label: "Mensagem",
                   placeholder:
                     "Ex: Gostaria de saber como funciona o curso de...",
-                  name: "message",
-                  value: contactForm.values.message,
-                  onChange: contactForm.handleChange,
-                  onBlur: contactForm.handleBlur,
-                  error: Boolean(contactForm.errors.message),
-                  helperText: contactForm.errors.message,
                 },
-                EmailInputProps: {
-                  label: "E-mail",
-                  placeholder: "Ex: joao.alves@gmail.com",
-                  name: "email",
-                  value: contactForm.values.email,
-                  onChange: contactForm.handleChange,
-                  onBlur: contactForm.handleBlur,
-                  error: Boolean(contactForm.errors.email),
-                  helperText: contactForm.errors.email,
+                NameInputProps: {
+                  ...register("name"),
+                  label: "Nome completo",
+                  placeholder: "Ex: João Alves da Silva",
                 },
                 PhoneInputProps: {
+                  ...register("phone"),
                   label: "Número de telefone",
                   placeholder: "Ex: (99) 9-8765-4321",
-                  name: "phone",
-                  value: contactForm.values.phone,
-                  onChange: contactForm.handleChange,
-                  onBlur: contactForm.handleBlur,
-                  error: Boolean(contactForm.errors.phone),
-                  helperText: contactForm.errors.phone,
                 },
               },
             }}
@@ -117,43 +103,23 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
               emailInputProps: {
                 label: "E-mail",
                 placeholder: "Ex: joao.alves@gmail.com",
-                name: "email",
-                value: dialogForm.values.email,
-                error: Boolean(dialogForm.errors.email),
-                onChange: dialogForm.handleChange,
-                helperText: dialogForm.errors.email || " ",
-                onBlur: dialogForm.handleBlur,
+                ...dialogForm.register("email"),
               },
               messageInputProps: {
                 label: "Mensagem",
                 placeholder:
                   "Ex: Gostaria de saber como funciona o curso de...",
-                name: "message",
-                value: dialogForm.values.message,
-                error: Boolean(dialogForm.errors.message),
-                onChange: dialogForm.handleChange,
-                helperText: dialogForm.errors.message,
-                onBlur: dialogForm.handleBlur,
+                ...dialogForm.register("message"),
               },
               nameInputProps: {
                 label: "Nome completo",
                 placeholder: "Ex: João Alves da Silva",
-                name: "name",
-                value: dialogForm.values.name,
-                error: Boolean(dialogForm.errors.name),
-                onChange: dialogForm.handleChange,
-                helperText: dialogForm.errors.name,
-                onBlur: dialogForm.handleBlur,
+                ...dialogForm.register("name"),
               },
               phoneInputProps: {
                 label: "Número de telefone",
                 placeholder: "Ex: (99) 9-8765-4321",
-                name: "phone",
-                value: dialogForm.values.phone,
-                error: Boolean(dialogForm.errors.phone),
-                onChange: dialogForm.handleChange,
-                helperText: dialogForm.errors.phone,
-                onBlur: dialogForm.handleBlur,
+                ...dialogForm.register("phone"),
               },
             }}
           >

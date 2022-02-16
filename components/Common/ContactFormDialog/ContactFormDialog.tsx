@@ -80,38 +80,38 @@ export function ContactFormDialog({
           }}
         >
           <TextField
-            {...nameInputProps}
             sx={{ gridColumn: { xs: "1/3", md: "initial" } }}
             autoFocus
             margin="dense"
             fullWidth
             variant="outlined"
+            {...nameInputProps}
           />
           <TextField
-            {...emailInputProps}
             sx={{ gridColumn: { xs: "1/3", md: "initial" } }}
             margin="dense"
             type="email"
             fullWidth
             variant="outlined"
+            {...emailInputProps}
           />
           <NumberFormat
-            {...(phoneInputProps as unknown)}
             customInput={TextField}
             format="(##) #-####-####"
             sx={{ gridColumn: "1/3" }}
             margin="dense"
             fullWidth
             variant="outlined"
+            {...(phoneInputProps as unknown)}
           />
           <TextField
-            {...messageInputProps}
             sx={{ gridColumn: "1/3" }}
             margin="dense"
             fullWidth
             variant="outlined"
             multiline
             rows={6}
+            {...messageInputProps}
           />
         </Box>
       </DialogContent>
