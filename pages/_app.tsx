@@ -22,6 +22,8 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
 
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
+  const [contactDialOpen, setContactDialOpen] = React.useState(false);
+
   const dialogForm = useContactForm(
     ({ email, message, name, phone }, actions) => {}
   );
@@ -101,7 +103,13 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
               },
             }}
             NewsLetterSectionProps={NEWSLETTER_SECTION_PROPS}
-            ContactDialProps={CONTACT_DIAL_PROPS}
+            ContactDialProps={{
+              ...CONTACT_DIAL_PROPS,
+              ContactDialButtonProps: {
+                open: contactDialOpen,
+                onClick: () => setContactDialOpen((prevState) => !prevState),
+              },
+            }}
             ContactFormDialogProps={{
               ...CONTACT_FORM_DIALOG_PROPS,
               open: contactFormDialogOpen,

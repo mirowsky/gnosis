@@ -12,6 +12,7 @@ export type ContactDialButtonProps = {
   fontSize?: ResponsiveFontSize;
   iconOpen?: React.FC<Partial<SvgIconComponent>>;
   iconClosed?: React.FC<Partial<SvgIconComponent>>;
+  onClick?: (...args: unknown[]) => void;
 };
 
 export const ContactDialButton = ({
@@ -20,6 +21,7 @@ export const ContactDialButton = ({
   fontSize,
   iconClosed: IconClosed = WhatsApp,
   iconOpen: IconOpen = Close,
+  onClick = () => {},
 }: ContactDialButtonProps) => {
   const styles = React.useMemo(
     () => _styles(color, fontSize),
@@ -27,7 +29,7 @@ export const ContactDialButton = ({
   );
 
   return (
-    <Box sx={styles.root} component="button">
+    <Box sx={styles.root} component="button" onClick={onClick}>
       <MotionBox
         sx={styles.icon}
         component={IconOpen}

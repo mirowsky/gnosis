@@ -69,6 +69,9 @@ const styles = stylesheet.create({
     flexDirection: "column",
     alignItems: "flex-end",
     gap: (theme) => theme.spacing(2.5),
+    border: "none",
+    outline: "none",
+    background: "transparent",
   },
 
   buttonBox: {},
