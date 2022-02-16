@@ -1,4 +1,5 @@
 import React from "react";
+import { useIsomorphicEffect } from "..";
 
 export function useChildrenBoundingBox<TNode extends HTMLElement>() {
   const ref = React.useRef<TNode>(null);
@@ -8,7 +9,7 @@ export function useChildrenBoundingBox<TNode extends HTMLElement>() {
   const [totalHeight, setTotalHeight] = React.useState<number>(0);
   const [totalWidth, setTotalWidth] = React.useState<number>(0);
 
-  React.useLayoutEffect(() => {
+  useIsomorphicEffect(() => {
     if (ref.current && ref.current.children.length > 0) {
       const nodes = ref.current.children;
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { useIsomorphicEffect } from "..";
 
 type HTMLComponentSize = {
   width: number;
@@ -13,7 +14,7 @@ export const useComponentSize = <TNode extends HTMLElement>() => {
     width: 0,
   });
 
-  React.useLayoutEffect(() => {
+  useIsomorphicEffect(() => {
     if (ref.current) {
       const setSizeFn = () => {
         setSize({
