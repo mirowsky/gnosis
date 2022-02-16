@@ -18,7 +18,7 @@ export const FAQSection = ({
   sectionTitle = "Encontre as respostas que você precisa em nosso centro de ajuda",
   LoadMoreButtonProps = { children: "Mais perguntas", onClick: () => {} },
 }: FAQSectionProps) => {
-  return (
+  return items.length > 0 ? (
     <Box sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.titleContainer}>
         <Typography variant="h2" sx={styles.title}>
@@ -36,7 +36,7 @@ export const FAQSection = ({
         <Button {...LoadMoreButtonProps} variant="outlined" color="primary" />
       </Box>
     </Box>
-  );
+  ) : null;
 };
 
 export default FAQSection;

@@ -19,7 +19,7 @@ export const BlogSection = ({
   sectionTitle = "Confira nossas últimas postagens",
   sx,
 }: BlogSectionProps) => {
-  return (
+  return items.length > 0 ? (
     <Box sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.titleContainer}>
         <Typography color="primary" variant="h2" sx={styles.title}>
@@ -37,7 +37,7 @@ export const BlogSection = ({
         <Button {...ButtonProps} variant="outlined" color="primary" />
       </Box>
     </Box>
-  );
+  ) : null;
 };
 
 export default BlogSection;

@@ -17,7 +17,7 @@ export const TestimonialSection = ({
   sectionTitle = "O que nossos alunos dizem sobre o Instituto Gnosis",
   sx,
 }: TestimonialSectionProps) => {
-  return (
+  return TestimonialSliderProps.items.length > 0 ? (
     <Box sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.titleContainer}>
         <Typography variant="h2" color="primary" sx={styles.title}>
@@ -29,7 +29,7 @@ export const TestimonialSection = ({
         <TestimonialSlider {...TestimonialSliderProps} />
       </Box>
     </Box>
-  );
+  ) : null;
 };
 
 export default TestimonialSection;
