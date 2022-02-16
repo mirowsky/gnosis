@@ -13,6 +13,7 @@ export type CourseSectionProps = {
   CourseSliderProps: CourseSliderProps;
   CourseNavigationProps: CourseNavigationProps;
   sx?: ThemeStyles;
+  id?: string;
 };
 
 export const CourseSection = ({
@@ -20,9 +21,10 @@ export const CourseSection = ({
   CourseTabsProps,
   CourseNavigationProps,
   sx,
+  id,
 }: CourseSectionProps) => {
   return (
-    <Box sx={{ ...styles.root, ...sx }}>
+    <Box id={id} sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.tabsOuterContainer}>
         <Box sx={styles.tabsContainer}>
           <CourseTabs {...CourseTabsProps} />

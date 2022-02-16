@@ -10,15 +10,17 @@ export type TestimonialSectionProps = {
   sectionTitle: string;
   TestimonialSliderProps: TestimonialSliderProps;
   sx?: ThemeStyles;
+  id?: string;
 };
 
 export const TestimonialSection = ({
   TestimonialSliderProps = { items: [] },
   sectionTitle = "O que nossos alunos dizem sobre o Instituto Gnosis",
   sx,
+  id,
 }: TestimonialSectionProps) => {
   return TestimonialSliderProps.items.length > 0 ? (
-    <Box sx={{ ...styles.root, ...sx }}>
+    <Box id={id} sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.titleContainer}>
         <Typography variant="h2" color="primary" sx={styles.title}>
           {sectionTitle}

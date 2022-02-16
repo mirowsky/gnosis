@@ -10,6 +10,7 @@ export type AboutSectionProps = {
   aboutText: string;
   ButtonProps?: ButtonProps;
   sx?: ThemeStyles;
+  id?: string;
 };
 
 export const AboutSection = ({
@@ -17,9 +18,10 @@ export const AboutSection = ({
   sectionTitle,
   ButtonProps,
   sx,
+  id,
 }: AboutSectionProps = DEFAULT_AboutSection_TESTING_PROPS) => {
   return (
-    <Box sx={{ ...styles.root, ...sx }}>
+    <Box id={id} sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.textContainer}>
         <Typography sx={styles.sectionTitle} variant="h1" component="h2">
           {sectionTitle}

@@ -19,6 +19,7 @@ export type HeroProps = {
     src: string;
     alt: string;
   };
+  id?: string;
 };
 
 export const Hero = ({
@@ -36,9 +37,10 @@ export const Hero = ({
     src: "https://via.placeholder.com/1500",
   },
   mainText = "Impact text that should invite your users to explore your products",
+  id,
 }: HeroProps) => {
   return (
-    <Box sx={styles.root}>
+    <Box sx={styles.root} id={id}>
       <Blob sx={styles.firstBlob} />
       <Blob sx={styles.secondBlob} />
 

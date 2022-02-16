@@ -11,6 +11,7 @@ export type BlogSectionProps = {
   items: BlogPreviewCardProps[];
   sectionTitle: string;
   sx?: ThemeStyles;
+  id?: string;
 };
 
 export const BlogSection = ({
@@ -18,9 +19,10 @@ export const BlogSection = ({
   items = [],
   sectionTitle = "Confira nossas últimas postagens",
   sx,
+  id,
 }: BlogSectionProps) => {
   return items.length > 0 ? (
-    <Box sx={{ ...styles.root, ...sx }}>
+    <Box id={id} sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.titleContainer}>
         <Typography color="primary" variant="h2" sx={styles.title}>
           {sectionTitle}

@@ -98,11 +98,11 @@ const COURSE_SECTION_PROPS: LandingPageProps["CourseSectionProps"] = {
   },
   CourseNavigationProps: {
     backwardButton: {
-      id: "#backwards",
+      id: "backwards",
       color: "primary",
     },
     forwardButton: {
-      id: "#forward",
+      id: "forward",
       color: "primary",
     },
   },
@@ -111,7 +111,14 @@ const COURSE_SECTION_PROPS: LandingPageProps["CourseSectionProps"] = {
       nextEl: "#forward",
       prevEl: "#backwards",
     },
-    items: [courseItem, courseItem, courseItem],
+    items: [
+      courseItem,
+      courseItem,
+      courseItem,
+      courseItem,
+      courseItem,
+      courseItem,
+    ],
   },
 };
 

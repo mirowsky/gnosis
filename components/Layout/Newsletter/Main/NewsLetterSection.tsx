@@ -14,6 +14,7 @@ export type NewsLetterSectionProps = {
   InputWithButtonProps: InputWithButtonProps;
   sectionTitle: string;
   sx?: ThemeStyles;
+  id?: string;
 };
 
 export const NewsLetterSection = ({
@@ -24,9 +25,10 @@ export const NewsLetterSection = ({
   InputWithButtonProps,
   sectionTitle = "Assine nossa Newsletter e fique por dentro das novidades.",
   sx,
+  id,
 }: NewsLetterSectionProps) => {
   return (
-    <Box sx={{ ...styles.root, ...sx }}>
+    <Box id={id} sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.container}>
         <Box sx={styles.pictureContainer}>
           <Box

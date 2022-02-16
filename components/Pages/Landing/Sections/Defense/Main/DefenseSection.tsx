@@ -8,11 +8,13 @@ import { DEFENSE_SECTION_TEST_ID } from "./constants";
 export type DefenseSectionProps = {
   items: DefenseCardProps[];
   sx?: ThemeStyles;
+  id?: string;
 };
 
-export const DefenseSection = ({ items = [], sx }: DefenseSectionProps) => {
+export const DefenseSection = ({ items = [], sx, id }: DefenseSectionProps) => {
   return (
     <Box
+      id={id}
       data-testid={DEFENSE_SECTION_TEST_ID.GRID_CONTAINER}
       sx={{ ...styles.root, ...sx }}
     >

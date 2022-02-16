@@ -14,6 +14,7 @@ export type ContactSectionProps = {
     alt: string;
   };
   sx?: ThemeStyles;
+  id?: string;
 };
 
 export const ContactSection = ({
@@ -21,9 +22,10 @@ export const ContactSection = ({
   sectionTitle,
   img,
   sx,
+  id,
 }: ContactSectionProps = DEFAULT_ContactSection_TESTING_PROPS) => {
   return (
-    <Box sx={{ ...styles.root, ...sx }}>
+    <Box id={id} sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.sectionTitleContainer}>
         <Typography variant="h2" sx={styles.sectionTitle}>
           {sectionTitle}

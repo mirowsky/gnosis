@@ -10,6 +10,7 @@ export type FAQSectionProps = {
   sectionTitle?: string;
   LoadMoreButtonProps?: ButtonProps;
   sx?: ThemeStyles;
+  id?: string;
 };
 
 export const FAQSection = ({
@@ -17,9 +18,10 @@ export const FAQSection = ({
   sx,
   sectionTitle = "Encontre as respostas que você precisa em nosso centro de ajuda",
   LoadMoreButtonProps = { children: "Mais perguntas", onClick: () => {} },
+  id,
 }: FAQSectionProps) => {
   return items.length > 0 ? (
-    <Box sx={{ ...styles.root, ...sx }}>
+    <Box id={id} sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.titleContainer}>
         <Typography variant="h2" sx={styles.title}>
           {sectionTitle}
