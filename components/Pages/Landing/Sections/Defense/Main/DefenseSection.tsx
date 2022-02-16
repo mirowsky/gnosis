@@ -17,7 +17,9 @@ export const DefenseSection = ({ items = [], sx }: DefenseSectionProps) => {
       sx={{ ...styles.root, ...sx }}
     >
       {items.map((value, index) => {
-        return <DefenseCard key={index} {...value} />;
+        return (
+          <DefenseCard key={index} {...value} fontSize={{ xs: "0.7rem" }} />
+        );
       })}
     </Box>
   );
