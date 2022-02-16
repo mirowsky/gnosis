@@ -20,6 +20,8 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
   const [contactFormDialogOpen, setContactFormDialogOpen] =
     React.useState(false);
 
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+
   const dialogForm = useContactForm(
     ({ email, message, name, phone }, actions) => {}
   );
@@ -39,7 +41,12 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
               },
             }}
             FooterProps={FOOTER_PROPS}
-            MobileMenuProps={MOBILE_MENU_PROPS}
+            MobileMenuProps={{
+              ...MOBILE_MENU_PROPS,
+              open: mobileMenuOpen,
+              onOpen: () => setMobileMenuOpen(true),
+              onClose: () => setMobileMenuOpen(false),
+            }}
             ContactSectionProps={{
               ...CONTACT_SECTION_PROPS,
               ContactFormProps: {
