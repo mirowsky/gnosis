@@ -18,6 +18,7 @@ export interface HeaderProps {
   items: HeaderItem[];
   cta: HeaderItem;
   burguerOpen: boolean;
+  onBurguerButtonClick?: (...args: unknown[]) => void;
 }
 
 export const Header = ({
@@ -32,6 +33,7 @@ export const Header = ({
     label: undefined,
   },
   burguerOpen = false,
+  onBurguerButtonClick = () => {},
 }: HeaderProps) => {
   return (
     <Box sx={styles.root}>
@@ -64,7 +66,7 @@ export const Header = ({
         </Box>
 
         <Box sx={styles.buttonContainer}>
-          <Box sx={styles.burguerButton}>
+          <Box onClick={onBurguerButtonClick} sx={styles.burguerButton}>
             <AnimatedBurguerMenu open={burguerOpen} />
           </Box>
 

@@ -39,6 +39,8 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
                 ...HEADER_PROPS.cta,
                 onClick: () => setContactFormDialogOpen(true),
               },
+              burguerOpen: mobileMenuOpen,
+              onBurguerButtonClick: () => setMobileMenuOpen(true),
             }}
             FooterProps={FOOTER_PROPS}
             MobileMenuProps={{
