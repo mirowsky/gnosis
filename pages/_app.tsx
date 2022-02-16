@@ -5,6 +5,7 @@ import React from "react";
 import CustomTheme from "theme/CustomTheme";
 import "../styles/global.styles.css";
 import { MainLayout, MainLayoutProps } from "@workspace/components/layouts";
+import { useContactForm } from "@workspace/hooks";
 
 function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
   const clientSideCache = createEmotionCache({ key: "css" });
@@ -16,18 +17,128 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
     router,
   } = props;
 
+  const [contactFormDialogOpen, setContactFormDialogOpen] =
+    React.useState(false);
+
+  const dialogForm = useContactForm(
+    ({ email, message, name, phone }, actions) => {}
+  );
+
+  const contactForm = useContactForm((values, action) => {});
+
   return (
     <React.Fragment>
       <CacheProvider value={emotionCache}>
         <CustomTheme>
           <MainLayout
-            HeaderProps={HEADER_PROPS}
+            HeaderProps={{
+              ...HEADER_PROPS,
+              cta: {
+                ...HEADER_PROPS.cta,
+                onClick: () => setContactFormDialogOpen(true),
+              },
+            }}
             FooterProps={FOOTER_PROPS}
             MobileMenuProps={MOBILE_MENU_PROPS}
-            ContactSectionProps={CONTACT_SECTION_PROPS}
+            ContactSectionProps={{
+              ...CONTACT_SECTION_PROPS,
+              ContactFormProps: {
+                LoadingButtonProps: {
+                  loading: contactForm.isSubmitting,
+                  disabled: !contactForm.isValid,
+                  children: "Enviar",
+                },
+                NameInputProps: {
+                  label: "Nome completo",
+                  placeholder: "Ex: João Alves da Silva",
+                  name: "name",
+                  value: contactForm.values.name,
+                  onChange: contactForm.handleChange,
+                  onBlur: contactForm.handleBlur,
+                  error: Boolean(contactForm.errors.name),
+                  helperText: contactForm.errors.name,
+                },
+                MessageIputProps: {
+                  label: "Mensagem",
+                  placeholder:
+                    "Ex: Gostaria de saber como funciona o curso de...",
+                  name: "message",
+                  value: contactForm.values.message,
+                  onChange: contactForm.handleChange,
+                  onBlur: contactForm.handleBlur,
+                  error: Boolean(contactForm.errors.message),
+                  helperText: contactForm.errors.message,
+                },
+                EmailInputProps: {
+                  label: "E-mail",
+                  placeholder: "Ex: joao.alves@gmail.com",
+                  name: "email",
+                  value: contactForm.values.email,
+                  onChange: contactForm.handleChange,
+                  onBlur: contactForm.handleBlur,
+                  error: Boolean(contactForm.errors.email),
+                  helperText: contactForm.errors.email,
+                },
+                PhoneInputProps: {
+                  label: "Número de telefone",
+                  placeholder: "Ex: (99) 9-8765-4321",
+                  name: "phone",
+                  value: contactForm.values.phone,
+                  onChange: contactForm.handleChange,
+                  onBlur: contactForm.handleBlur,
+                  error: Boolean(contactForm.errors.phone),
+                  helperText: contactForm.errors.phone,
+                },
+              },
+            }}
             NewsLetterSectionProps={NEWSLETTER_SECTION_PROPS}
             ContactDialProps={CONTACT_DIAL_PROPS}
-            ContactFormDialogProps={{}}
+            ContactFormDialogProps={{
+              ...CONTACT_FORM_DIALOG_PROPS,
+              open: contactFormDialogOpen,
+              handleClose: () => setContactFormDialogOpen(false),
+              emailInputProps: {
+                label: "E-mail",
+                placeholder: "Ex: joao.alves@gmail.com",
+                name: "email",
+                value: dialogForm.values.email,
+                error: Boolean(dialogForm.errors.email),
+                onChange: dialogForm.handleChange,
+                helperText: dialogForm.errors.email || " ",
+                onBlur: dialogForm.handleBlur,
+              },
+              messageInputProps: {
+                label: "Mensagem",
+                placeholder:
+                  "Ex: Gostaria de saber como funciona o curso de...",
+                name: "message",
+                value: dialogForm.values.message,
+                error: Boolean(dialogForm.errors.message),
+                onChange: dialogForm.handleChange,
+                helperText: dialogForm.errors.message,
+                onBlur: dialogForm.handleBlur,
+              },
+              nameInputProps: {
+                label: "Nome completo",
+                placeholder: "Ex: João Alves da Silva",
+                name: "name",
+                value: dialogForm.values.name,
+                error: Boolean(dialogForm.errors.name),
+                onChange: dialogForm.handleChange,
+                helperText: dialogForm.errors.name,
+                onBlur: dialogForm.handleBlur,
+              },
+              phoneInputProps: {
+                label: "Número de telefone",
+                placeholder: "Ex: (99) 9-8765-4321",
+                name: "phone",
+                value: dialogForm.values.phone,
+                error: Boolean(dialogForm.errors.phone),
+                onChange: dialogForm.handleChange,
+                helperText: dialogForm.errors.phone,
+                onBlur: dialogForm.handleBlur,
+              },
+            }}
           >
             <Component {...pageProps} />
           </MainLayout>
@@ -41,7 +152,10 @@ export default MyApp;
 
 const CONTACT_FORM_DIALOG_PROPS: MainLayoutProps["ContactFormDialogProps"] = {
   cancelLabel: "Cancelar",
-  title: "",
+  title: "Contato",
+  subtitle:
+    "Preencha o formulário com seus dados e uma mensagem e um de nossos representantes irá atendê-lo na primeira oportunidade.",
+  submitLabel: "Enviar",
 };
 
 const CONTACT_DIAL_PROPS: MainLayoutProps["ContactDialProps"] = {
