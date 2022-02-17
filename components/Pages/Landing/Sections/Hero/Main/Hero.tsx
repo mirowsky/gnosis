@@ -188,7 +188,7 @@ const styles = stylesheet.create({
     justifyContent: "center",
     alignItems: "center",
     width: "auto",
-    height: { xs: "650px" },
+    height: { xs: "550px" },
   },
 
   //Inner Container

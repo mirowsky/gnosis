@@ -4,6 +4,7 @@ import stylesheet from "@workspace/stylesheet";
 import React from "react";
 import { DEFAULT_ContactForm_TESTING_PROPS } from "./ContactForm.fixture";
 import NumberFormat, { NumberFormatProps } from "react-number-format";
+import { ThemeStyles } from "@workspace/types";
 
 export type ContactFormProps = {
   NameInputProps?: TextFieldProps;
@@ -23,12 +24,17 @@ export const ContactForm = ({
   return (
     <Box sx={styles.root}>
       <Box sx={styles.grid}>
-        <TextField fullWidth {...NameInputProps}></TextField>
+        <TextField
+          fullWidth
+          {...NameInputProps}
+          sx={styles.nameInputBox}
+        ></TextField>
         <NumberFormat
           customInput={TextField}
           fullWidth
           format="(##) #-####-####"
           {...(PhoneInputProps as unknown)}
+          sx={styles.phoneInputBox}
         ></NumberFormat>
         <TextField
           sx={styles.emailInputBox}
@@ -39,7 +45,7 @@ export const ContactForm = ({
           sx={styles.messageInputBox}
           fullWidth
           multiline
-          rows={8}
+          rows={6}
           {...MessageIputProps}
         ></TextField>
 
@@ -58,6 +64,12 @@ export const ContactForm = ({
 
 export default ContactForm;
 
+const scale = {
+  "& *": {
+    fontSize: { xs: "0.75rem" },
+  },
+} as ThemeStyles;
+
 const styles = stylesheet.create({
   root: {
     width: "100%",
@@ -68,14 +80,20 @@ const styles = stylesheet.create({
       lg: "repeat(2, minmax(0, 1fr))",
       xs: "repeat(1, minmax(0, 1fr))",
     },
-    gap: (theme) => ({ xs: theme.spacing(4) }),
+    gap: (theme) => ({ xs: theme.spacing(2) }),
   },
-  nameInputBox: {},
-  phoneInputBox: {},
+  nameInputBox: {
+    ...scale,
+  },
+  phoneInputBox: {
+    ...scale,
+  },
   emailInputBox: {
+    ...scale,
     gridColumn: { lg: "1/3" },
   },
   messageInputBox: {
+    ...scale,
     gridColumn: { lg: "1/3" },
   },
   submitButtonBox: {},
