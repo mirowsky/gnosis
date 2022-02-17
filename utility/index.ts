@@ -11,3 +11,4 @@ export {
   smoothScrollTo,
 } from "./scrollToElem";
 export { pixelToRem } from "./pixelToRem";
+export { getCourseURL } from "./getCourseURL";
