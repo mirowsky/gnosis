@@ -39,8 +39,7 @@ const CourseCard = ({
 
       <Box sx={styles.infoContainer}>
         <Box sx={styles.titleContainer}>
-          <Typography sx={styles.title} variant="h4">
-            {" "}
+          <Typography sx={styles.title} variant="h5" component="h4">
             {title}
           </Typography>
         </Box>
@@ -186,8 +185,12 @@ const styles = stylesheet.create({
     fontWeight: 600,
     color: (theme) => theme.palette.primary.main,
   },
-  tagLabel: {},
-  tagIcon: {},
+  tagLabel: {
+    color: (theme) => theme.palette.grey[700],
+  },
+  tagIcon: {
+    color: (theme) => theme.palette.grey[700],
+  },
   primaryButton: {},
   secondaryButton: {},
   buttonNodeComponent: {},

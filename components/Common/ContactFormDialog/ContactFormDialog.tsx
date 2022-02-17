@@ -13,6 +13,7 @@ import {
   ButtonProps,
 } from "@mui/material";
 import NumberFormat, { NumberFormatProps } from "react-number-format";
+import { ThemeStyles } from "@workspace/types";
 
 /* eslint-disable-next-line */
 export interface ContactFormDialogProps {
@@ -85,7 +86,7 @@ export function ContactFormDialog({
           }}
         >
           <TextField
-            sx={{ gridColumn: { xs: "1/3", md: "initial" } }}
+            sx={{ gridColumn: { xs: "1/3", md: "initial" }, ...scaling }}
             autoFocus
             margin="dense"
             fullWidth
@@ -93,7 +94,7 @@ export function ContactFormDialog({
             {...nameInputProps}
           />
           <TextField
-            sx={{ gridColumn: { xs: "1/3", md: "initial" } }}
+            sx={{ gridColumn: { xs: "1/3", md: "initial" }, ...scaling }}
             margin="dense"
             type="email"
             fullWidth
@@ -103,14 +104,14 @@ export function ContactFormDialog({
           <NumberFormat
             customInput={TextField}
             format="(##) #-####-####"
-            sx={{ gridColumn: "1/3" }}
+            sx={{ gridColumn: "1/3", ...scaling }}
             margin="dense"
             fullWidth
             variant="outlined"
             {...(phoneInputProps as unknown)}
           />
           <TextField
-            sx={{ gridColumn: "1/3" }}
+            sx={{ gridColumn: "1/3", ...scaling }}
             margin="dense"
             fullWidth
             variant="outlined"
@@ -129,3 +130,9 @@ export function ContactFormDialog({
 }
 
 export default ContactFormDialog;
+
+const scaling = {
+  "& *": {
+    fontSize: { xs: "0.75rem !important" },
+  },
+} as ThemeStyles;

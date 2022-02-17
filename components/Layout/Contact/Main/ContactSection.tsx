@@ -27,7 +27,7 @@ export const ContactSection = ({
   return (
     <Box id={id} sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.sectionTitleContainer}>
-        <Typography variant="h2" sx={styles.sectionTitle}>
+        <Typography variant="h2" component="h3" sx={styles.sectionTitle}>
           {sectionTitle}
         </Typography>
       </Box>

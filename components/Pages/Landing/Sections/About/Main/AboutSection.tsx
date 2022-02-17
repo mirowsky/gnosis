@@ -23,10 +23,10 @@ export const AboutSection = ({
   return (
     <Box id={id} sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.textContainer}>
-        <Typography sx={styles.sectionTitle} variant="h1" component="h2">
+        <Typography sx={styles.sectionTitle} variant="h2">
           {sectionTitle}
         </Typography>
-        <Typography variant="h4" component="p" sx={styles.aboutText}>
+        <Typography variant="h6" component="p" sx={styles.aboutText}>
           {aboutText}
         </Typography>
 
@@ -62,7 +62,7 @@ const styles = stylesheet.create({
     flexDirection: "column",
     alignItems: "center",
     textAlign: "center",
-    gap: (theme) => ({ xs: theme.spacing(6) }),
+    gap: (theme) => ({ xs: theme.spacing(4) }),
   },
   imageContainer: {
     maxWidth: "45vw",
@@ -79,7 +79,7 @@ const styles = stylesheet.create({
     color: (theme) => theme.palette.grey[700],
     fontWeight: 700,
     maxWidth: "50ch",
-    lineHeight: 1.6,
+    lineHeight: 1.9,
   },
   button: {},
 });

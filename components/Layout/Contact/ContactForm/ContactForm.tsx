@@ -66,7 +66,7 @@ export default ContactForm;
 
 const scale = {
   "& *": {
-    fontSize: { xs: "0.75rem" },
+    fontSize: { xs: "0.75rem !important" },
   },
 } as ThemeStyles;
 
@@ -80,7 +80,7 @@ const styles = stylesheet.create({
       lg: "repeat(2, minmax(0, 1fr))",
       xs: "repeat(1, minmax(0, 1fr))",
     },
-    gap: (theme) => ({ xs: theme.spacing(2) }),
+    gap: (theme) => ({ xs: theme.spacing(3) }),
   },
   nameInputBox: {
     ...scale,
