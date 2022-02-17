@@ -8,12 +8,8 @@ import { MainLayout, MainLayoutProps } from "@workspace/components/layouts";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import {
-  Money,
-  OnlinePredictionTwoTone,
-  School,
-  SupportAgent,
-} from "@mui/icons-material";
+import { Money, OnlinePredictionTwoTone, School } from "@mui/icons-material";
+import { scrollToElem } from "@workspace/utility";
 
 type ContactFormInputs = {
   name: string;
@@ -229,6 +225,7 @@ const NEWSLETTER_SECTION_PROPS: MainLayoutProps["NewsLetterSectionProps"] = {
 };
 
 const CONTACT_SECTION_PROPS: MainLayoutProps["ContactSectionProps"] = {
+  id: "contact_section",
   img: {
     src: "images/contact-doc.webp",
     alt: "Doutoura jovem, vestindo um jaleco e com um estetoscópio em volta de seu pescoço, apontando para a esquerda com um de seus dedos",
@@ -263,9 +260,8 @@ const HEADER_PROPS: MainLayoutProps["HeaderProps"] = {
   },
   burguerOpen: false,
   items: [
-    { label: "Sobre nós", onClick: () => {} },
-    { label: "Cursos", onClick: () => {} },
-    { label: "Blog", onClick: () => {} },
+    { label: "Sobre nós", onClick: () => scrollToElem("#about_us_section") },
+    { label: "Cursos", onClick: () => scrollToElem("#course_section") },
   ],
   logo: {
     src: "https://via.placeholder.com/500",

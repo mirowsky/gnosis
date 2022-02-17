@@ -8,9 +8,9 @@ import {
   School,
   SupportAgent,
   Timelapse,
-  TimelapseOutlined,
   WhatsApp,
 } from "@mui/icons-material";
+import { scrollToElem } from "@workspace/utility";
 
 const courseItem = {
   img: { src: "https://source.unsplash.com/random", alt: "img" },
@@ -46,6 +46,7 @@ const DYNAMIC_SECTION_PROPS: LandingPageProps["DynamicSectionsProps"] = {
       color: "primary",
       onClick: () => {},
     },
+    id: "blog_section",
   },
   FAQSectionProps: {
     items: [],
@@ -75,16 +76,17 @@ const HERO_SECTION_PROPS: LandingPageProps["HeroSectionProps"] = {
   },
   ctaPrimary: {
     label: "Ver cursos",
-    onClick: () => {},
+    onClick: () => scrollToElem("#course_section"),
   },
   ctaSecondary: {
     label: "Fale conosco",
-    onClick: () => {},
+    onClick: () => scrollToElem("#contact_section"),
   },
   mainText: "O futuro da sua carreira está em suas mãos.",
 };
 
 const ABOUT_SECTION_PROPS: LandingPageProps["AboutSectionProps"] = {
+  id: "about_us_section",
   aboutText:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in enim vitae augue facilisis semper ut eget ligula. Vestibulum feugiat congue odio ut pretium. Praesent velit sapien, aliquet eu ipsum faucibus, malesuada vehicula neque. Pellentesque et blandit est. Proin aliquet orci sapien, quis semper tortor vehicula ullamcorper. Aliquam pellentesque",
   sectionTitle: "O Instituto Gnosis",
@@ -96,6 +98,7 @@ const COURSE_SECTION_PROPS: LandingPageProps["CourseSectionProps"] = {
     handleChange: () => {},
     value: 0,
   },
+  id: "course_section",
   CourseNavigationProps: {
     backwardButton: {
       id: "backwards",

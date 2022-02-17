@@ -14,21 +14,31 @@ export type ContactDialItemProps = {
 export const ContactDialItem = React.forwardRef<
   BoxProps<"div">,
   ContactDialItemProps
->(({ action, icon: Icon, label, children }, ref) => {
-  return (
-    <Box onClick={action} sx={styles.root} component="div" ref={ref}>
-      <Box sx={styles.labelPaper}>
-        <Typography variant="body1" sx={styles.label}>
-          {label}
-        </Typography>
-      </Box>
+>(
+  (
+    {
+      action,
+      icon: Icon,
+      label,
+      children,
+    } = DEFAULT_ContactDialItem_TESTING_PROPS,
+    ref
+  ) => {
+    return (
+      <Box onClick={action} sx={styles.root} component="div" ref={ref}>
+        <Box sx={styles.labelPaper}>
+          <Typography variant="body1" sx={styles.label}>
+            {label}
+          </Typography>
+        </Box>
 
-      <Box sx={styles.iconPaper}>
-        <Box sx={styles.icon} component={Icon} />
+        <Box sx={styles.iconPaper}>
+          <Box sx={styles.icon} component={Icon} />
+        </Box>
       </Box>
-    </Box>
-  );
-});
+    );
+  }
+);
 
 export default ContactDialItem;
 
