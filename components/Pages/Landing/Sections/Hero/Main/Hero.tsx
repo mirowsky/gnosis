@@ -62,7 +62,8 @@ export const Hero = ({
             <Box sx={styles.altTextContainer}>
               <Typography
                 color="grey.600"
-                variant="h3"
+                variant="h4"
+                component="h2"
                 sx={styles.altText}
                 fontWeight={500}
               >
@@ -71,6 +72,7 @@ export const Hero = ({
             </Box>
             <Box sx={styles.buttonContainer}>
               <Button
+                size="small"
                 variant="contained"
                 color="primary"
                 sx={styles.primaryButton}
@@ -80,6 +82,7 @@ export const Hero = ({
               </Button>
 
               <Button
+                size="small"
                 variant="outlined"
                 color="primary"
                 sx={styles.secondaryButton}
@@ -205,6 +208,7 @@ const styles = stylesheet.create({
   altText: {
     color: (theme) => theme.palette.grey[800],
     maxWidth: { sm: "27ch" },
+    lineHeight: 1.5,
   },
   primaryButton: {},
   secondaryButton: {},

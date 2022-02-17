@@ -9,7 +9,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { Money, OnlinePredictionTwoTone, School } from "@mui/icons-material";
-import { scrollToElem } from "@workspace/utility";
+import { scrollToElem, smoothScrollTo } from "@workspace/utility";
 
 type ContactFormInputs = {
   name: string;
@@ -181,6 +181,11 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
               },
             }}
           >
+            <div
+              aria-hidden="true"
+              style={{ visibility: "hidden", display: "none" }}
+              id="top"
+            ></div>
             <Component {...pageProps} />
           </MainLayout>
         </CustomTheme>
@@ -254,6 +259,7 @@ const FOOTER_PROPS: MainLayoutProps["FooterProps"] = {
 };
 
 const HEADER_PROPS: MainLayoutProps["HeaderProps"] = {
+  onLogoClick: () => smoothScrollTo(0, 1000),
   cta: {
     label: "Contate-nos",
     onClick: () => {},

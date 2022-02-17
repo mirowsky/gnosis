@@ -3,6 +3,7 @@ import stylesheet from "@workspace/stylesheet";
 import { Box, Button, Typography } from "@mui/material";
 import { TEST_ID } from "./constants";
 import { AnimatedBurguerMenu } from "../AnimatedBurguerButton/AnimatedBurguerButton";
+import theme from "theme/theme";
 
 type HeaderItem = {
   label: string;
@@ -19,6 +20,7 @@ export interface HeaderProps {
   cta: HeaderItem;
   burguerOpen: boolean;
   onBurguerButtonClick?: (...args: unknown[]) => void;
+  onLogoClick?: (...args: unknown[]) => void;
 }
 
 export const Header = ({
@@ -33,13 +35,14 @@ export const Header = ({
     label: undefined,
   },
   burguerOpen = false,
+  onLogoClick = () => {},
   onBurguerButtonClick = () => {},
 }: HeaderProps) => {
   return (
     <Box sx={styles.root}>
       <Box sx={styles.grid}>
-        <Box sx={styles.logoContainer}>
-          <Box component="img" src={logo.src} alt={logo.alt} />
+        <Box component="button" onClick={onLogoClick} sx={styles.logoContainer}>
+          <Box sx={styles.logo} component="img" src={logo.src} alt={logo.alt} />
           {logo?.label && (
             <Box sx={styles.logoLabelContainer}>
               <Typography sx={styles.logoLabel} variant="h5">
@@ -76,6 +79,7 @@ export const Header = ({
             onClick={cta.onClick}
             variant="contained"
             color="primary"
+            size="small"
           >
             {cta.label}
           </Button>
@@ -90,13 +94,10 @@ export default Header;
 const styles = stylesheet.create({
   root: {
     px: (theme) => ({ xs: theme.spacing(3), lg: theme.spacing(4) }),
+    py: (theme) => ({ xs: theme.spacing(1.9) }),
     display: "flex",
     width: { xs: "100%" },
-    height: (theme) => ({
-      xs: theme.spacing(10),
-      lg: theme.spacing(14),
-    }),
-    boxShadow: (theme) => `2px 3px 5px ${theme.palette.special.main}`,
+    boxShadow: (theme) => theme.shadows[1],
     bgcolor: (theme) => theme.palette.background.paper,
   },
 
@@ -140,12 +141,15 @@ const styles = stylesheet.create({
     width: "100%",
     height: "100%",
     overflow: "hidden",
-    p: (theme) => ({ xs: theme.spacing(1.25), lg: theme.spacing(1.5) }),
+    bgcolor: "transparent",
+    outline: "none",
+    border: "none",
+    cursor: "pointer",
   },
   logo: {
     objectFit: "contain",
     width: "auto",
-    height: "height",
+    height: "3rem",
   },
   logoLabelContainer: {
     width: "100%",
@@ -160,5 +164,7 @@ const styles = stylesheet.create({
   },
   logoLabel: {
     display: { xs: "none", lg: "block" },
+    fontWeight: 700,
+    color: (theme) => theme.palette.primary.main,
   },
 });
