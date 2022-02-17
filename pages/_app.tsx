@@ -270,7 +270,7 @@ const HEADER_PROPS: MainLayoutProps["HeaderProps"] = {
     { label: "Cursos", onClick: () => scrollToElem("#course_section") },
   ],
   logo: {
-    src: "https://via.placeholder.com/500",
+    src: "/images/logo.svg",
     alt: "Instituto Educacional Gnosis - Logotipo - A figura de uma coruja formado por polígonos",
     label: "Instituto Gnosis",
   },

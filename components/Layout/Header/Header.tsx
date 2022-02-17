@@ -97,7 +97,7 @@ const styles = stylesheet.create({
     py: (theme) => ({ xs: theme.spacing(1.9) }),
     display: "flex",
     width: { xs: "100%" },
-    boxShadow: (theme) => theme.shadows[1],
+    boxShadow: (theme) => theme.shadows[3],
     bgcolor: (theme) => theme.palette.background.paper,
   },
 
