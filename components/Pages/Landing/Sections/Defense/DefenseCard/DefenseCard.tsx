@@ -24,7 +24,7 @@ const DefenseCard = ({
         component={Icon as typeof IconComponent}
         sx={styles.icon}
       />
-      <Typography sx={styles.label} variant="h5" component="caption">
+      <Typography sx={styles.label} variant="h5" component="p">
         {label}
       </Typography>
     </Box>
