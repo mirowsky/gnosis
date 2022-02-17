@@ -32,8 +32,10 @@ const styles = stylesheet.create({
     width: "100%",
   },
   grid: {
+    maxWidth: { xs: "45vw", lg: "1170px" },
+    margin: "auto",
     display: "grid",
-    placeItems: "center",
+    placeItems: { xs: "flex-start", lg: "flex-start" },
     gap: (theme) => ({ xs: theme.spacing(8) }),
     width: "100%",
     gridTemplateColumns: {

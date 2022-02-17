@@ -7,24 +7,33 @@ import axios, { AxiosResponse } from "axios";
 import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";
 import { convertToSlug } from "@workspace/utility";
-import { Money, WhatsApp } from "@mui/icons-material";
+import {
+  BarChart,
+  CalendarToday,
+  Money,
+  Paid,
+  Payment,
+  Timelapse,
+  WhatsApp,
+} from "@mui/icons-material";
+
+const convertSyllabusItem = (syllabusItem: string) => {
+  const hour = syllabusItem.match(/([0-9].hs?)/gi);
+  const label = syllabusItem.split("(")[0];
+
+  return {
+    hour: hour?.toString() ?? "00h",
+    label: label || "not found",
+  };
+};
 
 type CoursePageDataProps = CourseCollectionType;
 
 const CoursePage = (props: CoursePageDataProps) => {
+  const [tab, activeTab] = React.useState(0);
+
   console.log(props);
 
-  const convertSyllabusItem = (syllabusItem: string) => {
-    const hour = syllabusItem.match(/([0-9].hs?)/gi);
-    const label = syllabusItem.split("(")[0];
-
-    return {
-      hour: hour?.toString() ?? "00h",
-      label: label || "not found",
-    };
-  };
-
-  convertSyllabusItem(props.courseSyllabus[1]);
   return (
     <CoursePageComponent
       CourseOverviewSectionProps={{
@@ -32,7 +41,12 @@ const CoursePage = (props: CoursePageDataProps) => {
           {
             caption: "Data de início",
             title: "Imediatamente após inscrição",
-            icon: Money,
+            icon: CalendarToday,
+          },
+          {
+            caption: "Nível",
+            title: `${props.courseLevel}`,
+            icon: BarChart,
           },
           {
             caption: "Data de início",
@@ -40,19 +54,19 @@ const CoursePage = (props: CoursePageDataProps) => {
             icon: Money,
           },
           {
-            caption: "Data de início",
-            title: "Imediatamente após inscrição",
-            icon: Money,
+            caption: "Duração",
+            title: "12 meses",
+            icon: Timelapse,
           },
           {
-            caption: "Data de início",
-            title: "Imediatamente após inscrição",
-            icon: Money,
+            caption: "Cotação",
+            title: "Sob consulta",
+            icon: Paid,
           },
         ],
       }}
       CourseSyllabusSectionProps={{
-        activeIndex: 0,
+        activeIndex: tab,
         emec: {
           img: {
             alt: props.courseEmecPicture.imageDescription,
@@ -63,8 +77,10 @@ const CoursePage = (props: CoursePageDataProps) => {
             label: `Certificado de EMEC - ${props.courseName} - ${props.courseLevel}`,
           },
         },
-        handleChange: () => {},
-        prerequisites: "no",
+        handleChange: (event, newValue) => {
+          activeTab(newValue);
+        },
+        prerequisites: "Diploma de medicina válido em território brasileiro",
         syllabusItems: props.courseSyllabus.map((val, index) => {
           const syllabusItem = convertSyllabusItem(val);
 
@@ -82,8 +98,12 @@ const CoursePage = (props: CoursePageDataProps) => {
         },
         subtitle: props.courseDescription,
         title: props.courseName,
-        PrimaryButtonProps: {},
-        SecondaryButtonProps: {},
+        PrimaryButtonProps: {
+          children: "Manifestar interesse",
+        },
+        SecondaryButtonProps: {
+          children: <WhatsApp />,
+        },
       }}
     />
   );

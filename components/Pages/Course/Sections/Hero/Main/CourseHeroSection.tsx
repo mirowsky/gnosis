@@ -134,7 +134,9 @@ const styles = stylesheet.create({
   subtitle: {
     color: (theme) => theme.palette.primary.contrastText,
     fontWeight: 700,
-    maxWidth: "35ch",
+    maxWidth: "70ch",
+    fontSize: { xs: "1rem" },
+    lineHeight: 1.7,
   },
 
   primaryButton: {},

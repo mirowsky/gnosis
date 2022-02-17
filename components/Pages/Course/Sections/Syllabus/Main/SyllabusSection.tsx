@@ -19,7 +19,7 @@ type EMEC = {
 
 export interface SyllabusSectionProps {
   activeIndex: number;
-  handleChange: (...args: unknown[]) => void;
+  handleChange: (event: React.SyntheticEvent, newValue: number) => void;
   syllabusItems: SyllabusItemProps[];
   prerequisites: string;
   emec: EMEC;

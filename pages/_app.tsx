@@ -222,7 +222,7 @@ const CONTACT_DIAL_PROPS: MainLayoutProps["ContactDialProps"] = {
 
 const NEWSLETTER_SECTION_PROPS: MainLayoutProps["NewsLetterSectionProps"] = {
   img: {
-    src: "images/newsletter-doc.webp",
+    src: "/images/newsletter-doc.webp",
     alt: "Médica jovem, sorrindo para a câmera, vestindo um jaleco, com os dois braços em frente ao seu corpo",
   },
   sectionTitle: "Assine nossa Newsletter e fique por dentro das novidades.",
@@ -232,7 +232,7 @@ const NEWSLETTER_SECTION_PROPS: MainLayoutProps["NewsLetterSectionProps"] = {
 const CONTACT_SECTION_PROPS: MainLayoutProps["ContactSectionProps"] = {
   id: "contact_section",
   img: {
-    src: "images/contact-doc.webp",
+    src: "/images/contact-doc.webp",
     alt: "Doutoura jovem, vestindo um jaleco e com um estetoscópio em volta de seu pescoço, apontando para a esquerda com um de seus dedos",
   },
   ContactFormProps: {},

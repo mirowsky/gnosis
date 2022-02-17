@@ -39,7 +39,6 @@ const styles = stylesheet.create({
     display: "flex",
     flexDirection: "column",
     gap: (theme) => theme.spacing(1.5),
-    width: "fit-content",
   },
   iconContainer: {
     display: "flex",
@@ -49,7 +48,7 @@ const styles = stylesheet.create({
     flexDirection: "column",
     alignItems: "flex-start",
     gap: (theme) => theme.spacing(1.5),
-    width: "min-content",
+    width: "100%",
   },
 
   icon: {
