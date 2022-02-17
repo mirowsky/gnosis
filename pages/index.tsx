@@ -10,13 +10,14 @@ import {
   Timelapse,
   WhatsApp,
 } from "@mui/icons-material";
-import { scrollToElem } from "@workspace/utility";
+import { scrollToElem, getCourseURL } from "@workspace/utility";
 import {
   BlogCollectionType,
   CourseCollectionType,
   TestimonialCollectionType,
 } from "@workspace/types";
 import axios, { AxiosResponse } from "axios";
+import { useRouter } from "next/router";
 
 export interface IndexPageProps {
   courses: CourseCollectionType[];
@@ -25,6 +26,8 @@ export interface IndexPageProps {
 }
 
 const Home: NextPage<IndexPageProps> = ({ courses, blog, testimonials }) => {
+  const router = useRouter();
+
   return (
     <LandingPage
       AboutSectionProps={PAGE_PROPS.AboutSectionProps}
@@ -36,10 +39,19 @@ const Home: NextPage<IndexPageProps> = ({ courses, blog, testimonials }) => {
             return {
               primaryAction: {
                 children: "Saiba mais",
-                onClick: () => {},
+                onClick: () => {
+                  router.push(
+                    getCourseURL(
+                      course.courseArea,
+                      course.courseLevel,
+                      course.courseName,
+                      course.uuid
+                    )
+                  );
+                },
               },
               secondaryAction: {
-                children: "Saiba mais",
+                children: WhatsApp,
                 onClick: () => {},
               },
               title: course.courseName,
