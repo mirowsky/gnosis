@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import { LandingPage, LandingPageProps } from "@workspace/components/pages";
 import {
   AccessTime,
@@ -11,6 +11,86 @@ import {
   WhatsApp,
 } from "@mui/icons-material";
 import { scrollToElem } from "@workspace/utility";
+import {
+  BlogCollectionType,
+  CourseCollectionType,
+  TestimonialCollectionType,
+} from "@workspace/types";
+import axios, { AxiosResponse } from "axios";
+
+export interface IndexPageProps {
+  courses: CourseCollectionType[];
+  blog?: BlogCollectionType[];
+  testimonials?: TestimonialCollectionType[];
+}
+
+const Home: NextPage<IndexPageProps> = ({ courses, blog, testimonials }) => {
+  return (
+    <LandingPage
+      AboutSectionProps={PAGE_PROPS.AboutSectionProps}
+      DefenseSectionProps={PAGE_PROPS.DefenseSectionProps}
+      CourseSectionProps={{
+        ...PAGE_PROPS.CourseSectionProps,
+        CourseSliderProps: {
+          items: courses.map((course, index) => {
+            return {
+              primaryAction: {
+                children: "Saiba mais",
+                onClick: () => {},
+              },
+              secondaryAction: {
+                children: "Saiba mais",
+                onClick: () => {},
+              },
+              title: course.courseName,
+              tags: [
+                { icon: AccessTime, label: course.courseDuration },
+                { icon: School, label: course.courseLevel },
+              ],
+              img: {
+                src: course.courseImage.imageURL,
+                alt: course.courseImage.imageDescription,
+              },
+            };
+          }),
+          navigation:
+            PAGE_PROPS.CourseSectionProps.CourseSliderProps.navigation,
+        },
+      }}
+      HeroSectionProps={PAGE_PROPS.HeroSectionProps}
+      DynamicSectionsProps={PAGE_PROPS.DynamicSectionsProps}
+    />
+  );
+};
+
+export default Home;
+
+export const getStaticProps: GetStaticProps<IndexPageProps> = async ({
+  params,
+}) => {
+  const courseRequest: AxiosResponse<CourseCollectionType[]> = await axios.get(
+    "https://us-central1-gnosis-webapp.cloudfunctions.net/api/collections/entries/coursesNew"
+  );
+  const blogRequest: AxiosResponse<BlogCollectionType[]> = await axios.get(
+    "https://us-central1-gnosis-webapp.cloudfunctions.net/api/collections/entries/gnosisBlog"
+  );
+  const testimonialRequest: AxiosResponse<TestimonialCollectionType[]> =
+    await axios.get(
+      "https://us-central1-gnosis-webapp.cloudfunctions.net/api/collections/entries/testimonials"
+    );
+
+  const courseData = courseRequest.data;
+  const blogData = blogRequest.data;
+  const testimonialData = testimonialRequest.data;
+
+  return {
+    props: {
+      courses: courseData,
+      testimonials: testimonialData,
+      blog: blogData,
+    },
+  };
+};
 
 const courseItem = {
   img: { src: "https://source.unsplash.com/random", alt: "img" },
@@ -22,20 +102,6 @@ const courseItem = {
   ],
   title: "Course name placeholder",
 };
-
-const Home: NextPage = () => {
-  return (
-    <LandingPage
-      AboutSectionProps={PAGE_PROPS.AboutSectionProps}
-      DefenseSectionProps={PAGE_PROPS.DefenseSectionProps}
-      CourseSectionProps={PAGE_PROPS.CourseSectionProps}
-      HeroSectionProps={PAGE_PROPS.HeroSectionProps}
-      DynamicSectionsProps={PAGE_PROPS.DynamicSectionsProps}
-    />
-  );
-};
-
-export default Home;
 
 const PAGE_PROPS: LandingPageProps = {
   DefenseSectionProps: {

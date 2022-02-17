@@ -22,6 +22,7 @@ specifiers:
   '@types/jest': ^27.4.0
   '@types/node': 17.0.9
   '@types/react': 17.0.38
+  axios: ^0.26.0
   csstype: ^3.0.10
   dotenv: ^14.2.0
   eslint: 8.7.0
@@ -56,6 +57,7 @@ dependencies:
   '@mui/lab': 5.0.0-alpha.67_d74df09fdf2a827e92ee08e7c12f92b0
   '@mui/material': 5.4.0_f5341c4d41f1e34c3a73251df9f98a19
   '@mui/system': 5.4.0_bcb8cb45f4440c38ab7df0ee3f383339
+  axios: 0.26.0
   dotenv: 14.3.2
   framer-motion: 6.2.3_react-dom@17.0.2+react@17.0.2
   next: 12.0.8_e8d37026251acb8f0cd306745f1edf7c
@@ -5390,6 +5392,14 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
+  /axios/0.26.0:
+    resolution: {integrity: sha512-lKoGLMYtHvFrPVt3r+RBMp9nh34N0M8zEfCWqdWZx6phynIEhQqAdydpyBAAG211zlhX9Rgu08cOamy6XjE5Og==}
+    dependencies:
+      follow-redirects: 1.14.8
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
   /axobject-query/2.2.0:
     resolution: {integrity: sha512-Td525n+iPOOyUQIeBfcASuG6uJsDOITl7Mds5gFyerkWiX7qhUTdYUBlSgNMyVqtSJqwpt1kXGLdUt6SykLMRA==}
     dev: true
@@ -7766,6 +7776,16 @@ packages:
       inherits: 2.0.4
       readable-stream: 2.3.7
     dev: true
+
+  /follow-redirects/1.14.8:
+    resolution: {integrity: sha512-1x0S9UVJHsQprFcEC/qnNzBLcIxsjAV905f/UkQxbclCsoTWlacCNOpQa/anodLl2uaEKFhfWOvM2Qg77+15zA==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    dev: false
 
   /for-in/1.0.2:
     resolution: {integrity: sha1-gQaNKVqBQuwKxybG4iAMMPttXoA=}
