@@ -7,13 +7,86 @@ import axios, { AxiosResponse } from "axios";
 import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";
 import { convertToSlug } from "@workspace/utility";
+import { Money, WhatsApp } from "@mui/icons-material";
 
 type CoursePageDataProps = CourseCollectionType;
 
 const CoursePage = (props: CoursePageDataProps) => {
   console.log(props);
 
-  return <div></div>;
+  const convertSyllabusItem = (syllabusItem: string) => {
+    const hour = syllabusItem.match(/([0-9].hs?)/gi);
+    const label = syllabusItem.split("(")[0];
+
+    return {
+      hour: hour?.toString() ?? "00h",
+      label: label || "not found",
+    };
+  };
+
+  convertSyllabusItem(props.courseSyllabus[1]);
+  return (
+    <CoursePageComponent
+      CourseOverviewSectionProps={{
+        items: [
+          {
+            caption: "Data de início",
+            title: "Imediatamente após inscrição",
+            icon: Money,
+          },
+          {
+            caption: "Data de início",
+            title: "Imediatamente após inscrição",
+            icon: Money,
+          },
+          {
+            caption: "Data de início",
+            title: "Imediatamente após inscrição",
+            icon: Money,
+          },
+          {
+            caption: "Data de início",
+            title: "Imediatamente após inscrição",
+            icon: Money,
+          },
+        ],
+      }}
+      CourseSyllabusSectionProps={{
+        activeIndex: 0,
+        emec: {
+          img: {
+            alt: props.courseEmecPicture.imageDescription,
+            src: props.courseEmecPicture.imageURL,
+          },
+          url: {
+            href: props.courseEmecURL,
+            label: `Certificado de EMEC - ${props.courseName} - ${props.courseLevel}`,
+          },
+        },
+        handleChange: () => {},
+        prerequisites: "no",
+        syllabusItems: props.courseSyllabus.map((val, index) => {
+          const syllabusItem = convertSyllabusItem(val);
+
+          return {
+            hours: syllabusItem.hour,
+            title: syllabusItem.label,
+          };
+        }),
+      }}
+      CourseHeroSectionProps={{
+        chipLabel: props.courseLevel,
+        img: {
+          alt: props.courseImage.imageDescription,
+          src: props.courseImage.imageURL,
+        },
+        subtitle: props.courseDescription,
+        title: props.courseName,
+        PrimaryButtonProps: {},
+        SecondaryButtonProps: {},
+      }}
+    />
+  );
 };
 
 export default CoursePage;
@@ -72,9 +145,11 @@ export const getStaticProps: GetStaticProps<CoursePageDataProps> = async ({
 
   const courseByIdRequestData = courseByIdRequest.data;
 
+  console.log(courseByIdRequestData);
+
   return {
     props: {
-      courseEmecURL: "url",
+      courseEmecURL: courseByIdRequestData.courseEmecURL,
       uuid: courseByIdRequestData.uuid,
       courseSyllabus: courseByIdRequestData.courseSyllabus,
       courseArea: courseByIdRequestData.courseArea,
