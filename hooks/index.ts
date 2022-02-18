@@ -3,3 +3,4 @@ export { useChildrenBoundingBox } from "./useChildrenBoundingBox./useChildrenBou
 export { useComponentSize } from "./useComponentSize/useComponentSize";
 export { useIsomorphicEffect } from "./useIsomorphicEffect/useIsomorphicEffect";
 export { useIsFirstVisit } from "./useIsFirstVisit/useIsFirstVisit";
+export { useIntersectionObserver } from "./useIntersectionObserver/useIntersectionObserver";
