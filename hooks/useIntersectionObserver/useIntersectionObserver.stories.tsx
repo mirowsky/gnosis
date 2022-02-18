@@ -7,7 +7,7 @@ type IntersectionObserverHookDemoProps = {};
 const IntersectionObserverHookDemo = (
   props: IntersectionObserverHookDemoProps
 ) => {
-  const { observer, ref } = useIntersectionObserver();
+  const { ref, isIntersecting } = useIntersectionObserver();
 
   return (
     <Box
@@ -43,3 +43,13 @@ const Template: Story<IntersectionObserverHookDemoProps> = (props) => (
 export const Primary = Template.bind({});
 
 Primary.args = {};
+
+Primary.decorators = [
+  (Story) => (
+    <Box sx={{ height: "200vh", width: "100%", position: "relative" }}>
+      <Box sx={{ position: "absolute", top: "50%", left: "50%" }}>
+        <Story />
+      </Box>
+    </Box>
+  ),
+];

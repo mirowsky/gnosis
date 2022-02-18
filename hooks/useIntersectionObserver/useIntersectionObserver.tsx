@@ -4,19 +4,15 @@ import { useIsomorphicEffect } from "..";
 export const useIntersectionObserver = () => {
   const ref = React.useRef<HTMLElement>(null);
   const [observer, setObserver] = React.useState<IntersectionObserver>();
+  const [isIntersecting, setIsIntersecting] = React.useState(false);
 
   useIsomorphicEffect(() => {
     if (typeof window !== "undefined" && ref.current) {
-      const parentNode = ref.current.parentElement;
-
-      const _observer = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry, index) => {
-            console.log(entry);
-          });
-        },
-        { root: parentNode }
-      );
+      const _observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry, _index) => {
+          setIsIntersecting(entry.isIntersecting);
+        });
+      });
 
       _observer.observe(ref.current);
 
@@ -28,5 +24,5 @@ export const useIntersectionObserver = () => {
     }
   }, []);
 
-  return { ref: ref, observer: observer };
+  return { ref: ref, isIntersecting: isIntersecting };
 };
