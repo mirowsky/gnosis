@@ -16,8 +16,14 @@ const SlideInDemo = ({ animate }: SlideInDemoProps) => {
         sx={{
           bgcolor: "violet",
           borderRadius: "12px",
-          w: "350px",
-          h: "350px",
+          width: "350px",
+          height: "350px",
+          color: "#fff",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          fontSize: { xs: "2rem" },
+          fontWeight: 900,
           boxShadow: (theme) => theme.shadows[5],
         }}
       />

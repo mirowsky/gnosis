@@ -26,7 +26,7 @@ export const SlideIn = ({
     <MotionBox
       variants={VARIANTS}
       initial="initial"
-      animate={animate && "finished"}
+      animate={animate ? "finished" : "initial"}
       sx={{ ...styles.root, ...sx }}
     >
       {children}
@@ -44,18 +44,21 @@ const ANIMATION_VARIANTS = (
   direction: SlideInProps["direction"] = "up"
 ): Variants => ({
   initial: {
+    opacity: 0,
+
     ...(direction === "up"
       ? {
-          y: -250,
+          y: 250,
         }
       : direction === "down"
-      ? { y: 250 }
+      ? { y: -250 }
       : direction === "left"
       ? { x: 250 }
       : { x: -250 }),
   },
 
   finished: {
+    opacity: 1,
     ...(direction === "up" || direction === "down" ? { y: 0 } : { x: 0 }),
   },
 });
