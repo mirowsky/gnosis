@@ -10,6 +10,7 @@ import type { CourseHeroAltProps } from "./CourseHeroAlt";
 export const DEFAULT_CourseHeroAlt_TESTING_PROPS: CourseHeroAltProps = {
   TruncateTextProps: {
     numberOfLines: 4,
+    fontSize: { xs: "1rem" },
   },
   ExpandDescriptionButtonProps: { children: "Ver mais" },
   SecondaryButtonProps: {

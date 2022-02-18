@@ -104,6 +104,8 @@ export const CourseHeroAlt = ({
               p: 0,
               m: 0,
               color: (theme) => theme.palette.primary.main,
+              maxWidth: "50ch",
+              textAlign: "justify",
             }}
             {...TruncateTextProps}
           >
