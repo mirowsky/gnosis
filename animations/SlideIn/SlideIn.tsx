@@ -17,7 +17,21 @@ export const SlideIn = ({
   sx,
   direction = "up",
 }: SlideInProps) => {
-  return <MotionBox sx={{ ...styles.root, ...sx }}>{children}</MotionBox>;
+  const VARIANTS = React.useMemo(
+    () => ANIMATION_VARIANTS(direction),
+    [direction]
+  );
+
+  return (
+    <MotionBox
+      variants={VARIANTS}
+      initial="initial"
+      animate={animate && "finished"}
+      sx={{ ...styles.root, ...sx }}
+    >
+      {children}
+    </MotionBox>
+  );
 };
 
 export default SlideIn;
