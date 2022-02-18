@@ -1,7 +1,4 @@
-import {
-  CoursePageProps,
-  CoursePage as CoursePageComponent,
-} from "@workspace/components/pages";
+import { CoursePageAlt as CoursePageComponent } from "@workspace/components/pages";
 import { CourseCollectionType } from "@workspace/types";
 import axios, { AxiosResponse } from "axios";
 import { GetStaticPaths, GetStaticProps } from "next";
@@ -10,9 +7,11 @@ import { convertToSlug } from "@workspace/utility";
 import {
   BarChart,
   CalendarToday,
+  CalendarTodayOutlined,
   Money,
   Paid,
   Payment,
+  School,
   Timelapse,
   WhatsApp,
 } from "@mui/icons-material";
@@ -31,8 +30,7 @@ type CoursePageDataProps = CourseCollectionType;
 
 const CoursePage = (props: CoursePageDataProps) => {
   const [tab, activeTab] = React.useState(0);
-
-  console.log(props);
+  const [descriptionCollapsed, setDescriptionCollapsed] = React.useState(true);
 
   return (
     <CoursePageComponent
@@ -90,19 +88,42 @@ const CoursePage = (props: CoursePageDataProps) => {
           };
         }),
       }}
-      CourseHeroSectionProps={{
-        chipLabel: props.courseLevel,
-        img: {
-          alt: props.courseImage.imageDescription,
-          src: props.courseImage.imageURL,
-        },
-        subtitle: props.courseDescription,
-        title: props.courseName,
+      CourseHeroAltProps={{
+        courseBenefits: [
+          {
+            icon: Timelapse,
+            label: `Conclusão em até ${props.courseDuration}`,
+          },
+          { icon: School, label: `Curso de ${props.courseLevel}` },
+          {
+            icon: CalendarTodayOutlined,
+            label: "Inicie imediatamente após a inscrição",
+          },
+          {
+            icon: Payment,
+            label: "Valores sob consulta",
+          },
+        ],
         PrimaryButtonProps: {
           children: "Manifestar interesse",
+          onClick: () => {},
+        },
+        ExpandDescriptionButtonProps: {
+          children: descriptionCollapsed ? "Ver mais" : "Ver menos",
+          onClick: () => {},
         },
         SecondaryButtonProps: {
           children: <WhatsApp />,
+          onClick: () => {},
+        },
+        courseDescription: props.courseDescription,
+        courseImage: {
+          alt: props.courseImage.imageDescription,
+          url: props.courseImage.imageURL,
+        },
+        courseName: props.courseName,
+        TruncateTextProps: {
+          numberOfLines: descriptionCollapsed ? 4 : false,
         },
       }}
     />
