@@ -7,16 +7,16 @@ export const useIntersectionObserver = () => {
 
   useIsomorphicEffect(() => {
     if (typeof window !== "undefined" && ref.current) {
-      const _observer = new IntersectionObserver((entries, __observer) => {
+      const observer = new IntersectionObserver((entries, _observer) => {
         entries.forEach((entry, _index) => {
           setIsIntersecting(entry.isIntersecting);
         });
       });
 
-      _observer.observe(ref.current);
+      observer.observe(ref.current);
 
       return () => {
-        _observer.disconnect();
+        observer.disconnect();
       };
     }
   }, []);
