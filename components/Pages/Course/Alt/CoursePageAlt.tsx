@@ -45,6 +45,7 @@ export const CoursePageAlt = ({
             sx={{
               py: (theme) => ({ xs: theme.spacing(10) }),
               pb: (theme) => ({ lg: theme.spacing(16) }),
+              textTransform: "capitalize",
             }}
           />
         </Container>

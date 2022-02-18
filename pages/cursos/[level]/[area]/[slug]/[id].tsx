@@ -110,7 +110,7 @@ const CoursePage = (props: CoursePageDataProps) => {
         },
         ExpandDescriptionButtonProps: {
           children: descriptionCollapsed ? "Ver mais" : "Ver menos",
-          onClick: () => {},
+          onClick: () => setDescriptionCollapsed((prevState) => !prevState),
         },
         SecondaryButtonProps: {
           children: <WhatsApp />,
