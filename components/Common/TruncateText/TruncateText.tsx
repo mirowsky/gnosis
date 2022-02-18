@@ -9,7 +9,7 @@ import {
 } from "@workspace/types";
 
 export type TruncateTextProps = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   numberOfLines?: number | false;
   lineHeight?: Properties["lineHeight"];
   fontSize?: ResponsiveStyleValue<Properties["fontSize"]>;
@@ -39,7 +39,13 @@ export default TruncateText;
 
 const _styles = (
   lines: number | false = 100,
-  fontSize: ResponsiveFontSize = { xs: "1rem" },
+  fontSize: ResponsiveFontSize = {
+    xs: "1rem",
+    md: "1rem",
+    sm: "1rem",
+    lg: "1rem",
+    xl: "1rem",
+  },
   lineHeight: Properties["lineHeight"] = 1.75
 ) =>
   stylesheet.create({
@@ -51,9 +57,16 @@ const _styles = (
       WebkitLineClamp: typeof lines === "number" ? lines : "none",
       willChange: "max-height",
       WebkitBoxOrient: "vertical",
+      position: "relative",
 
       ...(typeof lines === "number" && {
-        maxHeight: `calc(${fontSize.xs as string} * ${lineHeight} * ${lines})`,
+        maxHeight: {
+          xs: `calc(${fontSize.xs as string} * ${lineHeight} * ${lines})`,
+          sm: `calc(${fontSize.sm as string} * ${lineHeight} * ${lines})`,
+          md: `calc(${fontSize.md as string} * ${lineHeight} * ${lines})`,
+          lg: `calc(${fontSize.lg as string} * ${lineHeight} * ${lines})`,
+          xl: `calc(${fontSize.xl as string} * ${lineHeight} * ${lines})`,
+        },
       }),
     },
   });

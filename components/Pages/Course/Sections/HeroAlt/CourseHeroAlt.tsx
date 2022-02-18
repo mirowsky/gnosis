@@ -1,41 +1,50 @@
 import { GiAlarmClock } from "react-icons/gi";
 import { IoSchool } from "react-icons/io5";
-import { Box, Button, ButtonProps } from "@mui/material";
+import { Box, Button, ButtonProps, Typography } from "@mui/material";
 import React from "react";
+import { TruncateText, TruncateTextProps } from "@workspace/components/common";
+import { DEFAULT_CourseHeroAlt_TESTING_PROPS } from "./CourseHeroAlt.fixture";
+
+type CourseBenefit = {
+  icon: React.ComponentType;
+  label: string;
+};
 
 export type CourseHeroAltProps = {
   courseName: string;
-  courseLevel: string;
-  courseArea: string;
-  courseDuration: string;
   courseDescription: string;
   courseImage: {
     url: string;
     alt: string;
   };
   PrimaryButtonProps?: ButtonProps;
+  SecondaryButtonProps?: ButtonProps;
+  ExpandDescriptionButtonProps?: ButtonProps;
+  TruncateTextProps?: TruncateTextProps;
+  courseBenefits: CourseBenefit[];
 };
 
 export const CourseHeroAlt = ({
-  courseArea,
   courseDescription,
-  courseDuration,
   courseImage,
-  courseLevel,
   courseName,
-  PrimaryButtonProps = { children: "Primary Action", onClick: () => {} },
-}: CourseHeroAltProps) => {
+  PrimaryButtonProps,
+  ExpandDescriptionButtonProps,
+  SecondaryButtonProps,
+  courseBenefits,
+  TruncateTextProps,
+}: CourseHeroAltProps = DEFAULT_CourseHeroAlt_TESTING_PROPS) => {
   return (
     <Box
       sx={{
         width: "100%",
         display: "grid",
         gridTemplateColumns: { xs: "1fr", lg: "0.6fr 1fr" },
-        gridTemplateRows: "1fr",
-        gridAutoFlow: "row",
         gap: "30px",
       }}
     >
+      {/* Image */}
+
       <Box
         sx={{
           width: "100%",
@@ -59,14 +68,15 @@ export const CourseHeroAlt = ({
         />
       </Box>
 
+      {/* Info Container */}
       <Box
         sx={{
           display: "flex",
-          width: "100%",
           flexDirection: "column",
-          gap: "20px",
+          gap: { xs: "3rem", lg: "3.5rem" },
         }}
       >
+        {/* Title */}
         <Box
           component="h1"
           sx={{
@@ -81,73 +91,97 @@ export const CourseHeroAlt = ({
         </Box>
 
         <Box
-          component="p"
           sx={{
-            p: 0,
-            m: 0,
-            color: (theme) => theme.palette.primary.main,
-            fontSize: "clamp(16px, 2.2vw, 22px)",
+            display: "flex",
+            flexDirection: "column",
+            gap: { xs: "0.5rem" },
           }}
         >
-          {courseDescription}
+          {/* Description */}
+          <TruncateText
+            numberOfLines={5}
+            sx={{
+              p: 0,
+              m: 0,
+              color: (theme) => theme.palette.primary.main,
+            }}
+            {...TruncateTextProps}
+          >
+            {courseDescription}
+          </TruncateText>
+
+          {/* Expand description button */}
+
+          <Box sx={{ display: "flex", justifyContent: "flex-start" }}>
+            <Button
+              variant="outlined"
+              color="primary"
+              size="small"
+              sx={{
+                fontSize: { xs: "0.65em" },
+                borderRadius: "8px",
+                px: { xs: 3 },
+                py: { xs: 0.15 },
+              }}
+              {...ExpandDescriptionButtonProps}
+            ></Button>
+          </Box>
         </Box>
+
+        {/* Benefits */}
+        <Box
+          sx={{
+            display: "grid",
+            gap: { xs: "15px" },
+            gridTemplateColumns: {
+              xs: "repeat(1, minmax(0, 1fr))",
+              lg: "repeat(2, minmax(0, 1fr))",
+            },
+            placeItems: { xs: "center flex-start" },
+
+            "&  svg": {
+              color: (theme) => theme.palette.primary.main,
+            },
+          }}
+        >
+          {courseBenefits.map(({ icon: Icon, label }, index) => {
+            return (
+              <Box key={index} sx={{ display: "flex", gap: "1rem" }}>
+                <Icon />
+
+                <Typography
+                  sx={{ fontSize: "0.75rem" }}
+                  variant="body1"
+                  color="primary"
+                >
+                  {label}
+                </Typography>
+              </Box>
+            );
+          })}
+        </Box>
+
+        {/* Actions */}
 
         <Box
           sx={{
             display: "flex",
-            flexDirection: "column",
-            gap: "20px",
+            justifyContent: "flex-start",
+            gap: { xs: "1rem" },
           }}
         >
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: "10px",
-            }}
-          >
-            <Box
-              sx={{
-                fontSize: "clamp(16px, 1vw, 18px)",
-              }}
-              component={GiAlarmClock}
-            />
-            <Box sx={{ fontSize: "clamp(14px, 1vw, 16px)" }}>
-              {courseDuration}
-            </Box>
-          </Box>
-
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: "10px",
-            }}
-          >
-            <Box
-              sx={{
-                fontSize: "clamp(16px, 1vw, 18px)",
-              }}
-              component={IoSchool}
-            />
-            <Box sx={{ fontSize: "clamp(14px, 1vw, 16px)" }}>
-              {`Curso de ${courseArea} - ${courseLevel}`}
-            </Box>
-          </Box>
-
           <Button
             variant="contained"
             color="primary"
-            size="large"
-            sx={{
-              width: "fit-content",
-              color: (theme) => theme.palette.secondary.main,
-              fontWeight: "bold",
-            }}
+            size="small"
             {...PrimaryButtonProps}
-          >
-            Tenho interesse
-          </Button>
+          />
+          <Button
+            variant="contained"
+            color="primary"
+            size="small"
+            {...SecondaryButtonProps}
+          />
         </Box>
       </Box>
     </Box>

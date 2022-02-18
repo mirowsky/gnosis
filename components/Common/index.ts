@@ -8,3 +8,5 @@ export { TabbedContainer } from "./TabbedContainer/TabbedContainer";
 export type { TabbedContainerProps } from "./TabbedContainer/TabbedContainer";
 export { InputWithButton } from "./InputWithButton/InputWithButton";
 export type { InputWithButtonProps } from "./InputWithButton/InputWithButton";
+export { TruncateText } from "./TruncateText/TruncateText";
+export type { TruncateTextProps } from "./TruncateText/TruncateText";
