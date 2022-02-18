@@ -10,23 +10,37 @@ const IntersectionObserverHookDemo = (
   const { ref, isIntersecting } = useIntersectionObserver();
 
   return (
-    <Box
-      component="div"
-      ref={ref}
-      sx={{
-        width: "350px",
-        height: "350px",
-        borderRadius: "12px",
-        bgcolor: "violet",
-        boxShadow: (theme) => theme.shadows[4],
-        color: "#fff",
-        fontWeight: 700,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      Im a block with text
+    <Box>
+      <Box
+        sx={{
+          fontSize: "2rem",
+          fontWeight: 800,
+          position: "fixed",
+          top: "20%",
+          left: "50%",
+          transform: "translateX(-50%)",
+        }}
+      >{`The item is currently ${
+        isIntersecting ? "intersecting" : "not intersecting"
+      }`}</Box>
+      <Box
+        component="div"
+        ref={ref}
+        sx={{
+          width: "350px",
+          height: "350px",
+          borderRadius: "12px",
+          bgcolor: "violet",
+          boxShadow: (theme) => theme.shadows[4],
+          color: "#fff",
+          fontWeight: 700,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        Im a block with text
+      </Box>
     </Box>
   );
 };
