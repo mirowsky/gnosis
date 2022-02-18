@@ -1,10 +1,11 @@
-import { Close, SvgIconComponent, WhatsApp } from "@mui/icons-material";
+import { Close, SvgIconComponent } from "@mui/icons-material";
 import { Box } from "@mui/material";
 import { MotionBox } from "@workspace/components/utility";
 import stylesheet from "@workspace/stylesheet";
 import { ResponsiveFontSize } from "@workspace/types";
 import { Variants } from "framer-motion";
 import React from "react";
+import { BsFillChatDotsFill } from "react-icons/bs";
 
 export type ContactDialButtonProps = {
   open?: boolean;
@@ -19,7 +20,7 @@ export const ContactDialButton = ({
   open,
   color,
   fontSize,
-  iconClosed: IconClosed = WhatsApp,
+  iconClosed: IconClosed = BsFillChatDotsFill,
   iconOpen: IconOpen = Close,
   onClick = () => {},
 }: ContactDialButtonProps) => {

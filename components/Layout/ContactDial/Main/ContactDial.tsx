@@ -53,11 +53,11 @@ export default ContactDial;
 const VARIANTS: Variants = {
   open: {
     opacity: 1,
-    x: 0,
+    scale: 1,
   },
   closed: {
     opacity: 0,
-    x: 350,
+    scale: 0,
   },
 };
 

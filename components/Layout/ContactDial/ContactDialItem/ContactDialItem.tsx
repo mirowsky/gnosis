@@ -25,7 +25,7 @@ export const ContactDialItem = React.forwardRef<
     ref
   ) => {
     return (
-      <Box onClick={action} sx={styles.root} component="div" ref={ref}>
+      <Box onClick={action} sx={styles.root} component="button" ref={ref}>
         <Box sx={styles.labelPaper}>
           <Typography variant="body1" sx={styles.label}>
             {label}
@@ -48,13 +48,18 @@ const styles = stylesheet.create({
     gap: (theme) => theme.spacing(2),
     width: "100%",
     justifyContent: "flex-end",
+    alignItems: "center",
+    cursor: "pointer",
+    border: "none",
+    outline: "none",
+    background: "transparent",
   },
 
   labelPaper: {
     height: "auto",
     backgroundColor: (theme) => theme.palette.background.paper,
     boxShadow: (theme) => theme.shadows[4],
-    p: 2,
+    p: 1,
     borderRadius: "6px",
     display: "flex",
     alignItems: "center",
@@ -64,13 +69,14 @@ const styles = stylesheet.create({
   label: {
     color: (theme) => theme.palette.grey[700],
     maxWidth: "30ch",
+    fontSize: { xs: "0.75rem" },
   },
 
   iconPaper: {
     backgroundColor: (theme) => theme.palette.background.paper,
     boxShadow: (theme) => theme.shadows[4],
     p: 2,
-    borderRadius: "6px",
+    borderRadius: "50%",
     height: "fit-content",
     width: "fit-content",
   },
