@@ -44,6 +44,7 @@ export default ContactDialItem;
 
 const styles = stylesheet.create({
   root: {
+    fontSize: "1rem",
     display: "flex",
     gap: (theme) => theme.spacing(2),
     width: "100%",
@@ -75,12 +76,17 @@ const styles = stylesheet.create({
   iconPaper: {
     backgroundColor: (theme) => theme.palette.background.paper,
     boxShadow: (theme) => theme.shadows[4],
-    p: 2,
     borderRadius: "50%",
-    height: "fit-content",
-    width: "fit-content",
+    p: 3,
+    display: "grid",
+    placeItems: "center",
   },
   icon: {
     color: (theme) => theme.palette.grey[700],
+    position: "absolute",
+    fontSize: "1.5em",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
