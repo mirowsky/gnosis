@@ -11,28 +11,28 @@ export type SlideInProps = {
   direction?: "left" | "right" | "up" | "down";
 };
 
-export const SlideIn = ({
-  animate,
-  children,
-  sx,
-  direction = "up",
-}: SlideInProps) => {
-  const VARIANTS = React.useMemo(
-    () => ANIMATION_VARIANTS(direction),
-    [direction]
-  );
+// eslint-disable-next-line react/display-name
+export const SlideIn = React.forwardRef<HTMLDivElement, SlideInProps>(
+  ({ animate, children, direction = "up", sx }, ref) => {
+    const VARIANTS = React.useMemo(
+      () => ANIMATION_VARIANTS(direction),
+      [direction]
+    );
 
-  return (
-    <MotionBox
-      variants={VARIANTS}
-      initial="initial"
-      animate={animate ? "finished" : "initial"}
-      sx={{ ...styles.root, ...sx }}
-    >
-      {children}
-    </MotionBox>
-  );
-};
+    return (
+      <MotionBox
+        ref={ref}
+        component={"div"}
+        variants={VARIANTS}
+        initial="initial"
+        animate={animate ? "finished" : "initial"}
+        sx={{ ...styles.root, ...sx }}
+      >
+        {children}
+      </MotionBox>
+    );
+  }
+);
 
 export default SlideIn;
 

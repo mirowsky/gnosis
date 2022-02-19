@@ -1,9 +1,23 @@
+import { useIntersectionObserver } from "@workspace/hooks";
 import React from "react";
+import { SlideIn, SlideInProps } from "..";
 
-export type SlideInOnScrollProps = {};
+export interface SlideInOnScrollProps extends Omit<SlideInProps, "animate"> {
+  options?: Parameters<typeof useIntersectionObserver>;
+}
 
-export const SlideInOnScroll = (props: SlideInOnScrollProps) => {
-  return <div>Hello, SlideInOnScroll!</div>;
+export const SlideInOnScroll = ({
+  options,
+  children,
+  ...rest
+}: SlideInOnScrollProps) => {
+  const { isIntersecting, ref } = useIntersectionObserver();
+
+  return (
+    <SlideIn ref={ref} animate={isIntersecting} {...rest}>
+      {children}
+    </SlideIn>
+  );
 };
 
 export default SlideInOnScroll;

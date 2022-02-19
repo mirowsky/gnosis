@@ -1,8 +1,8 @@
-import React from "react";
+import React, { RefObject } from "react";
 import { useIsomorphicEffect } from "..";
 
-export const useIntersectionObserver = () => {
-  const ref = React.useRef<HTMLElement>(null);
+export const useIntersectionObserver = <TElement extends never>() => {
+  const ref = React.useRef<TElement>(null);
   const [isIntersecting, setIsIntersecting] = React.useState(false);
 
   useIsomorphicEffect(() => {
@@ -13,7 +13,7 @@ export const useIntersectionObserver = () => {
         });
       });
 
-      observer.observe(ref.current);
+      observer.observe(ref.current as unknown as HTMLElement);
 
       return () => {
         observer.disconnect();
