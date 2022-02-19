@@ -7,14 +7,9 @@ import {
   HistoryEdu,
   School,
   SupportAgent,
-  Timelapse,
   WhatsApp,
 } from "@mui/icons-material";
-import {
-  scrollToElem,
-  getCourseURL,
-  handleMenuClick,
-} from "@workspace/utility";
+import { getCourseURL, handleMenuClick } from "@workspace/utility";
 import {
   BlogCollectionType,
   CourseCollectionType,

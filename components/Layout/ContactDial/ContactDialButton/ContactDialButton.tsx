@@ -33,18 +33,20 @@ export const ContactDialButton = ({
     <Box sx={styles.root} component="button" onClick={onClick}>
       <MotionBox
         sx={styles.icon}
-        component={IconOpen}
         variants={VARIANTS}
         initial="closed"
         animate={open ? "open" : "closed"}
-      />
+      >
+        <IconOpen />
+      </MotionBox>
       <MotionBox
         sx={styles.icon}
-        component={IconClosed}
         variants={VARIANTS}
         initial="open"
         animate={open ? "closed" : "open"}
-      />
+      >
+        <IconClosed />
+      </MotionBox>
     </Box>
   );
 };
@@ -87,5 +89,8 @@ const _styles = (
     icon: {
       position: "absolute",
       fontSize: "1.5em",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
     },
   });
