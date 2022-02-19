@@ -1,15 +1,17 @@
-import type { SlideGroupInOnScrollProps } from "./SlideGroupInOnScroll";
 import SlideGroupInOnScroll from "./SlideGroupInOnScroll";
-import { DEFAULT_SlideGroupInOnScroll_TESTING_PROPS } from "./SlideGroupInOnScroll.fixture";
 import React from "react";
 import { Story, Meta } from "@storybook/react";
 
-type SlideGroupInOnScrollDemoProps = {};
+type SlideGroupInOnScrollDemoProps = {
+  animate?: boolean;
+};
 
-const SlideGroupInOnScrollDemo = (props: SlideGroupInOnScrollDemoProps) => {
+const SlideGroupInOnScrollDemo = ({
+  animate,
+}: SlideGroupInOnScrollDemoProps) => {
   return (
-    <SlideGroupInOnScroll>
-      <div>hello</div>
+    <SlideGroupInOnScroll animate={animate}>
+      <div style={{ color: "blue" }}>hello</div>
       <div>hello</div>
       <div>hello</div>
       <div>hello</div>
@@ -33,5 +35,5 @@ const Template: Story<SlideGroupInOnScrollDemoProps> = (props) => (
 );
 export const Primary = Template.bind({});
 Primary.args = {
-  ...DEFAULT_SlideGroupInOnScroll_TESTING_PROPS,
+  animate: true,
 };
