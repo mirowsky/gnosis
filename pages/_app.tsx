@@ -9,11 +9,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { Money, OnlinePredictionTwoTone, School } from "@mui/icons-material";
-import {
-  scrollToElem,
-  handleLogoClick,
-  handleMenuClick,
-} from "@workspace/utility";
+import { handleLogoClick, handleMenuClick } from "@workspace/utility";
 
 type ContactFormInputs = {
   name: string;
