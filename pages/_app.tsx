@@ -72,6 +72,16 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
           <MainLayout
             HeaderProps={{
               ...HEADER_PROPS,
+              items: [
+                {
+                  label: "Sobre nós",
+                  onClick: () => handleMenuClick(router, "#about_us_section"),
+                },
+                {
+                  label: "Cursos",
+                  onClick: () => handleMenuClick(router, "#course_section"),
+                },
+              ],
               onLogoClick: () => handleLogoClick(router),
               cta: {
                 ...HEADER_PROPS.cta,
@@ -83,6 +93,16 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
             FooterProps={FOOTER_PROPS}
             MobileMenuProps={{
               ...MOBILE_MENU_PROPS,
+              menuItems: [
+                {
+                  label: "Sobre nós",
+                  onClick: () => handleMenuClick(router, "#about_us_section"),
+                },
+                {
+                  label: "Cursos",
+                  onClick: () => handleMenuClick(router, "#course_section"),
+                },
+              ],
               open: mobileMenuOpen,
               onOpen: () => setMobileMenuOpen(true),
               onClose: () => setMobileMenuOpen(false),
@@ -264,10 +284,7 @@ const HEADER_PROPS: MainLayoutProps["HeaderProps"] = {
     onClick: () => {},
   },
   burguerOpen: false,
-  items: [
-    { label: "Sobre nós", onClick: () => scrollToElem("#about_us_section") },
-    { label: "Cursos", onClick: () => scrollToElem("#course_section") },
-  ],
+  items: [],
   logo: {
     src: "/images/logo.svg",
     alt: "Instituto Educacional Gnosis - Logotipo - A figura de uma coruja formado por polígonos",
