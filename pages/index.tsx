@@ -17,6 +17,7 @@ import {
 } from "@workspace/types";
 import axios, { AxiosResponse } from "axios";
 import { useRouter } from "next/router";
+import { useDetectMobile, useWhatsAppRedirect } from "@workspace/hooks";
 
 export interface IndexPageProps {
   courses: CourseCollectionType[];
@@ -26,6 +27,8 @@ export interface IndexPageProps {
 
 const Home: NextPage<IndexPageProps> = ({ courses, blog, testimonials }) => {
   const router = useRouter();
+  const isMobile = useDetectMobile();
+  const whatsRedirect = useWhatsAppRedirect(isMobile ? "mobile" : "desktop");
 
   const courseSectionProps: LandingPageProps["CourseSectionProps"] = {
     CourseSliderProps: {
@@ -46,7 +49,11 @@ const Home: NextPage<IndexPageProps> = ({ courses, blog, testimonials }) => {
           },
           secondaryAction: {
             children: WhatsApp,
-            onClick: () => {},
+            onClick: () =>
+              whatsRedirect(
+                `Olá, estou vindo através do website e gostaria de mais informações sobre o curso *${course.courseName} - ${course.courseArea} - ${course.courseLevel}*`,
+                "5551984773704"
+              ),
           },
           title: course.courseName,
           tags: [

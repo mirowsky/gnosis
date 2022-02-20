@@ -6,7 +6,14 @@ export const useDetectMobile = () => {
 
   React.useEffect(() => {
     if (typeof window !== "undefined") {
-      setIsMobile(isMobileFn()!);
+      const callback = () => setIsMobile(isMobileFn()!);
+
+      window.addEventListener("resize", callback);
+      callback();
+
+      return () => {
+        window.removeEventListener("resize", callback);
+      };
     }
   }, []);
 
