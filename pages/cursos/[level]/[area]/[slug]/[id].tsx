@@ -8,11 +8,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";
 import { convertToSlug } from "@workspace/utility";
 import {
-  BarChart,
-  CalendarToday,
   CalendarTodayOutlined,
-  Money,
-  Paid,
   Payment,
   School,
   Timelapse,
