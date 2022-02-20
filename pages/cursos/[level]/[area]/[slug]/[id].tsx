@@ -15,6 +15,8 @@ import {
   Timelapse,
   WhatsApp,
 } from "@mui/icons-material";
+import { useDetectMobile, useWhatsAppRedirect } from "@workspace/hooks";
+import { WHATSAPP_PHONE_NUMBER } from "@workspace/contants";
 
 const convertSyllabusItem = (syllabusItem: string) => {
   const hour = syllabusItem.match(/([0-9].hs?)/gi);
@@ -30,6 +32,8 @@ type CoursePageDataProps = CourseCollectionType;
 
 const CoursePage = (props: CoursePageDataProps) => {
   const [tab, activeTab] = React.useState(0);
+  const isMobile = useDetectMobile();
+  const whatsRedirect = useWhatsAppRedirect(isMobile ? "mobile" : "desktop");
   const [descriptionCollapsed, setDescriptionCollapsed] = React.useState(true);
 
   return (
@@ -114,7 +118,11 @@ const CoursePage = (props: CoursePageDataProps) => {
         },
         SecondaryButtonProps: {
           children: <WhatsApp />,
-          onClick: () => {},
+          onClick: () => () =>
+            whatsRedirect(
+              `Olá, estou vindo através do website e gostaria de mais informações sobre o curso *${props.courseName} - ${props.courseArea} - ${props.courseLevel}*`,
+              WHATSAPP_PHONE_NUMBER
+            ),
         },
         courseDescription: props.courseDescription,
         courseImage: {

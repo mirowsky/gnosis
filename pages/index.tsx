@@ -18,6 +18,8 @@ import {
 import axios, { AxiosResponse } from "axios";
 import { useRouter } from "next/router";
 import { useDetectMobile, useWhatsAppRedirect } from "@workspace/hooks";
+import React from "react";
+import { WHATSAPP_PHONE_NUMBER } from "@workspace/contants";
 
 export interface IndexPageProps {
   courses: CourseCollectionType[];
@@ -29,6 +31,7 @@ const Home: NextPage<IndexPageProps> = ({ courses, blog, testimonials }) => {
   const router = useRouter();
   const isMobile = useDetectMobile();
   const whatsRedirect = useWhatsAppRedirect(isMobile ? "mobile" : "desktop");
+  const [activeTab, setActiveTab] = React.useState(0);
 
   const courseSectionProps: LandingPageProps["CourseSectionProps"] = {
     CourseSliderProps: {
@@ -52,7 +55,7 @@ const Home: NextPage<IndexPageProps> = ({ courses, blog, testimonials }) => {
             onClick: () =>
               whatsRedirect(
                 `Olá, estou vindo através do website e gostaria de mais informações sobre o curso *${course.courseName} - ${course.courseArea} - ${course.courseLevel}*`,
-                "5551984773704"
+                WHATSAPP_PHONE_NUMBER
               ),
           },
           title: course.courseName,
@@ -74,8 +77,10 @@ const Home: NextPage<IndexPageProps> = ({ courses, blog, testimonials }) => {
 
     CourseTabsProps: {
       items: ["Pós-graduação"],
-      handleChange: () => {},
-      value: 0,
+      handleChange: (event, newValue) => {
+        setActiveTab(newValue);
+      },
+      value: activeTab,
     },
     id: "course_section",
     CourseNavigationProps: {

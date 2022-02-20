@@ -1,6 +1,6 @@
-const IS_PROD = process.env.NODE_ENV === "production";
+export const IS_PROD = process.env.NODE_ENV === "production";
 
-const API_ROUTE_BASE = IS_PROD
+export const API_ROUTE_BASE = IS_PROD
   ? "https://us-central1-gnosis-webapp.cloudfunctions.net/api"
   : "http://127.0.0.1:5001/gnosis-webapp/us-central1/api";
 
@@ -35,3 +35,5 @@ export const GTM_ID = {
   production: `${process.env.GTM}`,
   development: `${process.env.GTM}`,
 } as const;
+
+export const WHATSAPP_PHONE_NUMBER = "555191431009";
