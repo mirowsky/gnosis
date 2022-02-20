@@ -21,11 +21,10 @@ export interface ContactFormDialogProps {
   subtitle?: string;
   cancelLabel?: string;
   submitLabel?: string;
-  onSubmit?: (...args: unknown[]) => void;
   handleClose?: (...args: unknown[]) => void;
   open?: boolean;
   nameInputProps?: TextFieldProps;
-  phoneInputProps?: React.Component<NumberFormatProps, TextFieldProps>["props"];
+  phoneInputProps?: NumberFormatProps & TextFieldProps;
   emailInputProps?: TextFieldProps;
   messageInputProps?: TextFieldProps;
   DialogProps?: DialogProps;
@@ -36,9 +35,6 @@ export interface ContactFormDialogProps {
 export function ContactFormDialog({
   title = "Placeholder title",
   subtitle = "Lorem ipsum dolum salet, please fill out this fields this is placeholder text to give context about this forms purpose to the end user.",
-  cancelLabel = "Cancel",
-  submitLabel = "Send",
-  onSubmit,
   handleClose,
   open = false,
   emailInputProps = {
@@ -122,8 +118,18 @@ export function ContactFormDialog({
         </Box>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>{cancelLabel}</Button>
-        <Button onClick={onSubmit}>{submitLabel}</Button>
+        <Button
+          variant="text"
+          color="primary"
+          size="small"
+          {...PrimaryButtonProps}
+        />
+        <Button
+          variant="text"
+          color="primary"
+          size="small"
+          {...SecondaryButtonProps}
+        />
       </DialogActions>
     </Dialog>
   );
