@@ -176,12 +176,14 @@ export const CourseHeroAlt = ({
             variant="contained"
             color="primary"
             size="small"
+            sx={{ fontSize: "0.75rem" }}
             {...PrimaryButtonProps}
           />
           <Button
             variant="contained"
             color="primary"
             size="small"
+            sx={{ fontSize: "0.75rem" }}
             {...SecondaryButtonProps}
           />
         </Box>

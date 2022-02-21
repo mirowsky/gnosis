@@ -21,17 +21,24 @@ export const ContactDial = ({
 }: ContactDialProps) => {
   return (
     <Box sx={styles.root}>
-      <MotionBox sx={styles.itemsBox}>
+      <MotionBox
+        initial="closed"
+        animate={ContactDialButtonProps.open ? "open" : "closed"}
+        sx={styles.itemsBox}
+        transition={{
+          staggerChildren: 0.1,
+          type: "spring",
+          mass: 1,
+          stiffness: 220,
+          damping: 14,
+        }}
+        variants={VARIANTS}
+      >
         {items.map((item, index) => {
           return (
             <MotionBox
               variants={VARIANTS}
-              transition={{
-                transitionDelay: `${0.1 * index}`,
-              }}
               key={index}
-              initial="closed"
-              animate={ContactDialButtonProps.open ? "open" : "closed"}
               component={ContactDialItem}
               {...item}
             ></MotionBox>
@@ -52,12 +59,16 @@ export default ContactDial;
 
 const VARIANTS: Variants = {
   open: {
-    opacity: 1,
     scale: 1,
+    zIndex: 1000,
+    x: 0,
+    opacity: 1,
   },
   closed: {
     opacity: 0,
+    x: 100,
     scale: 0,
+    zIndex: -5,
   },
 };
 
