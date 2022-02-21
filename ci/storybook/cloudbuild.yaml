@@ -7,6 +7,20 @@ steps:
     args:
       [
         "-c",
-        "docker build -t grc.io/$PROJECT_ID/storybook:latest --cache-from gcr.io/$PROJECT_ID/core:latest -f ci/storybook/Dockerfile .",
+        "docker build -t grc.io/$PROJECT_ID/storybook:latest --cache-from gcr.io/$PROJECT_ID/core:latest -f ci/storybook/Dockerfile --build-arg FIREBASE_TOKEN=$$FIREBASE_TOKEN .",
       ]
+    secretEnv: ['FIREBASE_TOKEN']
+
+
+
 images: ["gcr.io/$PROJECT_ID/storybook:latest"]
+
+
+
+secrets:
+- kmsKeyName: 'projects/gnosis-webapp/locations/global/keyRings/cloudbuilder/cryptoKeys/firebase-token'
+  secretEnv:
+    FIREBASE_TOKEN: 'CiQAX6hJeLjm0oBbsr/cgDORzxh1cg3mPiSq5WvR2bndiEIgg8ISkAEAR11PLqsaIv5W1rUj96kQ
+iv1ReZxe3rB+06vgSjOzz8eikw9VTrkGsuxguHquzL7pZFj3B/UHZjAnI5uTcXEdNK+71ynOrXbR
+2zBYiCgNRuiOap8vJPfhRd9uJM89h82r9I2ipAb7oN8FXcKklWgrkela/goPfYL3+66SnINqpKsk
+H5DQs1Xj53lT138dkHc='

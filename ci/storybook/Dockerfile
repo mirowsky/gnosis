@@ -1,7 +1,6 @@
 FROM gcr.io/gnosis-webapp/core:latest
 
-# Deps node
-
+ARG FIREBASE_TOKEN
 
 
 ADD package.json /tmp/package.json
@@ -10,4 +9,9 @@ RUN cd /tmp && pnpm install
 RUN mkdir app && cp -a /tmp/node_modules /app 
 
 
+COPY . /app
+WORKDIR /app
+
 RUN pnpm build-storybook
+RUN firebase deploy --only=hosting:storybook --project=gnosis-webapp --token=${FIREBASE_TOKEN} 
+

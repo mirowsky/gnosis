@@ -6,7 +6,6 @@ export const DEFAULT_ContactFormDialog_TESTING_PROPS: ContactFormDialogProps = {
     "Lorem ipsum dolum salet, please fill out this fields this is placeholder text to give context about this forms purpose to the end user.",
   cancelLabel: "Cancel",
   submitLabel: "Send",
-  onSubmit: () => {},
   handleClose: () => {},
   open: true,
   emailInputProps: {
