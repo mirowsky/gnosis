@@ -8,6 +8,9 @@
         ],
         "dev": [
           "gnosis-dev"
+        ],
+        "storybook": [
+          "gnosis-storybook"
         ]
       }
     }
