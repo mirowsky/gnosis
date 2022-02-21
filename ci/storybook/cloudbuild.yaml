@@ -7,6 +7,6 @@ steps:
     args:
       [
         "-c",
-        "docker build -t grc.io/$PROJECT_ID/build:latest --cache-from gcr.io/$PROJECT_ID/core:latest -f ci/deploy/Dockerfile .",
+        "docker build -t grc.io/$PROJECT_ID/storybook:latest --cache-from gcr.io/$PROJECT_ID/core:latest -f ci/storybook/Dockerfile .",
       ]
-images: ["gcr.io/$PROJECT_ID/build:latest"]
+images: ["gcr.io/$PROJECT_ID/storybook:latest"]

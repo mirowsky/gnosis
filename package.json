@@ -4,12 +4,15 @@
   "scripts": {
     "dev": "set NODE_OPTIONS=--max_old_space_size=4096 && export GTM_ENV=dev && next dev",
     "build:dev": "export GTM_ENV=dev && next build && next export",
-    "build": "next build && next export",
+    "build": "export GTM_ENV=prod && next build && next export",
     "start": "next start",
     "lint": "next lint",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "deploy:dev": "export GTM_ENV=dev && next build && next export && firebase deploy --only=hosting:dev --project=gnosis-webapp",
+    "deploy": "export GTM_ENV=prod && next build && next export && firebase deploy --only=hosting --project=gnosis-webapp",
+    "deploy:storybook": "build-storybook && firebase deploy --only=hosting:storybook --project=gnosis-webapp"
   },
   "dependencies": {
     "@emotion/cache": "^11.7.1",
