@@ -1,0 +1,16 @@
+{
+  "hosting": [
+    {
+      "target": "micro",
+      "cleanUrls": true,
+      "public": "out",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+    },
+    {
+      "target": "dev",
+      "cleanUrls": true,
+      "public": "out",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+    }
+  ]
+}
