@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Box, Button, SvgIconProps, Typography } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
 import React from "react";
@@ -34,7 +35,13 @@ const CourseCard = ({
   return (
     <Box sx={styles.root}>
       <Box sx={styles.imageContainer}>
-        <Box sx={styles.image} component="img" src={img.src} alt={img.alt} />
+        <img
+          height={"220"}
+          width={"320"}
+          src={img.src}
+          alt={img.alt}
+          loading="lazy"
+        />
       </Box>
 
       <Box sx={styles.infoContainer}>
@@ -135,6 +142,17 @@ const styles = stylesheet.create({
     height: "100%",
     display: "flex",
     overflow: "hidden",
+
+    "& > img": {
+      objectFit: "cover",
+      width: "100%",
+      height: "100%",
+      objectPosition: "center",
+      borderRadius: (theme) =>
+        `${(theme.shape.borderRadius as number) * 4}px ${
+          (theme.shape.borderRadius as number) * 4
+        }px 0 0`,
+    },
   },
   infoContainer: {
     width: "100%",
