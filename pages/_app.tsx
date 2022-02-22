@@ -11,6 +11,7 @@ import * as Yup from "yup";
 import { Money, OnlinePredictionTwoTone, School } from "@mui/icons-material";
 import { handleLogoClick, handleMenuClick } from "@workspace/utility";
 import { alertStore, GlobalSnack } from "@workspace/components/utility";
+import Head from "next/head";
 
 type ContactFormInputs = {
   name: string;

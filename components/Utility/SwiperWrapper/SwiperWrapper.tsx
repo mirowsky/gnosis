@@ -1,6 +1,6 @@
 import { Box, BoxProps } from "@mui/material";
 import React from "react";
-import SwiperCore, { Pagination, SwiperOptions } from "swiper";
+import SwiperCore, { Pagination, SwiperOptions, Lazy } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 
@@ -34,7 +34,7 @@ export const SwiperGenericWrapper = <T extends {}>({
   component: Component,
   SwiperProps,
   list = [],
-  modules = [Pagination],
+  modules = [Pagination, Lazy],
   sx,
   ...rest
 }: SwiperGenericWrapperProps<T>) => {
