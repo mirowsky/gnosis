@@ -7,17 +7,26 @@ import { ViewportOptions } from "framer-motion/types/motion/features/viewport/ty
 import React from "react";
 
 export type SlideInV2Props = {
+  animate: "scroll" | boolean;
   viewport?: ViewportOptions;
   amount?: number;
   direction?: "left" | "right" | "up" | "down";
-  animate?: "scroll" | boolean;
   sx?: ThemeStyles;
   preset?: TransitionPreset;
+  children?: React.ReactNode;
 };
 
 export const SlideInV2 = React.forwardRef<HTMLDivElement, SlideInV2Props>(
   (
-    { amount, children, direction, viewport, animate, sx, preset = "default" },
+    {
+      amount,
+      children,
+      direction,
+      viewport,
+      animate = true,
+      sx,
+      preset = "default",
+    },
     ref
   ) => {
     const VARIANTS = React.useMemo(

@@ -5,6 +5,7 @@ import InputWithButton, {
 } from "../../../Common/InputWithButton/InputWithButton";
 import React from "react";
 import { ThemeStyles } from "@workspace/types";
+import { SlideInV2 } from "@workspace/animations";
 
 export type NewsLetterSectionProps = {
   img: {
@@ -40,14 +41,18 @@ export const NewsLetterSection = ({
         </Box>
 
         <Box sx={styles.formContainer}>
-          <Typography variant="h3" sx={styles.formTitle}>
-            {sectionTitle}
-          </Typography>
+          <SlideInV2 animate="scroll" viewport={{ margin: "200px" }}>
+            <Typography variant="h3" sx={styles.formTitle}>
+              {sectionTitle}
+            </Typography>
+          </SlideInV2>
 
-          <InputWithButton
-            {...InputWithButtonProps}
-            fontSize={{ xs: "0.75rem", lg: "1rem" }}
-          />
+          <SlideInV2 animate="scroll" viewport={{ margin: "200px" }}>
+            <InputWithButton
+              {...InputWithButtonProps}
+              fontSize={{ xs: "0.75rem", lg: "1rem" }}
+            />
+          </SlideInV2>
         </Box>
       </Box>
     </Box>
