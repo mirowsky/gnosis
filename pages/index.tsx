@@ -24,6 +24,7 @@ import { useRouter } from "next/router";
 import { useDetectMobile, useWhatsAppRedirect } from "@workspace/hooks";
 import React from "react";
 import { WHATSAPP_PHONE_NUMBER } from "@workspace/contants";
+import Head from "next/head";
 
 export interface IndexPageProps {
   courses: CourseCollectionType[];
@@ -166,13 +167,29 @@ const Home: NextPage<IndexPageProps> = ({ courses, blog, testimonials }) => {
   };
 
   return (
-    <LandingPage
-      AboutSectionProps={aboutSectionProps}
-      DefenseSectionProps={defenseSectionProps}
-      CourseSectionProps={courseSectionProps}
-      HeroSectionProps={heroSectionProps}
-      DynamicSectionsProps={dynamicSectionProps}
-    />
+    <React.Fragment>
+      <Head>
+        <meta
+          property="og:title"
+          content="Instituto Educacional Gnosis - Cursos de pós-graduação na área da medicina."
+        />
+        <meta
+          property="og:description"
+          content="O Instituto Educacional Gnosis trabalha para trazer ao mercado cursos de pós-graduação, extensão e multidisciplinares capazes de impulsionar a sua carreira. Mantendo a excelência de uma instituição tradicional e trazendo ao mesmo tempo a modernidade do aprendizado à distância. Conheça nossos cursos de pós-graduação e extensão na área da medicina."
+        />
+        <meta
+          name="description"
+          content='O Instituto Educacional Gnosis trabalha para trazer ao mercado cursos de pós-graduação, extensão e multidisciplinares capazes de impulsionar a sua carreira. Mantendo a excelência de uma instituição tradicional e trazendo ao mesmo tempo a modernidade do aprendizado à distância. Conheça nossos cursos de pós-graduação e extensão na área da medicina."'
+        />
+      </Head>
+      <LandingPage
+        AboutSectionProps={aboutSectionProps}
+        DefenseSectionProps={defenseSectionProps}
+        CourseSectionProps={courseSectionProps}
+        HeroSectionProps={heroSectionProps}
+        DynamicSectionsProps={dynamicSectionProps}
+      />
+    </React.Fragment>
   );
 };
 

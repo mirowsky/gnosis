@@ -7,14 +7,15 @@ import { Variants } from "framer-motion";
 import React from "react";
 import { BsFillChatDotsFill } from "react-icons/bs";
 
-export type ContactDialButtonProps = {
+export interface ContactDialButtonProps {
   open?: boolean;
   color?: "primary" | "secondary";
   fontSize?: ResponsiveFontSize;
   iconOpen?: React.FC<Partial<SvgIconComponent>>;
   iconClosed?: React.FC<Partial<SvgIconComponent>>;
   onClick?: (...args: unknown[]) => void;
-};
+  "aria-label"?: string;
+}
 
 export const ContactDialButton = ({
   open,
@@ -23,6 +24,7 @@ export const ContactDialButton = ({
   iconClosed: IconClosed = BsFillChatDotsFill,
   iconOpen: IconOpen = Close,
   onClick = () => {},
+  ...props
 }: ContactDialButtonProps) => {
   const styles = React.useMemo(
     () => _styles(color, fontSize),
@@ -30,7 +32,15 @@ export const ContactDialButton = ({
   );
 
   return (
-    <Box sx={styles.root} component="button" onClick={onClick}>
+    <Box
+      aria-label={
+        props["aria-label"] ||
+        "Botão de atendimento rápido - Clique para exibir as opções ou deixar de exibí-las"
+      }
+      sx={styles.root}
+      component="button"
+      onClick={onClick}
+    >
       <MotionBox
         sx={styles.icon}
         variants={VARIANTS}

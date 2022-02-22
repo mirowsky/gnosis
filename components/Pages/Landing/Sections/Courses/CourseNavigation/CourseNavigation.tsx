@@ -36,6 +36,7 @@ const CourseNavigation = ({
         sx={styles.prevButton}
         id={backwardButton.id}
         color={backwardButton.color}
+        aria-label="Retroceder slider de cursos"
       >
         <KeyboardArrowRight />
       </Fab>
@@ -47,6 +48,7 @@ const CourseNavigation = ({
         sx={styles.nextButton}
         id={forwardButton.id}
         color={forwardButton.color}
+        aria-label="Avançar slider de cursos"
       >
         <KeyboardArrowRight />
       </Fab>

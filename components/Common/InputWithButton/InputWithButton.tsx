@@ -33,6 +33,7 @@ export const InputWithButton = ({
         role="button"
         sx={styles.button}
         color="primary"
+        aria-label="Clique para cadastar seu email em nossa newsletter"
         {...ButtonProps}
       >
         {(ButtonProps.loading && <CircularProgress sx={styles.spinner} />) || (

@@ -19,6 +19,7 @@ import { WHATSAPP_PHONE_NUMBER } from "@workspace/contants";
 import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import Head from "next/head";
 
 const convertSyllabusItem = (syllabusItem: string) => {
   const hour = syllabusItem.match(/([0-9].hs?)/gi);
@@ -179,11 +180,21 @@ const CoursePage = (props: CoursePageDataProps) => {
   };
 
   return (
-    <CoursePageComponent
-      ContactFormDialogProps={contactDialogFormProps}
-      CourseSyllabusSectionProps={courseSyllabusProps}
-      CourseHeroAltProps={courseHeroAltProps}
-    />
+    <React.Fragment>
+      <Head>
+        <title>
+          Instituto Educacional Gnosis -
+          {`${props.courseName} - ${props.courseLevel} - ${props.courseArea}`}
+        </title>
+
+        <meta property="description" content={props.courseDescription} />
+      </Head>
+      <CoursePageComponent
+        ContactFormDialogProps={contactDialogFormProps}
+        CourseSyllabusSectionProps={courseSyllabusProps}
+        CourseHeroAltProps={courseHeroAltProps}
+      />
+    </React.Fragment>
   );
 };
 

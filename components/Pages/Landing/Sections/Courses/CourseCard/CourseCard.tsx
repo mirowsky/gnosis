@@ -39,7 +39,7 @@ const CourseCard = ({
 
       <Box sx={styles.infoContainer}>
         <Box sx={styles.titleContainer}>
-          <Typography sx={styles.title} variant="h5" component="h4">
+          <Typography sx={styles.title} variant="h5" component="h6">
             {title}
           </Typography>
         </Box>
@@ -71,6 +71,7 @@ const CourseCard = ({
         sx={styles.buttonContainer}
       >
         <Button
+          aria-label="Botão de direcionamento à página deste curso"
           onClick={primaryAction.onClick}
           variant="contained"
           color="primary"
@@ -89,6 +90,7 @@ const CourseCard = ({
         </Button>
 
         <Button
+          aria-label="Botão de direcionamento ao WhatsApp para falar com um representante sobre este curso"
           sx={styles.secondaryButton}
           variant="contained"
           color="primary"

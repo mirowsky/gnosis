@@ -215,6 +215,7 @@ const FooterIcons = ({
   return (
     <>
       <IconButton
+        aria-label="Clique para ser direcionado ao Facebook do Instituto Gnosis"
         className="Atlas-Footer-facebookIcon"
         sx={{
           color: (theme) => theme.palette.primary.contrastText,
@@ -227,6 +228,7 @@ const FooterIcons = ({
       </IconButton>
 
       <IconButton
+        aria-label="Clique para ser direcionado ao Instagram do Instituto Gnosis"
         className="Atlas-Footer-instagramIcon"
         sx={{
           color: (theme) => theme.palette.primary.contrastText,
@@ -239,6 +241,7 @@ const FooterIcons = ({
       </IconButton>
 
       <IconButton
+        aria-label="Clique para ser direcionado ao WhatsApp do Instituto Gnosis"
         className="Atlas-Footer-whatsAppIcon"
         sx={{
           color: (theme) => theme.palette.primary.contrastText,
@@ -251,6 +254,7 @@ const FooterIcons = ({
       </IconButton>
 
       <IconButton
+        aria-label="Clique para ser direcionado ao Twitter do Instituto Gnosis"
         className="Atlas-Footer-twitterIcon"
         sx={{
           color: (theme) => theme.palette.primary.contrastText,
@@ -263,6 +267,7 @@ const FooterIcons = ({
       </IconButton>
 
       <IconButton
+        aria-label="Clique para ser direcionado ao Youtube do Instituto Gnosis"
         className="Atlas-Footer-youtubeIcon"
         sx={{
           color: (theme) => theme.palette.primary.contrastText,
@@ -275,6 +280,7 @@ const FooterIcons = ({
       </IconButton>
 
       <IconButton
+        aria-label="Clique para ser direcionado ao Linkedin do Instituto Gnosis"
         className="Atlas-Footer-linkedinIcon"
         sx={{
           color: (theme) => theme.palette.primary.contrastText,
