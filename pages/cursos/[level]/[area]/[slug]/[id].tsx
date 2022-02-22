@@ -139,7 +139,7 @@ const CoursePage = (props: CoursePageDataProps) => {
     courseBenefits: [
       {
         icon: Timelapse,
-        label: `Conclusão em até ${props.courseDuration}`,
+        label: `Conclusão: ${props.courseDuration}`,
       },
       { icon: School, label: `Curso de ${props.courseLevel}` },
       {
