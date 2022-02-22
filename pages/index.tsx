@@ -9,7 +9,11 @@ import {
   SupportAgent,
   WhatsApp,
 } from "@mui/icons-material";
-import { getCourseURL, handleMenuClick } from "@workspace/utility";
+import {
+  getCourseURL,
+  handleMenuClick,
+  getThumbnail,
+} from "@workspace/utility";
 import {
   BlogCollectionType,
   CourseCollectionType,
@@ -64,7 +68,7 @@ const Home: NextPage<IndexPageProps> = ({ courses, blog, testimonials }) => {
             { icon: School, label: course.courseLevel },
           ],
           img: {
-            src: course.courseImage.imageURL,
+            src: getThumbnail(course.courseImage.imageURL),
             alt: course.courseImage.imageDescription,
           },
         };
