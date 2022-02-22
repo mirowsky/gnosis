@@ -1,4 +1,5 @@
 import { Box, Button, ButtonProps, Typography } from "@mui/material";
+import { MotionBox } from "@workspace/components/utility";
 import stylesheet from "@workspace/stylesheet";
 import { ThemeStyles } from "@workspace/types";
 import React from "react";
@@ -23,12 +24,42 @@ export const AboutSection = ({
   return (
     <Box id={id} sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.textContainer}>
-        <Typography sx={styles.sectionTitle} variant="h2">
-          {sectionTitle}
-        </Typography>
-        <Typography variant="h6" component="p" sx={styles.aboutText}>
-          {aboutText}
-        </Typography>
+        <MotionBox
+          initial={{ opacity: 0, y: 75 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            type: "spring",
+            mass: 1,
+            stiffness: 280,
+            damping: 60,
+          }}
+          viewport={{
+            once: true,
+            amount: "all",
+          }}
+        >
+          <Typography sx={styles.sectionTitle} variant="h2">
+            {sectionTitle}
+          </Typography>
+        </MotionBox>
+        <MotionBox
+          initial={{ opacity: 0, y: 75 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            type: "spring",
+            mass: 1,
+            stiffness: 280,
+            damping: 60,
+          }}
+          viewport={{
+            once: true,
+            amount: "some",
+          }}
+        >
+          <Typography variant="h6" component="p" sx={styles.aboutText}>
+            {aboutText}
+          </Typography>
+        </MotionBox>
 
         {ButtonProps && (
           <Button
