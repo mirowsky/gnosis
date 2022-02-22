@@ -34,6 +34,7 @@ export const AboutImages = (props: AboutImagesProps) => {
 
       <Box sx={styles.imageBox}>
         <Box
+          alt="Colagem de fotos de pessoas utilizando dispositivos eletrônicos para realizar aprendizado a distância e professores discutindo estratégias para aprimorar a qualidade do ensino para seus alunos"
           sx={styles.image}
           component="img"
           src={"/images/about-full.webp"}

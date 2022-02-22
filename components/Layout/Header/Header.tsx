@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import stylesheet from "@workspace/stylesheet";
 import { Box, Button, Typography } from "@mui/material";
@@ -42,7 +43,7 @@ export const Header = ({
     <Box sx={styles.root}>
       <Box sx={styles.grid}>
         <Box component="button" onClick={onLogoClick} sx={styles.logoContainer}>
-          <Box sx={styles.logo} component="img" src={logo.src} alt={logo.alt} />
+          <img width={30} height={40} src={logo.src} alt={logo.alt} />
           {logo?.label && (
             <Box sx={styles.logoLabelContainer}>
               <Typography sx={styles.logoLabel} variant="h5">
@@ -145,6 +146,12 @@ const styles = stylesheet.create({
     outline: "none",
     border: "none",
     cursor: "pointer",
+
+    "& > img": {
+      objectFit: "contain",
+      width: "auto",
+      height: "2.5rem",
+    },
   },
   logo: {
     objectFit: "contain",
