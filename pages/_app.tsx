@@ -257,6 +257,12 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
 
   return (
     <React.Fragment>
+      <Head>
+        <title>
+          Instituto Educacional Gnosis - Cursos de pós-graduação na área de
+          medicina.
+        </title>
+      </Head>
       <CacheProvider value={emotionCache}>
         <CustomTheme>
           <MainLayout
