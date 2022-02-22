@@ -149,7 +149,7 @@ const styles = stylesheet.create({
   logo: {
     objectFit: "contain",
     width: "auto",
-    height: "3rem",
+    height: "2.5rem",
   },
   logoLabelContainer: {
     width: "100%",

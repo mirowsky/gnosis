@@ -40,9 +40,17 @@ export const MainLayout = ({
 }: MainLayoutProps) => {
   return (
     <Box sx={styles.root}>
-      <Box sx={styles.contactDialBox}>
-        <ContactDial {...ContactDialProps} />
-      </Box>
+      <ContactDial
+        {...ContactDialProps}
+        sx={{
+          position: "fixed",
+          bottom: 0,
+          right: 0,
+          pb: 2,
+          pr: 2,
+          zIndex: 50,
+        }}
+      />
       <MobileMenu {...mobileMenuProps} />
 
       <ContactFormDialog {...ContactFormDialogProps} />

@@ -1,7 +1,8 @@
 import { Box } from "@mui/material";
 import { MotionBox } from "@workspace/components/utility";
 import stylesheet from "@workspace/stylesheet";
-import { Variants } from "framer-motion";
+import { ThemeStyles } from "@workspace/types";
+import { AnimatePresence, Variants } from "framer-motion";
 import React from "react";
 import ContactDialButton, {
   ContactDialButtonProps,
@@ -13,14 +14,16 @@ import ContactDialItem, {
 export type ContactDialProps = {
   items: ContactDialItemProps[];
   ContactDialButtonProps: ContactDialButtonProps;
+  sx?: ThemeStyles;
 };
 
 export const ContactDial = ({
   ContactDialButtonProps,
   items,
+  sx,
 }: ContactDialProps) => {
   return (
-    <Box sx={styles.root}>
+    <Box sx={{ ...styles.root, ...sx }}>
       <MotionBox
         initial="closed"
         animate={ContactDialButtonProps.open ? "open" : "closed"}
@@ -29,21 +32,25 @@ export const ContactDial = ({
           staggerChildren: 0.1,
           type: "spring",
           mass: 1,
-          stiffness: 220,
-          damping: 14,
+          stiffness: 300,
+          damping: 20,
         }}
         variants={VARIANTS}
       >
-        {items.map((item, index) => {
-          return (
-            <MotionBox
-              variants={VARIANTS}
-              key={index}
-              component={ContactDialItem}
-              {...item}
-            ></MotionBox>
-          );
-        })}
+        <AnimatePresence>
+          {ContactDialButtonProps.open &&
+            items.map((item, index) => {
+              return (
+                <MotionBox
+                  variants={VARIANTS}
+                  key={index}
+                  component={ContactDialItem}
+                  exit={"closed"}
+                  {...item}
+                ></MotionBox>
+              );
+            })}
+        </AnimatePresence>
       </MotionBox>
       <Box sx={styles.buttonBox}>
         <ContactDialButton
@@ -60,7 +67,6 @@ export default ContactDial;
 const VARIANTS: Variants = {
   open: {
     scale: 1,
-    zIndex: 1000,
     x: 0,
     opacity: 1,
   },
@@ -68,7 +74,6 @@ const VARIANTS: Variants = {
     opacity: 0,
     x: 100,
     scale: 0,
-    zIndex: -5,
   },
 };
 
