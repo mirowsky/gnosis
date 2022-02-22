@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material";
+import { SlideInV2 } from "@workspace/animations";
 import stylesheet from "@workspace/stylesheet";
 import { Blob } from "@workspace/svg";
 import { ThemeStyles } from "@workspace/types";
@@ -27,14 +28,21 @@ export const ContactSection = ({
   return (
     <Box id={id} sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.sectionTitleContainer}>
-        <Typography variant="h2" component="h3" sx={styles.sectionTitle}>
-          {sectionTitle}
-        </Typography>
+        <SlideInV2 animate="scroll" viewport={{ margin: "200px", once: true }}>
+          <Typography variant="h2" component="h3" sx={styles.sectionTitle}>
+            {sectionTitle}
+          </Typography>
+        </SlideInV2>
       </Box>
 
       <Box sx={styles.grid}>
         <Box sx={styles.formContainer}>
-          <ContactForm {...ContactFormProps} />
+          <SlideInV2
+            animate="scroll"
+            viewport={{ margin: "200px", once: true }}
+          >
+            <ContactForm {...ContactFormProps} />
+          </SlideInV2>
         </Box>
 
         <Box sx={styles.blobContainer}>

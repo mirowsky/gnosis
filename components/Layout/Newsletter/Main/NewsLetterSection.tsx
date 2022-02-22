@@ -41,13 +41,19 @@ export const NewsLetterSection = ({
         </Box>
 
         <Box sx={styles.formContainer}>
-          <SlideInV2 animate="scroll" viewport={{ margin: "200px" }}>
+          <SlideInV2
+            animate="scroll"
+            viewport={{ margin: "200px", once: true }}
+          >
             <Typography variant="h3" sx={styles.formTitle}>
               {sectionTitle}
             </Typography>
           </SlideInV2>
 
-          <SlideInV2 animate="scroll" viewport={{ margin: "200px" }}>
+          <SlideInV2
+            animate="scroll"
+            viewport={{ margin: "200px", once: true }}
+          >
             <InputWithButton
               {...InputWithButtonProps}
               fontSize={{ xs: "0.75rem", lg: "1rem" }}
