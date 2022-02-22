@@ -13,3 +13,4 @@ export {
 export { pixelToRem } from "./pixelToRem";
 export { getCourseURL } from "./getCourseURL";
 export { handleLogoClick } from "./handleLogoClick";
+export { insert } from "./insert";
