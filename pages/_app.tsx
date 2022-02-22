@@ -10,7 +10,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { Money, OnlinePredictionTwoTone, School } from "@mui/icons-material";
 import { handleLogoClick, handleMenuClick } from "@workspace/utility";
-import { GlobalSnack } from "@workspace/components/utility";
+import { alertStore, GlobalSnack } from "@workspace/components/utility";
 
 type ContactFormInputs = {
   name: string;
@@ -180,6 +180,8 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
     sectionTitle: "Solicite sua matrícula ou tire dúvidas sobre nossos cursos.",
   };
 
+  const dispatchAlert = alertStore((state) => state.dispatch);
+
   const newsLetterSectionProps: MainLayoutProps["NewsLetterSectionProps"] = {
     img: {
       src: "/images/newsletter-doc.webp",
@@ -194,6 +196,21 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
       ButtonProps: {
         loading: newsletterInput.formState.isSubmitting,
         disabled: !newsletterInput.formState.isValid,
+        onClick: newsletterInput.handleSubmit(async (data) => {
+          await new Promise((resolve, reject) => {
+            dispatchAlert({ message: "Working...", severity: "info" });
+
+            setTimeout(() => {
+              resolve("ok");
+            }, 5000);
+          }).then((val) => {
+            dispatchAlert({
+              message: newsletterInput.getValues("email"),
+              severity: "success",
+            });
+            newsletterInput.reset({ email: "" });
+          });
+        }),
       },
     },
   };
