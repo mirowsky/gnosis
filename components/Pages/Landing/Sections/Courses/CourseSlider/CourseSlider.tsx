@@ -22,6 +22,7 @@ const CourseSlider = ({ items = [], navigation = {} }: CourseSliderProps) => {
         data-testid={COURSE_SLIDER_TEST_ID.CONTAINER}
         modules={[Navigation]}
         SwiperProps={{
+          lazy: true,
           navigation: navigation,
           slidesPerView: 1,
           initialSlide: 1,
