@@ -42,6 +42,7 @@ const Home: NextPage<IndexPageProps> = ({ courses, blog, testimonials }) => {
     CourseSliderProps: {
       items: courses.map((course, index) => {
         return {
+          loading: true,
           primaryAction: {
             children: "Saiba mais",
             onClick: () => {

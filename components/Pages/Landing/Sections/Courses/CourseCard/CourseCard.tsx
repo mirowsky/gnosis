@@ -1,7 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import { Box, Button, SvgIconProps, Typography } from "@mui/material";
+import { MotionBox } from "@workspace/components/utility";
+import { useIntersectionObserver } from "@workspace/hooks";
 import stylesheet from "@workspace/stylesheet";
+import { AnimatePresence } from "framer-motion";
 import React from "react";
+import CourseCardSkeleton from "../CourseCardSkeleton/CourseCardSkeleton";
 import { COURSE_CARD_TEST_ID } from "./constants";
 
 type CardButton = {
@@ -23,7 +27,6 @@ export type CourseCardProps = {
     src: string;
     alt: string;
   };
-  onImageLoad?: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void;
 };
 
 const CourseCard = ({
@@ -32,92 +35,111 @@ const CourseCard = ({
   secondaryAction,
   tags,
   title,
-  onImageLoad,
 }: CourseCardProps) => {
+  const { isIntersecting, ref } = useIntersectionObserver({ once: true });
+  const [loading, setLoading] = React.useState(true);
   return (
-    <Box sx={styles.root}>
-      <Box sx={styles.imageContainer}>
-        <img
-          onLoad={onImageLoad}
-          height={"220"}
-          width={"320"}
-          src={img.src}
-          alt={img.alt}
-          loading="lazy"
-        />
-      </Box>
+    <Box ref={ref} sx={{ position: "relative" }}>
+      <AnimatePresence initial={false}>
+        {loading && (
+          <MotionBox
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            sx={{ position: "absolute", top: 0, left: 0, zIndex: 15 }}
+          >
+            <CourseCardSkeleton />
+          </MotionBox>
+        )}
+      </AnimatePresence>
 
-      <Box sx={styles.infoContainer}>
-        <Box sx={styles.titleContainer}>
-          <Typography sx={styles.title} variant="h5" component="h6">
-            {title}
-          </Typography>
-        </Box>
-
-        <Box
-          data-testid={COURSE_CARD_TEST_ID.TAG_CONTAINER}
-          sx={styles.tagsContainer}
-        >
-          {tags.map(({ icon: Icon, label }, index) => {
-            return (
-              <Box sx={styles.tagItemContainer} key={index}>
-                <Box sx={styles.tagIcon} component={Icon} />
-                <Typography
-                  sx={styles.tagLabel}
-                  variant="body1"
-                  color="grey.800"
-                  component="sub"
-                >
-                  {label}
-                </Typography>
-              </Box>
-            );
-          })}
-        </Box>
-      </Box>
-
-      <Box
-        data-testid={COURSE_CARD_TEST_ID.BUTTON_CONTAINER}
-        sx={styles.buttonContainer}
-      >
-        <Button
-          aria-label="Botão de direcionamento à página deste curso"
-          onClick={primaryAction.onClick}
-          variant="contained"
-          color="primary"
-          sx={styles.primaryButton}
-          size="small"
-        >
-          {(typeof primaryAction.children === "object" && (
-            <Box
-              sx={styles.buttonNodeComponent}
-              component={
-                primaryAction.children as React.ComponentType<SvgIconProps>
-              }
+      {isIntersecting && (
+        <Box sx={styles.root}>
+          <Box sx={styles.imageContainer}>
+            <img
+              onLoad={() => {
+                setLoading(false);
+              }}
+              height={"220"}
+              width={"320"}
+              src={img.src}
+              alt={img.alt}
+              loading="lazy"
             />
-          )) ||
-            primaryAction.children}
-        </Button>
+          </Box>
 
-        <Button
-          aria-label="Botão de direcionamento ao WhatsApp para falar com um representante sobre este curso"
-          sx={styles.secondaryButton}
-          variant="contained"
-          color="primary"
-          size="small"
-          onClick={secondaryAction.onClick}
-        >
-          {(typeof secondaryAction.children === "object" && (
+          <Box sx={styles.infoContainer}>
+            <Box sx={styles.titleContainer}>
+              <Typography sx={styles.title} variant="h5" component="h6">
+                {title}
+              </Typography>
+            </Box>
+
             <Box
-              sx={styles.buttonNodeComponent}
-              component={
-                secondaryAction.children as React.ComponentType<SvgIconProps>
-              }
-            />
-          )) ||
-            secondaryAction.children}
-        </Button>
-      </Box>
+              data-testid={COURSE_CARD_TEST_ID.TAG_CONTAINER}
+              sx={styles.tagsContainer}
+            >
+              {tags.map(({ icon: Icon, label }, index) => {
+                return (
+                  <Box sx={styles.tagItemContainer} key={index}>
+                    <Box sx={styles.tagIcon} component={Icon} />
+                    <Typography
+                      sx={styles.tagLabel}
+                      variant="body1"
+                      color="grey.800"
+                      component="sub"
+                    >
+                      {label}
+                    </Typography>
+                  </Box>
+                );
+              })}
+            </Box>
+          </Box>
+
+          <Box
+            data-testid={COURSE_CARD_TEST_ID.BUTTON_CONTAINER}
+            sx={styles.buttonContainer}
+          >
+            <Button
+              aria-label="Botão de direcionamento à página deste curso"
+              onClick={primaryAction.onClick}
+              variant="contained"
+              color="primary"
+              sx={styles.primaryButton}
+              size="small"
+            >
+              {(typeof primaryAction.children === "object" && (
+                <Box
+                  sx={styles.buttonNodeComponent}
+                  component={
+                    primaryAction.children as React.ComponentType<SvgIconProps>
+                  }
+                />
+              )) ||
+                primaryAction.children}
+            </Button>
+
+            <Button
+              aria-label="Botão de direcionamento ao WhatsApp para falar com um representante sobre este curso"
+              sx={styles.secondaryButton}
+              variant="contained"
+              color="primary"
+              size="small"
+              onClick={secondaryAction.onClick}
+            >
+              {(typeof secondaryAction.children === "object" && (
+                <Box
+                  sx={styles.buttonNodeComponent}
+                  component={
+                    secondaryAction.children as React.ComponentType<SvgIconProps>
+                  }
+                />
+              )) ||
+                secondaryAction.children}
+            </Button>
+          </Box>
+        </Box>
+      )}
     </Box>
   );
 };
