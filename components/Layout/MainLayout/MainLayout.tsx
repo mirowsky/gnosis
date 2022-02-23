@@ -12,10 +12,12 @@ import NewsLetterSection, {
 } from "components/Layout/Newsletter/Main/NewsLetterSection";
 import ContactDial, { ContactDialProps } from "../ContactDial/Main/ContactDial";
 import { HideOnScroll } from "@workspace/components/utility";
-import {
-  ContactFormDialog,
-  ContactFormDialogProps,
-} from "@workspace/components/common";
+import { ContactFormDialogProps } from "@workspace/components/common";
+import dynamic from "next/dynamic";
+
+const ContactFormDialogDynamic = dynamic(
+  () => import("../../Common/ContactFormDialog/ContactFormDialog")
+);
 
 export type MainLayoutProps = {
   children: React.ReactNode;
@@ -53,7 +55,9 @@ export const MainLayout = ({
       />
       <MobileMenu {...mobileMenuProps} />
 
-      <ContactFormDialog {...ContactFormDialogProps} />
+      {ContactFormDialogProps.open && (
+        <ContactFormDialogDynamic {...ContactFormDialogProps} />
+      )}
 
       <HideOnScroll>
         <div
@@ -62,7 +66,7 @@ export const MainLayout = ({
             top: 0,
             left: 0,
             width: "100%",
-            zIndex: 5000,
+            zIndex: 1200,
           }}
         >
           <Header {...headerProps} />
