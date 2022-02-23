@@ -23,6 +23,7 @@ export type CourseCardProps = {
     src: string;
     alt: string;
   };
+  onImageLoad?: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void;
 };
 
 const CourseCard = ({
@@ -31,11 +32,13 @@ const CourseCard = ({
   secondaryAction,
   tags,
   title,
+  onImageLoad,
 }: CourseCardProps) => {
   return (
     <Box sx={styles.root}>
       <Box sx={styles.imageContainer}>
         <img
+          onLoad={onImageLoad}
           height={"220"}
           width={"320"}
           src={img.src}
