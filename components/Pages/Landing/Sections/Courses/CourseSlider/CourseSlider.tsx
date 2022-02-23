@@ -25,11 +25,12 @@ const CourseSlider = ({ items = [], navigation = {} }: CourseSliderProps) => {
           lazy: true,
           navigation: navigation,
           slidesPerView: 1,
-          initialSlide: 1,
+          initialSlide: 0,
           autoplay: false,
           watchOverflow: true,
           breakpoints: {
             1024: {
+              initialSlide: 0,
               slidesPerView: 3,
               pagination: { clickable: true },
               spaceBetween: 0,

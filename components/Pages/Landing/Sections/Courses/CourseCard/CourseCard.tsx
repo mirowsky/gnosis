@@ -43,9 +43,9 @@ const CourseCard = ({
       <AnimatePresence initial={false}>
         {loading && (
           <MotionBox
+            sx={{ position: "absolute" }}
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            sx={{ position: "absolute", top: 0, left: 0, zIndex: 15 }}
           >
             <CourseCardSkeleton />
           </MotionBox>

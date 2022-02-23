@@ -62,7 +62,7 @@ export const MainLayout = ({
             top: 0,
             left: 0,
             width: "100%",
-            zIndex: 10,
+            zIndex: 5000,
           }}
         >
           <Header {...headerProps} />
