@@ -8,7 +8,6 @@ export default {
   title: "Landing/Course Section/Course Card Skeleton",
   component: CourseCardSkeleton,
   parameters: {
-    layout: "fullscreen",
     viewport: {
       defaultViewport: "brazilDesktop1",
     },
