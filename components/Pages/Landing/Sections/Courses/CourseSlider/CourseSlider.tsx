@@ -2,8 +2,7 @@ import stylesheet from "@workspace/stylesheet";
 import SwiperGenericWrapper from "../../../../../Utility/SwiperWrapper/SwiperWrapper";
 import React from "react";
 import CourseCard, { CourseCardProps } from "../CourseCard/CourseCard";
-import { Box, Fab } from "@mui/material";
-import { KeyboardArrowRight } from "@mui/icons-material";
+import { Box } from "@mui/material";
 import { Navigation, SwiperOptions } from "swiper";
 import { COURSE_SLIDER_TEST_ID } from "./constants";
 

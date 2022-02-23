@@ -1,5 +1,5 @@
 import { KeyboardArrowRight } from "@mui/icons-material";
-import { Box, Fab, Theme } from "@mui/material";
+import { Box, Fab } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
 import React from "react";
 import { COURSE_SLIDER_TEST_ID } from "../CourseSlider/constants";

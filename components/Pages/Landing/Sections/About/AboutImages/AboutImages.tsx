@@ -1,11 +1,8 @@
 import { Box } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
 import React from "react";
-import image from "@workspace/images/about-full.webp";
 import AboutImagesCircle from "../AboutImagesCircle/AboutImagesCircle";
 import { Circle } from "@workspace/svg";
-import { ResponsiveStyleValue } from "@workspace/types";
-import { Properties } from "csstype";
 import { useComponentSize } from "@workspace/hooks";
 
 export type AboutImagesProps = {};

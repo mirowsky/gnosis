@@ -4,7 +4,6 @@ import stylesheet from "@workspace/stylesheet";
 import { Box, Button, Typography } from "@mui/material";
 import { TEST_ID } from "./constants";
 import { AnimatedBurguerMenu } from "../AnimatedBurguerButton/AnimatedBurguerButton";
-import theme from "theme/theme";
 
 type HeaderItem = {
   label: string;
