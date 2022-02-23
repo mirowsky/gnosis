@@ -1,6 +1,6 @@
 require("dotenv").config({ path: `./.env` });
-const withAnalyzer = require("@next/bundle-analyzer")({
-  enabled: process.env.ANALYZE === true,
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
 });
 
 // function getEnvironmentGTM() {
@@ -8,7 +8,7 @@ const withAnalyzer = require("@next/bundle-analyzer")({
 // }
 
 /** @type {import('next').NextConfig} */
-module.exports = withAnalyzer({
+module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   // env: {
   //   GTM: getEnvironmentGTM(),

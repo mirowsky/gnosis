@@ -1,8 +1,10 @@
 import { Box, BoxProps } from "@mui/material";
 import React from "react";
-import SwiperCore, { Pagination, SwiperOptions, Lazy } from "swiper";
+import { Pagination, SwiperOptions, Lazy } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper.min.css";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/lazy";
 
 type SwiperModule = {};
 
@@ -29,7 +31,9 @@ export type SwiperGenericWrapperProps<C> = {
  * @param list[]  - A list of items that match type of React.FC props
  * @param sx  - Material UI system's box wrapper sx prop made available at v5 https://next.material-ui.com/components/box/#the-sx-prop
  * @returns JSX.Element
+ *
  */
+
 export const SwiperGenericWrapper = <T extends {}>({
   component: Component,
   SwiperProps,
@@ -38,11 +42,14 @@ export const SwiperGenericWrapper = <T extends {}>({
   sx,
   ...rest
 }: SwiperGenericWrapperProps<T>) => {
-  // Has to run during render or it wont be picked up by swiper
-  React.useMemo(() => SwiperCore.use(modules), [modules]);
-
   return (
-    <Box sx={sx} component={Swiper} {...rest} {...SwiperProps}>
+    <Box
+      sx={sx}
+      component={Swiper}
+      {...rest}
+      modules={modules}
+      {...SwiperProps}
+    >
       {list.map((value, index) => {
         return (
           <SwiperSlide key={index}>

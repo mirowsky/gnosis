@@ -13,7 +13,7 @@
     "deploy:dev": "export GTM_ENV=dev && next build && next export && firebase deploy --only=hosting:dev --project=gnosis-webapp",
     "deploy": "export GTM_ENV=prod && next build && next export && firebase deploy --only=hosting --project=gnosis-webapp",
     "deploy:storybook": "build-storybook && firebase deploy --only=hosting:storybook --project=gnosis-webapp",
-    "build:analyze": "export ANALYZE=true && next build && next export"
+    "build:analyze": "next build && next export"
   },
   "dependencies": {
     "@emotion/cache": "^11.7.1",
@@ -36,7 +36,7 @@
     "react-hook-form": "^7.27.0",
     "react-icons": "^4.3.1",
     "react-number-format": "4.7.3",
-    "swiper": "^6.8.4",
+    "swiper": "8.0.6",
     "webpack": "^5.66.0",
     "yup": "^0.32.11",
     "zustand": "^3.7.0"
