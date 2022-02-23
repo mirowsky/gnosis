@@ -1,6 +1,5 @@
 import React from "react";
-import { Box, BoxProps, Container, Stack, Typography } from "@mui/material";
-import { useInView } from "react-intersection-observer";
+import { Box, Container, Stack, Typography } from "@mui/material";
 import { AnimatePresence } from "framer-motion";
 import {
   SocialMediaShareTray,
@@ -12,6 +11,7 @@ import { MotionBox } from "@workspace/components/utility";
 import BlogSection, {
   BlogSectionProps,
 } from "../../../Layout/Blog/Main/BlogSection";
+import { useIntersectionObserver } from "@workspace/hooks";
 
 /* eslint-disable-next-line */
 export interface BlogPageProps {
@@ -32,14 +32,15 @@ export function BlogPageLayout({
   BlogSectionProps,
   ...rest
 }: BlogPageProps) {
-  const { ref, inView } = useInView({
-    triggerOnce: false,
+  const { ref, isIntersecting: inView } = useIntersectionObserver({
+    once: false,
   });
 
-  const { ref: postsRef, inView: postsInView } = useInView({
-    triggerOnce: false,
-    threshold: 0.2,
-  });
+  const { ref: postsRef, isIntersecting: postsInView } =
+    useIntersectionObserver({
+      once: true,
+      threshold: 0.2,
+    });
 
   return (
     <Box
