@@ -6,6 +6,7 @@ import InputWithButton, {
 import React from "react";
 import { ThemeStyles } from "@workspace/types";
 import { SlideInV2 } from "@workspace/animations";
+import { useIntersectionObserver } from "@workspace/hooks";
 
 export type NewsLetterSectionProps = {
   img: {
@@ -28,16 +29,23 @@ export const NewsLetterSection = ({
   sx,
   id,
 }: NewsLetterSectionProps) => {
+  const { isIntersecting, ref } = useIntersectionObserver({
+    rootMargin: "1000px 0px 0px 0px",
+    once: true,
+  });
+
   return (
-    <Box id={id} sx={{ ...styles.root, ...sx }}>
+    <Box ref={ref} id={id} sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.container}>
         <Box sx={styles.pictureContainer}>
-          <Box
-            sx={styles.picture}
-            component="img"
-            src={img.src}
-            alt={img.alt}
-          />
+          {isIntersecting && (
+            <Box
+              sx={styles.picture}
+              component="img"
+              src={img.src}
+              alt={img.alt}
+            />
+          )}
         </Box>
 
         <Box sx={styles.formContainer}>

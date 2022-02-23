@@ -28,7 +28,7 @@ export const ContactSection = ({
 }: ContactSectionProps = DEFAULT_ContactSection_TESTING_PROPS) => {
   const { isIntersecting, ref } = useIntersectionObserver({
     once: true,
-    rootMargin: "500px 0px 0px 0px",
+    rootMargin: "500px",
   });
 
   return (
