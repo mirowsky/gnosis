@@ -1,5 +1,4 @@
 import { Box } from "@mui/material";
-import { MotionBox } from "@workspace/components/utility";
 import stylesheet from "@workspace/stylesheet";
 import { ThemeStyles } from "@workspace/types";
 import { Variants } from "framer-motion";
@@ -22,18 +21,7 @@ export const DefenseSection = ({ items = [], sx, id }: DefenseSectionProps) => {
     >
       {items.map((value, index) => {
         return (
-          <MotionBox
-            initial="hidden"
-            whileInView={"visible"}
-            variants={VARIANTS}
-            key={index}
-            viewport={{
-              once: true,
-              amount: "all",
-            }}
-          >
-            <DefenseCard {...value} fontSize={{ xs: "0.7rem" }} />
-          </MotionBox>
+          <DefenseCard {...value} key={index} fontSize={{ xs: "0.7rem" }} />
         );
       })}
     </Box>
