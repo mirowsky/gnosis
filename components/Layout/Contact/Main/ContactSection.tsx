@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { SlideInV2 } from "@workspace/animations";
+import { useIntersectionObserver } from "@workspace/hooks";
 import stylesheet from "@workspace/stylesheet";
 import { Blob } from "@workspace/svg";
 import { ThemeStyles } from "@workspace/types";
@@ -25,8 +26,13 @@ export const ContactSection = ({
   sx,
   id,
 }: ContactSectionProps = DEFAULT_ContactSection_TESTING_PROPS) => {
+  const { isIntersecting, ref } = useIntersectionObserver({
+    once: true,
+    rootMargin: "500px 0px 0px 0px",
+  });
+
   return (
-    <Box id={id} sx={{ ...styles.root, ...sx }}>
+    <Box ref={ref} id={id} sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.sectionTitleContainer}>
         <SlideInV2 animate="scroll" viewport={{ margin: "200px", once: true }}>
           <Typography variant="h2" component="h3" sx={styles.sectionTitle}>
@@ -50,12 +56,14 @@ export const ContactSection = ({
         </Box>
 
         <Box sx={styles.pictureContainer}>
-          <Box
-            sx={styles.picture}
-            component="img"
-            src={img.src}
-            alt={img.alt}
-          />
+          {isIntersecting && (
+            <Box
+              sx={styles.picture}
+              component="img"
+              src={img.src}
+              alt={img.alt}
+            />
+          )}
         </Box>
       </Box>
     </Box>

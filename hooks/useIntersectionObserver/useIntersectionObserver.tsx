@@ -9,20 +9,20 @@ export const useIntersectionObserver = <TElement extends never>(
 
   useIsomorphicEffect(() => {
     if (typeof window !== "undefined" && ref.current) {
+      const { once, ...rest } = { ...options };
+
       const observer = new IntersectionObserver(
         (entries, _observer) => {
           entries.forEach((entry, _index) => {
             setIsIntersecting(entry.isIntersecting);
 
-            if (options?.once && entry.intersectionRatio > 0) {
+            if (once && entry.intersectionRatio > 0) {
               observer.unobserve(ref.current as unknown as HTMLElement);
             }
           });
         },
         {
-          root: options?.root,
-          rootMargin: options?.rootMargin,
-          threshold: options?.threshold,
+          ...rest,
         }
       );
 
