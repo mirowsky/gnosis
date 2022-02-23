@@ -1,5 +1,6 @@
 import { Box, Button, ButtonProps, Typography } from "@mui/material";
 import { MotionBox } from "@workspace/components/utility";
+import { useIntersectionObserver } from "@workspace/hooks";
 import stylesheet from "@workspace/stylesheet";
 import { ThemeStyles } from "@workspace/types";
 import React from "react";
@@ -21,8 +22,13 @@ export const AboutSection = ({
   sx,
   id,
 }: AboutSectionProps = DEFAULT_AboutSection_TESTING_PROPS) => {
+  const { isIntersecting, ref } = useIntersectionObserver({
+    once: true,
+    rootMargin: "-200px 0px",
+  });
+
   return (
-    <Box id={id} sx={{ ...styles.root, ...sx }}>
+    <Box ref={ref} id={id} sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.textContainer}>
         <MotionBox
           initial={{ opacity: 0, y: 75 }}
@@ -71,9 +77,7 @@ export const AboutSection = ({
         )}
       </Box>
 
-      <Box sx={styles.imageContainer}>
-        <AboutImages />
-      </Box>
+      <Box sx={styles.imageContainer}>{isIntersecting && <AboutImages />}</Box>
     </Box>
   );
 };
