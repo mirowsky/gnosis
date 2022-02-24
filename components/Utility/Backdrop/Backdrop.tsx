@@ -23,6 +23,7 @@ export const Backdrop = ({
     <MotionBox
       initial={{ opacity: 0 }}
       animate={open ? { opacity: 1 } : { opacity: 0 }}
+      transition={{ duration: 0.65 }}
       sx={{ ...styles.root, ...sx }}
     >
       {React.Children.map(children, (child) => {
@@ -48,7 +49,6 @@ const styles = stylesheet.create({
     position: "fixed",
     top: 0,
     left: 0,
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
     zIndex: 5000,
 
     "& :first-child": {

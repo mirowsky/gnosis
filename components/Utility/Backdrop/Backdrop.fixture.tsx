@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import { MotionBox } from "..";
 import type { BackdropProps } from "./Backdrop";
 
 export const DEFAULT_Backdrop_TESTING_PROPS: BackdropProps = {
@@ -9,14 +10,14 @@ export const DEFAULT_Backdrop_TESTING_PROPS: BackdropProps = {
     alignItems: "center",
   },
   children: (
-    <Box
+    <MotionBox
       sx={{
         width: "250px",
         height: "250px",
         bgcolor: "violet",
         borderRadius: "12px",
       }}
-    ></Box>
+    ></MotionBox>
   ),
 };
 
