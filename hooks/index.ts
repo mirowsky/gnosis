@@ -6,3 +6,4 @@ export { useIsFirstVisit } from "./useIsFirstVisit/useIsFirstVisit";
 export { useIntersectionObserver } from "./useIntersectionObserver/useIntersectionObserver";
 export { useWhatsAppRedirect } from "./useWhatsAppRedirect/useWhatsAppRedirect";
 export { useDetectMobile } from "./useDetectMobile/useDetectMobile";
+export { useClickAway } from "./useClickAway/useClickAway";
