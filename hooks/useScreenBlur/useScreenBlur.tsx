@@ -13,13 +13,14 @@ const styleExists = (el: HTMLElement, style: string) => {
 
 export const useScreenBlur = (blur: boolean, amount = 15) => {
   useIsomorphicEffect(() => {
-    const elem = document.querySelector("body") as HTMLBodyElement;
+    const elem = document.querySelector("html") as HTMLElement;
 
     if (blur) {
-      elem.style.filter = `blur(${amount})`;
+      elem.style.transition = "filter 0.5s ease";
+      elem.style.filter = `blur(${amount}px)`;
     } else {
       if (styleExists(elem, "filter")) {
-        elem.style.filter = "unset";
+        elem.style.filter = "blur(0px)";
       }
     }
   }, [blur]);
