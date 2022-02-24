@@ -87,10 +87,10 @@ export default AboutSection;
 const styles = stylesheet.create({
   root: {
     position: "relative",
-    display: "flex",
-    justifyContent: "center",
     flexDirection: "column",
-    gap: { xs: "5em" },
+    display: "grid",
+    gridTemplateRows: "minmax(0, 1fr) minmax(0, 1fr)",
+    gap: { xs: "1em" },
   },
   textContainer: {
     display: "flex",
