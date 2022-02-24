@@ -16,7 +16,6 @@ import {
   ContactFormDialog,
   ContactFormDialogProps,
 } from "@workspace/components/common";
-import dynamic from "next/dynamic";
 
 export type MainLayoutProps = {
   children: React.ReactNode;
@@ -94,6 +93,8 @@ const styles = stylesheet.create({
   root: {
     display: "flex",
     flexDirection: "column",
+    marginLeft: "calc(100vw - 100%)",
+    marginRight: 0,
   },
 
   contactDialBox: {

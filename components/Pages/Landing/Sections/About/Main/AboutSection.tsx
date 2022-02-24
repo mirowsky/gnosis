@@ -90,7 +90,6 @@ const styles = stylesheet.create({
     flexDirection: "column",
     display: "grid",
     gridTemplateRows: "minmax(0, 1fr) minmax(0, 1fr)",
-    gap: { xs: "1em" },
   },
   textContainer: {
     display: "flex",
