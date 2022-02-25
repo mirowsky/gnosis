@@ -50,6 +50,13 @@ const styles = stylesheet.create({
     top: 0,
     left: 0,
     zIndex: 5000,
+    "@supports (backdrop-filter: blur(12px))": {
+      backdropFilter: "blur(15px)",
+    },
+
+    "@supports not (backdrop-filter: blur(12px))": {
+      backgroundColor: "rgba(255, 255 ,255, 0.65)",
+    },
 
     "& :first-child": {
       zIndex: 5001,

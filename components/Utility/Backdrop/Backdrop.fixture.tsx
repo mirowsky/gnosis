@@ -3,6 +3,7 @@ import { MotionBox } from "..";
 import type { BackdropProps } from "./Backdrop";
 
 export const DEFAULT_Backdrop_TESTING_PROPS: BackdropProps = {
+  onClickAway: () => console.log("clicked away"),
   open: false,
   sx: {
     display: "flex",
