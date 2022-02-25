@@ -8,3 +8,4 @@ export { useWhatsAppRedirect } from "./useWhatsAppRedirect/useWhatsAppRedirect";
 export { useDetectMobile } from "./useDetectMobile/useDetectMobile";
 export { useClickAway } from "./useClickAway/useClickAway";
 export { useScreenBlur } from "./useScreenBlur/useScreenBlur";
+export { useScrollLock } from "./useScrollLock/useScrollLock";
