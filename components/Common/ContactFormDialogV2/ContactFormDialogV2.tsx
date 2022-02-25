@@ -123,8 +123,8 @@ const styles = stylesheet.create({
   root: {
     maxHeight: "95vh",
     overflow: "scroll",
-    maxWidth: "95vw",
-    minWidth: "75vw",
+    maxWidth: { xs: "95vw" },
+    minWidth: { xs: "75vw", lg: "60vw", xl: "40vw" },
     px: 4,
     py: 3,
     pt: 4.5,
