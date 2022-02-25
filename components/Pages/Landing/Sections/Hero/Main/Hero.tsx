@@ -2,7 +2,6 @@ import React from "react";
 import { stylesheet } from "@workspace/stylesheet";
 import { Box, Button, Container, Typography } from "@mui/material";
 import { noop } from "@workspace/utility";
-import { Blob } from "@workspace/svg";
 
 export type HeroProps = {
   mainText: string;
@@ -41,9 +40,6 @@ export const Hero = ({
 }: HeroProps) => {
   return (
     <Box sx={styles.root} id={id}>
-      <Blob sx={styles.firstBlob} />
-      <Blob sx={styles.secondBlob} />
-
       <Box sx={styles.pattern}></Box>
 
       <Container maxWidth={"lg"} disableGutters>
@@ -117,6 +113,10 @@ const styles = stylesheet.create({
     maxHeight: "90vh",
     position: "relative",
     overflow: "hidden",
+    background: {
+      xs: "none",
+      lg: "radial-gradient(circle at 5% 25%, hsla(229deg, 84%, 87%, 0.5), rgba(255, 255, 255, 0) 25%), radial-gradient(circle at 80% 40%, hsla(229deg, 84%, 87%, 0.5), rgba(255, 255, 255, 0) 30%)",
+    },
   },
 
   pattern: {
@@ -146,26 +146,6 @@ const styles = stylesheet.create({
       xs: "minmax(0, 1fr)",
       lg: "minmax(0, 0.55fr) minmax(0, 0.45fr)",
     },
-  },
-
-  // Blobs
-  firstBlob: {
-    fontSize: { lg: "0.7rem", xl: "1rem" },
-    position: "absolute",
-    zIndex: -1,
-    left: "-10%",
-    top: { lg: "-15%", xl: "-35%" },
-    filter: { lg: "blur(260px)", xl: "blur(260px)" },
-    display: { xs: "none", lg: "block" },
-  },
-  secondBlob: {
-    fontSize: { lg: "1rem", xl: "1.5rem" },
-    position: "absolute",
-    top: { lg: "-20%", xl: "-35%" },
-    right: "-15%",
-    zIndex: -1,
-    filter: { lg: "blur(225px)", xl: "blur(275px)" },
-    display: { xs: "none", lg: "block" },
   },
 
   //Outer Container

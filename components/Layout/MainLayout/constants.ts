@@ -19,6 +19,5 @@ export const MAIN_LAYOUT_DEFAULT_PROPS: MainLayoutProps = {
   ContactDialProps: DEFAULT_ContactDial_TESTING_PROPS,
   ContactFormDialogProps: {
     ...DEFAULT_ContactFormDialog_TESTING_PROPS,
-    open: false,
   },
 };
