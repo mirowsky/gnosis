@@ -215,6 +215,15 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
     },
   };
   const contactFormDialogProps: MainLayoutProps["ContactFormDialogProps"] = {
+    PrimaryActionProps: {
+      children: "Enviar",
+      loading: dialogForm.formState.isSubmitting,
+      disabled: !dialogForm.formState.isValid,
+    },
+    SecondaryActionProps: {
+      children: "Voltar",
+      onClick: () => setContactFormDialogOpen(false),
+    },
     title: "Contato",
     subtitle:
       "Preencha o formulário com seus dados e uma mensagem e um de nossos representantes irá atendê-lo na primeira oportunidade.",
@@ -243,7 +252,11 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
     },
     BackdropProps: {
       open: contactFormDialogOpen,
-      onClickAway: () => setContactFormDialogOpen(false),
+      onClickAway: () => {
+        if (contactFormDialogOpen) {
+          setContactFormDialogOpen(false);
+        }
+      },
     },
   };
 

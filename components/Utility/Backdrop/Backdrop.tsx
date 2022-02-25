@@ -22,8 +22,8 @@ export const Backdrop = ({
 
   return (
     <MotionBox
-      initial={{ opacity: 0 }}
-      animate={open ? { opacity: 1 } : { opacity: 0 }}
+      initial={{ opacity: 0, zIndex: -1 }}
+      animate={open ? { opacity: 1, zIndex: 5000 } : { opacity: 0, zIndex: -1 }}
       transition={{ duration: 0.65 }}
       sx={{ ...styles.root, ...sx }}
     >
@@ -49,7 +49,6 @@ const styles = stylesheet.create({
     position: "fixed",
     top: 0,
     left: 0,
-    zIndex: 5000,
     "@supports (backdrop-filter: blur(12px))": {
       backdropFilter: "blur(15px)",
     },
