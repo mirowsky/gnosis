@@ -13,8 +13,8 @@ import NewsLetterSection, {
 import ContactDial, { ContactDialProps } from "../ContactDial/Main/ContactDial";
 import { HideOnScroll } from "@workspace/components/utility";
 import {
-  ContactFormDialog,
-  ContactFormDialogProps,
+  ContactFormDialogV2,
+  ContactFormDialogV2Props,
 } from "@workspace/components/common";
 
 export type MainLayoutProps = {
@@ -25,7 +25,7 @@ export type MainLayoutProps = {
   ContactSectionProps: ContactSectionProps;
   NewsLetterSectionProps: NewsLetterSectionProps;
   ContactDialProps: ContactDialProps;
-  ContactFormDialogProps: ContactFormDialogProps;
+  ContactFormDialogProps: ContactFormDialogV2Props;
 };
 
 export const MainLayout = ({
@@ -53,7 +53,7 @@ export const MainLayout = ({
       />
       <MobileMenu {...mobileMenuProps} />
 
-      <ContactFormDialog {...ContactFormDialogProps} />
+      <ContactFormDialogV2 {...ContactFormDialogProps} />
 
       <HideOnScroll>
         <div

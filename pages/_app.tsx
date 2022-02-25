@@ -215,35 +215,35 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
     },
   };
   const contactFormDialogProps: MainLayoutProps["ContactFormDialogProps"] = {
-    cancelLabel: "Cancelar",
     title: "Contato",
     subtitle:
       "Preencha o formulário com seus dados e uma mensagem e um de nossos representantes irá atendê-lo na primeira oportunidade.",
-    submitLabel: "Enviar",
-    open: contactFormDialogOpen,
-    handleClose: () => setContactFormDialogOpen(false),
-    emailInputProps: {
+    EmailInputProps: {
       label: "E-mail",
       placeholder: "Ex: joao.alves@gmail.com",
       ...dialogForm.register("email"),
     },
-    messageInputProps: {
+    MessageInputProps: {
       label: "Mensagem",
       placeholder: "Ex: Gostaria de saber como funciona o curso de...",
       ...dialogForm.register("message"),
     },
-    nameInputProps: {
+    NameInputProps: {
       label: "Nome completo",
       placeholder: "Ex: João Alves da Silva",
       ...dialogForm.register("name"),
     },
-    phoneInputProps: {
+    PhoneInputProps: {
       onValueChange: (values) => {
         dialogForm.setValue("phone", values.formattedValue);
       },
       label: "Número de telefone",
       placeholder: "Ex: (99) 9-8765-4321",
       ...dialogForm.register("phone"),
+    },
+    BackdropProps: {
+      open: contactFormDialogOpen,
+      onClickAway: () => setContactFormDialogOpen(false),
     },
   };
 

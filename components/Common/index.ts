@@ -10,3 +10,5 @@ export { InputWithButton } from "./InputWithButton/InputWithButton";
 export type { InputWithButtonProps } from "./InputWithButton/InputWithButton";
 export { TruncateText } from "./TruncateText/TruncateText";
 export type { TruncateTextProps } from "./TruncateText/TruncateText";
+export { ContactFormDialogV2 } from "./ContactFormDialogV2/ContactFormDialogV2";
+export type { ContactFormDialogV2Props } from "./ContactFormDialogV2/ContactFormDialogV2";

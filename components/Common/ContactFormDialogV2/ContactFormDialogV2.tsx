@@ -39,7 +39,10 @@ export const ContactFormDialogV2 = ({
   subtitle,
 }: ContactFormDialogV2Props) => {
   return (
-    <Backdrop {...BackdropProps}>
+    <Backdrop
+      {...BackdropProps}
+      sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+    >
       <Box sx={{ ...styles.root, ...sx }}>
         <Box sx={styles.textContainer}>
           <Typography variant="h6" component="h2">
