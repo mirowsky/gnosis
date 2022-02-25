@@ -2,7 +2,6 @@ import { Box, Typography } from "@mui/material";
 import { SlideInV2 } from "@workspace/animations";
 import { useIntersectionObserver } from "@workspace/hooks";
 import stylesheet from "@workspace/stylesheet";
-import { Blob } from "@workspace/svg";
 import { ThemeStyles } from "@workspace/types";
 import React from "react";
 import ContactForm, { ContactFormProps } from "../ContactForm/ContactForm";
@@ -51,10 +50,6 @@ export const ContactSection = ({
           </SlideInV2>
         </Box>
 
-        <Box sx={styles.blobContainer}>
-          <Blob sx={styles.blob} />
-        </Box>
-
         <Box sx={styles.pictureContainer}>
           {isIntersecting && (
             <Box
@@ -77,6 +72,10 @@ const styles = stylesheet.create({
     width: "100%",
     display: "flex",
     flexDirection: "column",
+    background: {
+      xs: "none",
+      lg: "radial-gradient(circle at 72% 60%, hsla(229deg, 90%, 87%, 1), rgba(255, 255, 255, 0) 30%)",
+    },
   },
   grid: {
     pt: (theme) => ({ xs: theme.spacing(6) }),
@@ -102,21 +101,6 @@ const styles = stylesheet.create({
     justifySelf: { lg: "center" },
     justifyContent: { lg: "center" },
     gridColumn: { xs: "2/3" },
-  },
-
-  blobContainer: {
-    position: "absolute",
-    display: { xs: "none", lg: "flex" },
-    width: "100%",
-    height: "100%",
-    justifySelf: { lg: "flex-end" },
-    justifyContent: { lg: "center" },
-    gridColumn: { xs: "2/3" },
-  },
-  blob: {
-    fontSize: "0.9em",
-    filter: "blur(85px)",
-    transform: "translateX(10%)",
   },
 
   sectionTitleContainer: {
