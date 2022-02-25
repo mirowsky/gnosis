@@ -5,6 +5,7 @@ import {
   ButtonProps,
   TextField,
   TextFieldProps,
+  Typography,
 } from "@mui/material";
 import { Backdrop, BackdropProps } from "@workspace/components/utility";
 import stylesheet from "@workspace/stylesheet";
@@ -13,6 +14,8 @@ import React from "react";
 import NumberFormat, { NumberFormatProps } from "react-number-format";
 
 export type ContactFormDialogV2Props = {
+  title?: string;
+  subtitle?: string;
   BackdropProps?: BackdropProps;
   NameInputProps?: TextFieldProps;
   EmailInputProps?: TextFieldProps;
@@ -32,10 +35,21 @@ export const ContactFormDialogV2 = ({
   PrimaryActionProps,
   SecondaryActionProps,
   sx,
+  title,
+  subtitle,
 }: ContactFormDialogV2Props) => {
   return (
     <Backdrop {...BackdropProps}>
       <Box sx={{ ...styles.root, ...sx }}>
+        <Box sx={styles.textContainer}>
+          <Typography variant="h6" component="h2">
+            {title}
+          </Typography>
+          <Typography variant="body1" color="grey.700">
+            {subtitle}
+          </Typography>
+        </Box>
+
         <TextField {...NameInputProps} fullWidth sx={styles.nameInputBox} />
         <NumberFormat
           customInput={TextField}
@@ -57,9 +71,17 @@ export const ContactFormDialogV2 = ({
           <LoadingButton
             variant="outlined"
             color="primary"
+            size="small"
+            sx={styles.primaryAction}
             {...PrimaryActionProps}
           />
-          <Button variant="text" color="primary" {...SecondaryActionProps} />
+          <Button
+            variant="text"
+            size="small"
+            color="primary"
+            sx={styles.secondaryAction}
+            {...SecondaryActionProps}
+          />
         </Box>
       </Box>
     </Backdrop>
@@ -75,16 +97,36 @@ const scale = {
 } as ThemeStyles;
 
 const styles = stylesheet.create({
-  actions: { display: "flex", gridColumn: "2/3", gap: "1rem" },
+  actions: {
+    display: "flex",
+    gridColumn: { lg: "2/3" },
+    gap: "1rem",
+    justifySelf: "flex-end",
+  },
 
-  primaryAction: {},
-  secondaryAction: {},
+  textContainer: {
+    display: "flex",
+    flexDirection: "column",
+    gridColumn: { lg: "1/3" },
+  },
+
+  primaryAction: {
+    fontSize: { xs: "0.6rem" },
+  },
+  secondaryAction: {
+    fontSize: { xs: "0.6rem" },
+  },
 
   root: {
-    maxWidth: "90vw",
+    maxHeight: "95vh",
+    overflow: "scroll",
+    maxWidth: "95vw",
     minWidth: "75vw",
+    px: 4,
+    py: 3,
+    pt: 4.5,
     height: "auto",
-    borderRadius: (theme) => theme.shape.borderRadius,
+    borderRadius: "4px",
     backgroundColor: (theme) => theme.palette.background.paper,
     boxShadow: (theme) => theme.shadows[3],
     display: "grid",
@@ -92,7 +134,7 @@ const styles = stylesheet.create({
       lg: "repeat(2, minmax(0, 1fr))",
       xs: "repeat(1, minmax(0, 1fr))",
     },
-    gap: (theme) => ({ xs: theme.spacing(3) }),
+    gap: (theme) => ({ xs: theme.spacing(4) }),
   },
 
   nameInputBox: {
