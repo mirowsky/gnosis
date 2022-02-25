@@ -1,4 +1,4 @@
-import { useClickAway } from "@workspace/hooks";
+import { useClickAway, useScrollLock } from "@workspace/hooks";
 import stylesheet from "@workspace/stylesheet";
 import { ThemeStyles } from "@workspace/types";
 import React from "react";
@@ -17,6 +17,7 @@ export const Backdrop = ({
   open,
   onClickAway = () => {},
 }: BackdropProps) => {
+  useScrollLock(Boolean(open));
   const { ref } = useClickAway(onClickAway);
 
   return (
