@@ -39,7 +39,6 @@ export const Backdrop = ({
   );
 };
 
-<div></div>;
 export default Backdrop;
 
 const styles = stylesheet.create({
