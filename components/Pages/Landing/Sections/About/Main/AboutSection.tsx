@@ -89,7 +89,10 @@ const styles = stylesheet.create({
     position: "relative",
     flexDirection: "column",
     display: "grid",
-    gridTemplateRows: "minmax(0, 1fr) minmax(0, 1fr)",
+    gridTemplateRows: {
+      xs: "minmax(0, 1fr)",
+      lg: "minmax(0, 1fr) minmax(0, 1fr)",
+    },
   },
   textContainer: {
     display: "flex",
