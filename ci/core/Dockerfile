@@ -8,4 +8,6 @@ RUN curl -f https://get.pnpm.io/v6.7.js | node - add --global pnpm@6 && pnpm con
 # Install Firebase tools
 RUN pnpm install --global firebase-tools
 
+RUN pnpm install --global nx
+
 ENTRYPOINT [ "bash" ]
