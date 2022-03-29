@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 import { MotionBox } from "@workspace/components/utility";
 import stylesheet from "@workspace/stylesheet";
 import { ResponsiveFontSize } from "@workspace/types";
+import { Properties } from "csstype";
 import { Variants } from "framer-motion";
 import React from "react";
 import { BsFillChatDotsFill } from "react-icons/bs";
@@ -23,7 +24,7 @@ export const ContactDialButton = ({
   fontSize,
   iconClosed: IconClosed = BsFillChatDotsFill,
   iconOpen: IconOpen = Close,
-  onClick = () => {},
+  onClick = () => { },
   ...props
 }: ContactDialButtonProps) => {
   const styles = React.useMemo(
@@ -89,9 +90,11 @@ const _styles = (
       width: "3.5em",
       height: "3.5em",
       borderRadius: "50%",
-      backgroundColor: (theme) => theme.palette[color].main,
+      backgroundColor: '#009f2b',
+      color: '#fff',
+      // backgroundColor: (theme) => theme.palette[color].main,
       boxShadow: (theme) => theme.shadows[5],
-      color: (theme) => theme.palette[color].contrastText,
+      // color: (theme) => theme.palette[color].contrastText,
       cursor: "pointer",
       position: "relative",
     },

@@ -7,7 +7,7 @@ import { MainLayout, MainLayoutProps } from "@workspace/components/layouts";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import { Money, OnlinePredictionTwoTone, School } from "@mui/icons-material";
+import { Money, OnlinePredictionTwoTone, School, WhatsApp } from "@mui/icons-material";
 import { handleLogoClick, handleMenuClick } from "@workspace/utility";
 import { alertStore, GlobalSnack } from "@workspace/components/utility";
 import Head from "next/head";
@@ -67,15 +67,16 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
       return {
         ContactDialButtonProps: {
           open: contactDialOpen,
+          iconClosed: WhatsApp,
           onClick: () => setContactDialOpen((prevState) => !prevState),
         },
         items: [
-          { action: () => {}, icon: Money, label: "Valores" },
-          { action: () => {}, icon: School, label: "Validação de diploma" },
+          { action: () => { }, icon: Money, label: "Exemplo 1" },
+          { action: () => { }, icon: School, label: "Exemplo 2" },
           {
-            action: () => {},
+            action: () => { },
             icon: OnlinePredictionTwoTone,
-            label: "Sistema de aprendizado virtual",
+            label: "Exemplo 3",
           },
         ],
       };
