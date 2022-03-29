@@ -29,6 +29,7 @@ export const AboutSection = ({
 
   return (
     <Box ref={ref} id={id} sx={{ ...styles.root, ...sx }}>
+      <Box sx={styles.pattern} />
       <Box sx={styles.textContainer}>
         <MotionBox
           initial={{ opacity: 0, y: 75 }}
@@ -88,12 +89,31 @@ const styles = stylesheet.create({
   root: {
     position: "relative",
     flexDirection: "column",
+    overflow: 'hidden',
     display: "grid",
+    gap: theme => ({ lg: '20px', xl: '0px' }),
     gridTemplateRows: {
       xs: "minmax(0, 1fr)",
       lg: "minmax(0, 1fr) minmax(0, 1fr)",
     },
   },
+
+  pattern: {
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    backgroundColor: "#F6F9FB",
+    top: 0,
+    left: 0,
+    opacity: 0.05,
+    zIndex: -1,
+    backgroundImage:
+      "linear-gradient(#002946 1.6px, transparent 1.6px), linear-gradient(90deg, #002946 1.6px, transparent 1.6px), linear-gradient(#002946 0.8px, transparent 0.8px), linear-gradient(90deg, #002946 0.8px, #F6F9FB 0.8px)",
+    backgroundSize: "40px 40px, 40px 40px, 8px 8px, 8px 8px",
+    backgroundPosition:
+      "-1.6px -1.6px, -1.6px -1.6px, -0.8px -0.8px, -0.8px -0.8px",
+  },
+
   textContainer: {
     display: "flex",
     flexDirection: "column",
@@ -102,7 +122,7 @@ const styles = stylesheet.create({
     gap: (theme) => ({ xs: theme.spacing(4) }),
   },
   imageContainer: {
-    maxWidth: "45vw",
+    maxWidth: "35vw",
     margin: "auto",
     display: { xs: "none", lg: "block" },
   },
@@ -116,7 +136,7 @@ const styles = stylesheet.create({
     color: (theme) => theme.palette.grey[700],
     fontWeight: 700,
     maxWidth: "50ch",
-    lineHeight: 1.9,
+    lineHeight: 2.2,
   },
   button: {},
 });
