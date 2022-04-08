@@ -59,7 +59,7 @@ describe("SupportMenu header", () => {
 
     const { getByTestId } = setup({
       ...DEFAULT_SupportMenu_TESTING_PROPS,
-      onCloseButtonClick: callback,
+      onClick: callback,
     });
 
     const buttonElement = getByTestId(SupportMenu_TEST_ID.closeButton);

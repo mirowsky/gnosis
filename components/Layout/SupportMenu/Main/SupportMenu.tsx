@@ -11,8 +11,7 @@ export interface SupportMenuProps {
   open: boolean;
   headerTitle: string;
   headerSubtitle?: string;
-  onCloseButtonClick?: (...args: unknown[]) => void;
-  onClose?: (...args: unknown[]) => void;
+  onClick?: (...args: unknown[]) => void;
   items: SupportMenuItemProps[];
 }
 
@@ -21,8 +20,7 @@ export const SupportMenu = ({
   items,
   open,
   headerSubtitle,
-  onClose,
-  onCloseButtonClick,
+  onClick: onCloseButtonClick,
 }: SupportMenuProps) => {
   return (
     <Box sx={styles.root}>
@@ -38,10 +36,14 @@ export const SupportMenu = ({
         </Box>
 
         <Box sx={styles.titleContainer}>
-          <Typography sx={styles.title}>{headerTitle}</Typography>
+          <Typography variant="h6" component="h2" sx={styles.title}>
+            {headerTitle}
+          </Typography>
         </Box>
         <Box sx={styles.subtitleContainer}>
-          <Typography sx={styles.subtitle}>{headerSubtitle}</Typography>
+          <Typography variant="subtitle2" component="h3" sx={styles.subtitle}>
+            {headerSubtitle}
+          </Typography>
         </Box>
       </Box>
       <Box data-testid={SupportMenu_TEST_ID.contentList} sx={styles.content}>
@@ -57,24 +59,34 @@ export default SupportMenu;
 
 const styles = stylesheet.create({
   root: {
+    width: "fit-content",
     height: "auto",
+    minWidth: { lg: "24em" },
     fontSize: "1rem",
-    minWidth: { xs: "21em" },
+    maxWidth: "100%",
     position: "relative",
     display: "grid",
-    gridTemplateRows: "minmax(0, 0.35fr) minmax(0, 0.65fr)",
+    gridTemplateRows: "35% 65%",
+    borderRadius: "12px",
+    boxShadow: (theme) => theme.shadows[5],
   },
 
   content: {
-    padding: "1.5em",
     gap: "0.75em",
     display: "grid",
-    gridTemplateRows: "repeat(1, minmax(0, 1fr)",
+    gridTemplateRows: "repeat(1, minmax(0, 1fr))",
+    justifyItems: "center",
+    padding: "1em",
   },
 
   header: {
     display: "flex",
     flexDirection: "column",
+    bgcolor: (theme) => theme.palette.success.main,
+    borderRadius: "12px 12px 0px 0px",
+    gap: "0.4em",
+    padding: "0.5em 1.25em 2em 1em",
+    textAlign: "center",
   },
 
   closeButtonContainer: {
@@ -96,12 +108,16 @@ const styles = stylesheet.create({
 
   // -------
   closeButton: {
-    bgcolor: "#fff",
+    color: (theme) => theme.palette.grey[400],
+    pointerEvents: "auto",
   },
   title: {
     color: "#fff",
+    fontWeight: "bold",
+    maxWidth: "25ch",
   },
   subtitle: {
     color: "#fff",
+    maxWidth: "18ch",
   },
 });

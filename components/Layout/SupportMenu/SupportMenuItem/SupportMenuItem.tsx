@@ -27,10 +27,10 @@ export const SupportMenuItem = ({
         <Box component={Icon} sx={styles.icon} />
       </Box>
       <Box sx={styles.infoContainer}>
-        <Typography variant="h4" component="h2" sx={styles.title}>
+        <Typography variant="h6" component="h2" sx={styles.title}>
           {title}
         </Typography>
-        <Typography variant="subtitle1" sx={styles.subtitle}>
+        <Typography variant="subtitle2" sx={styles.subtitle}>
           {subtitle}
         </Typography>
         <Box sx={styles.tagContainer}>
@@ -51,14 +51,20 @@ export default SupportMenuItem;
 
 const styles = stylesheet.create({
   root: {
+    userSelect: "none",
+    cursor: "pointer",
     fontSize: "1rem",
     display: "grid",
+    maxWidth: "19em",
     gridTemplateColumns: "minmax(0, 0.3fr) minmax(0, 0.7fr)",
     width: "fit-content",
-    columnGap: "2.5em",
+    columnGap: "1.75em",
     bgcolor: (theme) => theme.palette.grey[100],
-    padding: { xs: "1.25em", lg: "1.5em" },
+    padding: { xs: "0.95em 1.25em" },
     borderRadius: "12px",
+    "> *": {
+      pointerEvents: "none",
+    },
   },
 
   iconContainer: {
@@ -68,8 +74,7 @@ const styles = stylesheet.create({
     padding: "0.175em",
   },
   icon: {
-    width: "100%",
-    height: "100%",
+    fontSize: "4em",
     color: (theme) => theme.palette.primary.main,
   },
 
