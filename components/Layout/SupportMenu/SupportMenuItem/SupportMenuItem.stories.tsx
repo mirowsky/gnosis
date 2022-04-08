@@ -8,7 +8,6 @@ export default {
   title: "Layout/Support Menu/Support Menu Item",
   component: SupportMenuItem,
   parameters: {
-    layout: "fullscreen",
     viewport: {
       defaultViewport: "brazilDesktop1",
     },

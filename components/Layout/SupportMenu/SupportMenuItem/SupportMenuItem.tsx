@@ -27,10 +27,15 @@ export const SupportMenuItem = ({
         <Box component={Icon} sx={styles.icon} />
       </Box>
       <Box sx={styles.infoContainer}>
-        <Typography sx={styles.title}>{title}</Typography>
-        <Typography sx={styles.subtitle}>{subtitle}</Typography>
+        <Typography variant="h4" component="h2" sx={styles.title}>
+          {title}
+        </Typography>
+        <Typography variant="subtitle1" sx={styles.subtitle}>
+          {subtitle}
+        </Typography>
         <Box sx={styles.tagContainer}>
           <Chip
+            size="small"
             aria-label="Status do time de suporte"
             aria-labelledby="Status do time de suporte"
             color={online ? "success" : "error"}
@@ -46,17 +51,42 @@ export default SupportMenuItem;
 
 const styles = stylesheet.create({
   root: {
+    fontSize: "1rem",
     display: "grid",
     gridTemplateColumns: "minmax(0, 0.3fr) minmax(0, 0.7fr)",
+    width: "fit-content",
+    columnGap: "2.5em",
+    bgcolor: (theme) => theme.palette.grey[100],
+    padding: { xs: "1.25em", lg: "1.5em" },
+    borderRadius: "12px",
   },
 
-  iconContainer: {},
-  icon: {},
+  iconContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "0.175em",
+  },
+  icon: {
+    width: "100%",
+    height: "100%",
+    color: (theme) => theme.palette.primary.main,
+  },
 
-  infoContainer: {},
+  infoContainer: {
+    display: "flex",
+    gap: "0.15em",
+    flexDirection: "column",
+  },
 
-  tagContainer: {},
+  tagContainer: {
+    mt: "0.5em",
+  },
 
-  title: {},
-  subtitle: {},
+  title: {
+    fontWeight: "bold",
+  },
+  subtitle: {
+    color: (theme) => theme.palette.grey[700],
+  },
 });
