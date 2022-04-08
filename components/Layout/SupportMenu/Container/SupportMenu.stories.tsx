@@ -5,7 +5,7 @@ import React from "react";
 import { Story, Meta } from "@storybook/react";
 
 export default {
-  title: "Layout/Support Menu/Main",
+  title: "Layout/Support Menu/Container",
   component: SupportMenu,
   parameters: {
     layout: "fullscreen",
