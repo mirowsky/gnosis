@@ -21,7 +21,6 @@ interface SupportMenuPropsWithId extends SupportMenuProps {
 }
 
 export const DEFAULT_SupportMenu_TESTING_PROPS: SupportMenuPropsWithId = {
-  open: true,
   headerTitle: "Precisa de ajuda? Fale conosco!",
   headerSubtitle: "Converse com nossa equipe via WhatsApp",
   onClick: () => {},

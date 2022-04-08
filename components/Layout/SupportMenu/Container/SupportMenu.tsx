@@ -1,6 +1,7 @@
 import { Close } from "@mui/icons-material";
 import { Box, IconButton, Typography } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
+import { ThemeStyles } from "@workspace/types";
 import React from "react";
 import SupportMenuItem, {
   SupportMenuItemProps,
@@ -8,22 +9,22 @@ import SupportMenuItem, {
 import { SupportMenu_TEST_ID } from "./SupportMenu.fixture";
 
 export interface SupportMenuProps {
-  open: boolean;
   headerTitle: string;
   headerSubtitle?: string;
   onClick?: (...args: unknown[]) => void;
   items: SupportMenuItemProps[];
+  sx?: ThemeStyles;
 }
 
 export const SupportMenu = ({
   headerTitle,
   items,
-  open,
   headerSubtitle,
   onClick: onCloseButtonClick,
+  sx,
 }: SupportMenuProps) => {
   return (
-    <Box sx={styles.root}>
+    <Box sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.header}>
         <Box sx={styles.closeButtonContainer}>
           <IconButton
@@ -59,9 +60,8 @@ export default SupportMenu;
 
 const styles = stylesheet.create({
   root: {
-    width: "fit-content",
     height: "auto",
-    minWidth: { lg: "24em" },
+    minWidth: { lg: "22.5em" },
     fontSize: "1rem",
     maxWidth: "100%",
     position: "relative",
