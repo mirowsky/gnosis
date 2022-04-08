@@ -2,14 +2,7 @@ import { Close } from "@mui/icons-material";
 import { Box, IconButton, Typography } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
 import React from "react";
-
-export type SupportMenuItemProps = {
-  icon: React.FunctionComponent;
-  title: string;
-  subtitle: string;
-  online?: boolean;
-  onClick?: (...args: unknown[]) => void;
-};
+import { SupportMenuItemProps } from "../SupportMenuItem/SupportMenuItem";
 
 export interface SupportMenuProps {
   open: boolean;

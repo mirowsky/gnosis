@@ -1,5 +1,6 @@
-import type { SupportMenuProps, SupportMenuItemProps } from "./SupportMenu";
+import type { SupportMenuProps } from "./SupportMenu";
 import { QuestionAnswer } from "@mui/icons-material";
+import type { SupportMenuItemProps } from "../SupportMenuItem/SupportMenuItem";
 
 const item: SupportMenuItemProps & { "test-id": string } = {
   icon: QuestionAnswer,
