@@ -13,9 +13,7 @@ const item: SupportMenuItemProps & { "test-id": string } = {
 
 export const SupportMenu_TEST_ID = {
   closeButton: "supportMenuCloseButtonID",
-  listItemOne: "supportMenuItemTestIdOne",
-  listItemTwo: "supportMenuItemTestIdTwo",
-  listItemThree: "supportMenuItemTestIdThree",
+  contentList: "supportMenuContentContainerTestId",
 };
 
 interface SupportMenuPropsWithId extends SupportMenuProps {
@@ -28,9 +26,5 @@ export const DEFAULT_SupportMenu_TESTING_PROPS: SupportMenuPropsWithId = {
   headerSubtitle: "Converse com nossa equipe via WhatsApp",
   onCloseButtonClick: () => {},
   onClose: () => {},
-  items: [
-    { ...item, "test-id": SupportMenu_TEST_ID.listItemOne },
-    { ...item, "test-id": SupportMenu_TEST_ID.listItemTwo },
-    { ...item, "test-id": SupportMenu_TEST_ID.listItemThree },
-  ],
+  items: [],
 };

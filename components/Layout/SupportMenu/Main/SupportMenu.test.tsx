@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import type { SupportMenuProps } from "./SupportMenu";
 import {
   DEFAULT_SupportMenu_TESTING_PROPS,
@@ -64,24 +64,24 @@ describe("SupportMenu header", () => {
 
     const buttonElement = getByTestId(SupportMenu_TEST_ID.closeButton);
 
+    fireEvent.click(buttonElement);
+
     expect(buttonElement).toBeEnabled();
 
     expect(callback).toHaveBeenCalled();
-    expect(callback.mock.calls.length).toBe(1);
   });
 });
 
 describe("Support Menu content", () => {
-  const { baseElement, getByTestId } = setup();
+  it("should render a list of items", () => {
+    const { getByTestId } = setup();
 
-  const childNodes = baseElement.childNodes;
+    const element = getByTestId(SupportMenu_TEST_ID.contentList);
 
-  let result = [...childNodes].filter((val, i) => {
-    return (
-      (val as HTMLElement).getAttribute("test-id") ===
-      DEFAULT_SupportMenu_TESTING_PROPS.items[i]["test-id"]
+    const childNodes = element.childNodes;
+
+    expect(childNodes.length).toBe(
+      DEFAULT_SupportMenu_TESTING_PROPS.items.length
     );
   });
-
-  expect(result.length).toBe(3);
 });

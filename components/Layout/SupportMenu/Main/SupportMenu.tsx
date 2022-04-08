@@ -2,7 +2,10 @@ import { Close } from "@mui/icons-material";
 import { Box, IconButton, Typography } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
 import React from "react";
-import { SupportMenuItemProps } from "../SupportMenuItem/SupportMenuItem";
+import SupportMenuItem, {
+  SupportMenuItemProps,
+} from "../SupportMenuItem/SupportMenuItem";
+import { SupportMenu_TEST_ID } from "./SupportMenu.fixture";
 
 export interface SupportMenuProps {
   open: boolean;
@@ -25,7 +28,11 @@ export const SupportMenu = ({
     <Box sx={styles.root}>
       <Box sx={styles.header}>
         <Box sx={styles.closeButtonContainer}>
-          <IconButton onClick={onCloseButtonClick} sx={styles.closeButton}>
+          <IconButton
+            data-testid={SupportMenu_TEST_ID.closeButton}
+            onClick={onCloseButtonClick}
+            sx={styles.closeButton}
+          >
             <Close />
           </IconButton>
         </Box>
@@ -37,9 +44,9 @@ export const SupportMenu = ({
           <Typography sx={styles.subtitle}>{headerSubtitle}</Typography>
         </Box>
       </Box>
-      <Box sx={styles.content}>
-        {items.map((Item, index) => {
-          return <div key={index}></div>;
+      <Box data-testid={SupportMenu_TEST_ID.contentList} sx={styles.content}>
+        {items.map((item, index) => {
+          return <SupportMenuItem {...item} key={index} />;
         })}
       </Box>
     </Box>
@@ -74,6 +81,7 @@ const styles = stylesheet.create({
     width: "100%",
     display: "flex",
     justifyContent: "flex-end",
+    pointerEvents: "none",
   },
   titleContainer: {
     display: "flex",

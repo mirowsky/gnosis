@@ -12,6 +12,21 @@ const setup = (
 };
 
 describe("SupportMenuItem component", () => {
+  it("should fire the assigned callback when clicked", () => {
+    const callback = jest.fn(() => console.log("i was called"));
+
+    const { getByRole, debug } = setup({
+      ...DEFAULT_SupportMenuItem_TESTING_PROPS,
+      onClick: callback,
+    });
+
+    const element = getByRole("button");
+
+    fireEvent.click(element);
+
+    expect(callback).toHaveBeenCalled();
+  });
+
   it("should render", () => {
     const { baseElement } = setup();
     expect(baseElement).toBeInTheDocument();
@@ -22,7 +37,7 @@ describe("SupportMenuItem component", () => {
 
     const icon = getByRole("presentation");
 
-    expect(icon).toHaveAccessibleDescription("Descrição acessível");
+    expect(icon).toHaveAttribute("aria-labelledby", "Descrição acessível");
     expect(icon).toBeInTheDocument();
     expect(icon).toHaveAttribute("role", "presentation");
     expect(icon).toBeVisible();
@@ -44,28 +59,6 @@ describe("SupportMenuItem component", () => {
     expect(tag).toBeVisible();
 
     expect(tag).toHaveTextContent("ONLINE");
-
-    rerender(
-      <SupportMenuItem
-        {...{ ...DEFAULT_SupportMenuItem_TESTING_PROPS, online: false }}
-      />
-    );
-
-    expect(tag).toHaveTextContent("OFFLINE");
-  });
-
-  it("should fire the assigned callback when clicked", () => {
-    const callback = jest.fn(() => {});
-
-    const { baseElement } = setup({
-      ...DEFAULT_SupportMenuItem_TESTING_PROPS,
-      onClick: callback,
-    });
-
-    fireEvent.click(baseElement);
-
-    expect(callback).toHaveBeenCalled();
-    expect(callback.mock.calls.length).toBe(1);
   });
 
   it("it should have a subtitle", () => {
