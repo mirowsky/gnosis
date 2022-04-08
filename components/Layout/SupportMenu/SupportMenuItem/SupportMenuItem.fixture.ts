@@ -9,4 +9,6 @@ export const DEFAULT_SupportMenuItem_TESTING_PROPS: SupportMenuItemProps = {
   online: true,
 };
 
-export const SupportMenuItem_TEST_ID = {} as const;
+export const SupportMenuItem_TEST_ID = {
+  tag: "SUPPORT_MENU_ITEM_STATUS_TAG_ID",
+} as const;
