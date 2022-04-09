@@ -23,7 +23,11 @@ import axios, { AxiosResponse } from "axios";
 import { useRouter } from "next/router";
 import { useDetectMobile, useWhatsAppRedirect } from "@workspace/hooks";
 import React from "react";
-import { WHATSAPP_PHONE_NUMBER } from "@workspace/contants";
+import {
+  COLLECTIONS,
+  META_TAGS,
+  WHATSAPP_PHONE_NUMBER,
+} from "@workspace/contants";
 import Head from "next/head";
 
 export interface IndexPageProps {
@@ -170,18 +174,9 @@ const Home: NextPage<IndexPageProps> = ({ courses, blog, testimonials }) => {
   return (
     <React.Fragment>
       <Head>
-        <meta
-          property="og:title"
-          content="Instituto Educacional Gnosis - Cursos de pós-graduação na área da medicina."
-        />
-        <meta
-          property="og:description"
-          content="O Instituto Educacional Gnosis trabalha para trazer ao mercado cursos de pós-graduação, extensão e multidisciplinares capazes de impulsionar a sua carreira. Mantendo a excelência de uma instituição tradicional e trazendo ao mesmo tempo a modernidade do aprendizado à distância. Conheça nossos cursos de pós-graduação e extensão na área da medicina."
-        />
-        <meta
-          name="description"
-          content='O Instituto Educacional Gnosis trabalha para trazer ao mercado cursos de pós-graduação, extensão e multidisciplinares capazes de impulsionar a sua carreira. Mantendo a excelência de uma instituição tradicional e trazendo ao mesmo tempo a modernidade do aprendizado à distância. Conheça nossos cursos de pós-graduação e extensão na área da medicina."'
-        />
+        <meta property="og:title" content={META_TAGS.title} />
+        <meta property="og:description" content={META_TAGS.description} />
+        <meta name="description" content={META_TAGS.description} />
       </Head>
       <LandingPage
         AboutSectionProps={aboutSectionProps}
@@ -200,15 +195,13 @@ export const getStaticProps: GetStaticProps<IndexPageProps> = async ({
   params,
 }) => {
   const courseRequest: AxiosResponse<CourseCollectionType[]> = await axios.get(
-    "https://us-central1-gnosis-webapp.cloudfunctions.net/api/collections/entries/coursesNew"
+    COLLECTIONS.courses
   );
   const blogRequest: AxiosResponse<BlogCollectionType[]> = await axios.get(
-    "https://us-central1-gnosis-webapp.cloudfunctions.net/api/collections/entries/gnosisBlog"
+    COLLECTIONS.blog
   );
   const testimonialRequest: AxiosResponse<TestimonialCollectionType[]> =
-    await axios.get(
-      "https://us-central1-gnosis-webapp.cloudfunctions.net/api/collections/entries/testimonials"
-    );
+    await axios.get(COLLECTIONS.testimonials);
 
   const courseData = courseRequest.data;
   const blogData = blogRequest.data;
