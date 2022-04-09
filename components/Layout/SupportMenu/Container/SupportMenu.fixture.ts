@@ -24,5 +24,5 @@ export const DEFAULT_SupportMenu_TESTING_PROPS: SupportMenuPropsWithId = {
   headerTitle: "Precisa de ajuda? Fale conosco!",
   headerSubtitle: "Converse com nossa equipe via WhatsApp",
   onClick: () => {},
-  items: [item, item, item],
+  items: [item, item, item, item, item],
 };

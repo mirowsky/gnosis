@@ -60,13 +60,12 @@ export default SupportMenu;
 
 const styles = stylesheet.create({
   root: {
-    height: "auto",
+    height: "fit-content",
     minWidth: { lg: "22.5em" },
     fontSize: "1rem",
     maxWidth: "100%",
     position: "relative",
     display: "grid",
-    gridTemplateRows: "35% 65%",
     borderRadius: "12px",
     boxShadow: (theme) => theme.shadows[5],
   },
@@ -76,7 +75,15 @@ const styles = stylesheet.create({
     display: "grid",
     gridTemplateRows: "repeat(1, minmax(0, 1fr))",
     justifyItems: "center",
-    padding: "1em",
+    padding: "1em 0.75em",
+    maxHeight: '30em',
+    overflowY: 'scroll',
+    "&::-webkit-scrollbar": {
+      width: '5px',
+      borderRadius: '50%',
+      backgroundColor: theme => theme.palette.primary.light
+    }
+
   },
 
   header: {

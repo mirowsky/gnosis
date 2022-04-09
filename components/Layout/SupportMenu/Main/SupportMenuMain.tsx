@@ -18,7 +18,7 @@ export type SupportMenuMainProps = {
 };
 
 export const SupportMenuMain = ({
-  open,
+  open = false,
   SupportMenuProps,
   sx,
   ContactDialButtonProps,
@@ -40,11 +40,15 @@ export const SupportMenuMain = ({
         <AnimatePresence>
           {open && (
             <MotionBox
-              component={SupportMenu}
-              {...SupportMenuProps}
+
               variants={VARIANTS}
               exit={"closed"}
-            />
+            >
+              <SupportMenu
+
+                {...SupportMenuProps}
+              />
+            </MotionBox>
           )}
         </AnimatePresence>
       </MotionBox>

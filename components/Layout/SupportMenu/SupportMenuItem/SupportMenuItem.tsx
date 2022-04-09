@@ -1,5 +1,6 @@
 import { Box, Chip, Typography } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
+import { ThemeStyles } from "@workspace/types";
 import React from "react";
 
 export type SupportMenuItemProps = {
@@ -8,6 +9,7 @@ export type SupportMenuItemProps = {
   subtitle: string;
   online?: boolean;
   onClick?: (...args: unknown[]) => void;
+  sx?: ThemeStyles
 };
 
 export const SupportMenuItem = ({
@@ -16,9 +18,10 @@ export const SupportMenuItem = ({
   title,
   onClick,
   online,
+  sx
 }: SupportMenuItemProps) => {
   return (
-    <Box role="button" onClick={onClick} sx={styles.root}>
+    <Box role="button" onClick={onClick} sx={{ ...styles.root, ...sx }}>
       <Box
         aria-labelledby="Descrição acessível"
         role="presentation"
