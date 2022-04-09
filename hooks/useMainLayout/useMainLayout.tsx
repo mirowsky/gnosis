@@ -35,7 +35,7 @@ export const useMainLayout = (
       {
         label: "Cursos",
         onClick: () => {
-          handleMenuClick(router, "#courses_section");
+          handleMenuClick(router, "#course_section");
         },
       },
       {

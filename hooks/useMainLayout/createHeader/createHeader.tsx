@@ -17,7 +17,7 @@ export const createHeader = (params: {
     },
     cta: {
       label: "Contate-nos",
-      onClick: () => scrollToElem("#course_section"),
+      onClick: () => scrollToElem("#contact_section"),
     },
     onBurguerButtonClick: () => params.setOpen(true),
     onLogoClick: () => handleLogoClick(params.router),

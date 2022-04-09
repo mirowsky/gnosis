@@ -9,7 +9,7 @@ import { useContactForm } from "hooks/useContactForm/useContactForm";
 import { useNewsletterInput } from "hooks/useNewsletterInput/useNewsletterInput";
 import { useDetectMobile, useMainLayout, useWhatsAppRedirect } from "../hooks";
 
-import { GTM_ID } from "@workspace/contants";
+import { GTM_ID, META_TAGS } from "@workspace/contants";
 import { GTMAfterInteractive } from "@workspace/components/utility";
 
 function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
@@ -37,10 +37,7 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
   return (
     <React.Fragment>
       <Head>
-        <title>
-          Instituto Educacional Gnosis - Cursos de pós-graduação na área de
-          medicina.
-        </title>
+        <title>{META_TAGS.title}</title>
       </Head>
       <CacheProvider value={emotionCache}>
         <CustomTheme>
