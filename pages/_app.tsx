@@ -8,6 +8,8 @@ import Head from "next/head";
 import { useContactForm } from "hooks/useContactForm/useContactForm";
 import { useNewsletterInput } from "hooks/useNewsletterInput/useNewsletterInput";
 import { useMainLayout } from "../hooks";
+import { GTMAfterInteractive } from "components/Utility/GoogleTagManager/GTMAfterInteractive";
+import { GTM_ID } from "@workspace/contants";
 
 function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
   const clientSideCache = createEmotionCache({ key: "css" });
@@ -38,6 +40,8 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
           </MainLayout>
         </CustomTheme>
       </CacheProvider>
+
+      <GTMAfterInteractive GTM_ID={GTM_ID} />
     </React.Fragment>
   );
 }

@@ -31,9 +31,6 @@ export const COLLECTIONS_API_ROUTES = {
   testimonials: `${API_ROUTE_BASE}/collections/entries/testimonials`,
 };
 
-export const GTM_ID = {
-  production: `${process.env.GTM}`,
-  development: `${process.env.GTM}`,
-} as const;
+export const GTM_ID = `${process.env.GTM}`;
 
 export const WHATSAPP_PHONE_NUMBER = "555191431009";

@@ -1,6 +1,5 @@
 export { convertToSlug } from "./convertToSlug";
 export { createCourseCollectionWithSlug } from "./courseCollectionSlug";
-export { pageView } from "./gtag";
 export { handleMenuClick } from "./handleMenuClick";
 export { isMobile } from "./isMobile";
 export { noop } from "./noop";
@@ -17,3 +16,6 @@ export { getCourseURL } from "./getCourseURL";
 export { handleLogoClick } from "./handleLogoClick";
 export { insert } from "./insert";
 export { getThumbnail } from "./getThumbnail";
+export { events as GTMEvents } from "./gtag";
+export type { CustomEvent as GTMCustomEvent } from "./gtag";
+export type { EventDispatcher as GTMDispatcher } from "./gtag";

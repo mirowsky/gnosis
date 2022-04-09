@@ -1,15 +1,15 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { GTMDataLayerPageView } from "./lib";
+import { GTMEvents } from "@workspace/utility";
 
 export function useGTMWithNextJSRouter() {
   const router = useRouter();
 
   React.useEffect(() => {
-    router.events.on("routeChangeComplete", GTMDataLayerPageView);
+    router.events.on("routeChangeComplete", GTMEvents.pageView);
 
     return () => {
-      router.events.off("routeChangeComplete", GTMDataLayerPageView);
+      router.events.off("routeChangeComplete", GTMEvents.pageView);
     };
   }, [router.events]);
 }
