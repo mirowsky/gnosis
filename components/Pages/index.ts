@@ -6,3 +6,5 @@ export { BlogPageLayout } from "./Blog/Main/BlogPage";
 export type { BlogPageProps } from "./Blog/Main/BlogPage";
 export { CoursePageAlt } from "./Course/Alt/CoursePageAlt";
 export type { CoursePageAltProps } from "./Course/Alt/CoursePageAlt";
+export { DefenseSection } from "./Landing/Sections/Defense/Main/DefenseSection";
+export type { DefenseSectionProps } from "./Landing/Sections/Defense/Main/DefenseSection";
