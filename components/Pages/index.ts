@@ -10,3 +10,5 @@ export { DefenseSection } from "./Landing/Sections/Defense/Main/DefenseSection";
 export type { DefenseSectionProps } from "./Landing/Sections/Defense/Main/DefenseSection";
 export { Hero } from "./Landing/Sections/Hero/Main/Hero";
 export type { HeroProps } from "./Landing/Sections/Hero/Main/Hero";
+export { AboutSection } from "./Landing/Sections/About/Main/AboutSection";
+export type { AboutSectionProps } from "./Landing/Sections/About/Main/AboutSection";
