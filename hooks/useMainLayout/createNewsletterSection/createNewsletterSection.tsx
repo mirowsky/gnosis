@@ -1,14 +1,15 @@
-import { alertStore } from "@workspace/components/utility";
+import { AlertState, alertStore } from "@workspace/components/utility";
 import { NewsLetterSectionProps } from "@workspace/components/layouts";
 import { UseFormReturn } from "react-hook-form";
 
-const dispatchAlert = alertStore((state) => state.dispatch);
-
-const submitHandler__dev = (form: UseFormReturn<{ email: string }, any>) => {
+const submitHandler__dev = (
+  form: UseFormReturn<{ email: string }, any>,
+  dispatch: (alert: Omit<AlertState, "open">) => void
+) => {
   form.handleSubmit(
     async (data, event) => {
       await new Promise((resolve, reject) => {
-        dispatchAlert({
+        dispatch({
           message: "Enviando sua inscrição...",
           severity: "info",
         });
@@ -21,7 +22,7 @@ const submitHandler__dev = (form: UseFormReturn<{ email: string }, any>) => {
         .then(() => {
           form.reset({ email: "" });
 
-          dispatchAlert({
+          dispatch({
             message: `Obrigado por inscrever-se em nossa newsletter.`,
             severity: "success",
           });
@@ -37,6 +38,8 @@ const submitHandler__prod = (form: UseFormReturn<{ email: string }, any>) => {};
 export const createNewsletterSection = (params: {
   form: UseFormReturn<{ email: string }, any>;
 }): NewsLetterSectionProps => {
+  const dispatchAlert = alertStore((state) => state.dispatch);
+
   return {
     img: {
       src: "/images/newsletter-doc.webp",
@@ -51,7 +54,7 @@ export const createNewsletterSection = (params: {
       ButtonProps: {
         loading: params.form.formState.isSubmitting,
         disabled: !params.form.formState.isValid,
-        onClick: () => submitHandler__dev(params.form),
+        onClick: () => submitHandler__dev(params.form, dispatchAlert),
       },
     },
   };
