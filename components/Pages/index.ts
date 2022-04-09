@@ -12,3 +12,5 @@ export { Hero } from "./Landing/Sections/Hero/Main/Hero";
 export type { HeroProps } from "./Landing/Sections/Hero/Main/Hero";
 export { AboutSection } from "./Landing/Sections/About/Main/AboutSection";
 export type { AboutSectionProps } from "./Landing/Sections/About/Main/AboutSection";
+export { CourseSection } from "./Landing/Sections/Courses/Main/CoursesSection";
+export type { CourseSectionProps } from "./Landing/Sections/Courses/Main/CoursesSection";

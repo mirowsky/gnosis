@@ -1,19 +1,5 @@
 import type { GetStaticProps, NextPage } from "next";
-import { LandingPage, LandingPageProps } from "@workspace/components/pages";
-import {
-  AccessTime,
-  AssuredWorkloadTwoTone,
-  CastForEducation,
-  HistoryEdu,
-  School,
-  SupportAgent,
-  WhatsApp,
-} from "@mui/icons-material";
-import {
-  getCourseURL,
-  handleMenuClick,
-  getThumbnail,
-} from "@workspace/utility";
+import { LandingPage } from "@workspace/components/pages";
 import {
   BlogCollectionType,
   CourseCollectionType,
@@ -23,11 +9,7 @@ import axios, { AxiosResponse } from "axios";
 import { useRouter } from "next/router";
 import { useDetectMobile, useWhatsAppRedirect } from "@workspace/hooks";
 import React from "react";
-import {
-  COLLECTIONS,
-  META_TAGS,
-  WHATSAPP_PHONE_NUMBER,
-} from "@workspace/contants";
+import { COLLECTIONS, META_TAGS } from "@workspace/contants";
 import Head from "next/head";
 
 export interface IndexPageProps {
@@ -41,69 +23,6 @@ const Home: NextPage<IndexPageProps> = ({ courses, blog, testimonials }) => {
   const isMobile = useDetectMobile();
   const whatsRedirect = useWhatsAppRedirect(isMobile ? "mobile" : "desktop");
   const [activeTab, setActiveTab] = React.useState(0);
-
-  const courseSectionProps: LandingPageProps["CourseSectionProps"] = {
-    CourseSliderProps: {
-      items: courses.map((course, index) => {
-        return {
-          loading: true,
-          primaryAction: {
-            children: "Saiba mais",
-            onClick: () => {
-              router.push(
-                getCourseURL(
-                  course.courseArea,
-                  course.courseLevel,
-                  course.courseName,
-                  course.uuid
-                )
-              );
-            },
-          },
-          secondaryAction: {
-            children: WhatsApp,
-            onClick: () =>
-              whatsRedirect(
-                `Olá, estou vindo através do website e gostaria de mais informações sobre o curso *${course.courseName} - ${course.courseArea} - ${course.courseLevel}*`,
-                WHATSAPP_PHONE_NUMBER
-              ),
-          },
-          title: course.courseName,
-          tags: [
-            { icon: AccessTime, label: course.courseDuration },
-            { icon: School, label: course.courseLevel },
-          ],
-          img: {
-            src: getThumbnail(course.courseImage.imageURL),
-            alt: course.courseImage.imageDescription,
-          },
-        };
-      }),
-      navigation: {
-        nextEl: "#forward",
-        prevEl: "#backwards",
-      },
-    },
-
-    CourseTabsProps: {
-      items: ["Pós-graduação"],
-      handleChange: (event, newValue) => {
-        setActiveTab(newValue);
-      },
-      value: activeTab,
-    },
-    id: "course_section",
-    CourseNavigationProps: {
-      backwardButton: {
-        id: "backwards",
-        color: "primary",
-      },
-      forwardButton: {
-        id: "forward",
-        color: "primary",
-      },
-    },
-  };
 
   return (
     <React.Fragment>
