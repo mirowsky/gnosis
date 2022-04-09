@@ -3,13 +3,12 @@ import { CacheProvider, EmotionCache } from "@emotion/react";
 import createEmotionCache from "@emotion/cache";
 import React from "react";
 import CustomTheme from "../theme/CustomTheme";
-import { MainLayout, MainLayoutProps } from "@workspace/components/layouts";
-import { handleLogoClick, handleMenuClick } from "@workspace/utility";
+import { MainLayout } from "@workspace/components/layouts";
 import { alertStore, GlobalSnack } from "@workspace/components/utility";
 import Head from "next/head";
 import { useContactForm } from "hooks/useContactForm/useContactForm";
-import { QuestionAnswer, WhatsApp } from "@mui/icons-material";
 import { useNewsletterInput } from "hooks/useNewsletterInput/useNewsletterInput";
+import { useMainLayout } from "../hooks";
 
 function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
   const clientSideCache = createEmotionCache({ key: "css" });
@@ -23,6 +22,11 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
 
   const dispatchAlert = alertStore((state) => state.dispatch);
 
+  const contactForm = useContactForm();
+  const newsLetterForm = useNewsletterInput();
+
+  const layout = useMainLayout(router, contactForm, newsLetterForm);
+
   return (
     <React.Fragment>
       <Head>
@@ -33,7 +37,7 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
       </Head>
       <CacheProvider value={emotionCache}>
         <CustomTheme>
-          <MainLayout>
+          <MainLayout {...layout}>
             <GlobalSnack />
             <Component {...pageProps} />
           </MainLayout>
