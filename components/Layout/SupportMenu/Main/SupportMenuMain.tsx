@@ -39,15 +39,8 @@ export const SupportMenuMain = ({
       >
         <AnimatePresence>
           {open && (
-            <MotionBox
-
-              variants={VARIANTS}
-              exit={"closed"}
-            >
-              <SupportMenu
-
-                {...SupportMenuProps}
-              />
+            <MotionBox variants={VARIANTS} exit={"closed"}>
+              <SupportMenu {...SupportMenuProps} />
             </MotionBox>
           )}
         </AnimatePresence>

@@ -31,8 +31,8 @@ export const smoothScrollAsync = (to: number, duration: number) => {
       if (currentTime < duration) {
         requestAnimationFrame(animateScroll);
       } else {
-        element.scrollTop = to;
         resolve();
+        element.scrollTop = to;
       }
     };
 

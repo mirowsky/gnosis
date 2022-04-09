@@ -16,6 +16,11 @@ export const createSupportMenu = (params: {
       open: params.open,
     },
     SupportMenuProps: {
+      sx: {
+        scale: "0.75",
+        transformOrigin: "bottom right",
+        maxWidth: "400px",
+      },
       headerTitle: "Precisa de ajuda? Fale conosco!",
       headerSubtitle: "Converse com nossa equipe via WhatsApp",
       onClick: () => params.setOpen(false),

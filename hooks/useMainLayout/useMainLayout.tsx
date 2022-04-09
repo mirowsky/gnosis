@@ -12,6 +12,8 @@ import { createMobileMenu } from "./createMobileMenu/createMobileMenu";
 import { createNewsletterSection } from "./createNewsletterSection/createNewsletterSection";
 import { createSupportMenu } from "./createSupportMenu/createSupportMenu";
 import { handleMenuClick, scrollToElemAsync } from "@workspace/utility";
+import { SupportMenuMainProps } from "components/Layout/SupportMenu/Main/SupportMenuMain";
+import { Handshake, Help, LiveHelp } from "@mui/icons-material";
 
 export const useMainLayout = (
   router: ReturnType<typeof useRouter>,
@@ -45,9 +47,26 @@ export const useMainLayout = (
     ] as MobileMenuProps["menuItems"];
   }, [router]);
 
+  const supportMenuItems = React.useMemo(() => {
+    return [
+      {
+        icon: Handshake,
+        subtitle: "Fale com nossa equipe comercial",
+        title: "Equipe comercial",
+        online: true,
+      },
+      {
+        icon: LiveHelp,
+        title: "Tire suas dúvidas",
+        subtitle: "Está em dúvida sobre qual curso escolher? Fale conosco?",
+        online: false,
+      },
+    ] as SupportMenuMainProps["SupportMenuProps"]["items"];
+  }, []);
+
   return {
     SupportMenuMainProps: createSupportMenu({
-      items: [],
+      items: supportMenuItems ?? [],
       open: supportMenu,
       setOpen: setSupportMenu,
     }),
