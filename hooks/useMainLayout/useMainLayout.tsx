@@ -12,11 +12,11 @@ import { createMobileMenu } from "./createMobileMenu/createMobileMenu";
 import { createNewsletterSection } from "./createNewsletterSection/createNewsletterSection";
 import { createSupportMenu } from "./createSupportMenu/createSupportMenu";
 import { handleMenuClick, scrollToElemAsync } from "@workspace/utility";
-import { SupportMenuMainProps } from "components/Layout/SupportMenu/Main/SupportMenuMain";
-import { Handshake, Help, LiveHelp } from "@mui/icons-material";
+import { useWhatsAppRedirect } from "@workspace/hooks";
 
 export const useMainLayout = (
   router: ReturnType<typeof useRouter>,
+  whatsAppHandler: ReturnType<typeof useWhatsAppRedirect>,
   contactForm: Parameters<typeof createContactFormDialog>[0]["form"],
   newsLetterForm: Parameters<typeof createNewsletterSection>[0]["form"]
 ): Omit<MainLayoutProps, "children"> => {
@@ -47,34 +47,11 @@ export const useMainLayout = (
     ] as MobileMenuProps["menuItems"];
   }, [router]);
 
-  const supportMenuItems = React.useMemo(() => {
-    return [
-      {
-        label:
-          "Suporte com nossa equipe comercial - Clique para ser direcionado ao WhatsApp",
-        icon: Handshake,
-        subtitle: "Fale com nossa equipe comercial",
-        title: "Equipe comercial",
-        online: true,
-        id: "suporte-equipe-comercial",
-      },
-      {
-        label:
-          "Suporte para dúvidas gerais - Clique para ser direcionado ao WhatsApp.",
-        icon: LiveHelp,
-        id: "suporte-duvidas",
-        title: "Tire suas dúvidas",
-        subtitle: "Está em dúvida sobre qual curso escolher? Fale conosco?",
-        online: false,
-      },
-    ] as SupportMenuMainProps["SupportMenuProps"]["items"];
-  }, []);
-
   return {
     SupportMenuMainProps: createSupportMenu({
-      items: supportMenuItems ?? [],
       open: supportMenu,
       setOpen: setSupportMenu,
+      whatsAppHandler: whatsAppHandler,
     }),
     NewsLetterSectionProps: createNewsletterSection({ form: newsLetterForm }),
 

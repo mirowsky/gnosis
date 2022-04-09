@@ -1,11 +1,12 @@
 import React from "react";
-import type { SupportMenuItemProps } from "../../../components/Layout/SupportMenu/SupportMenuItem/SupportMenuItem";
 import type { SupportMenuMainProps } from "../../../components/Layout/SupportMenu/Main/SupportMenuMain";
+import { Handshake, LiveHelp } from "@mui/icons-material";
+import { useWhatsAppRedirect } from "@workspace/hooks";
 
 export const createSupportMenu = (params: {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  items: SupportMenuItemProps[];
+  whatsAppHandler: ReturnType<typeof useWhatsAppRedirect>;
 }): SupportMenuMainProps => {
   return {
     open: params.open,
@@ -25,7 +26,26 @@ export const createSupportMenu = (params: {
       headerTitle: "Precisa de ajuda? Fale conosco!",
       headerSubtitle: "Converse com nossa equipe via WhatsApp",
       onClick: () => params.setOpen(false),
-      items: params.items,
+      items: [
+        {
+          label:
+            "Suporte com nossa equipe comercial - Clique para ser direcionado ao WhatsApp",
+          icon: Handshake,
+          subtitle: "Fale com nossa equipe comercial",
+          title: "Equipe comercial",
+          online: true,
+          id: "suporte-equipe-comercial",
+        },
+        {
+          label:
+            "Suporte para dúvidas gerais - Clique para ser direcionado ao WhatsApp.",
+          icon: LiveHelp,
+          id: "suporte-duvidas",
+          title: "Tire suas dúvidas",
+          subtitle: "Está em dúvida sobre qual curso escolher? Fale conosco?",
+          online: false,
+        },
+      ],
     },
   };
 };
