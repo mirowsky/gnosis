@@ -33,15 +33,7 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
       </Head>
       <CacheProvider value={emotionCache}>
         <CustomTheme>
-          <MainLayout
-            SupportMenuMainProps={supportMenuProps}
-            HeaderProps={headerProps}
-            FooterProps={footerProps}
-            MobileMenuProps={mobileMenuProps}
-            ContactSectionProps={contactSectionProps}
-            NewsLetterSectionProps={newsLetterSectionProps}
-            ContactFormDialogProps={contactFormDialogProps}
-          >
+          <MainLayout>
             <GlobalSnack />
             <Component {...pageProps} />
           </MainLayout>
