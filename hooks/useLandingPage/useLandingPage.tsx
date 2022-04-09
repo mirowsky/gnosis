@@ -16,12 +16,12 @@ import {
 export const useLandingPage = (
   router: NextRouter,
   whatsAppHandler: ReturnType<typeof useWhatsAppRedirect>,
-  dynamicCollections: {
+  collections: {
     faq: Parameters<typeof createDynamicSection>[0]["FAQItems"];
     blog: BlogCollectionType[];
     testimonial: TestimonialCollectionType[];
-  },
-  courses: CourseCollectionType[]
+    courses: CourseCollectionType[];
+  }
 ): LandingPageProps => {
   const [activeTab, setActiveTab] = React.useState(0);
 
@@ -31,11 +31,11 @@ export const useLandingPage = (
       activeTab: activeTab,
       setActiveTab: setActiveTab,
       whatsAppHandler: whatsAppHandler,
-      courses: courses,
+      courses: collections.courses,
     }),
     DynamicSectionsProps: createDynamicSection({
-      FAQItems: dynamicCollections.faq,
-      blogPosts: dynamicCollections.blog.map((val, index) => {
+      FAQItems: collections.faq,
+      blogPosts: collections.blog.map((val, index) => {
         return {
           img: {
             src: val.featuredImage.imageURL,
@@ -46,19 +46,17 @@ export const useLandingPage = (
           title: val.blogTitle,
         };
       }),
-      testimonialItems: dynamicCollections.testimonial.map(
-        (testimonial, _index) => {
-          return {
-            testimonial: testimonial.testimonialText,
-            testimonialName: testimonial.testimonialName,
-            testimonialPicture: {
-              src: testimonial.testimonialPicture.imageURL,
-              alt: testimonial.testimonialPicture.imageDescription,
-            },
-            testimonialExtra: testimonial.testimonialLocation,
-          };
-        }
-      ),
+      testimonialItems: collections.testimonial.map((testimonial, _index) => {
+        return {
+          testimonial: testimonial.testimonialText,
+          testimonialName: testimonial.testimonialName,
+          testimonialPicture: {
+            src: testimonial.testimonialPicture.imageURL,
+            alt: testimonial.testimonialPicture.imageDescription,
+          },
+          testimonialExtra: testimonial.testimonialLocation,
+        };
+      }),
     }),
     DefenseSectionProps: createDefenseSection(),
     HeroSectionProps: createHeroSection(router),

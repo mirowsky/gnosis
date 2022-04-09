@@ -27,16 +27,12 @@ const Home: NextPage<IndexPageProps> = ({ courses, blog, testimonials }) => {
   const isMobile = useDetectMobile();
   const whatsRedirect = useWhatsAppRedirect(isMobile ? "mobile" : "desktop");
 
-  const landingProps = useLandingPage(
-    router,
-    whatsRedirect,
-    {
-      blog: blog ?? [],
-      faq: [] ?? [],
-      testimonial: testimonials ?? [],
-    },
-    courses
-  );
+  const landingProps = useLandingPage(router, whatsRedirect, {
+    blog: blog ?? [],
+    faq: [] ?? [],
+    testimonial: testimonials ?? [],
+    courses: courses ?? [],
+  });
 
   return (
     <React.Fragment>
