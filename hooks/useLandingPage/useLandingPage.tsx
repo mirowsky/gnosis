@@ -17,7 +17,7 @@ export const useLandingPage = (
   router: NextRouter,
   whatsAppHandler: ReturnType<typeof useWhatsAppRedirect>,
   collections: {
-    faq: Parameters<typeof createDynamicSection>[0]["FAQItems"];
+    faq: Parameters<typeof createDynamicSection>[0]["faq"];
     blog: BlogCollectionType[];
     testimonial: TestimonialCollectionType[];
     courses: CourseCollectionType[];
@@ -34,29 +34,9 @@ export const useLandingPage = (
       courses: collections.courses,
     }),
     DynamicSectionsProps: createDynamicSection({
-      FAQItems: collections.faq,
-      blogPosts: collections.blog.map((val, index) => {
-        return {
-          img: {
-            src: val.featuredImage.imageURL,
-            alt: val.featuredImage.imageDescription,
-          },
-          readingTime: "10 minutos de leitura",
-          tags: ["Medicina"],
-          title: val.blogTitle,
-        };
-      }),
-      testimonialItems: collections.testimonial.map((testimonial, _index) => {
-        return {
-          testimonial: testimonial.testimonialText,
-          testimonialName: testimonial.testimonialName,
-          testimonialPicture: {
-            src: testimonial.testimonialPicture.imageURL,
-            alt: testimonial.testimonialPicture.imageDescription,
-          },
-          testimonialExtra: testimonial.testimonialLocation,
-        };
-      }),
+      faq: collections.faq,
+      blog: collections.blog,
+      testimonial: collections.testimonial,
     }),
     DefenseSectionProps: createDefenseSection(),
     HeroSectionProps: createHeroSection(router),

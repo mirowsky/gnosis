@@ -1,6 +1,6 @@
 import React from "react";
 import type { SupportMenuMainProps } from "../../../components/Layout/SupportMenu/Main/SupportMenuMain";
-import { Handshake, LiveHelp } from "@mui/icons-material";
+import { Handshake, LiveHelp, WhatsApp } from "@mui/icons-material";
 import { useWhatsAppRedirect } from "@workspace/hooks";
 
 export const createSupportMenu = (params: {
@@ -11,6 +11,7 @@ export const createSupportMenu = (params: {
   return {
     open: params.open,
     ContactDialButtonProps: {
+      iconClosed: WhatsApp,
       id: "wpp-button",
       "aria-label":
         "Clique para expandir opções de atendimento com o nosso time de suporte",

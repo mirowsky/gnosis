@@ -1,13 +1,27 @@
 import { DynamicSectionsProps } from "@workspace/components/layouts";
+import {
+  BlogCollectionType,
+  TestimonialCollectionType,
+} from "@workspace/types";
 
 export const createDynamicSection = (params: {
-  blogPosts?: DynamicSectionsProps["BlogSectionProps"]["items"];
-  FAQItems?: DynamicSectionsProps["FAQSectionProps"]["items"];
-  testimonialItems?: DynamicSectionsProps["TestimonialSectionProps"]["TestimonialSliderProps"]["items"];
+  blog: BlogCollectionType[];
+  faq: DynamicSectionsProps["FAQSectionProps"]["items"];
+  testimonial: TestimonialCollectionType[];
 }): DynamicSectionsProps => {
   return {
     BlogSectionProps: {
-      items: params?.blogPosts ?? [],
+      items: params.blog.map((val, index) => {
+        return {
+          img: {
+            src: val.featuredImage.imageURL,
+            alt: val.featuredImage.imageDescription,
+          },
+          readingTime: "10 minutos de leitura",
+          tags: ["Medicina"],
+          title: val.blogTitle,
+        };
+      }),
       sectionTitle: "Confira nossas últimas postagens.",
       ButtonProps: {
         children: "Ver mais postagens",
@@ -17,7 +31,7 @@ export const createDynamicSection = (params: {
       id: "blog_section",
     },
     FAQSectionProps: {
-      items: params?.FAQItems ?? [],
+      items: params?.faq ?? [],
       sectionTitle:
         "Encontre as respostas que você precisa em nosso centro de ajuda",
       LoadMoreButtonProps: {
@@ -30,7 +44,17 @@ export const createDynamicSection = (params: {
     TestimonialSectionProps: {
       sectionTitle: "O que nossos alunos dizem sobre o Instituto Gnosis.",
       TestimonialSliderProps: {
-        items: params?.testimonialItems ?? [],
+        items: params.testimonial.map((testimonial, _index) => {
+          return {
+            testimonial: testimonial.testimonialText,
+            testimonialName: testimonial.testimonialName,
+            testimonialPicture: {
+              src: testimonial.testimonialPicture.imageURL,
+              alt: testimonial.testimonialPicture.imageDescription,
+            },
+            testimonialExtra: testimonial.testimonialLocation,
+          };
+        }),
       },
     },
   };
