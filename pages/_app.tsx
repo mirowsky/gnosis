@@ -7,7 +7,7 @@ import { MainLayout } from "@workspace/components/layouts";
 import Head from "next/head";
 import { useContactForm } from "hooks/useContactForm/useContactForm";
 import { useNewsletterInput } from "hooks/useNewsletterInput/useNewsletterInput";
-import { useMainLayout } from "../hooks";
+import { useDetectMobile, useMainLayout, useWhatsAppRedirect } from "../hooks";
 
 import { GTM_ID } from "@workspace/contants";
 import { GTMAfterInteractive } from "@workspace/components/utility";
@@ -22,9 +22,17 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
     router,
   } = props;
 
+  const isMobile = useDetectMobile();
+  const whatsRedirect = useWhatsAppRedirect(isMobile ? "mobile" : "desktop");
+
   const contactForm = useContactForm();
   const newsLetterForm = useNewsletterInput();
-  const layoutProps = useMainLayout(router, contactForm, newsLetterForm);
+  const layoutProps = useMainLayout(
+    router,
+    whatsRedirect,
+    contactForm,
+    newsLetterForm
+  );
 
   return (
     <React.Fragment>
