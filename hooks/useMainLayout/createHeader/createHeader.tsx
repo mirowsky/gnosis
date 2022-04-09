@@ -21,14 +21,6 @@ export const createHeader = (params: {
     },
     onBurguerButtonClick: () => params.setOpen(true),
     onLogoClick: () => handleLogoClick(params.router),
-    items: params.items.map((item, _index) => {
-      return {
-        ...item,
-        onClick: () => {
-          item.onClick();
-          params.setOpen(false);
-        },
-      };
-    }),
+    items: params.items,
   };
 };

@@ -1,5 +1,8 @@
 import React from "react";
-import { MainLayoutProps } from "@workspace/components/layouts";
+import {
+  MainLayoutProps,
+  MobileMenuProps,
+} from "@workspace/components/layouts";
 import { useRouter } from "next/router";
 import { createContactFormDialog } from "./createContactFormDialog/createContactFormDialog";
 import { createContactSection } from "./createContactSection/createContactSection";
@@ -8,6 +11,7 @@ import { createHeader } from "./createHeader/createHeader";
 import { createMobileMenu } from "./createMobileMenu/createMobileMenu";
 import { createNewsletterSection } from "./createNewsletterSection/createNewsletterSection";
 import { createSupportMenu } from "./createSupportMenu/createSupportMenu";
+import { handleMenuClick } from "@workspace/utility";
 
 export const useMainLayout = (
   router: ReturnType<typeof useRouter>,
@@ -18,6 +22,29 @@ export const useMainLayout = (
   const [mobileMenu, setMobileMenu] = React.useState(false);
   const [supportMenu, setSupportMenu] = React.useState(false);
 
+  const menuItems = React.useMemo(() => {
+    return [
+      {
+        label: "Sobre nós",
+        onClick: () => {
+          handleMenuClick(router, "#about_us_section");
+        },
+      },
+      {
+        label: "Cursos",
+        onClick: () => {
+          handleMenuClick(router, "#courses_section");
+        },
+      },
+      {
+        label: "Contato",
+        onClick: () => {
+          handleMenuClick(router, "#contact_section");
+        },
+      },
+    ] as MobileMenuProps["menuItems"];
+  }, [router]);
+
   return {
     SupportMenuMainProps: createSupportMenu({
       items: [],
@@ -27,7 +54,7 @@ export const useMainLayout = (
     NewsLetterSectionProps: createNewsletterSection({ form: newsLetterForm }),
 
     MobileMenuProps: createMobileMenu({
-      items: [],
+      items: menuItems ?? [],
       onClose: () => setMobileMenu(false),
       onOpen: () => setMobileMenu(true),
       open: mobileMenu,
@@ -36,7 +63,7 @@ export const useMainLayout = (
     HeaderProps: createHeader({
       open: mobileMenu,
       setOpen: setMobileMenu,
-      items: [],
+      items: menuItems ?? [],
       router: router,
     }),
 

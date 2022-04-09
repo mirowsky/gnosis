@@ -7,7 +7,15 @@ export const createMobileMenu = (params: {
   items: MobileMenuProps["menuItems"];
 }): MobileMenuProps => {
   return {
-    menuItems: params.items,
+    menuItems: params.items?.map((val, _i) => {
+      return {
+        ...val,
+        onClick: () => {
+          val.onClick();
+          params.onClose();
+        },
+      };
+    }),
     open: params.open,
     onClose: params.onClose,
     onOpen: params.onOpen,
