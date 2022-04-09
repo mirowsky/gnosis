@@ -8,3 +8,5 @@ export { CoursePageAlt } from "./Course/Alt/CoursePageAlt";
 export type { CoursePageAltProps } from "./Course/Alt/CoursePageAlt";
 export { DefenseSection } from "./Landing/Sections/Defense/Main/DefenseSection";
 export type { DefenseSectionProps } from "./Landing/Sections/Defense/Main/DefenseSection";
+export { Hero } from "./Landing/Sections/Hero/Main/Hero";
+export type { HeroProps } from "./Landing/Sections/Hero/Main/Hero";
