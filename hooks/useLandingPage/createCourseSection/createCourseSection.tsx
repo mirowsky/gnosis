@@ -12,13 +12,11 @@ export const createCourseSection = (params: {
   whatsAppHandler: ReturnType<typeof useWhatsAppRedirect>;
   activeTab: number;
   setActiveTab: React.Dispatch<React.SetStateAction<number>>;
-  collections?: {
-    courses?: CourseCollectionType[];
-  };
+  courses?: CourseCollectionType[];
 }): CourseSectionProps => {
   return {
     CourseSliderProps: {
-      items: (params.collections?.courses ?? []).map((course, _index) => {
+      items: (params?.courses ?? []).map((course, _index) => {
         return {
           loading: true,
           primaryAction: {
