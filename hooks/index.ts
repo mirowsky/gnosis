@@ -9,3 +9,9 @@ export { useDetectMobile } from "./useDetectMobile/useDetectMobile";
 export { useClickAway } from "./useClickAway/useClickAway";
 export { useScreenBlur } from "./useScreenBlur/useScreenBlur";
 export { useScrollLock } from "./useScrollLock/useScrollLock";
+export {
+  useContactForm,
+  contactFormSchema,
+} from "./useContactForm/useContactForm";
+export type { ContactFormInputs } from "./useContactForm/useContactForm";
+export { useNewsletterInput } from "./useNewsletterInput/useNewsletterInput";

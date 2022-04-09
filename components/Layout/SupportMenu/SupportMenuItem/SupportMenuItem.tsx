@@ -10,6 +10,8 @@ export type SupportMenuItemProps = {
   online?: boolean;
   onClick?: (...args: unknown[]) => void;
   sx?: ThemeStyles
+  id?: string
+  label?: string
 };
 
 export const SupportMenuItem = ({
@@ -18,12 +20,14 @@ export const SupportMenuItem = ({
   title,
   onClick,
   online,
-  sx
+  sx,
+  id,
+  label
 }: SupportMenuItemProps) => {
   return (
-    <Box role="button" onClick={onClick} sx={{ ...styles.root, ...sx }}>
+    <Box id={id} role="button" onClick={onClick} sx={{ ...styles.root, ...sx }}>
       <Box
-        aria-labelledby="Descrição acessível"
+        aria-labelledby={label}
         role="presentation"
         sx={styles.iconContainer}
       >
