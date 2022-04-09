@@ -6,6 +6,50 @@ export const nativeSmoothScrollTo = (elem: Element | HTMLElement) => {
   });
 };
 
+export const smoothScrollAsync = (to: number, duration: number) => {
+  const element =
+      global.window.document.scrollingElement ||
+      global.window.document.documentElement,
+    start = element.scrollTop,
+    change = to - start,
+    startDate = +new Date();
+
+  const easeInOutQuad = (t: any, b: any, c: any, d: any) => {
+    t /= d / 2;
+    if (t < 1) return (c / 2) * t * t + b;
+    t--;
+    return (-c / 2) * (t * (t - 2) - 1) + b;
+  };
+
+  return new Promise<void>((resolve, _reject) => {
+    const animateScroll = () => {
+      const currentDate = +new Date();
+      const currentTime = currentDate - startDate;
+      element.scrollTop = parseInt(
+        easeInOutQuad(currentTime, start, change, duration)
+      );
+      if (currentTime < duration) {
+        requestAnimationFrame(animateScroll);
+      } else {
+        element.scrollTop = to;
+        resolve();
+      }
+    };
+
+    animateScroll();
+  });
+};
+
+export const scrollToElemAsync = async (
+  elemSelector: string
+): Promise<void> => {
+  if (elemSelector) {
+    const elem = global.window.document.querySelector(elemSelector);
+
+    await smoothScrollAsync((elem as HTMLElement).offsetTop, 1000);
+  }
+};
+
 export const smoothScrollTo = (to: number, duration: number) => {
   const element =
       global.window.document.scrollingElement ||

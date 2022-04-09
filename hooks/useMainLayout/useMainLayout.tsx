@@ -11,7 +11,7 @@ import { createHeader } from "./createHeader/createHeader";
 import { createMobileMenu } from "./createMobileMenu/createMobileMenu";
 import { createNewsletterSection } from "./createNewsletterSection/createNewsletterSection";
 import { createSupportMenu } from "./createSupportMenu/createSupportMenu";
-import { handleMenuClick } from "@workspace/utility";
+import { handleMenuClick, scrollToElemAsync } from "@workspace/utility";
 
 export const useMainLayout = (
   router: ReturnType<typeof useRouter>,
@@ -38,8 +38,8 @@ export const useMainLayout = (
       },
       {
         label: "Contato",
-        onClick: () => {
-          handleMenuClick(router, "#contact_section");
+        onClick: async () => {
+          await scrollToElemAsync("#contact_section");
         },
       },
     ] as MobileMenuProps["menuItems"];

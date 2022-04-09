@@ -10,8 +10,8 @@ export const createMobileMenu = (params: {
     menuItems: params.items?.map((val, _i) => {
       return {
         ...val,
-        onClick: () => {
-          val.onClick();
+        onClick: async () => {
+          await val.onClick();
           params.onClose();
         },
       };

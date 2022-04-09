@@ -9,6 +9,8 @@ export {
   nativeSmoothScrollTo,
   scrollToElem,
   smoothScrollTo,
+  smoothScrollAsync,
+  scrollToElemAsync,
 } from "./scrollToElem";
 export { pixelToRem } from "./pixelToRem";
 export { getCourseURL } from "./getCourseURL";
