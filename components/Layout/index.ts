@@ -11,3 +11,5 @@ export { NewsLetterSection } from "./Newsletter/Main/NewsLetterSection";
 export type { NewsLetterSectionProps } from "./Newsletter/Main/NewsLetterSection";
 export { ContactSection } from "./Contact/Main/ContactSection";
 export type { ContactSectionProps } from "./Contact/Main/ContactSection";
+export { DynamicSections } from "./DynamicSections/DynamicSections";
+export type { DynamicSectionsProps } from "./DynamicSections/DynamicSections";

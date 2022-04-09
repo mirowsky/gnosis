@@ -105,36 +105,6 @@ const Home: NextPage<IndexPageProps> = ({ courses, blog, testimonials }) => {
     },
   };
 
-  const dynamicSectionProps: LandingPageProps["DynamicSectionsProps"] = {
-    BlogSectionProps: {
-      items: [],
-      sectionTitle: "Confira nossas últimas postagens.",
-      ButtonProps: {
-        children: "Ver mais postagens",
-        color: "primary",
-        onClick: () => {},
-      },
-      id: "blog_section",
-    },
-    FAQSectionProps: {
-      items: [],
-      sectionTitle:
-        "Encontre as respostas que você precisa em nosso centro de ajuda",
-      LoadMoreButtonProps: {
-        children: "Ver mais perguntas",
-        onClick: () => {},
-        variant: "outlined",
-        color: "primary",
-      },
-    },
-    TestimonialSectionProps: {
-      sectionTitle: "O que nossos alunos dizem sobre o Instituto Gnosis.",
-      TestimonialSliderProps: {
-        items: [],
-      },
-    },
-  };
-
   return (
     <React.Fragment>
       <Head>
