@@ -9,3 +9,5 @@ export { GlobalSnack, alertStore } from "./GlobalAlert/GlobalAlert";
 export type { AlertActions, AlertState } from "./GlobalAlert/GlobalAlert";
 export { Backdrop } from "./Backdrop/Backdrop";
 export type { BackdropProps } from "./Backdrop/Backdrop";
+export { GTMAfterInteractive } from "./GoogleTagManager/GTMAfterInteractive";
+export { GTMBeforeInteractive } from "./GoogleTagManager/GTMBeforeInteractive";

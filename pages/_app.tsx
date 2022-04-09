@@ -8,8 +8,9 @@ import Head from "next/head";
 import { useContactForm } from "hooks/useContactForm/useContactForm";
 import { useNewsletterInput } from "hooks/useNewsletterInput/useNewsletterInput";
 import { useMainLayout } from "../hooks";
-import { GTMAfterInteractive } from "components/Utility/GoogleTagManager/GTMAfterInteractive";
+
 import { GTM_ID } from "@workspace/contants";
+import { GTMAfterInteractive } from "@workspace/components/utility";
 
 function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
   const clientSideCache = createEmotionCache({ key: "css" });

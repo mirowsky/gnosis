@@ -9,8 +9,8 @@ import Document, {
 import createEmotionServer from "@emotion/server/create-instance";
 import createCache from "@emotion/cache";
 import React from "react";
-import { GTMBeforeInteractive } from "components/Utility/GoogleTagManager/GTMBeforeInteractive";
 import { GTM_ID } from "@workspace/contants";
+import { GTMBeforeInteractive } from "@workspace/components/utility";
 
 class CustomDocument extends Document {
   static async getInitialProps(
