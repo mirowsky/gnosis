@@ -37,6 +37,7 @@ export const useMainLayout = (
       open: mobileMenu,
       setOpen: setMobileMenu,
       items: [],
+      router: router,
     }),
 
     ContactSectionProps: createContactSection({

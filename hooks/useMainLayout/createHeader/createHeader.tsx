@@ -1,10 +1,13 @@
 import React from "react";
 import { HeaderProps } from "@workspace/components/layouts";
+import { handleLogoClick, scrollToElem } from "@workspace/utility";
+import { useRouter } from "next/router";
 
 export const createHeader = (params: {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   items: HeaderProps["items"];
+  router: ReturnType<typeof useRouter>;
 }): HeaderProps => {
   return {
     burguerOpen: params.open,
@@ -14,10 +17,18 @@ export const createHeader = (params: {
     },
     cta: {
       label: "Contate-nos",
-      onClick: () => params.setOpen(true),
+      onClick: () => scrollToElem("#course_section"),
     },
-    onBurguerButtonClick: () => {},
-    onLogoClick: () => {},
-    items: params.items,
+    onBurguerButtonClick: () => params.setOpen(true),
+    onLogoClick: () => handleLogoClick(params.router),
+    items: params.items.map((item, _index) => {
+      return {
+        ...item,
+        onClick: () => {
+          item.onClick();
+          params.setOpen(false);
+        },
+      };
+    }),
   };
 };
