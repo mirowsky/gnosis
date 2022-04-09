@@ -10,12 +10,14 @@ import ContactSection, {
 import NewsLetterSection, {
   NewsLetterSectionProps,
 } from "components/Layout/Newsletter/Main/NewsLetterSection";
-import { HideOnScroll } from "@workspace/components/utility";
+import { GlobalSnack, HideOnScroll } from "@workspace/components/utility";
 import {
   ContactFormDialogV2,
   ContactFormDialogV2Props,
 } from "@workspace/components/common";
-import SupportMenuMain, { SupportMenuMainProps } from "../SupportMenu/Main/SupportMenuMain";
+import SupportMenuMain, {
+  SupportMenuMainProps,
+} from "../SupportMenu/Main/SupportMenuMain";
 export type MainLayoutProps = {
   children: React.ReactNode;
   HeaderProps: HeaderProps;
@@ -35,7 +37,7 @@ export const MainLayout = ({
   ContactSectionProps,
   NewsLetterSectionProps,
   ContactFormDialogProps,
-  SupportMenuMainProps
+  SupportMenuMainProps,
 }: MainLayoutProps) => {
   return (
     <Box sx={styles.root}>
@@ -82,6 +84,7 @@ export const MainLayout = ({
         }}
       />
       <Footer {...footerProps} />
+      <GlobalSnack />
     </Box>
   );
 };

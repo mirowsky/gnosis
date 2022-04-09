@@ -4,7 +4,6 @@ import createEmotionCache from "@emotion/cache";
 import React from "react";
 import CustomTheme from "../theme/CustomTheme";
 import { MainLayout } from "@workspace/components/layouts";
-import { alertStore, GlobalSnack } from "@workspace/components/utility";
 import Head from "next/head";
 import { useContactForm } from "hooks/useContactForm/useContactForm";
 import { useNewsletterInput } from "hooks/useNewsletterInput/useNewsletterInput";
@@ -20,12 +19,9 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
     router,
   } = props;
 
-  const dispatchAlert = alertStore((state) => state.dispatch);
-
   const contactForm = useContactForm();
   const newsLetterForm = useNewsletterInput();
-
-  const layout = useMainLayout(router, contactForm, newsLetterForm);
+  const layoutProps = useMainLayout(router, contactForm, newsLetterForm);
 
   return (
     <React.Fragment>
@@ -37,8 +33,7 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
       </Head>
       <CacheProvider value={emotionCache}>
         <CustomTheme>
-          <MainLayout {...layout}>
-            <GlobalSnack />
+          <MainLayout {...layoutProps}>
             <Component {...pageProps} />
           </MainLayout>
         </CustomTheme>
