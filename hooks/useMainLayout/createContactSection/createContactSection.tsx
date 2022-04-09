@@ -2,6 +2,20 @@ import { ContactSectionProps } from "@workspace/components/layouts";
 import { UseFormReturn } from "react-hook-form";
 import { ContactFormInputs } from "@workspace/hooks";
 
+const submitHandler__dev = async (
+  form: UseFormReturn<ContactFormInputs, any>
+) => {
+  await form.handleSubmit(async (data, events) => {
+    await new Promise((resolve, reject) => {
+      resolve(data);
+    }).then((data) => {
+      console.log(data);
+    });
+  })();
+};
+
+const submitHandler__prod = async () => {};
+
 export const createContactSection = (params: {
   form: UseFormReturn<ContactFormInputs, any>;
 }): ContactSectionProps => {
@@ -13,7 +27,7 @@ export const createContactSection = (params: {
     },
     ContactFormProps: {
       LoadingButtonProps: {
-        onClick: () => params.form.handleSubmit,
+        onClick: () => submitHandler__dev(params.form),
         loading: params.form.formState.isSubmitting,
         disabled: !params.form.formState.isValid,
         children: "Enviar",

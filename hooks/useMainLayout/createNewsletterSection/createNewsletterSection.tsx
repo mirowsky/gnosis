@@ -1,5 +1,38 @@
+import { alertStore } from "@workspace/components/utility";
 import { NewsLetterSectionProps } from "@workspace/components/layouts";
 import { UseFormReturn } from "react-hook-form";
+
+const dispatchAlert = alertStore((state) => state.dispatch);
+
+const submitHandler__dev = (form: UseFormReturn<{ email: string }, any>) => {
+  form.handleSubmit(
+    async (data, event) => {
+      await new Promise((resolve, reject) => {
+        dispatchAlert({
+          message: "Enviando sua inscrição...",
+          severity: "info",
+        });
+
+        setTimeout(() => {
+          resolve(data);
+        }, 1500);
+      })
+
+        .then(() => {
+          form.reset({ email: "" });
+
+          dispatchAlert({
+            message: `Obrigado por inscrever-se em nossa newsletter.`,
+            severity: "success",
+          });
+        })
+        .catch((err) => {});
+    },
+    (error, errorEvents) => {}
+  )();
+};
+
+const submitHandler__prod = (form: UseFormReturn<{ email: string }, any>) => {};
 
 export const createNewsletterSection = (params: {
   form: UseFormReturn<{ email: string }, any>;
@@ -18,7 +51,7 @@ export const createNewsletterSection = (params: {
       ButtonProps: {
         loading: params.form.formState.isSubmitting,
         disabled: !params.form.formState.isValid,
-        onClick: () => params.form.handleSubmit,
+        onClick: () => submitHandler__dev(params.form),
       },
     },
   };
