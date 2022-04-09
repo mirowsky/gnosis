@@ -7,7 +7,11 @@ import {
 } from "@workspace/types";
 import axios, { AxiosResponse } from "axios";
 import { useRouter } from "next/router";
-import { useDetectMobile, useWhatsAppRedirect } from "@workspace/hooks";
+import {
+  useDetectMobile,
+  useLandingPage,
+  useWhatsAppRedirect,
+} from "@workspace/hooks";
 import React from "react";
 import { COLLECTIONS, META_TAGS } from "@workspace/contants";
 import Head from "next/head";
@@ -22,7 +26,17 @@ const Home: NextPage<IndexPageProps> = ({ courses, blog, testimonials }) => {
   const router = useRouter();
   const isMobile = useDetectMobile();
   const whatsRedirect = useWhatsAppRedirect(isMobile ? "mobile" : "desktop");
-  const [activeTab, setActiveTab] = React.useState(0);
+
+  const landingProps = useLandingPage(
+    router,
+    whatsRedirect,
+    {
+      blog: blog ?? [],
+      faq: [] ?? [],
+      testimonial: testimonials ?? [],
+    },
+    courses
+  );
 
   return (
     <React.Fragment>
@@ -31,13 +45,7 @@ const Home: NextPage<IndexPageProps> = ({ courses, blog, testimonials }) => {
         <meta property="og:description" content={META_TAGS.description} />
         <meta name="description" content={META_TAGS.description} />
       </Head>
-      <LandingPage
-        AboutSectionProps={aboutSectionProps}
-        DefenseSectionProps={defenseSectionProps}
-        CourseSectionProps={courseSectionProps}
-        HeroSectionProps={heroSectionProps}
-        DynamicSectionsProps={dynamicSectionProps}
-      />
+      <LandingPage {...landingProps} />
     </React.Fragment>
   );
 };
