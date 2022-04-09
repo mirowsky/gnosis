@@ -10,6 +10,7 @@ export const createSupportMenu = (params: {
   return {
     open: params.open,
     ContactDialButtonProps: {
+      id: "wpp-button",
       "aria-label":
         "Clique para expandir opções de atendimento com o nosso time de suporte",
       onClick: () => params.setOpen((prev) => !prev),

@@ -50,13 +50,19 @@ export const useMainLayout = (
   const supportMenuItems = React.useMemo(() => {
     return [
       {
+        label:
+          "Suporte com nossa equipe comercial - Clique para ser direcionado ao WhatsApp",
         icon: Handshake,
         subtitle: "Fale com nossa equipe comercial",
         title: "Equipe comercial",
         online: true,
+        id: "suporte-equipe-comercial",
       },
       {
+        label:
+          "Suporte para dúvidas gerais - Clique para ser direcionado ao WhatsApp.",
         icon: LiveHelp,
+        id: "suporte-duvidas",
         title: "Tire suas dúvidas",
         subtitle: "Está em dúvida sobre qual curso escolher? Fale conosco?",
         online: false,

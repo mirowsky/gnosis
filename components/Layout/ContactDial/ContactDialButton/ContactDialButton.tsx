@@ -16,6 +16,7 @@ export interface ContactDialButtonProps {
   iconClosed?: React.FC<Partial<SvgIconComponent>>;
   onClick?: (...args: unknown[]) => void;
   "aria-label"?: string;
+  id?: string;
 }
 
 export const ContactDialButton = ({
@@ -24,7 +25,8 @@ export const ContactDialButton = ({
   fontSize,
   iconClosed: IconClosed = BsFillChatDotsFill,
   iconOpen: IconOpen = Close,
-  onClick = () => { },
+  onClick = () => {},
+  id,
   ...props
 }: ContactDialButtonProps) => {
   const styles = React.useMemo(
@@ -34,6 +36,7 @@ export const ContactDialButton = ({
 
   return (
     <Box
+      id={id}
       aria-label={
         props["aria-label"] ||
         "Botão de atendimento rápido - Clique para exibir as opções ou deixar de exibí-las"
@@ -90,8 +93,8 @@ const _styles = (
       width: "3.5em",
       height: "3.5em",
       borderRadius: "50%",
-      backgroundColor: '#009f2b',
-      color: '#fff',
+      backgroundColor: "#009f2b",
+      color: "#fff",
       // backgroundColor: (theme) => theme.palette[color].main,
       boxShadow: (theme) => theme.shadows[5],
       // color: (theme) => theme.palette[color].contrastText,

@@ -9,9 +9,9 @@ export type SupportMenuItemProps = {
   subtitle: string;
   online?: boolean;
   onClick?: (...args: unknown[]) => void;
-  sx?: ThemeStyles
-  id?: string
-  label?: string
+  sx?: ThemeStyles;
+  id?: string;
+  label?: string;
 };
 
 export const SupportMenuItem = ({
@@ -22,15 +22,17 @@ export const SupportMenuItem = ({
   online,
   sx,
   id,
-  label
+  label,
 }: SupportMenuItemProps) => {
   return (
-    <Box id={id} role="button" onClick={onClick} sx={{ ...styles.root, ...sx }}>
-      <Box
-        aria-labelledby={label}
-        role="presentation"
-        sx={styles.iconContainer}
-      >
+    <Box
+      aria-labelledby={label}
+      id={id}
+      role="button"
+      onClick={onClick}
+      sx={{ ...styles.root, ...sx }}
+    >
+      <Box role="presentation" sx={styles.iconContainer}>
         <Box component={Icon} sx={styles.icon} />
       </Box>
       <Box sx={styles.infoContainer}>

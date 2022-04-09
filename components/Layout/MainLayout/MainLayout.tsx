@@ -49,7 +49,7 @@ export const MainLayout = ({
           right: 0,
           pb: 2,
           pr: 2,
-          zIndex: 50,
+          zIndex: 2000,
         }}
       />
       <MobileMenu {...mobileMenuProps} />
