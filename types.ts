@@ -62,3 +62,8 @@ export type ResponsiveStyleValue<
 export type ResponsiveFontSize = ResponsiveStyleValue<Properties["fontSize"]>;
 
 export type ThemeStyles = SxProps<Theme>;
+
+export type FAQCollectionType = {
+  question: string;
+  answer: string;
+};

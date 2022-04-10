@@ -28,6 +28,7 @@ export const COLLECTIONS_API_ROUTES = {
   courses: `${API_ROUTE_BASE}/collections/entries/coursesNew`,
   blog: `${API_ROUTE_BASE}/collections/entries/gnosisBlog`,
   testimonials: `${API_ROUTE_BASE}/collections/entries/testimonials`,
+  faq: `${API_ROUTE_BASE}/collections/entries/faq`,
 };
 
 export const GTM_ID = `${process.env.GTM}`;
