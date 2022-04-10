@@ -16,7 +16,7 @@ const getGTMEnvironment = () => {
 
 /** @type {import('next').NextConfig} */
 module.exports = withBundleAnalyzer({
-  reactStrictMode: true,
+  reactStrictMode: false,
   env: {
     GTM: getGTMEnvironment(),
   },

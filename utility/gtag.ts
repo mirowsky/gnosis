@@ -3,7 +3,6 @@ import { Head } from "@workspace/types";
 export interface IWindow extends Window {
   dataLayer: Record<string, any>[];
 }
-
 declare let window: IWindow;
 
 export type CustomEvent = {
@@ -14,25 +13,38 @@ export type EventDispatcher = <TEvent extends CustomEvent>(
   event: TEvent
 ) => void;
 
-const dataLayerExists = () => typeof window !== "undefined" && window.dataLayer;
+export type EventMiddleware = EventDispatcher;
 
-const customEvent: EventDispatcher = (event) => {
-  window.dataLayer.push(event);
-};
+const logger: EventMiddleware = (event) =>
+  console.log(`Event was dispatched: ${JSON.stringify(event)}`);
 
-const dispatchEvent = (event: Head<EventDispatcher>) => {
-  if (dataLayerExists()) {
-    customEvent(event);
-  } else {
-    console.error(
-      `Custom event "${event.event} failed to be dispatched, data layer does not exists"`
+const validateWindow: EventMiddleware = (event) => {
+  if (!(typeof window !== "undefined" && window.dataLayer))
+    throw new Error(
+      "Data layer is unavailable. Verify if Google Tag Manager was installed correctly" +
+        ` - Error was thrown when trying to dispatch the following event: ${JSON.stringify(
+          event
+        )}`
     );
-  }
 };
+
+const middleware: EventMiddleware[] = [logger, validateWindow];
+
+const createDispatcher = (middleware: EventMiddleware[]) => {
+  return (event: CustomEvent) => {
+    middleware.forEach((fn) => {
+      fn(event);
+    });
+
+    window.dataLayer.push(event);
+  };
+};
+
+const dispatcher = createDispatcher(middleware);
 
 export const events = {
   pageView: (url: string) => {
-    dispatchEvent({ event: "pageview", page: url });
+    dispatcher({ event: "pageview", page: url });
   },
   contact: (params: {
     name: string;
@@ -40,7 +52,7 @@ export const events = {
     phone: string;
     message: string;
   }) => {
-    dispatchEvent({
+    dispatcher({
       event: "contato",
       nome: params.name,
       email: params.email,
@@ -58,7 +70,7 @@ export const events = {
     phone: string;
     message: string;
   }) => {
-    dispatchEvent({
+    dispatcher({
       event: "manifestacao-interesse",
       curso: params.course,
       area: params.area,
@@ -79,7 +91,7 @@ export const events = {
     phone: string;
     message: string;
   }) => {
-    dispatchEvent({
+    dispatcher({
       event: "curso-whatsapp",
       curso: params.course,
       area: params.area,
@@ -92,13 +104,13 @@ export const events = {
     });
   },
   supportMenu: () => {
-    dispatchEvent({
+    dispatcher({
       event: "wpp-botao",
       timestamp: `${new Date(Date.now()).toLocaleString("pt-br")}`,
     });
   },
   supportItem: (params: { supportItemLabel: string }) => {
-    dispatchEvent({
+    dispatcher({
       event: "suporte-item",
       opcao: params.supportItemLabel,
       timestamp: `${new Date(Date.now()).toLocaleString("pt-br")}`,
