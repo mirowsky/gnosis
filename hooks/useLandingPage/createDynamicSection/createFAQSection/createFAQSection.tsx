@@ -13,12 +13,13 @@ export const createFAQSection = (
         answer: item.answer,
         question: item.question,
         onClick: () => {
+          console.log(state);
+
           setState((state: { [key: number]: boolean }) => {
-            let newState = { ...state };
-
-            newState[index] = !newState[index];
-
-            return state;
+            return {
+              ...state,
+              [index]: !state[index],
+            };
           });
         },
         open: state[index],
