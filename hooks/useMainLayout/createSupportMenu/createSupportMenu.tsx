@@ -35,6 +35,9 @@ export const createSupportMenu = (params: {
       onClick: () => params.setOpen(false),
       items: [
         {
+          onClick: () => {
+            events.supportItem({ supportItemLabel: "Equipe comercial" });
+          },
           label:
             "Suporte com nossa equipe comercial - Clique para ser direcionado ao WhatsApp",
           icon: Handshake,
@@ -44,6 +47,9 @@ export const createSupportMenu = (params: {
           id: "suporte-equipe-comercial",
         },
         {
+          onClick: () => {
+            events.supportItem({ supportItemLabel: "Central de dúvidas" });
+          },
           label:
             "Suporte para dúvidas gerais - Clique para ser direcionado ao WhatsApp.",
           icon: LiveHelp,
