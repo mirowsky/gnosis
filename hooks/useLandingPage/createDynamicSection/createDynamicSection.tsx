@@ -62,6 +62,7 @@ export const createDynamicSection = (params: {
     },
   };
 };
+
 const __testimonial_mock_item: TestimonialCollectionType = {
   slug: "hello",
   testimonialLocation: "Porto Alegre",
