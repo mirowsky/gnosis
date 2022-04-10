@@ -12,6 +12,7 @@ export type BlogPreviewCardProps = {
   };
   title: string;
   tags: string[];
+  onClick?: (...args: unknown[]) => void;
 };
 
 const BlogPreviewCard = ({
@@ -22,6 +23,7 @@ const BlogPreviewCard = ({
   readingTime = "10 min de leitura",
   tags = [],
   title = "Placeholder title",
+  onClick,
 }: BlogPreviewCardProps) => {
   return (
     <Box sx={styles.root}>
@@ -32,12 +34,18 @@ const BlogPreviewCard = ({
         </Typography>
       </Box>
 
-      <Box sx={styles.pictureContainer}>
+      <Box
+        onClick={(e) => {
+          e.stopPropagation();
+          onClick && onClick();
+        }}
+        sx={styles.pictureContainer}
+      >
         <Box component="img" sx={styles.picture} src={img.src} alt={img.alt} />
       </Box>
 
       <Box sx={styles.titleContainer}>
-        <Typography variant="h5" sx={styles.title}>
+        <Typography onClick={onClick} variant="h5" sx={styles.title}>
           {title}
         </Typography>
       </Box>
@@ -84,6 +92,7 @@ const styles = (function () {
     pictureContainer: {
       width: "100%",
       height: HEIGHT,
+      cursor: "pointer",
     },
     titleContainer: {},
     tagsContainer: {
@@ -105,6 +114,7 @@ const styles = (function () {
       borderRadius: (theme) => theme.shape.borderRadius,
     },
     title: {
+      cursor: "pointer",
       color: (theme) => theme.palette.primary.main,
       fontWeight: 700,
       ...(webkitVerticalTruncate(3) as {}),
