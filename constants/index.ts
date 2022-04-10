@@ -42,11 +42,3 @@ export const META_TAGS = {
   description:
     'O Instituto Educacional Gnosis trabalha para trazer ao mercado cursos de pós-graduação, extensão e multidisciplinares capazes de impulsionar a sua carreira. Mantendo a excelência de uma instituição tradicional e trazendo ao mesmo tempo a modernidade do aprendizado à distância. Conheça nossos cursos de pós-graduação e extensão na área da medicina."',
 } as const;
-
-export const COLLECTIONS = {
-  testimonials:
-    "https://us-central1-gnosis-webapp.cloudfunctions.net/api/collections/entries/testimonials",
-  blog: "https://us-central1-gnosis-webapp.cloudfunctions.net/api/collections/entries/gnosisBlog",
-  courses:
-    "https://us-central1-gnosis-webapp.cloudfunctions.net/api/collections/entries/coursesNew",
-} as const;

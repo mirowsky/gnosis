@@ -13,7 +13,7 @@ import {
   useWhatsAppRedirect,
 } from "@workspace/hooks";
 import React from "react";
-import { COLLECTIONS, META_TAGS } from "@workspace/contants";
+import { COLLECTIONS_API_ROUTES, META_TAGS } from "@workspace/contants";
 import Head from "next/head";
 
 export interface IndexPageProps {
@@ -52,13 +52,13 @@ export const getStaticProps: GetStaticProps<IndexPageProps> = async ({
   params,
 }) => {
   const courseRequest: AxiosResponse<CourseCollectionType[]> = await axios.get(
-    COLLECTIONS.courses
+    COLLECTIONS_API_ROUTES.courses
   );
   const blogRequest: AxiosResponse<BlogCollectionType[]> = await axios.get(
-    COLLECTIONS.blog
+    COLLECTIONS_API_ROUTES.blog
   );
   const testimonialRequest: AxiosResponse<TestimonialCollectionType[]> =
-    await axios.get(COLLECTIONS.testimonials);
+    await axios.get(COLLECTIONS_API_ROUTES.testimonials);
 
   const courseData = courseRequest.data;
   const blogData = blogRequest.data;

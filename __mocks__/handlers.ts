@@ -1,25 +1,31 @@
+import faker from "@faker-js/faker";
+import { COLLECTIONS_API_ROUTES } from "@workspace/contants";
+import { BlogCollectionType } from "@workspace/types";
 import { rest } from "msw";
 
-export const handlers = [
-  rest.get("https://my.backend/book", (req, res, ctx) => {
-    return res(
-      ctx.json({
-        title: "Lord of the Rings",
-        imageUrl: "/book-cover.jpg",
-        description:
-          "The Lord of the Rings is an epic high-fantasy novel written by English author and scholar J. R. R. Tolkien.",
-      })
-    );
-  }),
-  rest.get("/reviews", (req, res, ctx) => {
-    return res(
-      ctx.json([
-        {
-          id: "60333292-7ca1-4361-bf38-b6b43b90cb16",
-          author: "John Maverick",
-          text: "Lord of The Rings, is with no absolute hesitation, my most favored and adored book by‑far. The triology is wonderful‑ and I really consider this a legendary fantasy series. It will always keep you at the edge of your seat‑ and the characters you will grow and fall in love with!",
-        },
-      ])
-    );
-  }),
-];
+//fetching after the "window" object is available will be mocked by "mocks/browser.js", fetching before it will be mocked by "mocks/server.js"
+
+const randomBlogPost = (): BlogCollectionType => ({
+  blogActive: true,
+  blogDescription: faker.lorem.lines(5),
+  blogPost: faker.lorem.paragraphs(10),
+  blogTitle: faker.lorem.words(3),
+  featuredImage: {
+    imageURL: faker.image.avatar(),
+    imageDescription: faker.lorem.sentences(2),
+  },
+  slug: "blog-post-1",
+  uuid: faker.datatype.uuid(),
+});
+
+const blogHandler = rest.get(COLLECTIONS_API_ROUTES.blog, (req, res, ctx) => {
+  return res(
+    ctx.json([
+      randomBlogPost(),
+      randomBlogPost(),
+      randomBlogPost(),
+    ] as BlogCollectionType[])
+  );
+});
+
+export const handlers = [blogHandler];

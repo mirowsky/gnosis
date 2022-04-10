@@ -12,6 +12,10 @@ import { useDetectMobile, useMainLayout, useWhatsAppRedirect } from "../hooks";
 import { GTM_ID, META_TAGS } from "@workspace/contants";
 import { GTMAfterInteractive } from "@workspace/components/utility";
 
+if (process.env.NODE_ENV === "development") {
+  require("../__mocks__/index");
+}
+
 function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
   const clientSideCache = createEmotionCache({ key: "css" });
 
