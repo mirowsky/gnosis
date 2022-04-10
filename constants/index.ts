@@ -1,8 +1,7 @@
 export const IS_PROD = process.env.NODE_ENV === "production";
 
-export const API_ROUTE_BASE = IS_PROD
-  ? "https://us-central1-gnosis-webapp.cloudfunctions.net/api"
-  : "http://127.0.0.1:5001/gnosis-webapp/us-central1/api";
+export const API_ROUTE_BASE =
+  "https://us-central1-gnosis-webapp.cloudfunctions.net/api";
 
 /**
  * Contact required body - {name: string, email: string, phone: string, message: string}

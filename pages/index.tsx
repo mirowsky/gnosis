@@ -28,7 +28,7 @@ const Home: NextPage<IndexPageProps> = ({ courses, blog, testimonials }) => {
   const whatsRedirect = useWhatsAppRedirect(isMobile ? "mobile" : "desktop");
 
   const landingProps = useLandingPage(router, whatsRedirect, {
-    blog: [],
+    blog: blog ?? [],
     faq: [],
     testimonial: testimonials ?? [],
     courses: courses ?? [],

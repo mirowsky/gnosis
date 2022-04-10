@@ -8,12 +8,11 @@ import Head from "next/head";
 import { useContactForm } from "hooks/useContactForm/useContactForm";
 import { useNewsletterInput } from "hooks/useNewsletterInput/useNewsletterInput";
 import { useDetectMobile, useMainLayout, useWhatsAppRedirect } from "../hooks";
-
 import { GTM_ID, META_TAGS } from "@workspace/contants";
 import { GTMAfterInteractive } from "@workspace/components/utility";
 
-if (process.env.NODE_ENV === "development") {
-  require("../__mocks__/index");
+if (process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
+  require("../mocks");
 }
 
 function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {

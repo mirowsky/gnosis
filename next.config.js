@@ -1,7 +1,4 @@
 require("dotenv").config({ path: `./.env` });
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
-  enabled: process.env.ANALYZE === "true",
-});
 
 // package.json script sets the GTM_ENV to "dev" while on development or deployed development server, sets GTM_ENV to "prod" otherwise
 const getGTMEnvironment = () => {
@@ -19,6 +16,7 @@ module.exports = withBundleAnalyzer({
   reactStrictMode: false,
   env: {
     GTM: getGTMEnvironment(),
+    NEXT_PUBLIC_API_MOCKING: "enabled",
   },
   swcMinify: true,
 });

@@ -6,6 +6,7 @@ export const httpGet = async <T>(request: RequestInfo): Promise<T> => {
 
     return body;
   } catch (error) {
+    console.error(error);
     throw new Error("Request failed");
   }
 };

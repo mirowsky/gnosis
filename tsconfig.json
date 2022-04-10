@@ -38,6 +38,6 @@
     "**/*.tsx",
     "global.d.ts",
     "augmentation.d.ts"
-, "__mocks__/index.js"  ],
+, "mocks/index.js", "mocks/handlers.js", "mocks/server.js", "mocks/browser.js"  ],
   "exclude": ["node_modules"]
 }

@@ -1,11 +1,14 @@
 import faker from "@faker-js/faker";
 import { COLLECTIONS_API_ROUTES } from "@workspace/contants";
-import { BlogCollectionType } from "@workspace/types";
 import { rest } from "msw";
 
 //fetching after the "window" object is available will be mocked by "mocks/browser.js", fetching before it will be mocked by "mocks/server.js"
 
-const randomBlogPost = (): BlogCollectionType => ({
+/**
+ *
+ * @type {import("../types").BlogCollectionType}
+ */
+const randomBlogPost = () => ({
   blogActive: true,
   blogDescription: faker.lorem.lines(5),
   blogPost: faker.lorem.paragraphs(10),
@@ -19,13 +22,7 @@ const randomBlogPost = (): BlogCollectionType => ({
 });
 
 const blogHandler = rest.get(COLLECTIONS_API_ROUTES.blog, (req, res, ctx) => {
-  return res(
-    ctx.json([
-      randomBlogPost(),
-      randomBlogPost(),
-      randomBlogPost(),
-    ] as BlogCollectionType[])
-  );
+  return res(ctx.json([randomBlogPost(), randomBlogPost(), randomBlogPost()]));
 });
 
 export const handlers = [blogHandler];
