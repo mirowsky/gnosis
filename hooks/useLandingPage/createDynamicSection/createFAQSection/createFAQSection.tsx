@@ -13,8 +13,6 @@ export const createFAQSection = (
         answer: item.answer,
         question: item.question,
         onClick: () => {
-          console.log(state);
-
           setState((state: { [key: number]: boolean }) => {
             return {
               ...state,

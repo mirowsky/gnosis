@@ -22,7 +22,7 @@ export const FAQCard = ({
   return (
     <Box onClick={onClick} sx={styles.root}>
       <Box sx={styles.textContainer}>
-        <Typography sx={styles.text} variant="h4">
+        <Typography sx={styles.text} variant="h6">
           {question}
         </Typography>
       </Box>
@@ -32,13 +32,19 @@ export const FAQCard = ({
         animate={open ? "open" : "closed"}
         variants={{
           open: {
-            height: "auto",
+            maxHeight: "500px",
             opacity: 1,
           },
           closed: {
-            height: "0px",
+            maxHeight: "0px",
             opacity: 0,
           },
+        }}
+        transition={{
+          type: "spring",
+          mass: 1,
+          stiffness: 280,
+          damping: 60,
         }}
         sx={styles.answerContainer}
       >
@@ -64,8 +70,8 @@ const _styles = (open: boolean) =>
       cursor: "pointer",
       fontSize: "1rem",
       minWidth: { lg: "21.875em", xs: "18.75em" },
-      width: "fit-content",
-      minHeight: { xs: "9.11em", lg: "10.625em" },
+      width: "auto",
+      height: "fit-content",
       borderRadius: (theme) => theme.shape.borderRadius,
       position: "relative",
       boxShadow: (theme) => theme.shadows[3],
@@ -87,6 +93,7 @@ const _styles = (open: boolean) =>
       color: (theme) =>
         open ? theme.palette.primary.contrastText : theme.palette.primary.main,
       maxWidth: "22ch",
+      padding: "1em",
     },
 
     buttonContainer: {
@@ -94,12 +101,12 @@ const _styles = (open: boolean) =>
       width: "100%",
       display: "flex",
       justifyContent: "center",
-      flexBasis: "100%",
-      flexGrow: 1,
       alignItems: "flex-end",
+      zIndex: 25,
     },
 
     button: {
+      position: "relative",
       transform: "translateY(25%)",
     },
 

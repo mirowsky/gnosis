@@ -3,7 +3,7 @@ import { MotionBox } from "@workspace/components/utility";
 import React from "react";
 import { Variants } from "framer-motion";
 import { Properties } from "csstype";
-import { ResponsiveStyleValue } from "@workspace/types";
+import { ResponsiveStyleValue, ThemeStyles } from "@workspace/types";
 import { FAQCardButtonStyles } from "./FAQCardButton.styles";
 const CONTAINER_VARIANTS: Variants = {
   closed: {
@@ -34,6 +34,7 @@ export type FAQCardButtonProps = {
   inverted?: boolean;
   color?: "primary" | "secondary";
   onClick?: (...args: unknown[]) => void;
+  sx?: ThemeStyles;
 };
 
 export const FAQCardButton = ({
@@ -42,6 +43,7 @@ export const FAQCardButton = ({
   color = "primary",
   inverted,
   onClick,
+  sx,
 }: FAQCardButtonProps) => {
   const styles = React.useMemo(
     () => FAQCardButtonStyles(open, fontSize, inverted, color),
@@ -50,13 +52,17 @@ export const FAQCardButton = ({
 
   return (
     <MotionBox
-      onClick={onClick}
+      onClick={(event) => {
+        // will propagate to children otherwise and make it so we have to pass the click event to the children too
+        event.stopPropagation();
+        onClick!();
+      }}
       variants={CONTAINER_VARIANTS}
       animate={open ? "open" : "closed"}
       whileHover="hover"
       whileTap="pressed"
       initial="closed"
-      sx={styles.root}
+      sx={{ ...styles.root, ...sx }}
       role="button"
       aria-labelledby="Toggle button"
     >

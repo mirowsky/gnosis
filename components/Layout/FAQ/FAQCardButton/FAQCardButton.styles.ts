@@ -20,9 +20,9 @@ export const FAQCardButtonStyles = (
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
+      pointeEvents: "auto",
       height: { xs: "3em" },
       width: { xs: "4em" },
-      transition: "background-color 0.25s ease",
       fontSize: fontSize,
       bgcolor: (theme) =>
         open
