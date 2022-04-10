@@ -18,10 +18,10 @@ const TestimonialSlider = ({ items = [] }: TestimonialSliderProps) => {
         spaceBetween: 10,
         breakpoints: {
           1024: {
-            slidesPerView: 1.5,
+            slidesPerView: items.length > 1 ? 1.5 : 1,
           },
           1400: {
-            slidesPerView: 1.75,
+            slidesPerView: items.length > 1 ? 1.75 : 1,
           },
         },
       }}
