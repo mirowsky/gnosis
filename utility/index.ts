@@ -19,3 +19,4 @@ export { getThumbnail } from "./getThumbnail";
 export { events as GTMEvents } from "./gtag";
 export type { CustomEvent as GTMCustomEvent } from "./gtag";
 export type { EventDispatcher as GTMDispatcher } from "./gtag";
+export { httpGet } from "./httpGet";

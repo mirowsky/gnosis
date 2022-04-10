@@ -5,7 +5,6 @@ import {
   CourseCollectionType,
   TestimonialCollectionType,
 } from "@workspace/types";
-import axios, { AxiosResponse } from "axios";
 import { useRouter } from "next/router";
 import {
   useDetectMobile,
@@ -15,6 +14,7 @@ import {
 import React from "react";
 import { COLLECTIONS_API_ROUTES, META_TAGS } from "@workspace/contants";
 import Head from "next/head";
+import { httpGet } from "@workspace/utility";
 
 export interface IndexPageProps {
   courses: CourseCollectionType[];
@@ -51,18 +51,16 @@ export default Home;
 export const getStaticProps: GetStaticProps<IndexPageProps> = async ({
   params,
 }) => {
-  const courseRequest: AxiosResponse<CourseCollectionType[]> = await axios.get(
+  const courseData = await httpGet<CourseCollectionType[]>(
     COLLECTIONS_API_ROUTES.courses
   );
-  const blogRequest: AxiosResponse<BlogCollectionType[]> = await axios.get(
+  const blogData = await httpGet<BlogCollectionType[]>(
     COLLECTIONS_API_ROUTES.blog
   );
-  const testimonialRequest: AxiosResponse<TestimonialCollectionType[]> =
-    await axios.get(COLLECTIONS_API_ROUTES.testimonials);
 
-  const courseData = courseRequest.data;
-  const blogData = blogRequest.data;
-  const testimonialData = testimonialRequest.data;
+  const testimonialData = await httpGet<TestimonialCollectionType[]>(
+    COLLECTIONS_API_ROUTES.testimonials
+  );
 
   return {
     props: {
