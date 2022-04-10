@@ -13,3 +13,8 @@ export { ContactSection } from "./Contact/Main/ContactSection";
 export type { ContactSectionProps } from "./Contact/Main/ContactSection";
 export { DynamicSections } from "./DynamicSections/DynamicSections";
 export type { DynamicSectionsProps } from "./DynamicSections/DynamicSections";
+export { FAQSection } from "./FAQ/Main/FAQSection";
+export type { FAQSectionProps } from "./FAQ/Main/FAQSection";
+export { TestimonialSection } from "./Testimonial/Main/TestimonialSection";
+export type { TestimonialSectionProps } from "./Testimonial/Main/TestimonialSection";
+export type { BlogSection, BlogSectionProps } from "./Blog/Main/BlogSection";

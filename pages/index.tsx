@@ -24,14 +24,19 @@ export interface IndexPageProps {
   faq?: FAQCollectionType[];
 }
 
-const Home: NextPage<IndexPageProps> = ({ courses, blog, testimonials }) => {
+const Home: NextPage<IndexPageProps> = ({
+  courses = [],
+  blog = [],
+  testimonials = [],
+  faq = [],
+}) => {
   const router = useRouter();
   const isMobile = useDetectMobile();
   const whatsRedirect = useWhatsAppRedirect(isMobile ? "mobile" : "desktop");
 
   const landingProps = useLandingPage(router, whatsRedirect, {
     blog: blog ?? [],
-    faq: [],
+    faq: faq ?? [],
     testimonial: testimonials ?? [],
     courses: courses ?? [],
   });
