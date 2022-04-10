@@ -91,4 +91,17 @@ export const events = {
       timestamp: `${new Date(Date.now()).toLocaleString("pt-br")}`,
     });
   },
+  supportMenu: () => {
+    dispatchEvent({
+      event: "wpp-botao",
+      timestamp: `${new Date(Date.now()).toLocaleString("pt-br")}`,
+    });
+  },
+  supportItem: (params: { supportItemLabel: string }) => {
+    dispatchEvent({
+      event: "suporte-item",
+      opcao: params.supportItemLabel,
+      timestamp: `${new Date(Date.now()).toLocaleString("pt-br")}`,
+    });
+  },
 } as const;
