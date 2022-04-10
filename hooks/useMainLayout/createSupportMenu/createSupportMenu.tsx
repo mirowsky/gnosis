@@ -2,6 +2,7 @@ import React from "react";
 import type { SupportMenuMainProps } from "../../../components/Layout/SupportMenu/Main/SupportMenuMain";
 import { Handshake, LiveHelp, WhatsApp } from "@mui/icons-material";
 import { useWhatsAppRedirect } from "@workspace/hooks";
+import { events } from "../../../utility/gtag";
 
 export const createSupportMenu = (params: {
   open: boolean;
@@ -15,7 +16,12 @@ export const createSupportMenu = (params: {
       id: "wpp-button",
       "aria-label":
         "Clique para expandir opções de atendimento com o nosso time de suporte",
-      onClick: () => params.setOpen((prev) => !prev),
+      onClick: () => {
+        if (!params.open) {
+          events.supportMenu();
+        }
+        params.setOpen((prev) => !prev);
+      },
       open: params.open,
     },
     SupportMenuProps: {
