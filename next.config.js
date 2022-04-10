@@ -12,11 +12,11 @@ const getGTMEnvironment = () => {
 };
 
 /** @type {import('next').NextConfig} */
-module.exports = withBundleAnalyzer({
+module.exports = {
   reactStrictMode: false,
   env: {
     GTM: getGTMEnvironment(),
     NEXT_PUBLIC_API_MOCKING: "enabled",
   },
   swcMinify: true,
-});
+};

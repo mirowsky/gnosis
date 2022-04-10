@@ -29,7 +29,7 @@
       "@workspace/hooks": ["./hooks/index.ts"],
       "@workspace/components/pages": ["./components/Pages/index.ts"],
       "@workspace/components/layouts": ["./components/Layout/index.ts"],
-      "@workspace/contants": ["./constants/index.ts"]
+      "@workspace/contants": ["constants/index.ts"]
     }
   },
   "include": [
@@ -37,7 +37,8 @@
     "**/*.ts",
     "**/*.tsx",
     "global.d.ts",
-    "augmentation.d.ts"
-, "mocks/index.js", "mocks/handlers.js", "mocks/server.js", "mocks/browser.js"  ],
+    "augmentation.d.ts",
+    "mocks/index.js"
+  ],
   "exclude": ["node_modules"]
 }

@@ -1,14 +1,10 @@
 import faker from "@faker-js/faker";
-import { COLLECTIONS_API_ROUTES } from "@workspace/contants";
+import { COLLECTIONS_API_ROUTES } from "../constants";
 import { rest } from "msw";
 
 //fetching after the "window" object is available will be mocked by "mocks/browser.js", fetching before it will be mocked by "mocks/server.js"
 
-/**
- *
- * @type {import("../types").BlogCollectionType}
- */
-const randomBlogPost = () => ({
+const randomBlogPost = (): import("../types").BlogCollectionType => ({
   blogActive: true,
   blogDescription: faker.lorem.lines(5),
   blogPost: faker.lorem.paragraphs(10),
