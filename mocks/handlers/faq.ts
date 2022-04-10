@@ -13,7 +13,9 @@ const randomFAQ = (
   });
 };
 
-export const FAQHandler = () =>
-  rest.get(COLLECTIONS_API_ROUTES.faq, (req, res, ctx) => {
+export const FAQHandler = rest.get(
+  COLLECTIONS_API_ROUTES.faq,
+  (req, res, ctx) => {
     return res(ctx.json([...randomFAQ(5)]));
-  });
+  }
+);

@@ -44,10 +44,7 @@ export const createDynamicSection = (params: {
     TestimonialSectionProps: {
       sectionTitle: "O que nossos alunos dizem sobre o Instituto Gnosis.",
       TestimonialSliderProps: {
-        items: (process.env.NODE_ENV === "development"
-          ? __testimonial_mock
-          : params.testimonial
-        ).map((testimonial, _index) => {
+        items: params.testimonial.map((testimonial, _index) => {
           return {
             testimonial: testimonial.testimonialText,
             testimonialName: testimonial.testimonialName,
@@ -62,23 +59,3 @@ export const createDynamicSection = (params: {
     },
   };
 };
-
-const __testimonial_mock_item: TestimonialCollectionType = {
-  slug: "hello",
-  testimonialLocation: "Porto Alegre",
-  testimonialName: "John Doe",
-  testimonialPicture: {
-    imageDescription: "Test image",
-    imageURL: "https://source.unsplash.com/random",
-  },
-  testimonialText:
-    "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda expedita reprehenderit cumque odit eum sapiente, debitis tempora delectus accusamus? Eius rerum quas explicabo enim, veritatis dolorum tempore omnis porro nisi eum modi, est, quam esse placeat tempora quae culpa eaque veniam. Earum assumenda ut blanditiis sapiente eum maxime vel sed.",
-  uuid: "what",
-};
-
-const __testimonial_mock: TestimonialCollectionType[] = [
-  __testimonial_mock_item,
-  __testimonial_mock_item,
-  __testimonial_mock_item,
-  __testimonial_mock_item,
-];

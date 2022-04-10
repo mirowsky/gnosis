@@ -15,7 +15,7 @@ const randomTestimonial = (
         imageDescription: faker.lorem.sentence(),
         imageURL: getRandomImage(),
       },
-      testimonialText: faker.lorem.sentence(5),
+      testimonialText: faker.lorem.sentences(5),
       uuid: faker.datatype.uuid(),
     };
   });
