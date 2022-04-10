@@ -3,6 +3,7 @@ import { LandingPage } from "@workspace/components/pages";
 import {
   BlogCollectionType,
   CourseCollectionType,
+  FAQCollectionType,
   TestimonialCollectionType,
 } from "@workspace/types";
 import { useRouter } from "next/router";
@@ -20,6 +21,7 @@ export interface IndexPageProps {
   courses: CourseCollectionType[];
   blog?: BlogCollectionType[];
   testimonials?: TestimonialCollectionType[];
+  faq?: FAQCollectionType[];
 }
 
 const Home: NextPage<IndexPageProps> = ({ courses, blog, testimonials }) => {
@@ -62,11 +64,16 @@ export const getStaticProps: GetStaticProps<IndexPageProps> = async ({
     COLLECTIONS_API_ROUTES.testimonials
   );
 
+  const faqData = await httpGet<FAQCollectionType[]>(
+    COLLECTIONS_API_ROUTES.faq
+  );
+
   return {
     props: {
       courses: courseData,
       testimonials: testimonialData,
       blog: blogData,
+      faq: faqData,
     },
   };
 };
