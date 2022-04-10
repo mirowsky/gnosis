@@ -12,6 +12,10 @@ import React from "react";
 import { GTM_ID } from "@workspace/contants";
 import { GTMBeforeInteractive } from "@workspace/components/utility";
 
+if (process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
+  require("../mocks");
+}
+
 class CustomDocument extends Document {
   static async getInitialProps(
     ctx: DocumentContext

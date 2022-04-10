@@ -10,7 +10,7 @@ const randomBlogPost = (): import("../types").BlogCollectionType => ({
   blogPost: faker.lorem.paragraphs(10),
   blogTitle: faker.lorem.words(3),
   featuredImage: {
-    imageURL: faker.image.avatar(),
+    imageURL: "https://source.unsplash.com/random",
     imageDescription: faker.lorem.sentences(2),
   },
   slug: "blog-post-1",
