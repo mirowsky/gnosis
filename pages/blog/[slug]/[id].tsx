@@ -8,6 +8,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { httpGet, convertToSlug } from "@workspace/utility";
 import { Facebook, Instagram, WhatsApp } from "@mui/icons-material";
 import { COLLECTIONS_API_ROUTES } from "@workspace/contants";
+import { BlogService } from "@workspace/services";
 
 export type BlogPageProps = {
   latest: BlogCollectionType[];
@@ -86,22 +87,17 @@ export const getStaticProps: GetStaticProps<
   preview,
   previewData,
 }) => {
-  const data = await httpGet<BlogCollectionType>(
-    COLLECTIONS_API_ROUTES.blogSingle(params.id as string)
-  );
+  const oneBlogPost = await BlogService.findOne(params.id as string);
+  const allBlogPosts = await BlogService.findAll();
 
-  const blogData = await httpGet<BlogCollectionType[]>(
-    COLLECTIONS_API_ROUTES.blog
-  );
-
-  console.log(data);
+  console.log(oneBlogPost);
 
   return {
     props: {
-      latest: blogData,
-      content: data.blogPost,
-      featuredImage: data.featuredImage.imageURL,
-      title: data.blogTitle,
+      latest: allBlogPosts,
+      content: oneBlogPost.blogPost,
+      featuredImage: oneBlogPost.featuredImage.imageURL,
+      title: oneBlogPost.blogTitle,
     },
   };
 };
