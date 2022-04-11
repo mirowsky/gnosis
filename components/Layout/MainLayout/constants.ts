@@ -7,6 +7,7 @@ import { DEFAULT_ContactSection_TESTING_PROPS } from "../Contact/Main/ContactSec
 import { DEFAULT_NEWSLETTER_SECTION_TESTING_PROPS } from "../Newsletter/Main/constants";
 import { DEFAULT_ContactDial_TESTING_PROPS } from "../ContactDial/Main/ContactDial.fixture";
 import { DEFAULT_ContactFormDialog_TESTING_PROPS } from "components/Common/ContactFormDialog/ContactFormDialog.fixture";
+import { DEFAULT_SupportMenuMain_TESTING_PROPS } from "../SupportMenu/Main/SupportMenuMain.fixture";
 
 export const MAIN_LAYOUT_TEST_ID = {} as const;
 export const MAIN_LAYOUT_DEFAULT_PROPS: MainLayoutProps = {
@@ -16,7 +17,7 @@ export const MAIN_LAYOUT_DEFAULT_PROPS: MainLayoutProps = {
   MobileMenuProps: DEFAULT_MOBILE_DRAWER_TEST_PROPS,
   ContactSectionProps: DEFAULT_ContactSection_TESTING_PROPS,
   NewsLetterSectionProps: DEFAULT_NEWSLETTER_SECTION_TESTING_PROPS,
-  ContactDialProps: DEFAULT_ContactDial_TESTING_PROPS,
+  SupportMenuMainProps: DEFAULT_SupportMenuMain_TESTING_PROPS,
   ContactFormDialogProps: {
     ...DEFAULT_ContactFormDialog_TESTING_PROPS,
   },
