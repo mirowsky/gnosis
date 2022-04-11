@@ -1,30 +1,21 @@
 import { ContactFormBody, CourseFormBody } from "@workspace/types";
-import { HTTP } from "@workspace/utility";
+import { HTTPService } from "../http";
 
 interface ISendEmail<T extends {}> {
   send: (body: T) => Promise<void>;
 }
 
-type EmailConfig = {
-  baseUrl: string;
-};
-
-export class EmailService {
-  constructor(private readonly config: EmailConfig) {}
-
-  getBaseURL = () => {
-    return this.config.baseUrl;
-  };
-}
-
 class EmailSender<T extends {}> implements ISendEmail<T> {
   constructor(
-    private readonly service: EmailService,
+    private readonly httpService: HTTPService,
     private readonly path: string
   ) {}
 
   send: (body: T) => Promise<void> = async (body) => {
-    return await HTTP.post(`${this.service.getBaseURL()}/${this.path}`, body);
+    return await this.httpService.post(
+      `${this.httpService.baseURL}/${this.path}`,
+      body
+    );
   };
 }
 
@@ -34,7 +25,7 @@ interface IEmailSenderFactory {
 }
 
 export class EmailSenderFactory implements IEmailSenderFactory {
-  constructor(private readonly service: EmailService) {}
+  constructor(private readonly service: HTTPService) {}
 
   createContactSender: () => EmailSender<ContactFormBody> = () => {
     return new EmailSender(this.service, "gnosis");

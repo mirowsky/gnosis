@@ -1,9 +1,10 @@
 import { EMAIL_API_BASE_URL } from "@workspace/contants";
-import { EmailSenderFactory, EmailService } from "./email";
+import { HTTPService } from "../http";
+import { EmailSenderFactory } from "./email";
 
-const prod_email_service = new EmailService({ baseUrl: EMAIL_API_BASE_URL });
-
-const emailSenderFactory = new EmailSenderFactory(prod_email_service);
+const emailSenderFactory = new EmailSenderFactory(
+  new HTTPService({ baseURL: EMAIL_API_BASE_URL })
+);
 
 const ContactEmailSender = emailSenderFactory.createContactSender();
 
