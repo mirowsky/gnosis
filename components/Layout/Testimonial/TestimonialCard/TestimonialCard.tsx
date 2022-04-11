@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { webkitVerticalTruncate } from "@workspace/jss-mixins";
 import stylesheet from "@workspace/stylesheet";
+import { ThemeStyles } from "@workspace/types";
 import React from "react";
 
 export type TestimonialCardProps = {
@@ -11,6 +12,7 @@ export type TestimonialCardProps = {
   };
   testimonialName: string;
   testimonialExtra: string;
+  sx?: ThemeStyles;
 };
 
 const TestimonialCard = ({
@@ -21,9 +23,10 @@ const TestimonialCard = ({
     src: "https://via.placeholder.com/500",
     alt: "placeholder alt text, change me",
   },
+  sx,
 }: TestimonialCardProps) => {
   return (
-    <Box sx={styles.root}>
+    <Box sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.textContainer}>
         <Typography variant="h6" component="q">
           {testimonial}

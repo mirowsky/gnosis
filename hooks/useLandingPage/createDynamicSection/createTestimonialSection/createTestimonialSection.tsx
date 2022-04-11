@@ -9,6 +9,7 @@ export const createTestimonialSection = (
     TestimonialSliderProps: {
       items: items.map((testimonial, _index) => {
         return {
+          sx: { scale: "0.85" },
           testimonial: testimonial.testimonialText,
           testimonialName: testimonial.testimonialName,
           testimonialPicture: {
