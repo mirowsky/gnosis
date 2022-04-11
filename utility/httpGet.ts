@@ -1,4 +1,6 @@
-export const httpGet = async <T>(request: RequestInfo): Promise<T> => {
+export const httpGet = async <T = unknown>(
+  request: RequestInfo
+): Promise<T> => {
   try {
     const response = await fetch(request);
 
