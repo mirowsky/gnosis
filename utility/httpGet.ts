@@ -4,9 +4,7 @@ export const httpGet = async <T = unknown>(
   try {
     const response = await fetch(request);
 
-    const body = await response.json();
-
-    return body;
+    return await response.json();
   } catch (error) {
     console.error(error);
     throw new Error("Request failed");

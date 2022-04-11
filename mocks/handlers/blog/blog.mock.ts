@@ -19,7 +19,7 @@ const blogItem = (): BlogCollectionType => ({
 export const blogData: BlogCollectionType[] = [
   {
     ...blogItem(),
-    uuid: "1",
+    uuid: "8oI3c9JuBZhO5RcFVjRfH",
     blogTitle: "Blog Post 1",
     slug: "blog-post-1",
   },

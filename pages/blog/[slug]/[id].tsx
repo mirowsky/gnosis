@@ -5,9 +5,8 @@ import {
   BlogPageProps as BlogPageLayoutProps,
 } from "@workspace/components/pages";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { httpGet, convertToSlug } from "@workspace/utility";
+import { convertToSlug } from "@workspace/utility";
 import { Facebook, Instagram, WhatsApp } from "@mui/icons-material";
-import { COLLECTIONS_API_ROUTES } from "@workspace/contants";
 import { BlogService } from "@workspace/services";
 
 export type BlogPageProps = {
@@ -56,16 +55,13 @@ export default BlogPage;
 
 type BlogStaticPaths = GetStaticPaths<{ slug: string; id: string }>;
 
-export const getStaticPaths: BlogStaticPaths = async ({
-  defaultLocale,
-  locales,
-}) => {
-  const blogData = await httpGet<BlogCollectionType[]>(
-    COLLECTIONS_API_ROUTES.blog
-  );
+export const getStaticPaths: BlogStaticPaths = async (_props) => {
+  const blogData = await BlogService.findAll();
+
+  console.log("@@@@@@@@@@", blogData[0].uuid);
 
   return {
-    paths: blogData.map((value, index) => {
+    paths: blogData.map((value, _index) => {
       return {
         params: {
           id: value.uuid,
@@ -79,22 +75,12 @@ export const getStaticPaths: BlogStaticPaths = async ({
 
 export const getStaticProps: GetStaticProps<
   Pick<BlogPageProps, "content" | "featuredImage" | "title" | "latest">
-> = async ({
-  defaultLocale,
-  locale,
-  locales,
-  params = {},
-  preview,
-  previewData,
-}) => {
+> = async ({ params = {} }) => {
   const oneBlogPost = await BlogService.findOne(params.id as string);
-  const allBlogPosts = await BlogService.findAll();
-
-  console.log(oneBlogPost);
 
   return {
     props: {
-      latest: allBlogPosts,
+      latest: [],
       content: oneBlogPost.blogPost,
       featuredImage: oneBlogPost.featuredImage.imageURL,
       title: oneBlogPost.blogTitle,

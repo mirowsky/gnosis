@@ -1,9 +1,9 @@
 import { FORM_API_BASE_URL } from "@workspace/contants";
-import { HTTPService } from "services/http";
+import { HTTPClient, HTTPService } from "../";
 import { FormSubmitterFactory } from "./forms";
 
 const formFactory = new FormSubmitterFactory(
-  new HTTPService({ baseURL: FORM_API_BASE_URL })
+  new HTTPService({ baseURL: FORM_API_BASE_URL, client: new HTTPClient() })
 );
 
 const ContactFormSubmitter = formFactory.createContactFormSubmitter();
