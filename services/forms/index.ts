@@ -1,5 +1,5 @@
 import { FORM_API_BASE_URL } from "@workspace/contants";
-import { HTTPClient, HTTPService } from "../";
+import { HTTPClient, HTTPService } from "../http";
 import { FormSubmitterFactory } from "./forms";
 
 const formFactory = new FormSubmitterFactory(

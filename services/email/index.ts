@@ -1,5 +1,5 @@
 import { EMAIL_API_BASE_URL } from "@workspace/contants";
-import { HTTPClient, HTTPService } from "..";
+import { HTTPClient, HTTPService } from "../http";
 import { EmailSenderFactory } from "./email";
 
 const emailSenderFactory = new EmailSenderFactory(

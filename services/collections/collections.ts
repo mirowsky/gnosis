@@ -4,7 +4,7 @@ import {
   FAQCollectionType,
   TestimonialCollectionType,
 } from "@workspace/types";
-import { HTTPService } from "..";
+import { HTTPService } from "../http";
 
 interface IQueryable<T> {
   findOne: (id: string) => Promise<T>;

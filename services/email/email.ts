@@ -1,5 +1,5 @@
 import { ContactFormBody, CourseFormBody } from "@workspace/types";
-import { HTTPService } from "..";
+import { HTTPService } from "../http";
 
 interface ISendEmail<T extends {}> {
   send: (body: T) => Promise<void>;

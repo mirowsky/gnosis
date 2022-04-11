@@ -1,5 +1,5 @@
 import { ContactFormBody, CourseFormBody } from "@workspace/types";
-import { HTTPService } from "..";
+import { HTTPService } from "../http";
 
 interface ISubmitForm<T extends {}> {
   submit: (body: T) => Promise<void>;
