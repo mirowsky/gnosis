@@ -1,5 +1,5 @@
 import { COLLECTIONS_API_BASE_URL } from "@workspace/contants";
-import { HTTPService } from "services/http";
+import { HTTPService } from "../http";
 import { FirebaseCollectionFactory } from "./collections";
 
 const collectionFactory = new FirebaseCollectionFactory(
