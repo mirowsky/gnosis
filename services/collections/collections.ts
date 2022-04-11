@@ -5,6 +5,7 @@ import {
   TestimonialCollectionType,
 } from "@workspace/types";
 import { httpGet } from "@workspace/utility";
+import { HTTPService } from "../http";
 
 interface IQueryable<T> {
   findOne: (id: string) => Promise<T>;
@@ -12,13 +13,10 @@ interface IQueryable<T> {
 }
 
 class FirebaseService<T> implements IQueryable<T> {
-  private readonly baseRoute =
-    "https://us-central1-gnosis-webapp.cloudfunctions.net/api/collections/entries/";
-
   private readonly apiRoute: string;
 
-  constructor(collection: string) {
-    this.apiRoute = `${this.baseRoute}${collection}`;
+  constructor(private readonly httpService: HTTPService, collection: string) {
+    this.apiRoute = `${this.httpService.config}${collection}`;
   }
 
   findAll = async (): Promise<T[]> => {
@@ -38,14 +36,24 @@ interface IFirebaseCollectionFactory {
 }
 
 export class FirebaseCollectionFactory implements IFirebaseCollectionFactory {
+  constructor(private readonly httpService: HTTPService) {}
+
   createBlog = () => {
-    return new FirebaseService<BlogCollectionType>("gnosisBlog");
+    return new FirebaseService<BlogCollectionType>(
+      this.httpService,
+      "gnosisBlog"
+    );
   };
 
-  createCourses = () => new FirebaseService<CourseCollectionType>("coursesNew");
+  createCourses = () =>
+    new FirebaseService<CourseCollectionType>(this.httpService, "coursesNew");
 
-  createFAQ = () => new FirebaseService<FAQCollectionType>("faq");
+  createFAQ = () =>
+    new FirebaseService<FAQCollectionType>(this.httpService, "faq");
 
   createTestimonial = () =>
-    new FirebaseService<TestimonialCollectionType>("testimonials");
+    new FirebaseService<TestimonialCollectionType>(
+      this.httpService,
+      "testimonials"
+    );
 }

@@ -14,16 +14,20 @@ type HTTPServiceConfig = {
 };
 
 export class HTTPService implements IHTTPRequest {
-  constructor(private readonly config: HTTPServiceConfig) {}
+  constructor(private readonly _config: HTTPServiceConfig) {}
+
+  get config() {
+    return this._config;
+  }
 
   get = async <T>(url: string) => {
-    return await HTTP.get<T>(`${this.config.baseURL}/${url}`);
+    return await HTTP.get<T>(`${this._config.baseURL}/${url}`);
   };
   post = async <T>(
     url: string,
     body: Record<string, unknown>,
     config?: Request
   ) => {
-    return await HTTP.post<T>(`${this.config.baseURL}/${url}`, body, config);
+    return await HTTP.post<T>(`${this._config.baseURL}/${url}`, body, config);
   };
 }
