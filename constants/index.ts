@@ -1,21 +1,8 @@
 export const IS_PROD = process.env.NODE_ENV === "production";
 
 export const EMAIL_API_BASE_URL = `${process.env.EMAIL_API_BASE_URL}`;
-
-export const API_ROUTE_BASE =
-  "https://us-central1-gnosis-webapp.cloudfunctions.net/api";
-
-/**
- * Contact required body - {name: string, email: string, phone: string, message: string}
- *
- * Course required body - {name: string, email: string, phone: string, message: string, course: string}
- */
-export const EMAIL_API_ROUTES = {
-  contact:
-    "https://us-central1-atlascodedev-landing.cloudfunctions.net/api/sendMail/gnosis",
-  course:
-    "https://us-central1-atlascodedev-landing.cloudfunctions.net/api/sendMail/gnosis-curso",
-};
+export const API_ROUTE_BASE = `${process.env.API_ROUTE_BASE}`;
+export const GTM_ID = `${process.env.GTM}`;
 
 export const FORM_API_ROUTES = {
   contactForm: `${API_ROUTE_BASE}/forms/contact`,
@@ -34,8 +21,6 @@ export const COLLECTIONS_API_ROUTES = {
   blogSingle: (uuid: string) =>
     `${API_ROUTE_BASE}/collections/entries/gnosisBlog/${uuid}`,
 };
-
-export const GTM_ID = `${process.env.GTM}`;
 
 export const WHATSAPP_PHONE_NUMBER = "555191431009";
 

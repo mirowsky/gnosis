@@ -1,17 +1,9 @@
+import { ContactFormBody, CourseFormBody } from "@workspace/types";
 import { HTTP } from "@workspace/utility";
 
 interface ISendEmail<T extends {}> {
   send: (body: T) => Promise<void>;
 }
-
-type ContactFormBody = {
-  email: string;
-  name: string;
-  phone: string;
-  message: string;
-};
-
-type CourseFormBody = ContactFormBody & { course: string };
 
 type EmailConfig = {
   baseUrl: string;

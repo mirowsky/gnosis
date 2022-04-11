@@ -67,3 +67,12 @@ export type FAQCollectionType = {
   question: string;
   answer: string;
 };
+
+export type ContactFormBody = {
+  email: string;
+  name: string;
+  phone: string;
+  message: string;
+};
+
+export type CourseFormBody = ContactFormBody & { course: string };
