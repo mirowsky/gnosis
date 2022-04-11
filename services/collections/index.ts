@@ -1,9 +1,9 @@
-import { API_ROUTE_BASE } from "@workspace/contants";
+import { COLLECTIONS_API_BASE_URL } from "@workspace/contants";
 import { HTTPService } from "services/http";
 import { FirebaseCollectionFactory } from "./collections";
 
 const collectionFactory = new FirebaseCollectionFactory(
-  new HTTPService({ baseURL: API_ROUTE_BASE })
+  new HTTPService({ baseURL: COLLECTIONS_API_BASE_URL })
 );
 
 const CoursesService = collectionFactory.createCourses();

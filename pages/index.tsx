@@ -13,9 +13,14 @@ import {
   useWhatsAppRedirect,
 } from "@workspace/hooks";
 import React from "react";
-import { COLLECTIONS_API_ROUTES, META_TAGS } from "@workspace/contants";
+import { META_TAGS } from "@workspace/contants";
 import Head from "next/head";
-import { httpGet } from "@workspace/utility";
+import {
+  BlogService,
+  FAQService,
+  CoursesService,
+  TestimonialService,
+} from "@workspace/services";
 
 export interface IndexPageProps {
   courses: CourseCollectionType[];
@@ -58,20 +63,12 @@ export default Home;
 export const getStaticProps: GetStaticProps<IndexPageProps> = async ({
   params,
 }) => {
-  const courseData = await httpGet<CourseCollectionType[]>(
-    COLLECTIONS_API_ROUTES.courses
-  );
-  const blogData = await httpGet<BlogCollectionType[]>(
-    COLLECTIONS_API_ROUTES.blog
-  );
+  const courseData = await CoursesService.findAll();
+  const blogData = await BlogService.findAll();
 
-  const testimonialData = await httpGet<TestimonialCollectionType[]>(
-    COLLECTIONS_API_ROUTES.testimonials
-  );
+  const testimonialData = await TestimonialService.findAll();
 
-  const faqData = await httpGet<FAQCollectionType[]>(
-    COLLECTIONS_API_ROUTES.faq
-  );
+  const faqData = await FAQService.findAll();
 
   return {
     props: {
