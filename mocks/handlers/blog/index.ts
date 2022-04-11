@@ -10,7 +10,7 @@ const findOneBlog = rest.get(
     const { uuid } = req.params;
     const data = blogData.filter((value, _index) => {
       console.log(data);
-      return (value.uuid = uuid as string);
+      return value.uuid === (uuid as string);
     });
     return res(ctx.status(200), ctx.json({ ...data[0] }));
   }

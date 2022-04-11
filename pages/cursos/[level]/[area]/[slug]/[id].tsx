@@ -3,7 +3,6 @@ import {
   CoursePageAltProps,
 } from "@workspace/components/pages";
 import { CourseCollectionType } from "@workspace/types";
-import axios, { AxiosResponse } from "axios";
 import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";
 import { convertToSlug } from "@workspace/utility";
@@ -20,6 +19,7 @@ import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Head from "next/head";
+import { CoursesService } from "@workspace/services";
 
 const convertSyllabusItem = (syllabusItem: string) => {
   const hour = syllabusItem.match(/([0-9].hs?)/gi);
@@ -211,14 +211,10 @@ export const getStaticPaths: CourseStaticPaths = async ({
   defaultLocale,
   locales,
 }) => {
-  const courseRequest: AxiosResponse<CourseCollectionType[]> = await axios.get(
-    "https://us-central1-gnosis-webapp.cloudfunctions.net/api/collections/entries/coursesNew"
-  );
-
-  const courseData = courseRequest.data;
+  const data = await CoursesService.findAll();
 
   return {
-    paths: courseData.map((value, index) => {
+    paths: data.map((value, index) => {
       return {
         params: {
           area: convertToSlug(value.courseArea),
@@ -247,14 +243,7 @@ export const getStaticProps: GetStaticProps<CoursePageDataProps> = async ({
     id: string;
   };
 
-  const courseByIdRequest: AxiosResponse<CourseCollectionType> =
-    await axios.get(`
-  https://us-central1-gnosis-webapp.cloudfunctions.net/api/collections/entries/coursesNew/${paramsData.id}
-  `);
-
-  const courseByIdRequestData = courseByIdRequest.data;
-
-  console.log(courseByIdRequestData);
+  const courseByIdRequestData = await CoursesService.findOne(paramsData.id);
 
   return {
     props: {

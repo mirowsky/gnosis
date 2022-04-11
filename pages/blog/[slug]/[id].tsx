@@ -63,8 +63,6 @@ export const getStaticPaths: BlogStaticPaths = async ({
     COLLECTIONS_API_ROUTES.blog
   );
 
-  console.log(blogData);
-
   return {
     paths: blogData.map((value, index) => {
       return {
