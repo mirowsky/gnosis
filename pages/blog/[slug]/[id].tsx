@@ -7,6 +7,7 @@ import {
 import { GetStaticPaths, GetStaticProps } from "next";
 import { httpGet } from "@workspace/utility";
 import { Facebook, Instagram, WhatsApp } from "@mui/icons-material";
+import { COLLECTIONS_API_ROUTES } from "@workspace/contants";
 
 export type BlogPageProps = {
   latest: BlogCollectionType[];
@@ -59,7 +60,7 @@ export const getStaticPaths: BlogStaticPaths = async ({
   locales,
 }) => {
   const blogData = await httpGet<BlogCollectionType[]>(
-    "https://us-central1-gnosis-webapp.cloudfunctions.net/api/collections/entries/gnosisBlog"
+    COLLECTIONS_API_ROUTES.blog
   );
 
   return {
@@ -86,11 +87,11 @@ export const getStaticProps: GetStaticProps<
   previewData,
 }) => {
   const data = await httpGet<BlogCollectionType>(
-    `https://us-central1-gnosis-webapp.cloudfunctions.net/api/collections/entries/gnosisBlog${params.id}`
+    COLLECTIONS_API_ROUTES.blogSingle(params.id as string)
   );
 
   const blogData = await httpGet<BlogCollectionType[]>(
-    "https://us-central1-gnosis-webapp.cloudfunctions.net/api/collections/entries/gnosisBlog"
+    COLLECTIONS_API_ROUTES.blog
   );
 
   return {

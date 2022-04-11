@@ -54,6 +54,7 @@ export const useLandingPage = (
       testimonial: collections.testimonial,
       setState: setFAQState,
       state: FAQState,
+      router: router,
     }),
     DefenseSectionProps: createDefenseSection(),
     HeroSectionProps: createHeroSection(router),

@@ -1,11 +1,11 @@
 import faker from "@faker-js/faker";
 import { COLLECTIONS_API_ROUTES } from "@workspace/contants";
-import { getRandomImage } from "mocks/utility";
+import { getRandomImage } from "../../utility";
 import { rest } from "msw";
 
 const randomTestimonial = (
   amount: number
-): import("../../types").TestimonialCollectionType[] => {
+): import("../../../types").TestimonialCollectionType[] => {
   return Array.from({ length: amount }).map((_val, _index) => {
     return {
       slug: faker.lorem.slug(),
@@ -21,9 +21,11 @@ const randomTestimonial = (
   });
 };
 
-export const testimonialHandler = rest.get(
+const findAllTestimonial = rest.get(
   COLLECTIONS_API_ROUTES.testimonials,
   (req, res, ctx) => {
     return res(ctx.json([...randomTestimonial(10)]));
   }
 );
+
+export const testimonialHandlers = [findAllTestimonial];

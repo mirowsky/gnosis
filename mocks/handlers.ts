@@ -1,5 +1,9 @@
-import { blogHandler } from "./handlers/blog";
-import { FAQHandler } from "./handlers/faq";
-import { testimonialHandler } from "./handlers/testimonial";
+import { blogHandlers } from "./handlers/blog";
+import { FAQHandlers } from "./handlers/faq";
+import { testimonialHandlers } from "./handlers/testimonial";
 
-export const handlers = [blogHandler, FAQHandler, testimonialHandler];
+export const handlers = [
+  ...blogHandlers,
+  ...FAQHandlers,
+  ...testimonialHandlers,
+];

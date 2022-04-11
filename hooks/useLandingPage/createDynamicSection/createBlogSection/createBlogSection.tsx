@@ -1,8 +1,11 @@
 import { BlogSectionProps } from "@workspace/components/layouts";
 import { BlogCollectionType } from "@workspace/types";
+import { NextRouter } from "next/router";
+import { getBlogURL } from "utility/getBlogURL";
 
 export const createBlogSection = (
-  items: BlogCollectionType[]
+  items: BlogCollectionType[],
+  router: NextRouter
 ): BlogSectionProps => {
   return {
     items: items.map((val, _index) => {
@@ -14,6 +17,9 @@ export const createBlogSection = (
         readingTime: "10 minutos de leitura",
         tags: ["Medicina"],
         title: val.blogTitle,
+        onClick: () => {
+          router.push(getBlogURL(val.blogTitle, val.uuid));
+        },
       };
     }),
     sectionTitle: "Confira nossas últimas postagens.",

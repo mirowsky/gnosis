@@ -29,6 +29,8 @@ export const COLLECTIONS_API_ROUTES = {
   blog: `${API_ROUTE_BASE}/collections/entries/gnosisBlog`,
   testimonials: `${API_ROUTE_BASE}/collections/entries/testimonials`,
   faq: `${API_ROUTE_BASE}/collections/entries/faq`,
+  blogSingle: (uuid: string) =>
+    `${API_ROUTE_BASE}/collections/entries/gnosisBlog/${uuid}`,
 };
 
 export const GTM_ID = `${process.env.GTM}`;
