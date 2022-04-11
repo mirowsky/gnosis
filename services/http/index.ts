@@ -16,8 +16,8 @@ type HTTPServiceConfig = {
 export class HTTPService implements IHTTPRequest {
   constructor(private readonly _config: HTTPServiceConfig) {}
 
-  get config() {
-    return this._config;
+  get baseURL() {
+    return this._config.baseURL;
   }
 
   get = async <T>(url: string) => {

@@ -4,7 +4,6 @@ import {
   FAQCollectionType,
   TestimonialCollectionType,
 } from "@workspace/types";
-import { httpGet } from "@workspace/utility";
 import { HTTPService } from "../http";
 
 interface IQueryable<T> {
@@ -13,18 +12,17 @@ interface IQueryable<T> {
 }
 
 class FirebaseService<T> implements IQueryable<T> {
-  private readonly apiRoute: string;
-
-  constructor(private readonly httpService: HTTPService, collection: string) {
-    this.apiRoute = `${this.httpService.config}${collection}`;
-  }
+  constructor(
+    private readonly httpService: HTTPService,
+    private readonly collection: string
+  ) {}
 
   findAll = async (): Promise<T[]> => {
-    return await httpGet(`${this.apiRoute}`);
+    return await this.httpService.get(this.collection);
   };
 
   findOne = async (id: string): Promise<T> => {
-    return await httpGet(`${this.apiRoute}/${id}`);
+    return await this.httpService.get(`${this.collection}/${id}`);
   };
 }
 
