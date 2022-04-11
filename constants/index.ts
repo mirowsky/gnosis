@@ -1,5 +1,7 @@
 export const IS_PROD = process.env.NODE_ENV === "production";
 
+export const EMAIL_API_BASE_URL = `${process.env.EMAIL_API_BASE_URL}`;
+
 export const API_ROUTE_BASE =
   "https://us-central1-gnosis-webapp.cloudfunctions.net/api";
 

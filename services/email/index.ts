@@ -1,56 +1,12 @@
-/**
- * Contact required body - {name: string, email: string, phone: string, message: string}
- *
- * Course required body - {name: string, email: string, phone: string, message: string, course: string}
- */
+import { EMAIL_API_BASE_URL } from "@workspace/contants";
+import { EmailSenderFactory, EmailService } from "./email";
 
-//  export const EMAIL_API_ROUTES = {
-//     contact:
-//       "https://us-central1-atlascodedev-landing.cloudfunctions.net/api/sendMail/gnosis",
-//     course:
-//       "https://us-central1-atlascodedev-landing.cloudfunctions.net/api/sendMail/gnosis-curso",
-//   };
+const prod_email_service = new EmailService({ baseUrl: EMAIL_API_BASE_URL });
 
-interface IEmailSender {
-  contact: (
-    name: string,
-    email: string,
-    phone: string,
-    message: string
-  ) => Promise<void>;
+const emailSenderFactory = new EmailSenderFactory(prod_email_service);
 
-  course: (
-    name: string,
-    email: string,
-    phone: string,
-    message: string,
-    course: string
-  ) => Promise<void>;
-}
+const ContactEmailSender = emailSenderFactory.createContactSender();
 
-type EmailConfig = {
-  baseUrl: string;
-};
+const CourseEmailSender = emailSenderFactory.createCourseSender();
 
-export class EmailService implements IEmailSender {
-  constructor(private readonly config: EmailConfig) {}
-
-  contact: (
-    name: string,
-    email: string,
-    phone: string,
-    message: string
-  ) => Promise<void> = async (name, email, phone, message) => {
-    return await new Promise((resolve, reject) => {});
-  };
-
-  course: (
-    name: string,
-    email: string,
-    phone: string,
-    message: string,
-    course: string
-  ) => Promise<void> = async (name, email, phone, message, course) => {
-    return await new Promise((resolve, reject) => {});
-  };
-}
+export { CourseEmailSender, ContactEmailSender };

@@ -29,7 +29,8 @@
       "@workspace/hooks": ["./hooks/index.ts"],
       "@workspace/components/pages": ["./components/Pages/index.ts"],
       "@workspace/components/layouts": ["./components/Layout/index.ts"],
-      "@workspace/contants": ["constants/index.ts"]
+      "@workspace/contants": ["constants/index.ts"],
+      "@workspace/services": ["./services/index.ts"]
     }
   },
   "include": [

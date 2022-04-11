@@ -21,3 +21,4 @@ export type { CustomEvent as GTMCustomEvent } from "./gtag";
 export type { EventDispatcher as GTMDispatcher } from "./gtag";
 export { httpGet } from "./httpGet";
 export { getBlogURL } from "./getBlogURL";
+export { HTTP } from "./HTTP";
