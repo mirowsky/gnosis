@@ -3,6 +3,7 @@ export const IS_PROD = process.env.NODE_ENV === "production";
 export const EMAIL_API_BASE_URL = `${process.env.EMAIL_API_BASE_URL}`;
 export const API_ROUTE_BASE = `${process.env.API_ROUTE_BASE}`;
 export const GTM_ID = `${process.env.GTM}`;
+export const FORM_API_BASE_URL = `${API_ROUTE_BASE}/forms/`;
 
 export const FORM_API_ROUTES = {
   contactForm: `${API_ROUTE_BASE}/forms/contact`,

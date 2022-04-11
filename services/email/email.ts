@@ -12,10 +12,7 @@ class EmailSender<T extends {}> implements ISendEmail<T> {
   ) {}
 
   send: (body: T) => Promise<void> = async (body) => {
-    return await this.httpService.post(
-      `${this.httpService.baseURL}/${this.path}`,
-      body
-    );
+    return await this.httpService.post(`${this.path}`, body);
   };
 }
 
