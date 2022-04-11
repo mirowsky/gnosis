@@ -5,7 +5,7 @@ import {
   BlogPageProps as BlogPageLayoutProps,
 } from "@workspace/components/pages";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { httpGet } from "@workspace/utility";
+import { httpGet, convertToSlug } from "@workspace/utility";
 import { Facebook, Instagram, WhatsApp } from "@mui/icons-material";
 import { COLLECTIONS_API_ROUTES } from "@workspace/contants";
 
@@ -63,12 +63,14 @@ export const getStaticPaths: BlogStaticPaths = async ({
     COLLECTIONS_API_ROUTES.blog
   );
 
+  console.log(blogData);
+
   return {
     paths: blogData.map((value, index) => {
       return {
         params: {
           id: value.uuid,
-          slug: value.slug,
+          slug: convertToSlug(value.blogTitle),
         },
       };
     }),
@@ -93,6 +95,8 @@ export const getStaticProps: GetStaticProps<
   const blogData = await httpGet<BlogCollectionType[]>(
     COLLECTIONS_API_ROUTES.blog
   );
+
+  console.log(data);
 
   return {
     props: {
