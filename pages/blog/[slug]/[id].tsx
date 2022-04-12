@@ -58,13 +58,16 @@ type BlogStaticPaths = GetStaticPaths<{ slug: string; id: string }>;
 export const getStaticPaths: BlogStaticPaths = async (_props) => {
   const blogData = await BlogService.findAll();
 
-  console.log("@@@@@@@@@@", blogData[0].uuid);
+  console.log(
+    "@@@@@@@@@@",
+    blogData.map((val, index) => val.uuid)
+  );
 
   return {
     paths: blogData.map((value, _index) => {
       return {
         params: {
-          id: value.uuid,
+          id: `${value.uuid}`,
           slug: convertToSlug(value.blogTitle),
         },
       };

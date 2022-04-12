@@ -65,9 +65,7 @@ export const getStaticProps: GetStaticProps<IndexPageProps> = async ({
 }) => {
   const courseData = await CoursesService.findAll();
   const blogData = await BlogService.findAll();
-
   const testimonialData = await TestimonialService.findAll();
-
   const faqData = await FAQService.findAll();
 
   return {

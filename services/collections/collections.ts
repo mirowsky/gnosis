@@ -11,7 +11,7 @@ interface IQueryable<T> {
   findAll: () => Promise<T[]>;
 }
 
-class FirebaseService<T> implements IQueryable<T> {
+class CollectionsService<T> implements IQueryable<T> {
   constructor(
     private readonly httpService: HTTPService,
     private readonly collection: string
@@ -26,31 +26,34 @@ class FirebaseService<T> implements IQueryable<T> {
   };
 }
 
-interface IFirebaseCollectionFactory {
-  createCourses: () => FirebaseService<CourseCollectionType>;
-  createBlog: () => FirebaseService<BlogCollectionType>;
-  createTestimonial: () => FirebaseService<TestimonialCollectionType>;
-  createFAQ: () => FirebaseService<FAQCollectionType>;
+interface ICollectionServiceFactory {
+  createCourses: () => CollectionsService<CourseCollectionType>;
+  createBlog: () => CollectionsService<BlogCollectionType>;
+  createTestimonial: () => CollectionsService<TestimonialCollectionType>;
+  createFAQ: () => CollectionsService<FAQCollectionType>;
 }
 
-export class FirebaseCollectionFactory implements IFirebaseCollectionFactory {
+export class CollectionServiceFactory implements ICollectionServiceFactory {
   constructor(private readonly httpService: HTTPService) {}
 
   createBlog = () => {
-    return new FirebaseService<BlogCollectionType>(
+    return new CollectionsService<BlogCollectionType>(
       this.httpService,
       "gnosisBlog"
     );
   };
 
   createCourses = () =>
-    new FirebaseService<CourseCollectionType>(this.httpService, "coursesNew");
+    new CollectionsService<CourseCollectionType>(
+      this.httpService,
+      "coursesNew"
+    );
 
   createFAQ = () =>
-    new FirebaseService<FAQCollectionType>(this.httpService, "faq");
+    new CollectionsService<FAQCollectionType>(this.httpService, "faq");
 
   createTestimonial = () =>
-    new FirebaseService<TestimonialCollectionType>(
+    new CollectionsService<TestimonialCollectionType>(
       this.httpService,
       "testimonials"
     );

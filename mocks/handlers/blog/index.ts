@@ -18,7 +18,6 @@ const findOneBlog = rest.get(
       return value.uuid === (uuid as string);
     });
 
-    console.log(data);
     return res(ctx.status(200), ctx.json({ ...data[0] }));
   }
 );

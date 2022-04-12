@@ -24,27 +24,27 @@ export const blogData: BlogCollectionType[] = [
     slug: "blog-post-1",
   },
 
-  {
-    ...blogItem(),
-    uuid: "2",
-    blogTitle: "Blog Post 3",
-  },
-  {
-    ...blogItem(),
-    uuid: "3",
-    blogTitle: "Blog Post 3",
-    slug: "blog-post-3",
-  },
-  {
-    ...blogItem(),
-    uuid: "4",
-    blogTitle: "Blog Post 4",
-    slug: "blog-post-4",
-  },
-  {
-    ...blogItem(),
-    uuid: "5",
-    blogTitle: "Blog Post 5",
-    slug: "blog-post-5",
-  },
+  // {
+  //   ...blogItem(),
+  //   uuid: "2",
+  //   blogTitle: "Blog Post 3",
+  // },
+  // {
+  //   ...blogItem(),
+  //   uuid: "3",
+  //   blogTitle: "Blog Post 3",
+  //   slug: "blog-post-3",
+  // },
+  // {
+  //   ...blogItem(),
+  //   uuid: "4",
+  //   blogTitle: "Blog Post 4",
+  //   slug: "blog-post-4",
+  // },
+  // {
+  //   ...blogItem(),
+  //   uuid: "5",
+  //   blogTitle: "Blog Post 5",
+  //   slug: "blog-post-5",
+  // },
 ];
