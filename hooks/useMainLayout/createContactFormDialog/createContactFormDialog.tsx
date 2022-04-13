@@ -12,6 +12,11 @@ export const createContactFormDialog = (params: {
       children: "Enviar",
       loading: params.form.formState.isSubmitting,
       disabled: !params.form.formState.isValid,
+      onClick: () => {
+        params.form.handleSubmit((data, event) => {
+          (async () => {})();
+        });
+      },
     },
     SecondaryActionProps: {
       children: "Voltar",
