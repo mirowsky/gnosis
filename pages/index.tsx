@@ -1,5 +1,5 @@
 import type { GetStaticProps, NextPage } from "next";
-import { LandingPage } from "@workspace/components/pages";
+import { LandingPage } from "src/components/Pages";
 import {
   BlogCollectionType,
   CourseCollectionType,
@@ -11,16 +11,16 @@ import {
   useDetectMobile,
   useLandingPage,
   useWhatsAppRedirect,
-} from "@workspace/hooks";
+} from "src/hooks";
 import React from "react";
-import { META_TAGS } from "@workspace/contants";
+import { META_TAGS } from "src/constants";
 import Head from "next/head";
 import {
   BlogService,
   FAQService,
   CoursesService,
   TestimonialService,
-} from "@workspace/services";
+} from "src/services";
 
 export interface IndexPageProps {
   courses: CourseCollectionType[];

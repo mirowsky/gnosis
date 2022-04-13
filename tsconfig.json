@@ -17,20 +17,20 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@workspace/stylesheet": ["./theme/stylesheet.ts"],
-      "@workspace/utility": ["./utility/index.ts"],
+      "@workspace/stylesheet": ["src/theme/stylesheet.ts"],
+      "@workspace/utility": ["src/utility/index.ts"],
       "@workspace/types": ["./types.ts"],
       "@workspace/images": ["./public/images"],
-      "@workspace/jss-mixins": ["./mixins/index.ts"],
-      "@workspace/components/utility": ["./components/Utility/index.ts"],
-      "@workspace/svg": ["./svg/index.ts"],
-      "@workspace/animations": ["./animations/index.ts"],
-      "@workspace/components/common": ["./components/Common/index.ts"],
-      "@workspace/hooks": ["./hooks/index.ts"],
-      "@workspace/components/pages": ["./components/Pages/index.ts"],
-      "@workspace/components/layouts": ["./components/Layout/index.ts"],
-      "@workspace/contants": ["constants/index.ts"],
-      "@workspace/services": ["./services/index.ts"]
+      "@workspace/jss-mixins": ["src/mixins/index.ts"],
+      "@workspace/components/utility": ["src/components/Utility/index.ts"],
+      "@workspace/svg": ["src/svg/index.ts"],
+      "@workspace/animations": ["src/components/animations/index.ts"],
+      "@workspace/components/common": ["src/components/Common/index.ts"],
+      "@workspace/hooks": ["src/hooks/index.ts"],
+      "@workspace/components/pages": ["src/components/Pages/index.ts"],
+      "@workspace/components/layouts": ["src/components/Layout/index.ts"],
+      "@workspace/contants": ["src/constants/index.ts"],
+      "@workspace/services": ["src/services/index.ts"]
     }
   },
   "include": [

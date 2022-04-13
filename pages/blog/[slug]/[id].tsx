@@ -3,11 +3,11 @@ import { BlogCollectionType } from "../../../types";
 import {
   BlogPageLayout,
   BlogPageProps as BlogPageLayoutProps,
-} from "@workspace/components/pages";
+} from "src/components/Pages";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { convertToSlug } from "@workspace/utility";
+import { convertToSlug } from "src/utility";
 import { Facebook, Instagram, WhatsApp } from "@mui/icons-material";
-import { BlogService } from "@workspace/services";
+import { BlogService } from "src/services";
 
 export type BlogPageProps = {
   latest: BlogCollectionType[];
