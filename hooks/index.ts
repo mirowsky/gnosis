@@ -18,3 +18,4 @@ export { useNewsletterInput } from "./useNewsletterInput/useNewsletterInput";
 
 export { useMainLayout } from "./useMainLayout/useMainLayout";
 export { useLandingPage } from "./useLandingPage/useLandingPage";
+export { usePromiseWithNotification } from "./usePromiseWithNotification/usePromiseWithNotification";

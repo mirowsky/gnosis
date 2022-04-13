@@ -6,17 +6,14 @@ export const createContactFormDialog = (params: {
   form: UseFormReturn<ContactFormInputs, any>;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   open: boolean;
+  submitHandler: (...args: unknown[]) => unknown;
 }): ContactFormDialogV2Props => {
   return {
     PrimaryActionProps: {
       children: "Enviar",
       loading: params.form.formState.isSubmitting,
       disabled: !params.form.formState.isValid,
-      onClick: () => {
-        params.form.handleSubmit((data, event) => {
-          (async () => {})();
-        });
-      },
+      onClick: params.submitHandler,
     },
     SecondaryActionProps: {
       children: "Voltar",

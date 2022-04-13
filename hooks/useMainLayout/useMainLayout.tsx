@@ -3,7 +3,7 @@ import {
   MainLayoutProps,
   MobileMenuProps,
 } from "@workspace/components/layouts";
-import { useRouter } from "next/router";
+import { NextRouter, useRouter } from "next/router";
 import { createContactFormDialog } from "./createContactFormDialog/createContactFormDialog";
 import { createContactSection } from "./createContactSection/createContactSection";
 import { createFooter } from "./createFooter/createFooter";
@@ -12,13 +12,30 @@ import { createMobileMenu } from "./createMobileMenu/createMobileMenu";
 import { createNewsletterSection } from "./createNewsletterSection/createNewsletterSection";
 import { createSupportMenu } from "./createSupportMenu/createSupportMenu";
 import { handleMenuClick, scrollToElemAsync } from "@workspace/utility";
-import { useWhatsAppRedirect } from "@workspace/hooks";
+import { useWhatsAppRedirect, usePromiseWithNotification } from "@workspace/hooks";
+import { alertStore } from "@workspace/components/utility";
+import { ContactFormInputs } from "hooks/useContactForm/useContactForm";
+import { UseFormReturn } from "react-hook-form";
+
+
+type WhatsAppDispatcher = ReturnType<typeof useWhatsAppRedirect>
+type NotificationStore = ReturnType<typeof alertStore>
+
+export type MainLayoutContext = {
+  router: NextRouter,
+  whatsapp: WhatsAppDispatcher,
+  globalStore: {
+    notification: NotificationStore
+  },
+  forms: {
+    contact: UseFormReturn<ContactFormInputs, any>,
+    newsletter: UseFormReturn<{email: string}, any>
+  }
+}
 
 export const useMainLayout = (
-  router: ReturnType<typeof useRouter>,
-  whatsAppHandler: ReturnType<typeof useWhatsAppRedirect>,
-  contactForm: Parameters<typeof createContactFormDialog>[0]["form"],
-  newsLetterForm: Parameters<typeof createNewsletterSection>[0]["form"]
+ context: MainLayoutContext
+  
 ): Omit<MainLayoutProps, "children"> => {
   const [formDialog, setFormDialog] = React.useState(false);
   const [mobileMenu, setMobileMenu] = React.useState(false);
@@ -45,13 +62,13 @@ export const useMainLayout = (
         },
       },
     ] as MobileMenuProps["menuItems"];
-  }, [router]);
+  }, [context.router]);
 
   return {
     SupportMenuMainProps: createSupportMenu({
       open: supportMenu,
       setOpen: setSupportMenu,
-      whatsAppHandler: whatsAppHandler,
+      whatsAppHandler: context.whatsapp,
     }),
     NewsLetterSectionProps: createNewsletterSection({ form: newsLetterForm }),
 
@@ -78,6 +95,7 @@ export const useMainLayout = (
       form: contactForm,
       open: formDialog,
       setOpen: setFormDialog,
+      submitHandler: 
     }),
   };
 };
