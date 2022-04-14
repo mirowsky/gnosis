@@ -3,7 +3,6 @@ import SupportMenuMain from "../SupportMenu/SupportMenuMain";
 import { GTMEvents } from "@workspace/utility";
 import { Handshake, LiveHelp, WhatsApp } from "@mui/icons-material";
 import { ThemeStyles } from "@workspace/types";
-import { useDetectMobile } from "@workspace/hooks";
 
 export type SupportMenuProxyProps = {
   sx?: ThemeStyles;
@@ -71,7 +70,7 @@ export const SupportMenuProxy = ({ sx }: SupportMenuProxyProps) => {
               title: "Tire suas dúvidas",
               subtitle:
                 "Ficou com alguma dúvida? Fale com a gente agora mesmo pelo WhatsApp",
-              online: false,
+              online: true,
             },
           ],
         },

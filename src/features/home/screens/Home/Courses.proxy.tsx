@@ -27,7 +27,7 @@ export const CoursesProxy = ({ items = [], sx }: CourseProxyProps) => {
             return {
               loading: true,
               primaryAction: {
-                children: "Saiba mais",
+                children: "Conheça o curso",
                 onClick: () => {
                   router.push(
                     getCourseURL(

@@ -93,7 +93,7 @@ const _styles = (
       width: "3.5em",
       height: "3.5em",
       borderRadius: "50%",
-      backgroundColor: "#009f2b",
+      backgroundColor: (theme) => theme.palette.success.light,
       color: "#fff",
       // backgroundColor: (theme) => theme.palette[color].main,
       boxShadow: (theme) => theme.shadows[5],

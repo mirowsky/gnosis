@@ -16,7 +16,8 @@ module.exports = {
   reactStrictMode: false,
   env: {
     GTM: getGTMEnvironment(),
-    NEXT_PUBLIC_API_MOCKING: "enabled",
+    NEXT_PUBLIC_API_MOCKING:
+      process.env.NODE_ENV === "development" ? "enabled" : "disabled",
   },
   swcMinify: true,
 };

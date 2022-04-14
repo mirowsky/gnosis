@@ -236,7 +236,13 @@ const styles = stylesheet.create({
   tagIcon: {
     color: (theme) => theme.palette.grey[700],
   },
-  primaryButton: {},
-  secondaryButton: {},
+  primaryButton: {
+    fontSize: "11px",
+    padding: "1em 2.25em",
+  },
+  secondaryButton: {
+    padding: "0.75em 5em",
+    fontSize: "11px",
+  },
   buttonNodeComponent: {},
 });
