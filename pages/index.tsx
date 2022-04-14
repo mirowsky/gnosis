@@ -1,19 +1,13 @@
 import type { GetStaticProps, NextPage } from "next";
-import { LandingPage } from "@workspace/components/pages";
+import { Content, Home as HomePage } from "@workspace/features";
 import {
   BlogCollectionType,
   CourseCollectionType,
   FAQCollectionType,
   TestimonialCollectionType,
 } from "@workspace/types";
-import { useRouter } from "next/router";
-import {
-  useDetectMobile,
-  useLandingPage,
-  useWhatsAppRedirect,
-} from "@workspace/hooks";
 import React from "react";
-import { META_TAGS } from "@workspace/contants";
+import { META_TAGS } from "@workspace/constants";
 import Head from "next/head";
 import {
   BlogService,
@@ -23,7 +17,7 @@ import {
 } from "@workspace/services";
 
 export interface IndexPageProps {
-  courses: CourseCollectionType[];
+  courses?: CourseCollectionType[];
   blog?: BlogCollectionType[];
   testimonials?: TestimonialCollectionType[];
   faq?: FAQCollectionType[];
@@ -35,17 +29,6 @@ const Home: NextPage<IndexPageProps> = ({
   testimonials = [],
   faq = [],
 }) => {
-  const router = useRouter();
-  const isMobile = useDetectMobile();
-  const whatsRedirect = useWhatsAppRedirect(isMobile ? "mobile" : "desktop");
-
-  const landingProps = useLandingPage(router, whatsRedirect, {
-    blog: blog ?? [],
-    faq: faq ?? [],
-    testimonial: testimonials ?? [],
-    courses: courses ?? [],
-  });
-
   return (
     <React.Fragment>
       <Head>
@@ -53,7 +36,12 @@ const Home: NextPage<IndexPageProps> = ({
         <meta property="og:description" content={META_TAGS.description} />
         <meta name="description" content={META_TAGS.description} />
       </Head>
-      <LandingPage {...landingProps} />
+      <HomePage courses={courses} />
+      <Content
+        FAQItems={faq}
+        blogPosts={blog}
+        testimonialItems={testimonials}
+      />
     </React.Fragment>
   );
 };

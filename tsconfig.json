@@ -17,20 +17,15 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@workspace/stylesheet": ["./theme/stylesheet.ts"],
-      "@workspace/utility": ["./utility/index.ts"],
+      "@workspace/features": ["src/features/index.ts"],
+      "@workspace/stylesheet": ["src/theme/stylesheet.ts"],
+      "@workspace/utility": ["src/utility/index.ts"],
+      "@workspace/components/shared": ["src/features/shared/index.ts"],
       "@workspace/types": ["./types.ts"],
       "@workspace/images": ["./public/images"],
-      "@workspace/jss-mixins": ["./mixins/index.ts"],
-      "@workspace/components/utility": ["./components/Utility/index.ts"],
-      "@workspace/svg": ["./svg/index.ts"],
-      "@workspace/animations": ["./animations/index.ts"],
-      "@workspace/components/common": ["./components/Common/index.ts"],
-      "@workspace/hooks": ["./hooks/index.ts"],
-      "@workspace/components/pages": ["./components/Pages/index.ts"],
-      "@workspace/components/layouts": ["./components/Layout/index.ts"],
-      "@workspace/contants": ["constants/index.ts"],
-      "@workspace/services": ["./services/index.ts"]
+      "@workspace/hooks": ["src/hooks/index.ts"],
+      "@workspace/constants": ["src/constants/index.ts"],
+      "@workspace/services": ["src/services/index.ts"]
     }
   },
   "include": [

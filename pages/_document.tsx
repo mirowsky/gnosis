@@ -9,11 +9,11 @@ import Document, {
 import createEmotionServer from "@emotion/server/create-instance";
 import createCache from "@emotion/cache";
 import React from "react";
-import { GTM_ID } from "@workspace/contants";
-import { GTMBeforeInteractive } from "@workspace/components/utility";
+import { GTM_ID } from "@workspace/constants";
+import { GTMBeforeInteractive } from "@workspace/components/shared";
 
 if (process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
-  require("../mocks");
+  require("../src/mocks");
 }
 
 class CustomDocument extends Document {

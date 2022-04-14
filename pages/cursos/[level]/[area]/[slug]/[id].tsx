@@ -1,11 +1,11 @@
 import {
   CoursePageAlt as CoursePageComponent,
   CoursePageAltProps,
-} from "@workspace/components/pages";
+} from "@workspace/components/shared";
 import { CourseCollectionType } from "@workspace/types";
 import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";
-import { convertToSlug } from "@workspace/utility";
+import { convertToSlug } from "src/utility";
 import {
   CalendarTodayOutlined,
   Payment,
@@ -13,13 +13,13 @@ import {
   Timelapse,
   WhatsApp,
 } from "@mui/icons-material";
-import { useDetectMobile, useWhatsAppRedirect } from "@workspace/hooks";
-import { WHATSAPP_PHONE_NUMBER } from "@workspace/contants";
+import { useDetectMobile, useWhatsAppRedirect } from "src/hooks";
+import { WHATSAPP_PHONE_NUMBER } from "src/constants";
 import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Head from "next/head";
-import { CoursesService } from "@workspace/services";
+import { CoursesService } from "src/services";
 
 const convertSyllabusItem = (syllabusItem: string) => {
   const hour = syllabusItem.match(/([0-9].hs?)/gi);

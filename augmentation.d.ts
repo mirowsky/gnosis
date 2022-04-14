@@ -9,10 +9,10 @@ import {
 } from "@mui/material";
 import React from "react";
 import { Properties } from "csstype";
-import { createResponsiveStyle } from "theme/createResponsiveProperty";
-import { createFluidTypography } from "theme/createFluidTypography";
+import { createResponsiveStyle } from "src/theme/createResponsiveProperty";
+import { createFluidTypography } from "src/theme/createFluidTypography";
 import { FinalReturnType, Head } from "./types";
-import { fluidTypography } from "theme/fluidTypography";
+import { fluidTypography } from "src/theme/fluidTypography";
 
 type FluidTypographyParameters = {
   minFontSize: number;
