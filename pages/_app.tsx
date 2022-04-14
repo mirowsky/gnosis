@@ -4,15 +4,8 @@ import createEmotionCache from "@emotion/cache";
 import React from "react";
 import CustomTheme from "../src/theme/CustomTheme";
 import Head from "next/head";
-import {
-  useDetectMobile,
-  useWhatsAppRedirect,
-  useContactForm,
-  useNewsletterInput,
-  useMainLayout,
-} from "@workspace/hooks";
 import { GTM_ID, META_TAGS } from "@workspace/constants";
-import { GTMAfterInteractive, MainLayout } from "@workspace/components/shared";
+import { GTMAfterInteractive } from "@workspace/components/shared";
 import { Layout } from "@workspace/features";
 
 function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {

@@ -15,6 +15,3 @@ export {
 } from "./useContactForm/useContactForm";
 export type { ContactFormInputs } from "./useContactForm/useContactForm";
 export { useNewsletterInput } from "./useNewsletterInput/useNewsletterInput";
-
-export { useMainLayout } from "./useMainLayout/useMainLayout";
-export { useLandingPage } from "./useLandingPage/useLandingPage";

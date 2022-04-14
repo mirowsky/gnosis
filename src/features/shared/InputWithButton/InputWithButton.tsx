@@ -29,7 +29,7 @@ export const InputWithButton = ({
         {...InputProps}
       />
       <Fab
-        disabled={ButtonProps.loading}
+        disabled={Boolean(ButtonProps.loading)}
         role="button"
         sx={styles.button}
         color="primary"
