@@ -1,7 +1,10 @@
 import { Box } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
 import React from "react";
-import { BlogSection, BlogSectionProps } from "../Blog/Main/BlogSection";
+import {
+  BlogSection,
+  BlogSectionProps,
+} from "../../content/Blog/Main/BlogSection";
 
 import FAQSection, { FAQSectionProps } from "../FAQ/Main/FAQSection";
 import TestimonialSection, {

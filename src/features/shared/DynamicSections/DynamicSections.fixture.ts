@@ -1,6 +1,6 @@
-import { DEFAULT_BLOG_SECTION_TESTING_PROPS } from "../Blog/Main/constants";
+import { DEFAULT_BLOG_SECTION_TESTING_PROPS } from "../../content/Blog/Main/constants";
 import { DEFAULT_FAQSection_TESTING_PROPS } from "../FAQ/Main/FAQSection.fixture";
-import { DEFAULT_TestimonialSection_TESTING_PROPS } from "../../content/Testimonial/Main/TestimonialSection.fixture";
+import { DEFAULT_TestimonialSection_TESTING_PROPS } from "../../content/Testimonial/TestimonialSection.fixture";
 import type { DynamicSectionsProps } from "./DynamicSections";
 
 export const DEFAULT_DynamicSections_TESTING_PROPS: DynamicSectionsProps = {

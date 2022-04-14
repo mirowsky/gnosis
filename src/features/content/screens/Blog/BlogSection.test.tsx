@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import BlogSection, { BlogSectionProps } from "./BlogSection";
+import { BlogSectionProps, BlogSection } from "./BlogSection";
 import { DEFAULT_BLOG_SECTION_TESTING_PROPS } from "./constants";
 
 const setup = (

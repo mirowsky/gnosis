@@ -1,4 +1,4 @@
-import { DEFAULT_BLOG_PREVIEW_CARDS_TEST_PROPS } from "../BlogPreviewCard/constants";
+import { DEFAULT_BLOG_PREVIEW_CARDS_TEST_PROPS } from "../../components/BlogPreviewCard/constants";
 import { BlogSectionProps } from "./BlogSection";
 
 export const DEFAULT_BLOG_SECTION_TESTING_PROPS: BlogSectionProps = {

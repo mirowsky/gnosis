@@ -1,5 +1,5 @@
 import { Meta, Story } from "@storybook/react";
-import BlogSection, { BlogSectionProps } from "./BlogSection";
+import { BlogSection, BlogSectionProps } from "./BlogSection";
 import { DEFAULT_BLOG_SECTION_TESTING_PROPS } from "./constants";
 
 export default {

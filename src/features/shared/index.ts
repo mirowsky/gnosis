@@ -52,6 +52,6 @@ export { FAQSection } from "./FAQ/Main/FAQSection";
 export type { FAQSectionProps } from "./FAQ/Main/FAQSection";
 export { TestimonialSection } from "../content/Testimonial/Main/TestimonialSection";
 export type { TestimonialSectionProps } from "../content/Testimonial/Main/TestimonialSection";
-export type { BlogSectionProps } from "./Blog/Main/BlogSection";
-export { BlogSection } from "./Blog/Main/BlogSection";
+export type { BlogSectionProps } from "../content/Blog/Main/BlogSection";
+export { BlogSection } from "../content/Blog/Main/BlogSection";
 export { DEFAULT_DynamicSections_TESTING_PROPS } from "./DynamicSections/DynamicSections.fixture";

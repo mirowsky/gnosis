@@ -4,7 +4,7 @@ import { ThemeStyles } from "@workspace/types";
 import React from "react";
 import BlogPreviewCard, {
   BlogPreviewCardProps,
-} from "../BlogPreviewCard/BlogPreviewCard";
+} from "../../components/BlogPreviewCard/BlogPreviewCard";
 
 export type BlogSectionProps = {
   ButtonProps?: ButtonProps;
