@@ -2,18 +2,6 @@ import { ContactSectionProps } from "@workspace/components/shared";
 import { UseFormReturn } from "react-hook-form";
 import { ContactFormInputs } from "src/hooks";
 
-const submitHandler__dev = async (
-  form: UseFormReturn<ContactFormInputs, any>
-) => {
-  await form.handleSubmit(async (data, events) => {
-    await new Promise((resolve, reject) => {
-      resolve(data);
-    }).then((data) => {
-      console.log(data);
-    });
-  })();
-};
-
 const submitHandler__prod = async () => {};
 
 export const createContactSection = (params: {

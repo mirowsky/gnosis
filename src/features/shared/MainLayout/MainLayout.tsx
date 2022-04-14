@@ -1,11 +1,11 @@
 import { Box } from "@mui/material";
 import React from "react";
 import stylesheet from "@workspace/stylesheet";
-import Header, { HeaderProps } from "../../layout/components/Header/Header";
+import Header, { HeaderProps } from "../../layout/screens/Header/Header";
 import Footer, { FooterProps } from "../../layout/screens/Footer/Footer";
 import MobileMenu, {
   MobileMenuProps,
-} from "../../layout/components/MobileDrawer/MobileDrawer";
+} from "../../layout/screens/MobileDrawer/MobileDrawer";
 import ContactSection, {
   ContactSectionProps,
 } from "../../layout/screens/Contact/Main/ContactSection";

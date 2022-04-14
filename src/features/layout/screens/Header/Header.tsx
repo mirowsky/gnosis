@@ -5,7 +5,7 @@ import { Box, Button, Typography } from "@mui/material";
 import { TEST_ID } from "./constants";
 import { AnimatedBurguerMenu } from "../../../shared/AnimatedBurguerButton/AnimatedBurguerButton";
 
-type HeaderItem = {
+export type HeaderItem = {
   label: string;
   onClick: (...args: unknown[]) => void;
 };
