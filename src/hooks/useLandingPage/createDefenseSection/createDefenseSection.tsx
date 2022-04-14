@@ -6,7 +6,7 @@ import {
   School,
   SupportAgent,
 } from "@mui/icons-material";
-import { DefenseSectionProps } from "src/components/Pages";
+import { DefenseSectionProps } from "@workspace/components/shared";
 
 export const createDefenseSection = (): DefenseSectionProps => {
   return {

@@ -3,7 +3,7 @@ import { BlogCollectionType } from "../../../types";
 import {
   BlogPageLayout,
   BlogPageProps as BlogPageLayoutProps,
-} from "src/components/Pages";
+} from "@workspace/components/shared";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { convertToSlug } from "src/utility";
 import { Facebook, Instagram, WhatsApp } from "@mui/icons-material";

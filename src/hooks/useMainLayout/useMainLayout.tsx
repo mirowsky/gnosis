@@ -1,5 +1,5 @@
 import React from "react";
-import { MainLayoutProps, MobileMenuProps } from "src/components/Layout";
+import { MainLayoutProps, MobileMenuProps } from "@workspace/components/shared";
 import { useRouter } from "next/router";
 import { createContactFormDialog } from "./createContactFormDialog/createContactFormDialog";
 import { createContactSection } from "./createContactSection/createContactSection";

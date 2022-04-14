@@ -1,4 +1,4 @@
-import { ContactSectionProps } from "src/components/Layout";
+import { ContactSectionProps } from "@workspace/components/shared";
 import { UseFormReturn } from "react-hook-form";
 import { ContactFormInputs } from "src/hooks";
 

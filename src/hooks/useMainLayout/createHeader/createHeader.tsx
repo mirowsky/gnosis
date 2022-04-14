@@ -1,5 +1,5 @@
 import React from "react";
-import { HeaderProps } from "src/components/Layout";
+import { HeaderProps } from "@workspace/components/shared";
 import { handleLogoClick, scrollToElem } from "src/utility";
 import { useRouter } from "next/router";
 

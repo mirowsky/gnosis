@@ -3,17 +3,16 @@ import { CacheProvider, EmotionCache } from "@emotion/react";
 import createEmotionCache from "@emotion/cache";
 import React from "react";
 import CustomTheme from "../src/theme/CustomTheme";
-import { MainLayout } from "src/components/Layout";
 import Head from "next/head";
-import { useContactForm } from "src/hooks/useContactForm/useContactForm";
-import { useNewsletterInput } from "src/hooks/useNewsletterInput/useNewsletterInput";
 import {
   useDetectMobile,
-  useMainLayout,
   useWhatsAppRedirect,
-} from "../src/hooks";
-import { GTM_ID, META_TAGS } from "src/constants";
-import { GTMAfterInteractive } from "src/components/Utility";
+  useContactForm,
+  useNewsletterInput,
+  useMainLayout,
+} from "@workspace/hooks";
+import { GTM_ID, META_TAGS } from "@workspace/constants";
+import { GTMAfterInteractive, MainLayout } from "@workspace/components/shared";
 
 function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
   const clientSideCache = createEmotionCache({ key: "css" });

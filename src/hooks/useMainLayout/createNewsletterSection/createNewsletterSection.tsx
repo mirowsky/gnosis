@@ -1,5 +1,5 @@
-import { AlertState, alertStore } from "src/components/Utility";
-import { NewsLetterSectionProps } from "src/components/Layout";
+import { AlertState, alertStore } from "@workspace/components/shared";
+import { NewsLetterSectionProps } from "@workspace/components/shared";
 import { UseFormReturn } from "react-hook-form";
 
 const submitHandler__dev = (

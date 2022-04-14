@@ -1,7 +1,7 @@
 import {
   CoursePageAlt as CoursePageComponent,
   CoursePageAltProps,
-} from "src/components/Pages";
+} from "@workspace/components/shared";
 import { CourseCollectionType } from "@workspace/types";
 import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";

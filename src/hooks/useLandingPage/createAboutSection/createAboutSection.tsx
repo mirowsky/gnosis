@@ -1,4 +1,4 @@
-import { AboutSectionProps } from "src/components/Pages";
+import { AboutSectionProps } from "@workspace/components/shared";
 
 export const createAboutSection = (): AboutSectionProps => {
   return {

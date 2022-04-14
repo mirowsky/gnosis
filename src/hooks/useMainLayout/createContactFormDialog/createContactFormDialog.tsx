@@ -1,4 +1,4 @@
-import { ContactFormDialogV2Props } from "src/components/Common";
+import { ContactFormDialogV2Props } from "@workspace/components/shared";
 import { ContactFormInputs } from "src/hooks/useContactForm/useContactForm";
 import { UseFormReturn } from "react-hook-form";
 

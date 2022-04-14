@@ -1,5 +1,5 @@
 import type { GetStaticProps, NextPage } from "next";
-import { LandingPage } from "src/components/Pages";
+import { LandingPage } from "@workspace/features";
 import {
   BlogCollectionType,
   CourseCollectionType,

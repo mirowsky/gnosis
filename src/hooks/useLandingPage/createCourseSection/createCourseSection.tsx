@@ -1,5 +1,5 @@
 import React from "react";
-import { CourseSectionProps } from "src/components/Pages";
+import { CourseSectionProps } from "@workspace/components/shared";
 import { WHATSAPP_PHONE_NUMBER } from "src/constants";
 import { NextRouter } from "next/router";
 import { getCourseURL, getThumbnail } from "src/utility";

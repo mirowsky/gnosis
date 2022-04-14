@@ -1,4 +1,4 @@
-import { TestimonialSectionProps } from "src/components/Layout";
+import { TestimonialSectionProps } from "@workspace/components/shared";
 import { TestimonialCollectionType } from "@workspace/types";
 
 export const createTestimonialSection = (

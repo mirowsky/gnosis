@@ -1,5 +1,5 @@
 import React from "react";
-import { LandingPageProps } from "src/components/Pages";
+import { LandingPageProps } from "@workspace/components/shared";
 import { NextRouter } from "next/router";
 import { createAboutSection } from "./createAboutSection/createAboutSection";
 import { createCourseSection } from "./createCourseSection/createCourseSection";

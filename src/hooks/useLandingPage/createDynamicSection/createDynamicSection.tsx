@@ -1,4 +1,4 @@
-import { DynamicSectionsProps } from "src/components/Layout";
+import { DynamicSectionsProps } from "@workspace/components/shared";
 import {
   BlogCollectionType,
   FAQCollectionType,

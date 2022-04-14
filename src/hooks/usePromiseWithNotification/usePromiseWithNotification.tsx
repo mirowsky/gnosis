@@ -1,5 +1,5 @@
 import React from "react";
-import { alertStore } from "src/components/Utility";
+import { alertStore } from "@workspace/components/shared";
 
 export const usePromiseWithNotification = <T,>(
   promise: (...args: unknown[]) => Promise<T>,

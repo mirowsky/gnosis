@@ -1,4 +1,4 @@
-import { MobileMenuProps } from "src/components/Layout";
+import { MobileMenuProps } from "@workspace/components/shared";
 
 export const createMobileMenu = (params: {
   open: boolean;

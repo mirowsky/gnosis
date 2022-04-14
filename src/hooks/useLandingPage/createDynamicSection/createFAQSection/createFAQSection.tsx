@@ -1,4 +1,4 @@
-import { FAQSectionProps } from "src/components/Layout";
+import { FAQSectionProps } from "@workspace/components/shared";
 import { FAQCollectionType } from "@workspace/types";
 import React from "react";
 

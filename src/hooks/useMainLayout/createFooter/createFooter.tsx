@@ -1,4 +1,4 @@
-import { FooterProps } from "src/components/Layout";
+import { FooterProps } from "@workspace/components/shared";
 
 export const createFooter = (): FooterProps => {
   return {

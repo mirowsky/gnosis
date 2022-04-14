@@ -1,5 +1,5 @@
 import React from "react";
-import type { SupportMenuMainProps } from "../../../components/Layout/SupportMenu/Main/SupportMenuMain";
+import type { SupportMenuMainProps } from "../../../features/Layout/SupportMenu/Main/SupportMenuMain";
 import { Handshake, LiveHelp, WhatsApp } from "@mui/icons-material";
 import { useWhatsAppRedirect } from "src/hooks";
 import { events } from "../../../utility/gtag";

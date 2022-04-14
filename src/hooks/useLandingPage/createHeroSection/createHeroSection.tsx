@@ -1,4 +1,4 @@
-import { HeroProps } from "src/components/Pages";
+import { HeroProps } from "@workspace/components/shared";
 import { NextRouter } from "next/router";
 import { handleMenuClick } from "src/utility";
 

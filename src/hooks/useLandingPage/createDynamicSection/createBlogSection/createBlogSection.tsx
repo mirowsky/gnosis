@@ -1,4 +1,4 @@
-import { BlogSectionProps } from "src/components/Layout";
+import { BlogSectionProps } from "@workspace/components/shared";
 import { BlogCollectionType } from "@workspace/types";
 import { NextRouter } from "next/router";
 import { getBlogURL } from "src/utility/getBlogURL";
