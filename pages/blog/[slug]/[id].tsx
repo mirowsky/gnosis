@@ -1,55 +1,12 @@
 import React from "react";
-import { BlogCollectionType } from "../../../types";
-
 import { GetStaticPaths, GetStaticProps } from "next";
-import { convertToSlug } from "src/utility";
-import { Facebook, Instagram, WhatsApp } from "@mui/icons-material";
-import { BlogService } from "src/services";
-import {
-  BlogPageLayout,
-  BlogPageProps as BlogPageLayoutProps,
-} from "@workspace/features";
+import { convertToSlug } from "@workspace/utility";
+import { BlogService } from "@workspace/services";
 
-export type BlogPageProps = {
-  latest: BlogCollectionType[];
-} & Omit<
-  BlogPageLayoutProps,
-  "BlogSectionProps" | "SocialMediaShareTrayProps" | "sx"
->;
+export type BlogPageProps = {};
 
-const BlogPage = ({ latest, content, featuredImage, title }: BlogPageProps) => {
-  return (
-    <BlogPageLayout
-      content={content}
-      featuredImage={featuredImage}
-      title={title}
-      SocialMediaShareTrayProps={{
-        label: "Compartilhe este post",
-        socialMediaList: [
-          { icon: Facebook, url: "#" },
-          { icon: WhatsApp, url: "#" },
-          { icon: Instagram, url: "#" },
-        ],
-      }}
-      // BlogSectionProps={{
-      //   items: latest.map((post, index) => {
-      //     return {
-      //       img: {
-      //         alt: post.featuredImage.imageDescription,
-      //         src: post.featuredImage.imageURL,
-      //       },
-      //       readingTime: "10 minutos de leitura",
-      //       tags: ["Medicina"],
-      //       title: post.blogTitle,
-      //     };
-      //   }),
-      //   sectionTitle: "Confira nossos últimos posts",
-      //   ButtonProps: {
-      //     children: "Button",
-      //   },
-      // }}
-    />
-  );
+const BlogPage = (props: BlogPageProps) => {
+  return <div>blog page</div>;
 };
 
 export default BlogPage;
@@ -58,11 +15,6 @@ type BlogStaticPaths = GetStaticPaths<{ slug: string; id: string }>;
 
 export const getStaticPaths: BlogStaticPaths = async (_props) => {
   const blogData = await BlogService.findAll();
-
-  console.log(
-    "@@@@@@@@@@",
-    blogData.map((val, index) => val.uuid)
-  );
 
   return {
     paths: blogData.map((value, _index) => {
@@ -77,9 +29,7 @@ export const getStaticPaths: BlogStaticPaths = async (_props) => {
   };
 };
 
-export const getStaticProps: GetStaticProps<
-  Pick<BlogPageProps, "content" | "featuredImage" | "title" | "latest">
-> = async ({ params = {} }) => {
+export const getStaticProps: GetStaticProps<{}> = async ({ params = {} }) => {
   const oneBlogPost = await BlogService.findOne(params.id as string);
 
   return {
