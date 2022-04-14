@@ -8,11 +8,7 @@ import {
 import { ThemeStyles } from "@workspace/types";
 import stylesheet from "@workspace/stylesheet";
 import { useIntersectionObserver } from "@workspace/hooks";
-import {
-  BlogSection,
-  BlogSectionProps,
-  MotionBox,
-} from "@workspace/components/shared";
+import { MotionBox } from "@workspace/components/shared";
 
 /* eslint-disable-next-line */
 export interface BlogPageProps {
@@ -20,7 +16,6 @@ export interface BlogPageProps {
   title?: string;
   featuredImage?: string;
   SocialMediaShareTrayProps?: SocialMediaShareTrayProps;
-  BlogSectionProps: BlogSectionProps;
   sx?: ThemeStyles;
 }
 
@@ -30,7 +25,6 @@ export function BlogPageLayout({
   title = "Placeholder title",
   sx,
   SocialMediaShareTrayProps,
-  BlogSectionProps,
   ...rest
 }: BlogPageProps) {
   const { ref, isIntersecting: inView } = useIntersectionObserver({
@@ -106,7 +100,7 @@ export function BlogPageLayout({
           />
         </Container>
       </Box>
-
+      {/* 
       {BlogSectionProps.items.length > 0 && (
         <Box
           sx={{
@@ -121,7 +115,7 @@ export function BlogPageLayout({
             <BlogSection {...BlogSectionProps} />
           </Container>
         </Box>
-      )}
+      )} */}
     </Box>
   );
 }

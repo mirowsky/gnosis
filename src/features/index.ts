@@ -1,7 +1,5 @@
 export { BlogPageLayout } from "./blog/screens/Main/BlogPage";
 export type { BlogPageProps } from "./blog/screens/Main/BlogPage";
-export { LandingPage } from "./home/screens/Main/LandingPage";
-export type { LandingPageProps } from "./home/screens/Main/LandingPage";
 export { Home } from "./home/screens/Home/Home.page";
 export type { HomePageProps } from "./home/screens/Home/Home.page";
 export { DynamicContent as Content } from "./content/screens/DynamicContent/DynamicContent";

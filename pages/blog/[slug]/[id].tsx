@@ -1,13 +1,14 @@
 import React from "react";
 import { BlogCollectionType } from "../../../types";
-import {
-  BlogPageLayout,
-  BlogPageProps as BlogPageLayoutProps,
-} from "@workspace/components/shared";
+
 import { GetStaticPaths, GetStaticProps } from "next";
 import { convertToSlug } from "src/utility";
 import { Facebook, Instagram, WhatsApp } from "@mui/icons-material";
 import { BlogService } from "src/services";
+import {
+  BlogPageLayout,
+  BlogPageProps as BlogPageLayoutProps,
+} from "@workspace/features";
 
 export type BlogPageProps = {
   latest: BlogCollectionType[];
@@ -30,23 +31,23 @@ const BlogPage = ({ latest, content, featuredImage, title }: BlogPageProps) => {
           { icon: Instagram, url: "#" },
         ],
       }}
-      BlogSectionProps={{
-        items: latest.map((post, index) => {
-          return {
-            img: {
-              alt: post.featuredImage.imageDescription,
-              src: post.featuredImage.imageURL,
-            },
-            readingTime: "10 minutos de leitura",
-            tags: ["Medicina"],
-            title: post.blogTitle,
-          };
-        }),
-        sectionTitle: "Confira nossos últimos posts",
-        ButtonProps: {
-          children: "Button",
-        },
-      }}
+      // BlogSectionProps={{
+      //   items: latest.map((post, index) => {
+      //     return {
+      //       img: {
+      //         alt: post.featuredImage.imageDescription,
+      //         src: post.featuredImage.imageURL,
+      //       },
+      //       readingTime: "10 minutos de leitura",
+      //       tags: ["Medicina"],
+      //       title: post.blogTitle,
+      //     };
+      //   }),
+      //   sectionTitle: "Confira nossos últimos posts",
+      //   ButtonProps: {
+      //     children: "Button",
+      //   },
+      // }}
     />
   );
 };
