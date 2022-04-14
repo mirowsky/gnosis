@@ -4,7 +4,7 @@ import { ThemeStyles } from "@workspace/types";
 import React from "react";
 import TestimonialSlider, {
   TestimonialSliderProps,
-} from "../TestimonialSlider/TestimonialSlider";
+} from "../../components/TestimonialSlider/TestimonialSlider";
 
 export type TestimonialSectionProps = {
   sectionTitle: string;

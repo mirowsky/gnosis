@@ -17,7 +17,7 @@ import {
 } from "@workspace/services";
 
 export interface IndexPageProps {
-  courses: CourseCollectionType[];
+  courses?: CourseCollectionType[];
   blog?: BlogCollectionType[];
   testimonials?: TestimonialCollectionType[];
   faq?: FAQCollectionType[];

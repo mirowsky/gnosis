@@ -6,7 +6,7 @@ import { BlogSection, BlogSectionProps } from "../Blog/Main/BlogSection";
 import FAQSection, { FAQSectionProps } from "../FAQ/Main/FAQSection";
 import TestimonialSection, {
   TestimonialSectionProps,
-} from "../Testimonial/Main/TestimonialSection";
+} from "../../content/Testimonial/Main/TestimonialSection";
 
 export type DynamicSectionsProps = {
   BlogSectionProps: BlogSectionProps;

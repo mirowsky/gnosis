@@ -1,4 +1,4 @@
-import { DEFAULT_TESTIMONIAL_SLIDER_TESTING_PROPS } from "../TestimonialSlider/constants";
+import { DEFAULT_TESTIMONIAL_SLIDER_TESTING_PROPS } from "../../components/TestimonialSlider/constants";
 import type { TestimonialSectionProps } from "./TestimonialSection";
 
 export const DEFAULT_TestimonialSection_TESTING_PROPS: TestimonialSectionProps =
