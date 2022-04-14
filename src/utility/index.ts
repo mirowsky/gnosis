@@ -25,3 +25,5 @@ export { HTTP } from "./HTTP";
 export { backgroundPattern } from "./backgroundPattern";
 export { default as contactFormHandler } from "./submitContactForm";
 export type { SubmitContactHandler } from "./submitContactForm";
+export { default as courseFormHandler } from "./submitCourseForm";
+export type { SubmitCourseFormHandler } from "./submitCourseForm";

@@ -17,7 +17,9 @@ class FormSubmitter<T extends {}> implements ISubmitForm<T> {
 }
 
 interface IFormSubmitterFactory {
-  createCourseFormSubmitter: () => FormSubmitter<CourseFormBody>;
+  createCourseFormSubmitter: () => FormSubmitter<
+    CourseFormBody & { course: string }
+  >;
   createContactFormSubmitter: () => FormSubmitter<ContactFormBody>;
   createNewsletterFormSubmitter: () => FormSubmitter<{ email: string }>;
 }
@@ -28,8 +30,9 @@ export class FormSubmitterFactory implements IFormSubmitterFactory {
   createContactFormSubmitter: () => FormSubmitter<ContactFormBody> = () =>
     new FormSubmitter(this.httpService, "contact");
 
-  createCourseFormSubmitter: () => FormSubmitter<CourseFormBody> = () =>
-    new FormSubmitter(this.httpService, "course-interest");
+  createCourseFormSubmitter: () => FormSubmitter<
+    CourseFormBody & { course: string }
+  > = () => new FormSubmitter(this.httpService, "course-interest");
 
   createNewsletterFormSubmitter: () => FormSubmitter<{ email: string }> = () =>
     new FormSubmitter(this.httpService, "newsletter-subscribe");

@@ -75,4 +75,4 @@ export type ContactFormBody = {
   message: string;
 };
 
-export type CourseFormBody = ContactFormBody & { course: string };
+export type CourseFormBody = ContactFormBody;
