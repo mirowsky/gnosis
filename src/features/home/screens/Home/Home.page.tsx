@@ -8,11 +8,13 @@ export type HomePageProps = {
   courses: CourseCollectionType[];
 };
 
-export const HomePageProps = ({ courses = [] }: HomePageProps) => {
-  <React.Fragment>
-    <HeroProxy />
-    <DefenseProxy />
-    <AboutProxy />
-    <CoursesProxy items={courses} />
-  </React.Fragment>;
+export const Home = ({ courses = [] }: HomePageProps) => {
+  return (
+    <React.Fragment>
+      <HeroProxy />
+      <DefenseProxy />
+      <AboutProxy />
+      <CoursesProxy items={courses} />
+    </React.Fragment>
+  );
 };
