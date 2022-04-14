@@ -8,6 +8,9 @@ import { HeaderProxy } from "./Header.proxy";
 import { SupportMenuProxy } from "./SupportMenu.proxy";
 import { FooterProxy } from "./Footer.proxy";
 import { MobileDrawerProxy } from "./MobileDrawer.proxy";
+import { HeaderItem } from "../Header/Header";
+import { handleMenuClick } from "@workspace/utility";
+import { NextRouter, useRouter } from "next/router";
 
 export type LayoutProps = {
   children?: React.ReactNode;
@@ -15,6 +18,12 @@ export type LayoutProps = {
 
 export const Layout = ({ children }: LayoutProps) => {
   const [menuOpen, setMenuOpen] = React.useState(false);
+
+  const router = useRouter();
+
+  const items = React.useMemo(() => {
+    return menu_items(router);
+  }, [router]);
 
   return (
     <Box sx={styles.root}>
@@ -29,7 +38,7 @@ export const Layout = ({ children }: LayoutProps) => {
           }}
         >
           <HeaderProxy
-            items={[]}
+            items={items}
             onBurguerClick={() => setMenuOpen((prevState) => !prevState)}
             open={menuOpen}
           />
@@ -54,7 +63,7 @@ export const Layout = ({ children }: LayoutProps) => {
       {/* ABSOLUTE POSITION COMPONENTS */}
 
       <MobileDrawerProxy
-        items={[]}
+        items={items}
         onClose={() => setMenuOpen(false)}
         open={menuOpen}
         onOpen={() => setMenuOpen(true)}
@@ -89,3 +98,18 @@ const styles = stylesheet.create({
     zIndex: 10,
   },
 });
+
+const menu_items = (router: NextRouter): HeaderItem[] => [
+  {
+    label: "Sobre nós",
+    onClick: () => handleMenuClick(router, "#about_us_section"),
+  },
+  {
+    label: "Cursos",
+    onClick: () => handleMenuClick(router, "#course_section"),
+  },
+  {
+    label: "Contato",
+    onClick: () => handleMenuClick(router, "#contact_section"),
+  },
+];
