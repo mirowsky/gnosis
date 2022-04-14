@@ -28,12 +28,13 @@
       "@workspace/services": ["src/services/index.ts"]
     }
   },
+
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "global.d.ts",
-    "augmentation.d.ts",
+    "augmentation.d.ts", "jest.setup.ts",
   ],
   "exclude": ["node_modules"]
 }
