@@ -4,6 +4,7 @@ import {
   FAQCollectionType,
   TestimonialCollectionType,
 } from "@workspace/types";
+import { backgroundPattern } from "@workspace/utility";
 import { BlogProxy } from "./Blog.proxy";
 import { FAQProxy } from "./FAQ.proxy";
 import { TestimonialProxy } from "./Testimonial.proxy";
@@ -21,9 +22,15 @@ export const DynamicContent = ({
 }: DynamicContentProps) => {
   return (
     <Box>
-      <TestimonialProxy items={testimonialItems} />
-      <BlogProxy items={blogPosts} />
-      <FAQProxy items={FAQItems} />
+      <BlogProxy sx={{ py: 10 }} items={blogPosts} />
+
+      <TestimonialProxy sx={{ py: 10 }} items={testimonialItems} />
+
+      <Box sx={{ position: "relative" }}>
+        <FAQProxy items={FAQItems} />
+
+        <Box sx={{ ...(backgroundPattern() as {}) }} />
+      </Box>
     </Box>
   );
 };

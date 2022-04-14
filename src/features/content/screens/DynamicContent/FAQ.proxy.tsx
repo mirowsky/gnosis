@@ -1,10 +1,11 @@
-import { FAQCollectionType } from "@workspace/types";
+import { FAQCollectionType, ThemeStyles } from "@workspace/types";
 import { FAQSection } from "../FAQ/FAQSection";
 
 export type FAQProxyProps = {
   items: FAQCollectionType[];
+  sx?: ThemeStyles;
 };
 
-export const FAQProxy = ({ items = [] }: FAQProxyProps) => {
-  return <FAQSection items={items} />;
+export const FAQProxy = ({ items = [], sx }: FAQProxyProps) => {
+  return <FAQSection sx={sx} items={items} />;
 };

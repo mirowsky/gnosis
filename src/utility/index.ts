@@ -22,3 +22,4 @@ export type { EventDispatcher as GTMDispatcher } from "./gtag";
 export { httpGet } from "./httpGet";
 export { getBlogURL } from "./getBlogURL";
 export { HTTP } from "./HTTP";
+export { backgroundPattern } from "./backgroundPattern";

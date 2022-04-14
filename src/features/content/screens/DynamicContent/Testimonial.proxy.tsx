@@ -1,13 +1,15 @@
-import { TestimonialCollectionType } from "@workspace/types";
+import { TestimonialCollectionType, ThemeStyles } from "@workspace/types";
 import { TestimonialSection } from "../Testimonial/TestimonialSection";
 
 export type TestimonialProxyProps = {
   items: TestimonialCollectionType[];
+  sx?: ThemeStyles;
 };
 
-export const TestimonialProxy = ({ items = [] }: TestimonialProxyProps) => {
+export const TestimonialProxy = ({ items = [], sx }: TestimonialProxyProps) => {
   return (
     <TestimonialSection
+      sx={sx}
       sectionTitle="O que nossos alunos dizem sobre nós"
       TestimonialSliderProps={{
         items: items.map((testimonial, _index) => {

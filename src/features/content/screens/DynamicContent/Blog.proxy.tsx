@@ -1,17 +1,19 @@
-import { BlogCollectionType } from "@workspace/types";
+import { BlogCollectionType, ThemeStyles } from "@workspace/types";
 import { getBlogURL } from "@workspace/utility";
 import { useRouter } from "next/router";
 import { BlogSection } from "../Blog/BlogSection";
 
 export type BlogProxyProps = {
   items: BlogCollectionType[];
+  sx?: ThemeStyles;
 };
 
-export const BlogProxy = ({ items = [] }: BlogProxyProps) => {
+export const BlogProxy = ({ items = [], sx }: BlogProxyProps) => {
   const router = useRouter();
 
   return (
     <BlogSection
+      sx={sx}
       items={items.map((post, _index) => {
         return {
           img: {
