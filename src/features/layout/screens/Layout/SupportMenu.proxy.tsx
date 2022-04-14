@@ -2,15 +2,19 @@ import React from "react";
 import SupportMenuMain from "../SupportMenu/SupportMenuMain";
 import { GTMEvents } from "@workspace/utility";
 import { Handshake, LiveHelp, WhatsApp } from "@mui/icons-material";
+import { ThemeStyles } from "@workspace/types";
 
-export type SupportMenuProxyProps = {};
+export type SupportMenuProxyProps = {
+  sx?: ThemeStyles;
+};
 
-export const SupportMenuProxy = (props: SupportMenuProxyProps) => {
+export const SupportMenuProxy = ({ sx }: SupportMenuProxyProps) => {
   const [open, setOpen] = React.useState(false);
 
   return (
     <SupportMenuMain
       {...{
+        sx: sx,
         open: open,
         ContactDialButtonProps: {
           iconClosed: WhatsApp,

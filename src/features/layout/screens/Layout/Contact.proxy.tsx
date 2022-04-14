@@ -1,15 +1,19 @@
 import { ContactFormInputs, useContactForm } from "@workspace/hooks";
+import { ThemeStyles } from "@workspace/types";
 import { UseFormReturn } from "react-hook-form";
 import ContactSection from "../Contact/ContactSection";
 
-export type ContactProxyProps = {};
+export type ContactProxyProps = {
+  sx?: ThemeStyles;
+};
 
-export const ContactProxy = (props: ContactProxyProps) => {
+export const ContactProxy = ({ sx }: ContactProxyProps) => {
   const form = useContactForm();
 
   return (
     <ContactSection
       {...{
+        sx: sx,
         id: "contact_section",
         img: {
           src: "/images/contact-doc.webp",
