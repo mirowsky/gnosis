@@ -1,7 +1,8 @@
 import React from "react";
 import { useContactForm } from "@workspace/hooks";
-import { ContactFormDialog } from "@workspace/components/shared";
+import { alertStore, ContactFormDialog } from "@workspace/components/shared";
 import { CourseCollectionType, ThemeStyles } from "@workspace/types";
+import { courseFormHandler } from "@workspace/utility";
 
 export type ContactFormDialogProxyProps = {
   course: CourseCollectionType;
@@ -17,6 +18,7 @@ export const ContactFormDialogProxy = ({
   setOpen = () => {},
 }: ContactFormDialogProxyProps) => {
   const dialogForm = useContactForm();
+  const alert = alertStore((state) => state.dispatch);
 
   return (
     <ContactFormDialog
@@ -30,6 +32,11 @@ export const ContactFormDialogProxy = ({
         open: open,
         handleClose: () => setOpen(false),
         PrimaryButtonProps: {
+          onClick: async () => {
+            await courseFormHandler(dialogForm, alert, course);
+
+            setOpen(false);
+          },
           children: "Enviar",
           disabled: !dialogForm.formState.isValid,
         },
