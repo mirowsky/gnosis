@@ -10,12 +10,14 @@ import { useDetectMobile, useWhatsAppRedirect } from "@workspace/hooks";
 import { CourseCollectionType } from "@workspace/types";
 import React from "react";
 import CourseHeroAlt from "../HeroAlt/CourseHeroAlt";
+import { ThemeStyles } from "@workspace/types";
 
 export type CourseHeroProxyProps = {
   course: CourseCollectionType;
+  sx?: ThemeStyles;
 };
 
-export const CourseHeroProxy = ({ course }: CourseHeroProxyProps) => {
+export const CourseHeroProxy = ({ course, sx }: CourseHeroProxyProps) => {
   const [descriptionOpen, setDescriptionOpen] = React.useState(false);
   const isMobile = useDetectMobile();
   const whatsRedirect = useWhatsAppRedirect(isMobile ? "mobile" : "desktop");
@@ -23,6 +25,7 @@ export const CourseHeroProxy = ({ course }: CourseHeroProxyProps) => {
   return (
     <CourseHeroAlt
       {...{
+        sx: sx,
         courseBenefits: [
           {
             icon: Timelapse,
@@ -52,7 +55,7 @@ export const CourseHeroProxy = ({ course }: CourseHeroProxyProps) => {
           onClick: () => {},
         },
         ExpandDescriptionButtonProps: {
-          children: descriptionOpen ? "Ver mais" : "Ver menos",
+          children: !descriptionOpen ? "Ver mais" : "Ver menos",
           onClick: () => setDescriptionOpen((prev) => !prev),
         },
         SecondaryButtonProps: {

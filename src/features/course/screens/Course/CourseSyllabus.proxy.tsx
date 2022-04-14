@@ -1,17 +1,23 @@
 import React from "react";
 import { CourseCollectionType } from "@workspace/types";
 import SyllabusSection from "../../components/Syllabus/SyllabusSection";
+import { ThemeStyles } from "@workspace/types";
 
 export type CourseSyllabusProxyProps = {
   course: CourseCollectionType;
+  sx?: ThemeStyles;
 };
 
-export const CourseSyllabusProxy = ({ course }: CourseSyllabusProxyProps) => {
+export const CourseSyllabusProxy = ({
+  course,
+  sx,
+}: CourseSyllabusProxyProps) => {
   const [tab, activeTab] = React.useState(0);
 
   return (
     <SyllabusSection
       {...{
+        sx: sx,
         activeIndex: tab,
         emec: {
           img: {
