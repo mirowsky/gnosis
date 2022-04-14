@@ -23,3 +23,5 @@ export { httpGet } from "./httpGet";
 export { getBlogURL } from "./getBlogURL";
 export { HTTP } from "./HTTP";
 export { backgroundPattern } from "./backgroundPattern";
+export { default as contactFormHandler } from "./submitContactForm";
+export type { SubmitContactHandler } from "./submitContactForm";
