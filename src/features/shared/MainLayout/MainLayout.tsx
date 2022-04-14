@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import React from "react";
 import stylesheet from "@workspace/stylesheet";
 import Header, { HeaderProps } from "../../layout/components/Header/Header";
-import Footer, { FooterProps } from "../Footer/Footer";
+import Footer, { FooterProps } from "../../layout/screens/Footer/Footer";
 import MobileMenu, {
   MobileMenuProps,
 } from "../../layout/components/MobileDrawer/MobileDrawer";
