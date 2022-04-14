@@ -31,7 +31,7 @@ export const DynamicContent = ({
           return {
             ...item,
             sx: {
-              scale: "0.85",
+              transform: "scale(0.85)",
             } as ThemeStyles,
           };
         })}

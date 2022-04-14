@@ -54,7 +54,7 @@ const styles = stylesheet.create({
     pl: { xs: "0.75rem", sm: 0 },
   },
   title: {
-    maxWidth: "24ch",
+    maxWidth: "20ch",
     fontWeight: "bold",
   },
 });

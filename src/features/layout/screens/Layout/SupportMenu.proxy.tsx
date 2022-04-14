@@ -3,6 +3,7 @@ import SupportMenuMain from "../SupportMenu/SupportMenuMain";
 import { GTMEvents } from "@workspace/utility";
 import { Handshake, LiveHelp, WhatsApp } from "@mui/icons-material";
 import { ThemeStyles } from "@workspace/types";
+import { useDetectMobile } from "@workspace/hooks";
 
 export type SupportMenuProxyProps = {
   sx?: ThemeStyles;
@@ -10,6 +11,12 @@ export type SupportMenuProxyProps = {
 
 export const SupportMenuProxy = ({ sx }: SupportMenuProxyProps) => {
   const [open, setOpen] = React.useState(false);
+
+  React.useLayoutEffect(() => {
+    if (typeof window !== "undefined" && window.innerWidth > 1100) {
+      setOpen(true);
+    }
+  }, []);
 
   return (
     <SupportMenuMain
@@ -31,7 +38,7 @@ export const SupportMenuProxy = ({ sx }: SupportMenuProxyProps) => {
         },
         SupportMenuProps: {
           sx: {
-            scale: "0.75",
+            transform: "scale(0.75)",
             transformOrigin: "bottom right",
             maxWidth: "400px",
           },
@@ -46,7 +53,7 @@ export const SupportMenuProxy = ({ sx }: SupportMenuProxyProps) => {
               label:
                 "Suporte com nossa equipe comercial - Clique para ser direcionado ao WhatsApp",
               icon: Handshake,
-              subtitle: "Fale com nossa equipe comercial",
+              subtitle: "Fale com o nosso time e consulte valores e condições",
               title: "Equipe comercial",
               online: true,
               id: "suporte-equipe-comercial",
@@ -63,7 +70,7 @@ export const SupportMenuProxy = ({ sx }: SupportMenuProxyProps) => {
               id: "suporte-duvidas",
               title: "Tire suas dúvidas",
               subtitle:
-                "Está em dúvida sobre qual curso escolher? Fale conosco?",
+                "Ficou com alguma dúvida? Fale com a gente agora mesmo pelo WhatsApp",
               online: false,
             },
           ],
