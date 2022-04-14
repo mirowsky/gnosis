@@ -7,13 +7,17 @@ import {
   HistoryEdu,
   SupportAgent,
 } from "@mui/icons-material";
+import { ThemeStyles } from "@workspace/types";
 
-export type DefenseProxyProps = {};
+export type DefenseProxyProps = {
+  sx?: ThemeStyles;
+};
 
-export const DefenseProxy = (props: DefenseProxyProps) => {
+export const DefenseProxy = ({ sx }: DefenseProxyProps) => {
   return (
     <DefenseSection
       {...{
+        sx: sx,
         items: [
           {
             icon: AssuredWorkloadTwoTone,

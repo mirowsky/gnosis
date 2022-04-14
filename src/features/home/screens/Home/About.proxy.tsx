@@ -1,9 +1,12 @@
+import { ThemeStyles } from "@workspace/types";
 import { AboutSection, AboutSectionProps } from "../About/AboutSection";
 
-export type AboutProxyProps = {};
+export type AboutProxyProps = {
+  sx?: ThemeStyles;
+};
 
-export const AboutProxy = (props: AboutProxyProps) => {
-  return <AboutSection {...PROPS} />;
+export const AboutProxy = ({ sx }: AboutProxyProps) => {
+  return <AboutSection {...PROPS} sx={sx} />;
 };
 
 const PROPS = {

@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import { CourseCollectionType } from "@workspace/types";
 import React from "react";
 import { AboutProxy } from "./About.proxy";
@@ -12,9 +13,20 @@ export const Home = ({ courses = [] }: HomePageProps) => {
   return (
     <React.Fragment>
       <HeroProxy />
-      <DefenseProxy />
-      <AboutProxy />
-      <CoursesProxy items={courses} />
+      <DefenseProxy
+        sx={{
+          py: 10,
+          bgcolor: (theme) => theme.palette.bg.primary,
+        }}
+      />
+
+      <AboutProxy
+        sx={{
+          py: 10,
+        }}
+      />
+
+      <CoursesProxy sx={{ py: 10 }} items={courses} />
     </React.Fragment>
   );
 };

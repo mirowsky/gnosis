@@ -2,16 +2,17 @@ import React from "react";
 import { AccessTime, School, WhatsApp } from "@mui/icons-material";
 import { WHATSAPP_PHONE_NUMBER } from "@workspace/constants";
 import { useDetectMobile, useWhatsAppRedirect } from "@workspace/hooks";
-import { CourseCollectionType } from "@workspace/types";
+import { CourseCollectionType, ThemeStyles } from "@workspace/types";
 import { getCourseURL, getThumbnail } from "@workspace/utility";
 import { useRouter } from "next/router";
 import { CourseSection } from "../Courses/CoursesSection";
 
 export type CourseProxyProps = {
   items: CourseCollectionType[];
+  sx?: ThemeStyles;
 };
 
-export const CoursesProxy = ({ items = [] }: CourseProxyProps) => {
+export const CoursesProxy = ({ items = [], sx }: CourseProxyProps) => {
   const router = useRouter();
   const isMobile = useDetectMobile();
   const whatsRedirect = useWhatsAppRedirect(isMobile ? "mobile" : "desktop");
@@ -20,6 +21,7 @@ export const CoursesProxy = ({ items = [] }: CourseProxyProps) => {
   return (
     <CourseSection
       {...{
+        sx: sx,
         CourseSliderProps: {
           items: items.map((course, _index) => {
             return {
