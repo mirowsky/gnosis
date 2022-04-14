@@ -14,6 +14,11 @@ export const BlogProxy = ({ items = [], sx }: BlogProxyProps) => {
   return (
     <BlogSection
       sx={sx}
+      ButtonProps={{
+        children: "Ver mais",
+        onClick: () => {},
+        disabled: true,
+      }}
       items={items.map((post, _index) => {
         return {
           img: {

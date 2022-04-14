@@ -3,6 +3,7 @@ import {
   BlogCollectionType,
   FAQCollectionType,
   TestimonialCollectionType,
+  ThemeStyles,
 } from "@workspace/types";
 import { backgroundPattern } from "@workspace/utility";
 import { BlogProxy } from "./Blog.proxy";
@@ -26,7 +27,14 @@ export const DynamicContent = ({
 
       <TestimonialProxy
         sx={{ py: 10, bgcolor: (theme) => theme.palette.bg.primary }}
-        items={testimonialItems}
+        items={testimonialItems.map((item, index) => {
+          return {
+            ...item,
+            sx: {
+              scale: "0.85",
+            } as ThemeStyles,
+          };
+        })}
       />
 
       <Box sx={{ position: "relative" }}>

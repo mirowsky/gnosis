@@ -17,6 +17,7 @@ export const FAQProxy = ({ items = [], sx }: FAQProxyProps) => {
       sx={sx}
       items={items.map((item, index) => {
         return {
+          ...item,
           answer: item.answer,
           question: item.question,
           onClick: () => {

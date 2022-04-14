@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { MotionBox } from "@workspace/components/shared";
 import stylesheet from "@workspace/stylesheet";
+import { ThemeStyles } from "@workspace/types";
 import React from "react";
 import FAQCardButton from "../FAQCardButton/FAQCardButton";
 
@@ -9,6 +10,7 @@ export type FAQCardProps = {
   onClick?: (...args: unknown[]) => void;
   question: string;
   answer: string;
+  sx?: ThemeStyles;
 };
 
 export const FAQCard = ({
@@ -16,11 +18,12 @@ export const FAQCard = ({
   open = false,
   question = "Lorem ipsum dolum sanet orum",
   answer = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, eum ut debitis doloribus totam tempore!",
+  sx,
 }: FAQCardProps) => {
   const styles = React.useMemo(() => _styles(open), [open]);
 
   return (
-    <Box onClick={onClick} sx={styles.root}>
+    <Box onClick={onClick} sx={{ ...styles.root, ...sx }}>
       <Box sx={styles.textContainer}>
         <Typography sx={styles.text} variant="h6">
           {question}

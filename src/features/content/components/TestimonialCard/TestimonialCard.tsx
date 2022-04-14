@@ -1,5 +1,4 @@
 import { Box, Typography } from "@mui/material";
-import { webkitVerticalTruncate } from "src/mixins";
 import stylesheet from "@workspace/stylesheet";
 import { ThemeStyles } from "@workspace/types";
 import React from "react";

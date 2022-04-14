@@ -14,6 +14,7 @@ export const TestimonialProxy = ({ items = [], sx }: TestimonialProxyProps) => {
       TestimonialSliderProps={{
         items: items.map((testimonial, _index) => {
           return {
+            ...testimonial,
             testimonial: testimonial.testimonialText,
             testimonialExtra: testimonial.testimonialLocation,
             testimonialName: testimonial.testimonialName,
