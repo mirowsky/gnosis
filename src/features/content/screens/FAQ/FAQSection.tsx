@@ -2,8 +2,7 @@ import { Box, Button, ButtonProps, Typography } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
 import { ThemeStyles } from "@workspace/types";
 import React from "react";
-import theme from "src/theme/theme";
-import FAQCard, { FAQCardProps } from "../FAQCard/FAQCard";
+import FAQCard, { FAQCardProps } from "../../components/FAQCard/FAQCard";
 
 export type FAQSectionProps = {
   items: FAQCardProps[];
