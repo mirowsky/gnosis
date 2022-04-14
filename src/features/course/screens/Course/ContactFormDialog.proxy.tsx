@@ -5,15 +5,18 @@ import { CourseCollectionType, ThemeStyles } from "@workspace/types";
 
 export type ContactFormDialogProxyProps = {
   course: CourseCollectionType;
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   sx?: ThemeStyles;
 };
 
 export const ContactFormDialogProxy = ({
   course,
   sx,
+  open = false,
+  setOpen = () => {},
 }: ContactFormDialogProxyProps) => {
   const dialogForm = useContactForm();
-  const [dialogFormOpen, setDialogFormOpen] = React.useState(false);
 
   return (
     <ContactFormDialog
@@ -24,8 +27,8 @@ export const ContactFormDialogProxy = ({
         } - ${course.courseName}`,
         subtitle:
           "Preencha o formulário e em breve um de nossos representantes entrará em contato para atendê-lo!",
-        open: dialogFormOpen,
-        handleClose: () => setDialogFormOpen(false),
+        open: open,
+        handleClose: () => setOpen(false),
         PrimaryButtonProps: {
           children: "Enviar",
           disabled: !dialogForm.formState.isValid,
@@ -33,7 +36,7 @@ export const ContactFormDialogProxy = ({
         SecondaryButtonProps: {
           children: "Cancelar",
           disabled: dialogForm.formState.isSubmitting,
-          onClick: () => setDialogFormOpen(false),
+          onClick: () => setOpen(false),
         },
         emailInputProps: {
           ...dialogForm.register("email"),

@@ -9,15 +9,20 @@ import { WHATSAPP_PHONE_NUMBER } from "@workspace/constants";
 import { useDetectMobile, useWhatsAppRedirect } from "@workspace/hooks";
 import { CourseCollectionType } from "@workspace/types";
 import React from "react";
-import CourseHeroAlt from "../HeroAlt/CourseHeroAlt";
+import CourseHeroAlt from "../Hero/CourseHeroAlt";
 import { ThemeStyles } from "@workspace/types";
 
 export type CourseHeroProxyProps = {
   course: CourseCollectionType;
+  primaryAction: (...args: unknown[]) => void;
   sx?: ThemeStyles;
 };
 
-export const CourseHeroProxy = ({ course, sx }: CourseHeroProxyProps) => {
+export const CourseHeroProxy = ({
+  course,
+  sx,
+  primaryAction = () => {},
+}: CourseHeroProxyProps) => {
   const [descriptionOpen, setDescriptionOpen] = React.useState(false);
   const isMobile = useDetectMobile();
   const whatsRedirect = useWhatsAppRedirect(isMobile ? "mobile" : "desktop");
@@ -52,7 +57,7 @@ export const CourseHeroProxy = ({ course, sx }: CourseHeroProxyProps) => {
         },
         PrimaryButtonProps: {
           children: "Manifestar interesse",
-          onClick: () => {},
+          onClick: () => primaryAction(),
         },
         ExpandDescriptionButtonProps: {
           children: !descriptionOpen ? "Ver mais" : "Ver menos",

@@ -10,6 +10,8 @@ export type CoursePageProps = {
 };
 
 export const Course = ({ course }: CoursePageProps) => {
+  const [dialogFormOpen, setDialogFormOpen] = React.useState(false);
+
   return (
     <Box>
       <Box
@@ -21,7 +23,10 @@ export const Course = ({ course }: CoursePageProps) => {
         }}
       >
         <Container maxWidth="lg" sx={{ zIndex: 10 }}>
-          <CourseHeroProxy course={course} />
+          <CourseHeroProxy
+            primaryAction={() => setDialogFormOpen(true)}
+            course={course}
+          />
         </Container>
       </Box>
 
@@ -38,7 +43,11 @@ export const Course = ({ course }: CoursePageProps) => {
         </Container>
       </Box>
 
-      <ContactFormDialogProxy course={course} />
+      <ContactFormDialogProxy
+        open={dialogFormOpen}
+        setOpen={setDialogFormOpen}
+        course={course}
+      />
     </Box>
   );
 };
