@@ -36,7 +36,7 @@ export function GlobalSnack() {
           elevation={6}
           variant="filled"
           severity={alertSeverity}
-          sx={{ width: "100%", fontSize: "1.5rem" }}
+          sx={{ width: "100%", fontSize: "1rem" }}
         >
           {alertMessage}
         </Alert>

@@ -2,6 +2,9 @@ import { ContactFormInputs, useContactForm } from "@workspace/hooks";
 import { ThemeStyles } from "@workspace/types";
 import { UseFormReturn } from "react-hook-form";
 import ContactSection from "../Contact/ContactSection";
+import { ContactEmailSender, ContactFormSubmitter } from "@workspace/services";
+import { AlertState, alertStore } from "@workspace/components/shared";
+import { GTMEvents } from "@workspace/utility";
 
 export type ContactProxyProps = {
   sx?: ThemeStyles;
@@ -9,6 +12,8 @@ export type ContactProxyProps = {
 
 export const ContactProxy = ({ sx }: ContactProxyProps) => {
   const form = useContactForm();
+
+  const alert = alertStore((state) => state.dispatch);
 
   return (
     <ContactSection
@@ -21,7 +26,7 @@ export const ContactProxy = ({ sx }: ContactProxyProps) => {
         },
         ContactFormProps: {
           LoadingButtonProps: {
-            onClick: () => submitHandler__dev(form),
+            onClick: () => HANDLER(form, alert),
             loading: form.formState.isSubmitting,
             disabled: !form.formState.isValid,
             children: "Enviar",
@@ -69,14 +74,83 @@ export const ContactProxy = ({ sx }: ContactProxyProps) => {
   );
 };
 
+type SubmitContactHandler = (
+  form: UseFormReturn<ContactFormInputs, any>,
+  alert: (alert: Omit<AlertState, "open">) => void
+) => Promise<void>;
+
+const submitHandler__prod = async (
+  form: UseFormReturn<ContactFormInputs, any>,
+  alert: (alert: Omit<AlertState, "open">) => void
+) => {
+  alert({ message: "Enviando...", severity: "info" });
+
+  form.handleSubmit(async (data, events) => {
+    GTMEvents.contact({
+      email: data.email,
+      message: data.message,
+      name: data.name,
+      phone: data.phone,
+    });
+
+    try {
+      await ContactFormSubmitter.submit(data);
+
+      await ContactEmailSender.send(data);
+
+      alert({
+        message: "Contato enviado com sucesso!",
+        severity: "success",
+      });
+
+      form.reset({ email: "", message: "", name: "", phone: "" });
+    } catch (error) {
+      alert({
+        message: "Ocorreu um erro ao tentar enviar o formulário.",
+        severity: "error",
+      });
+    }
+  })();
+};
+
 const submitHandler__dev = async (
-  form: UseFormReturn<ContactFormInputs, any>
+  form: UseFormReturn<ContactFormInputs, any>,
+  alert: (alert: Omit<AlertState, "open">) => void
 ) => {
   await form.handleSubmit(async (data, events) => {
     await new Promise((resolve, reject) => {
-      resolve(data);
-    }).then((data) => {
-      console.log(data);
+      alert({ message: "Enviando...", severity: "info" });
+
+      GTMEvents.contact({
+        email: data.email,
+        message: data.message,
+        name: data.name,
+        phone: data.phone,
+      });
+
+      try {
+        setTimeout(() => {
+          alert({
+            message: "Contato enviado com sucesso!",
+            severity: "success",
+          });
+        }, 2500);
+
+        form.reset({ email: "", message: "", name: "", phone: "" });
+
+        resolve(data);
+      } catch (error) {
+        reject(error);
+        alert({
+          message: "Ocorreu um erro ao tentar enviar o formulário.",
+          severity: "error",
+        });
+      }
     });
   })();
 };
+
+const HANDLER: SubmitContactHandler =
+  process.env.NODE_ENV === "production"
+    ? submitHandler__prod
+    : submitHandler__dev;
