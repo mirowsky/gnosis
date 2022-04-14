@@ -5,7 +5,7 @@ import { ThemeStyles } from "@workspace/types";
 import React from "react";
 import SupportMenuItem, {
   SupportMenuItemProps,
-} from "../SupportMenuItem/SupportMenuItem";
+} from "../../components/SupportMenuItem/SupportMenuItem";
 import { SupportMenu_TEST_ID } from "./SupportMenu.fixture";
 
 export interface SupportMenuProps {

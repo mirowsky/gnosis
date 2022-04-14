@@ -1,4 +1,4 @@
-import { DEFAULT_FAQCard_TESTING_PROPS } from "../FAQCard/FAQCard.fixture";
+import { DEFAULT_FAQCard_TESTING_PROPS } from "../../components/FAQCard/FAQCard.fixture";
 import type { FAQSectionProps } from "./FAQSection";
 
 const item = DEFAULT_FAQCard_TESTING_PROPS;

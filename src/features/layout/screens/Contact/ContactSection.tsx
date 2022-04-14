@@ -4,7 +4,9 @@ import { useIntersectionObserver } from "src/hooks";
 import stylesheet from "@workspace/stylesheet";
 import { ThemeStyles } from "@workspace/types";
 import React from "react";
-import ContactForm, { ContactFormProps } from "../ContactForm/ContactForm";
+import ContactForm, {
+  ContactFormProps,
+} from "../../components/ContactForm/ContactForm";
 import { DEFAULT_ContactSection_TESTING_PROPS } from "./ContactSection.fixture";
 
 export type ContactSectionProps = {

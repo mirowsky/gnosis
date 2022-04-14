@@ -1,4 +1,4 @@
-import { DEFAULT_ContactForm_TESTING_PROPS } from "../ContactForm/ContactForm.fixture";
+import { DEFAULT_ContactForm_TESTING_PROPS } from "../../components/ContactForm/ContactForm.fixture";
 import type { ContactSectionProps } from "./ContactSection";
 
 export const DEFAULT_ContactSection_TESTING_PROPS: ContactSectionProps = {

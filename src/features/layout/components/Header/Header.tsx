@@ -3,7 +3,7 @@ import React from "react";
 import stylesheet from "@workspace/stylesheet";
 import { Box, Button, Typography } from "@mui/material";
 import { TEST_ID } from "./constants";
-import { AnimatedBurguerMenu } from "../AnimatedBurguerButton/AnimatedBurguerButton";
+import { AnimatedBurguerMenu } from "../../../shared/AnimatedBurguerButton/AnimatedBurguerButton";
 
 type HeaderItem = {
   label: string;

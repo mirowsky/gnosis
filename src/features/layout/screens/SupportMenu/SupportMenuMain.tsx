@@ -4,11 +4,14 @@ import stylesheet from "@workspace/stylesheet";
 import { ThemeStyles } from "@workspace/types";
 import { AnimatePresence, Variants } from "framer-motion";
 import React from "react";
-import SupportMenu, { SupportMenuProps } from "../Container/SupportMenu";
+import {
+  SupportMenuProps,
+  SupportMenu,
+} from "../../components/SupportMenuContainer/SupportMenu";
 import {
   ContactDialButton,
   ContactDialButtonProps,
-} from "../../ContactDial/ContactDialButton/ContactDialButton";
+} from "../../../shared/ContactDial/ContactDialButton/ContactDialButton";
 
 export type SupportMenuMainProps = {
   open?: boolean;

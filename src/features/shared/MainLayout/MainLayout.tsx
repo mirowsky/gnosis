@@ -1,12 +1,14 @@
 import { Box } from "@mui/material";
 import React from "react";
 import stylesheet from "@workspace/stylesheet";
-import Header, { HeaderProps } from "../Header/Header";
+import Header, { HeaderProps } from "../../layout/components/Header/Header";
 import Footer, { FooterProps } from "../Footer/Footer";
-import MobileMenu, { MobileMenuProps } from "../MobileDrawer/MobileDrawer";
+import MobileMenu, {
+  MobileMenuProps,
+} from "../../layout/components/MobileDrawer/MobileDrawer";
 import ContactSection, {
   ContactSectionProps,
-} from "../Contact/Main/ContactSection";
+} from "../../layout/screens/Contact/Main/ContactSection";
 
 import { GlobalSnack, HideOnScroll } from "@workspace/components/shared";
 import {
@@ -15,10 +17,10 @@ import {
 } from "@workspace/components/shared";
 import SupportMenuMain, {
   SupportMenuMainProps,
-} from "../SupportMenu/Main/SupportMenuMain";
+} from "../../layout/screens/SupportMenu/Main/SupportMenuMain";
 import NewsLetterSection, {
   NewsLetterSectionProps,
-} from "../Newsletter/Main/NewsLetterSection";
+} from "../../layout/screens/Newsletter/Main/NewsLetterSection";
 export type MainLayoutProps = {
   children: React.ReactNode;
   HeaderProps: HeaderProps;
