@@ -3,6 +3,8 @@ import SupportMenuMain from "../SupportMenu/SupportMenuMain";
 import { GTMEvents } from "@workspace/utility";
 import { Handshake, LiveHelp, WhatsApp } from "@mui/icons-material";
 import { ThemeStyles } from "@workspace/types";
+import { useDetectMobile, useWhatsAppRedirect } from "@workspace/hooks";
+import { WHATSAPP_PHONE_NUMBER } from "@workspace/constants";
 
 export type SupportMenuProxyProps = {
   sx?: ThemeStyles;
@@ -10,6 +12,8 @@ export type SupportMenuProxyProps = {
 
 export const SupportMenuProxy = ({ sx }: SupportMenuProxyProps) => {
   const [open, setOpen] = React.useState(false);
+  const isMobile = useDetectMobile();
+  const wpp = useWhatsAppRedirect(isMobile ? "mobile" : "desktop");
 
   React.useLayoutEffect(() => {
     if (typeof window !== "undefined" && window.innerWidth > 1100) {
@@ -48,6 +52,10 @@ export const SupportMenuProxy = ({ sx }: SupportMenuProxyProps) => {
             {
               onClick: () => {
                 GTMEvents.supportItem({ supportItemLabel: "Equipe comercial" });
+                wpp(
+                  "Olá, estou vindo através do website e gostaria de tirar dúvidas relacionadas a valores e condições.",
+                  WHATSAPP_PHONE_NUMBER
+                );
               },
               label:
                 "Suporte com nossa equipe comercial - Clique para ser direcionado ao WhatsApp",
@@ -62,6 +70,11 @@ export const SupportMenuProxy = ({ sx }: SupportMenuProxyProps) => {
                 GTMEvents.supportItem({
                   supportItemLabel: "Central de dúvidas",
                 });
+
+                wpp(
+                  "Olá, estou vindo através do website e gostaria de esclarecer algumas dúvidas.",
+                  WHATSAPP_PHONE_NUMBER
+                );
               },
               label:
                 "Suporte para dúvidas gerais - Clique para ser direcionado ao WhatsApp.",
