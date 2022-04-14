@@ -5,10 +5,15 @@ import Header, { HeaderItem } from "../Header/Header";
 
 export type HeaderProxyProps = {
   items: HeaderItem[];
+  open: boolean;
+  onBurguerClick: (...args: unknown[]) => void;
 };
 
-export const HeaderProxy = ({ items = [] }: HeaderProxyProps) => {
-  const [open, setOpen] = React.useState(false);
+export const HeaderProxy = ({
+  items = [],
+  onBurguerClick = () => {},
+  open = false,
+}: HeaderProxyProps) => {
   const router = useRouter();
 
   return (
@@ -23,7 +28,7 @@ export const HeaderProxy = ({ items = [] }: HeaderProxyProps) => {
           label: "Contate-nos",
           onClick: () => scrollToElem("#contact_section"),
         },
-        onBurguerButtonClick: () => setOpen(true),
+        onBurguerButtonClick: onBurguerClick,
         onLogoClick: () => handleLogoClick(router),
         items: items,
       }}
