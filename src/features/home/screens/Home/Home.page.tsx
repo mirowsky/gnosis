@@ -26,7 +26,10 @@ export const Home = ({ courses = [] }: HomePageProps) => {
         }}
       />
 
-      <CoursesProxy sx={{ py: 10 }} items={courses} />
+      <CoursesProxy
+        sx={{ py: 10, bgcolor: (theme) => theme.palette.bg.primary }}
+        items={courses}
+      />
     </React.Fragment>
   );
 };

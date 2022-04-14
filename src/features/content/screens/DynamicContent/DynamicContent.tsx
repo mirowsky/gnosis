@@ -24,10 +24,18 @@ export const DynamicContent = ({
     <Box>
       <BlogProxy sx={{ py: 10 }} items={blogPosts} />
 
-      <TestimonialProxy sx={{ py: 10 }} items={testimonialItems} />
+      <TestimonialProxy
+        sx={{ py: 10, bgcolor: (theme) => theme.palette.bg.primary }}
+        items={testimonialItems}
+      />
 
       <Box sx={{ position: "relative" }}>
-        <FAQProxy items={FAQItems} />
+        <FAQProxy
+          sx={{
+            py: 10,
+          }}
+          items={FAQItems}
+        />
 
         <Box sx={{ ...(backgroundPattern() as {}) }} />
       </Box>
