@@ -8,7 +8,7 @@ import {
   SupportAgent,
 } from "@mui/icons-material";
 
-export type DefenseProxyProps = {} & DefenseSectionProps;
+export type DefenseProxyProps = {};
 
 export const DefenseProxy = (props: DefenseProxyProps) => {
   return (

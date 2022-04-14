@@ -1,3 +1,18 @@
-export type HomePageProps = {};
+import { CourseCollectionType } from "@workspace/types";
+import React from "react";
+import { AboutProxy } from "./About.proxy";
+import { CoursesProxy } from "./Courses.proxy";
+import { DefenseProxy } from "./Defense.proxy";
+import { HeroProxy } from "./Hero.proxy";
+export type HomePageProps = {
+  courses: CourseCollectionType[];
+};
 
-export const HomePageProps = (props: HomePageProps) => {};
+export const HomePageProps = ({ courses = [] }: HomePageProps) => {
+  <React.Fragment>
+    <HeroProxy />
+    <DefenseProxy />
+    <AboutProxy />
+    <CoursesProxy items={courses} />
+  </React.Fragment>;
+};
