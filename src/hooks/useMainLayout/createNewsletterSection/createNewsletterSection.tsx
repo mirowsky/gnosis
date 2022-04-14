@@ -2,37 +2,6 @@ import { AlertState, alertStore } from "@workspace/components/shared";
 import { NewsLetterSectionProps } from "@workspace/components/shared";
 import { UseFormReturn } from "react-hook-form";
 
-const submitHandler__dev = (
-  form: UseFormReturn<{ email: string }, any>,
-  dispatch: (alert: Omit<AlertState, "open">) => void
-) => {
-  form.handleSubmit(
-    async (data, event) => {
-      await new Promise((resolve, reject) => {
-        dispatch({
-          message: "Enviando sua inscrição...",
-          severity: "info",
-        });
-
-        setTimeout(() => {
-          resolve(data);
-        }, 1500);
-      })
-
-        .then(() => {
-          form.reset({ email: "" });
-
-          dispatch({
-            message: `Obrigado por inscrever-se em nossa newsletter.`,
-            severity: "success",
-          });
-        })
-        .catch((err) => {});
-    },
-    (error, errorEvents) => {}
-  )();
-};
-
 const submitHandler__prod = (form: UseFormReturn<{ email: string }, any>) => {};
 
 export const createNewsletterSection = (params: {
