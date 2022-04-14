@@ -1,5 +1,5 @@
 import type { GetStaticProps, NextPage } from "next";
-import { Home as HomePage } from "@workspace/features";
+import { Content, Home as HomePage } from "@workspace/features";
 import {
   BlogCollectionType,
   CourseCollectionType,
@@ -37,6 +37,11 @@ const Home: NextPage<IndexPageProps> = ({
         <meta name="description" content={META_TAGS.description} />
       </Head>
       <HomePage courses={courses} />
+      <Content
+        FAQItems={faq}
+        blogPosts={blog}
+        testimonialItems={testimonials}
+      />
     </React.Fragment>
   );
 };

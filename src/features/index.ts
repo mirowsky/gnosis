@@ -6,3 +6,5 @@ export { LandingPage } from "./home/screens/Main/LandingPage";
 export type { LandingPageProps } from "./home/screens/Main/LandingPage";
 export { Home } from "./home/screens/Home/Home.page";
 export type { HomePageProps } from "./home/screens/Home/Home.page";
+export { DynamicContent as Content } from "./content/screens/DynamicContent/DynamicContent";
+export type { DynamicContentProps as ContentProps } from "./content/screens/DynamicContent/DynamicContent";
