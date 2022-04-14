@@ -23,7 +23,7 @@ export const DynamicContent = ({
 }: DynamicContentProps) => {
   return (
     <Box>
-      <BlogProxy sx={{ py: 10 }} items={blogPosts} />
+      <BlogProxy sx={{ py: 10, px: 2 }} items={blogPosts} />
 
       <TestimonialProxy
         sx={{ py: 10, bgcolor: (theme) => theme.palette.bg.primary }}
@@ -41,6 +41,7 @@ export const DynamicContent = ({
         <FAQProxy
           sx={{
             py: 10,
+            px: 2,
           }}
           items={FAQItems}
         />
