@@ -1,4 +1,4 @@
-import { useClickAway, useScrollLock } from "src/hooks";
+import { useClickAway, useScrollLock } from "@workspace/hooks";
 import stylesheet from "@workspace/stylesheet";
 import { ThemeStyles } from "@workspace/types";
 import { AnimatePresence } from "framer-motion";

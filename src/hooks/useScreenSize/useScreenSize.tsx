@@ -1,5 +1,5 @@
 import React from "react";
-import { useIsomorphicEffect } from "..";
+import { useIsomorphicEffect } from "../useIsomorphicEffect/useIsomorphicEffect";
 
 export const useScreenSize = (updateOnResize = false) => {
   const [width, setWidth] = React.useState(0);
