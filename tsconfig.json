@@ -30,11 +30,12 @@
   },
 
   "include": [
+    "jest.setup.ks",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "global.d.ts",
-    "augmentation.d.ts", "jest.setup.ts",
+    "augmentation.d.ts"
   ],
   "exclude": ["node_modules"]
 }
