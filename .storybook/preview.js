@@ -1,5 +1,5 @@
 import React from "react";
-import CustomTheme from "../theme/CustomTheme";
+import CustomTheme from "../src/theme/CustomTheme";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
