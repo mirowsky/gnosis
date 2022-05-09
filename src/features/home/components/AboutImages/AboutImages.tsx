@@ -2,8 +2,8 @@ import { Box } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
 import React from "react";
 import AboutImagesCircle from "../AboutImagesCircle/AboutImagesCircle";
-import { Circle } from "src/svg";
-import { useComponentSize } from "src/hooks";
+import { Circle } from "@workspace/svg";
+import { useComponentSize } from "@workspace/hooks";
 
 export type AboutImagesProps = {};
 

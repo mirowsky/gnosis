@@ -1,7 +1,7 @@
 import React from "react";
 import { stylesheet } from "@workspace/stylesheet";
 import { Box, Button, Container, Typography } from "@mui/material";
-import { noop } from "src/utility";
+import { noop } from "@workspace/utility";
 
 export type HeroProps = {
   mainText: string;

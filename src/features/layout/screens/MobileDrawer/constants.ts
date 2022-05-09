@@ -1,5 +1,5 @@
 import type { MobileMenuProps } from "./MobileDrawer";
-import { noop } from "src/utility";
+import { noop } from "@workspace/utility";
 
 export const DEFAULT_MOBILE_DRAWER_TEST_PROPS: MobileMenuProps = {
   onClose: noop,

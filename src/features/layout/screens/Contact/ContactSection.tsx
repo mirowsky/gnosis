@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { SlideInV2 } from "@workspace/components/shared";
-import { useIntersectionObserver } from "src/hooks";
+import { useIntersectionObserver } from "@workspace/hooks";
 import stylesheet from "@workspace/stylesheet";
 import { ThemeStyles } from "@workspace/types";
 import React from "react";

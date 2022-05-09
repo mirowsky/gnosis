@@ -1,4 +1,4 @@
-import { noop } from "src/utility";
+import { noop } from "@workspace/utility";
 import { HeaderProps } from "./Header";
 
 export const TEST_ID = {

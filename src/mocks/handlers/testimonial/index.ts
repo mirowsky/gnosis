@@ -1,5 +1,5 @@
 import faker from "@faker-js/faker";
-import { COLLECTIONS_API_ROUTES } from "src/constants";
+import { COLLECTIONS_API_ROUTES } from "@workspace/constants";
 import { getRandomImage } from "../../utility";
 import { rest } from "msw";
 

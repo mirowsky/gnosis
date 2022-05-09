@@ -1,7 +1,7 @@
 import { AppBar, Tab, Tabs, Box } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
 import React from "react";
-import { noop } from "src/utility";
+import { noop } from "@workspace/utility";
 
 export type CourseTabsProps = {
   items: string[];

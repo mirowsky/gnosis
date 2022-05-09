@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Box, Button, SvgIconProps, Typography } from "@mui/material";
 import { MotionBox } from "@workspace/components/shared";
-import { useIntersectionObserver } from "src/hooks";
+import { useIntersectionObserver } from "@workspace/hooks";
 import stylesheet from "@workspace/stylesheet";
 import { AnimatePresence } from "framer-motion";
 import React from "react";

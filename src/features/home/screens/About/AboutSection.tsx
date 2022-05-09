@@ -1,6 +1,6 @@
 import { Box, Button, ButtonProps, Typography } from "@mui/material";
 import { MotionBox } from "@workspace/components/shared";
-import { useIntersectionObserver } from "src/hooks";
+import { useIntersectionObserver } from "@workspace/hooks";
 import stylesheet from "@workspace/stylesheet";
 import { ThemeStyles } from "@workspace/types";
 import React from "react";

@@ -1,4 +1,4 @@
-import { noop } from "src/utility";
+import { noop } from "@workspace/utility";
 import { InputWithButtonProps } from "./InputWithButton";
 
 export const DEFAULT_INPUT_WITH_BUTTON_TEST_PROPS: InputWithButtonProps = {

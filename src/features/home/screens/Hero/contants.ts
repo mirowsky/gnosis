@@ -1,4 +1,4 @@
-import { noop } from "src/utility";
+import { noop } from "@workspace/utility";
 import type { HeroProps } from "./Hero";
 
 export const DEFAULT_HERO_TESTING_PROPS: HeroProps = {
