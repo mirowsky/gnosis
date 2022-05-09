@@ -17,6 +17,7 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
+      "@workspace/svg": ["./src/svg/index.ts"],
       "@workspace/features": ["./src/features/index.ts"],
       "@workspace/stylesheet": ["./src/theme/stylesheet.ts"],
       "@workspace/utility": ["./src/utility/index.ts"],
@@ -30,7 +31,7 @@
   },
 
   "include": [
-    "jest.setup.ks",
+    "jest.setup.ts",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
