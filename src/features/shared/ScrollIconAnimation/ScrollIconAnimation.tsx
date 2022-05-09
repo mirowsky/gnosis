@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import stylesheet from "@workspace/stylesheet";
-import { Scroll } from "src/svg";
+import { Scroll } from "@workspace/svg";
 import { ResponsiveStyleValue } from "@workspace/types";
 import { Properties } from "csstype";
 import React from "react";

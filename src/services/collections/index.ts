@@ -1,4 +1,4 @@
-import { COLLECTIONS_API_BASE_URL } from "src/constants";
+import { COLLECTIONS_API_BASE_URL } from "@workspace/constants";
 import { HTTPClient, HTTPService } from "../http";
 import { CollectionServiceFactory } from "./collections";
 

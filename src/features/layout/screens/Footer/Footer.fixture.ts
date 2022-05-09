@@ -1,6 +1,6 @@
 import { FooterProps } from "./Footer";
 import { Facebook, Instagram, WhatsApp } from "@mui/icons-material";
-import { noop } from "src/utility";
+import { noop } from "@workspace/utility";
 
 export const FOOTER_TEST_ID = {
   CONTACTS_CONTAINER: "footer-contact-container-test-id",

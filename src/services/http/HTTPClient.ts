@@ -1,4 +1,4 @@
-import { HTTP } from "src/utility";
+import { HTTP } from "@workspace/utility";
 
 export interface IHTTPClient {
   get: <T = unknown>(url: string) => Promise<T>;

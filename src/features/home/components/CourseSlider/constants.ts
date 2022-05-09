@@ -1,5 +1,5 @@
 import { FireExtinguisher, School, WhatsApp } from "@mui/icons-material";
-import { noop } from "src/utility";
+import { noop } from "@workspace/utility";
 import { CourseCardProps } from "../CourseCard/CourseCard";
 import { CourseSliderProps } from "./CourseSlider";
 

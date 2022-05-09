@@ -1,4 +1,4 @@
-import { EMAIL_API_BASE_URL } from "src/constants";
+import { EMAIL_API_BASE_URL } from "@workspace/constants";
 import { HTTPClient, HTTPService } from "../http";
 import { EmailSenderFactory } from "./email";
 

@@ -1,4 +1,4 @@
-import { useIntersectionObserver } from "src/hooks";
+import { useIntersectionObserver } from "@workspace/hooks";
 import React from "react";
 import { SlideIn, SlideInProps } from "..";
 

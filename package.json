@@ -41,12 +41,11 @@
     "zustand": "^3.7.2"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.4.20",
-    "@storybook/addon-essentials": "^6.4.20",
-    "@storybook/addon-links": "^6.4.20",
-    "@storybook/builder-webpack5": "^6.4.20",
-    "@storybook/manager-webpack5": "^6.4.20",
-    "@storybook/react": "^6.4.20",
+    "@storybook/addon-actions": "^6.5.0-beta.6",
+    "@storybook/addon-essentials": "^6.5.0-beta.6",
+    "@storybook/addon-links": "^6.5.0-beta.6",
+    "@storybook/builder-vite": "^0.1.33",
+    "@storybook/react": "^6.5.0-beta.6",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.4",
     "@types/jest": "^27.4.1",
@@ -57,13 +56,14 @@
     "eslint": "8.7.0",
     "eslint-config-next": "12.0.8",
     "eslint-plugin-jest-dom": "^4.0.1",
-    "eslint-plugin-storybook": "^0.5.8",
+    "eslint-plugin-storybook": "^0.5.11",
     "eslint-plugin-testing-library": "^5.2.1",
     "jest": "^27.5.1",
     "msw": "0.35.0",
     "ts-jest": "^27.1.4",
     "tsconfig-paths-webpack-plugin": "^3.5.2",
-    "typescript": "4.5.4"
+    "typescript": "4.5.4",
+    "vite": "^2.9.8"
   },
   "msw": {
     "workerDirectory": "public"

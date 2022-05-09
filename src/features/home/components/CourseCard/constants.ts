@@ -1,5 +1,5 @@
 import { Alarm, School, WhatsApp } from "@mui/icons-material";
-import { noop } from "src/utility";
+import { noop } from "@workspace/utility";
 import { CourseCardProps } from "./CourseCard";
 
 export const DEFAULT_COURSE_CARD_TEST_PROPS: CourseCardProps = {

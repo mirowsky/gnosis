@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import Header, { HeaderProps } from "./Header";
-import { noop } from "src/utility";
+import { noop } from "@workspace/utility";
 import { TEST_ID, DEFAULT_HEADER_TESTING_PROPS as props } from "./constants";
 
 describe("Header component", () => {

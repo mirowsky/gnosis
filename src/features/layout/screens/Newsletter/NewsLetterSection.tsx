@@ -7,7 +7,7 @@ import {
   InputWithButton,
   InputWithButtonProps,
 } from "@workspace/components/shared";
-import { useIntersectionObserver } from "src/hooks";
+import { useIntersectionObserver } from "@workspace/hooks";
 
 export type NewsLetterSectionProps = {
   img: {

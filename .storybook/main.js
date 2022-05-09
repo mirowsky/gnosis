@@ -1,28 +1,27 @@
-const path = require("path/posix");
-const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+const { vite_tsconfig_path } = require("../scripts/tsconfig_paths");
 
+/** @type {import("@storybook/core-common").StorybookConfig} */
 module.exports = {
-  reactOptions: {
-    fastRefresh: true,
-    strictMode: true,
-  },
-  stories: ["../**/*.stories.*"],
-  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
+  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   staticDirs: ["../public"],
+  addons: [
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
+  ],
   framework: "@storybook/react",
   core: {
-    builder: "webpack5",
+    builder: "@storybook/builder-vite",
   },
-  webpackFinal: async (config) => {
-    (config.resolve.alias = {
-      "@workspace/images": path.resolve(process.cwd(), "public", "images"),
-    }),
-      (config.resolve.plugins = [
-        ...(config.resolve.plugins || []),
-        new TsconfigPathsPlugin({
-          extensions: [...config.resolve.extensions],
-        }),
-      ]);
-    return config;
+  features: {
+    storyStoreV7: true,
+  },
+  /** @type {(config: import("vite").UserConfig) => import("vite").UserConfig}  */
+  viteFinal: async (config, { configType }) => {
+    const customConfig = config;
+
+    customConfig.resolve.alias = vite_tsconfig_path();
+
+    return customConfig;
   },
 };
