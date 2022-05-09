@@ -17,15 +17,15 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@workspace/features": ["src/features/index.ts"],
-      "@workspace/stylesheet": ["src/theme/stylesheet.ts"],
-      "@workspace/utility": ["src/utility/index.ts"],
+      "@workspace/features": ["./src/features/index.ts"],
+      "@workspace/stylesheet": ["./src/theme/stylesheet.ts"],
+      "@workspace/utility": ["./src/utility/index.ts"],
       "@workspace/components/shared": ["src/features/shared/index.ts"],
       "@workspace/types": ["./types.ts"],
       "@workspace/images": ["./public/images"],
-      "@workspace/hooks": ["src/hooks/index.ts"],
-      "@workspace/constants": ["src/constants/index.ts"],
-      "@workspace/services": ["src/services/index.ts"]
+      "@workspace/hooks": ["./src/hooks/index.ts"],
+      "@workspace/constants": ["./src/constants/index.ts"],
+      "@workspace/services": ["./src/services/index.ts"]
     }
   },
 
