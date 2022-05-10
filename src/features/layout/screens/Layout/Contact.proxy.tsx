@@ -1,10 +1,8 @@
-import { ContactFormInputs, useContactForm } from "@workspace/hooks";
+import { useContactForm } from "@workspace/hooks";
 import { ThemeStyles } from "@workspace/types";
-import { UseFormReturn } from "react-hook-form";
 import ContactSection from "../Contact/ContactSection";
-import { ContactEmailSender, ContactFormSubmitter } from "@workspace/services";
-import { AlertState, alertStore } from "@workspace/components/shared";
-import { contactFormHandler, GTMEvents } from "@workspace/utility";
+import { alertStore } from "@workspace/components/shared";
+import { contactFormHandler } from "@workspace/utility";
 
 export type ContactProxyProps = {
   sx?: ThemeStyles;
@@ -72,43 +70,4 @@ export const ContactProxy = ({ sx }: ContactProxyProps) => {
       }}
     />
   );
-};
-
-type SubmitContactHandler = (
-  form: UseFormReturn<ContactFormInputs, any>,
-  alert: (alert: Omit<AlertState, "open">) => void
-) => Promise<void>;
-
-const submitHandler__prod = async (
-  form: UseFormReturn<ContactFormInputs, any>,
-  alert: (alert: Omit<AlertState, "open">) => void
-) => {
-  alert({ message: "Enviando...", severity: "info" });
-
-  form.handleSubmit(async (data, events) => {
-    GTMEvents.contact({
-      email: data.email,
-      message: data.message,
-      name: data.name,
-      phone: data.phone,
-    });
-
-    try {
-      await ContactFormSubmitter.submit(data);
-
-      await ContactEmailSender.send(data);
-
-      alert({
-        message: "Contato enviado com sucesso!",
-        severity: "success",
-      });
-
-      form.reset({ email: "", message: "", name: "", phone: "" });
-    } catch (error) {
-      alert({
-        message: "Ocorreu um erro ao tentar enviar o formulário.",
-        severity: "error",
-      });
-    }
-  })();
 };
