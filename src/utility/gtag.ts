@@ -1,5 +1,3 @@
-import { Head } from "@workspace/types";
-
 export interface IWindow extends Window {
   dataLayer: Record<string, any>[];
 }
@@ -43,6 +41,14 @@ const createDispatcher = (middleware: EventMiddleware[]) => {
 const dispatcher = createDispatcher(middleware);
 
 export const events = {
+  newsletter: (email: string) => {
+    dispatcher({
+      event: "newsletter",
+      email: email,
+      timestamp: `${new Date(Date.now()).toLocaleString("pt-br")}`,
+    });
+  },
+
   pageView: (url: string) => {
     dispatcher({ event: "pageview", page: url });
   },

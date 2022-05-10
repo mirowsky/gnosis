@@ -27,3 +27,5 @@ export { default as contactFormHandler } from "./submitContactForm";
 export type { SubmitContactHandler } from "./submitContactForm";
 export { default as courseFormHandler } from "./submitCourseForm";
 export type { SubmitCourseFormHandler } from "./submitCourseForm";
+export { default as newsletterFormHandler } from "./submitNewsletterForm";
+export type { SubmitNewsletterHandler } from "./submitNewsletterForm";
