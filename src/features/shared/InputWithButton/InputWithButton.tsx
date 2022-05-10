@@ -12,7 +12,7 @@ export type InputWithButtonProps = {
 };
 
 export const InputWithButton = ({
-  ButtonProps = { loading: false },
+  ButtonProps,
   InputProps,
   fontSize = { xs: "1rem" },
 }: InputWithButtonProps) => {
@@ -29,14 +29,16 @@ export const InputWithButton = ({
         {...InputProps}
       />
       <Fab
-        disabled={Boolean(ButtonProps.loading)}
         role="button"
         sx={styles.button}
         color="primary"
         aria-label="Clique para cadastar seu email em nossa newsletter"
         {...ButtonProps}
+        disabled={
+          Boolean(ButtonProps?.disabled) || Boolean(ButtonProps?.loading)
+        }
       >
-        {(ButtonProps.loading && <CircularProgress sx={styles.spinner} />) || (
+        {(ButtonProps?.loading && <CircularProgress sx={styles.spinner} />) || (
           <KeyboardArrowRight />
         )}
       </Fab>

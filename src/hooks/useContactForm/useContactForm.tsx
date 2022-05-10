@@ -20,7 +20,7 @@ export const contactFormSchema: Yup.SchemaOf<ContactFormInputs> = Yup.object({
 
 export const useContactForm = () => {
   const form = useForm<ContactFormInputs>({
-    mode: "onBlur",
+    mode: "onChange",
     resolver: yupResolver(contactFormSchema),
   });
 

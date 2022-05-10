@@ -1,8 +1,7 @@
-import { AlertState, alertStore } from "@workspace/components/shared";
+import { alertStore } from "@workspace/components/shared";
 import { useNewsletterInput } from "@workspace/hooks";
-import { UseFormReturn } from "react-hook-form";
 import { NewsLetterSection } from "../Newsletter/NewsLetterSection";
-
+import { newsletterFormHandler } from "@workspace/utility";
 export type NewsletterProxyProps = {};
 
 export const NewsletterProxy = (props: NewsletterProxyProps) => {
@@ -25,42 +24,11 @@ export const NewsletterProxy = (props: NewsletterProxyProps) => {
           },
           ButtonProps: {
             loading: form.formState.isSubmitting,
-            disabled: form.formState.isValid,
-            onClick: () => submitHandler__dev(form, dispatchAlert),
+            disabled: !form.formState.isValid,
+            onClick: () => newsletterFormHandler(form, dispatchAlert),
           },
         },
       }}
     />
   );
-};
-
-const submitHandler__dev = (
-  form: UseFormReturn<{ email: string }, any>,
-  dispatch: (alert: Omit<AlertState, "open">) => void
-) => {
-  form.handleSubmit(
-    async (data, event) => {
-      await new Promise((resolve, reject) => {
-        dispatch({
-          message: "Enviando sua inscrição...",
-          severity: "info",
-        });
-
-        setTimeout(() => {
-          resolve(data);
-        }, 1500);
-      })
-
-        .then(() => {
-          form.reset({ email: "" });
-
-          dispatch({
-            message: `Obrigado por inscrever-se em nossa newsletter.`,
-            severity: "success",
-          });
-        })
-        .catch((err) => {});
-    },
-    (error, errorEvents) => {}
-  )();
 };

@@ -52,6 +52,7 @@ const submitNewsletterForm__dev: SubmitNewsletterHandler = async (
       });
 
       form.reset({ email: "" });
+      form.formState.isValid = false;
     } catch (error) {}
   })();
 };
