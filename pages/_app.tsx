@@ -16,7 +16,7 @@ function MyApp(props: AppProps & { emotionCache?: EmotionCache }) {
     pageProps,
     emotionCache = clientSideCache,
     router,
-  } = props;
+  } = props as typeof props & { Component: React.FC };
 
   return (
     <React.Fragment>

@@ -1,12 +1,10 @@
-import { GiAlarmClock } from "react-icons/gi";
-import { IoSchool } from "react-icons/io5";
 import { Box, Button, ButtonProps, Typography } from "@mui/material";
 import React from "react";
 import { TruncateText, TruncateTextProps } from "@workspace/components/shared";
 import { DEFAULT_CourseHeroAlt_TESTING_PROPS } from "./CourseHeroAlt.fixture";
 
 type CourseBenefit = {
-  icon: React.ComponentType;
+  icon: React.FC;
   label: string;
 };
 

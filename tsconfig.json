@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -17,19 +21,38 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@workspace/svg": ["./src/svg/index.ts"],
-      "@workspace/features": ["./src/features/index.ts"],
-      "@workspace/stylesheet": ["./src/theme/stylesheet.ts"],
-      "@workspace/utility": ["./src/utility/index.ts"],
-      "@workspace/components/shared": ["src/features/shared/index.ts"],
-      "@workspace/types": ["./types.ts"],
-      "@workspace/images": ["./public/images"],
-      "@workspace/hooks": ["./src/hooks/index.ts"],
-      "@workspace/constants": ["./src/constants/index.ts"],
-      "@workspace/services": ["./src/services/index.ts"]
+      "@workspace/svg": [
+        "./src/svg/index.ts"
+      ],
+      "@workspace/features": [
+        "./src/features/index.ts"
+      ],
+      "@workspace/stylesheet": [
+        "./src/theme/stylesheet.ts"
+      ],
+      "@workspace/utility": [
+        "./src/utility/index.ts"
+      ],
+      "@workspace/components/shared": [
+        "src/features/shared/index.ts"
+      ],
+      "@workspace/types": [
+        "./types.ts"
+      ],
+      "@workspace/images": [
+        "./public/images"
+      ],
+      "@workspace/hooks": [
+        "./src/hooks/index.ts"
+      ],
+      "@workspace/constants": [
+        "./src/constants/index.ts"
+      ],
+      "@workspace/services": [
+        "./src/services/index.ts"
+      ]
     }
   },
-
   "include": [
     "jest.setup.ts",
     "next-env.d.ts",
@@ -38,5 +61,7 @@
     "global.d.ts",
     "augmentation.d.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
