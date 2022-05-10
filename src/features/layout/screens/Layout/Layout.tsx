@@ -22,7 +22,13 @@ export const Layout = ({ children }: LayoutProps) => {
   const router = useRouter();
 
   const items = React.useMemo(() => {
-    return menu_items(router);
+    return menu_items(router).map((item, _index) => ({
+      ...item,
+      onClick: () => {
+        item.onClick();
+        setMenuOpen(false);
+      },
+    }));
   }, [router]);
 
   return (
@@ -110,6 +116,8 @@ const menu_items = (router: NextRouter): HeaderItem[] => [
   },
   {
     label: "Contato",
-    onClick: () => handleMenuClick(router, "#contact_section"),
+    onClick: () => {
+      handleMenuClick(router, "#contact_section");
+    },
   },
 ];
